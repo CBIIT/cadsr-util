@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.dto;
+package gov.nih.nci.ncicb.cadsr.common.dto;
 
-import gov.nih.nci.ncicb.cadsr.resource.Audit;
-import gov.nih.nci.ncicb.cadsr.util.DebugStringBuffer;
+import gov.nih.nci.ncicb.cadsr.common.resource.Audit;
+import gov.nih.nci.ncicb.cadsr.common.util.DebugStringBuffer;
 import java.io.Serializable;
 
 import java.sql.Date;

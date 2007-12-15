@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.exception;
+package gov.nih.nci.ncicb.cadsr.common.exception;
 
 import java.io.PrintStream;
 import java.io.PrintWriter;

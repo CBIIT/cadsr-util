@@ -11,29 +11,29 @@
       Name="Contexts"
       Cardinality="0"
       Source="true"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Contexts" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Contexts" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Contexts.ConteIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Contexts.ConteIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="Contexts" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Contexts.ContePk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Contexts.ContePk" />
       </DesignTime>
    </AssociationEnd>
    <AssociationEnd
       Name="AdministeredComponents"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AdministeredComponents" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AdministeredComponents" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AdministeredComponents.ConteIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AdministeredComponents.ConteIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="AdministeredComponents" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AdministeredComponents.AcConteFk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AdministeredComponents.AcConteFk" />
       </DesignTime>
    </AssociationEnd>
 </Association>

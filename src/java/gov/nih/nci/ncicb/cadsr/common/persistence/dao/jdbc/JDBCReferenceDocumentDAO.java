@@ -1,9 +1,9 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao.jdbc;
-import gov.nih.nci.ncicb.cadsr.exception.DMLException;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.ReferenceDocumentDAO;
-import gov.nih.nci.ncicb.cadsr.resource.ReferenceDocument;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocator;
-import gov.nih.nci.ncicb.cadsr.util.StringUtils;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc;
+import gov.nih.nci.ncicb.cadsr.common.exception.DMLException;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.ReferenceDocumentDAO;
+import gov.nih.nci.ncicb.cadsr.common.resource.ReferenceDocument;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.util.StringUtils;
 import java.sql.Types;
 import java.util.HashMap;
 import java.util.Map;

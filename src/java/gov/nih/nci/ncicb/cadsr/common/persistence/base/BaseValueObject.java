@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.persistence.base;
+package gov.nih.nci.ncicb.cadsr.common.persistence.base;
 
 public class BaseValueObject  {
   public BaseValueObject() {

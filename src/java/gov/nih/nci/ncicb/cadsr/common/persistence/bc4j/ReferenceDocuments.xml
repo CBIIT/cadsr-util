@@ -8,7 +8,7 @@
    AliasName="ReferenceDocuments"
    BindingStyle="Oracle"
    UseGlueCode="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocumentsImpl" >
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocumentsImpl" >
    <DesignTime>
       <Attr Name="_isCodegen" Value="true" />
       <Attr Name="_version" Value="9.0.5.16.0" />
@@ -233,37 +233,37 @@
    </Attribute>
    <AccessorAttribute
       Name="AdministeredComponents"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RdAcFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RdAcFkAssoc.AdministeredComponents"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RdAcFkAssoc.ReferenceDocuments"
-      Type="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AdministeredComponentsImpl" >
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RdAcFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RdAcFkAssoc.AdministeredComponents"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RdAcFkAssoc.ReferenceDocuments"
+      Type="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AdministeredComponentsImpl" >
    </AccessorAttribute>
    <AccessorAttribute
       Name="AcRegistrations"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RdArFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RdArFkAssoc.AcRegistrations"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RdArFkAssoc.ReferenceDocuments"
-      Type="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AcRegistrationsImpl" >
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RdArFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RdArFkAssoc.AcRegistrations"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RdArFkAssoc.ReferenceDocuments"
+      Type="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AcRegistrationsImpl" >
    </AccessorAttribute>
    <AccessorAttribute
       Name="Contexts"
       Association="RdConteFkAssoc"
       AssociationEnd="RdConteFkAssoc.Contexts"
       AssociationOtherEnd="RdConteFkAssoc.ReferenceDocuments"
-      Type="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ContextsImpl" >
+      Type="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ContextsImpl" >
    </AccessorAttribute>
    <AccessorAttribute
       Name="ReferenceBlobs"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RbRdFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RbRdFkAssoc.ReferenceBlobs"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RbRdFkAssoc.ReferenceDocuments"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RbRdFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RbRdFkAssoc.ReferenceBlobs"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RbRdFkAssoc.ReferenceDocuments"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </AccessorAttribute>
    <Key
       Name="RdPk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.RdIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.RdIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="RD_PK" />
@@ -273,9 +273,9 @@
    <Key
       Name="RdUk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.AcIdseq" />
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.Name" />
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.DctlName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.AcIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.Name" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.DctlName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="RD_UK" />
@@ -285,9 +285,9 @@
    <Key
       Name="RefDocArc" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.AcIdseq" />
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.AchIdseq" />
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.ArIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.AcIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.AchIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.ArIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="REF_DOC_ARC" />
@@ -298,7 +298,7 @@
    <Key
       Name="SysC0062577" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.RdIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.RdIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062577" />
@@ -309,7 +309,7 @@
    <Key
       Name="SysC0062578" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.Name" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.Name" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062578" />
@@ -320,7 +320,7 @@
    <Key
       Name="SysC0062579" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.DctlName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.DctlName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062579" />
@@ -331,7 +331,7 @@
    <Key
       Name="SysC0062580" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.DateCreated" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.DateCreated" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062580" />
@@ -342,7 +342,7 @@
    <Key
       Name="SysC0062581" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.CreatedBy" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.CreatedBy" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062581" />
@@ -353,7 +353,7 @@
    <Key
       Name="RdAcFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.AcIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.AcIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="RD_AC_FK" />
@@ -364,7 +364,7 @@
    <Key
       Name="RdAchFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.AchIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.AchIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="RD_ACH_FK" />
@@ -375,7 +375,7 @@
    <Key
       Name="RdArFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.ArIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.ArIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="RD_AR_FK" />
@@ -386,7 +386,7 @@
    <Key
       Name="RdConteFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.ConteIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.ConteIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="RD_CONTE_FK" />
@@ -397,7 +397,7 @@
    <Key
       Name="RdDctlFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.DctlName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.DctlName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="RD_DCTL_FK" />
@@ -408,7 +408,7 @@
    <Key
       Name="RdLaeFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.LaeName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.LaeName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="RD_LAE_FK" />

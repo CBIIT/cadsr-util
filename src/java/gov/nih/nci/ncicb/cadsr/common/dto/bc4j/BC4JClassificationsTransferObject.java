@@ -1,11 +1,11 @@
-package gov.nih.nci.ncicb.cadsr.dto.bc4j;
+package gov.nih.nci.ncicb.cadsr.common.dto.bc4j;
 
-import gov.nih.nci.ncicb.cadsr.resource.Classification;
-//import gov.nih.nci.ncicb.cadsr.resource.ValueDomain;
+import gov.nih.nci.ncicb.cadsr.common.resource.Classification;
+//import gov.nih.nci.ncicb.cadsr.common.resource.ValueDomain;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.io.Serializable;
-import gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationsViewRowImpl;
+import gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationsViewRowImpl;
 
 public class BC4JClassificationsTransferObject implements Classification,Serializable {
 

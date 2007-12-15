@@ -8,7 +8,7 @@
    AliasName="ClassSchemeItems"
    BindingStyle="Oracle"
    UseGlueCode="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassSchemeItemsImpl" >
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassSchemeItemsImpl" >
    <DesignTime>
       <Attr Name="_isCodegen" Value="true" />
       <Attr Name="_version" Value="9.0.5.16.0" />
@@ -128,17 +128,17 @@
    </Attribute>
    <AccessorAttribute
       Name="CsCsi"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsiCsiFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsiCsiFkAssoc.CsCsi"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsiCsiFkAssoc.ClassSchemeItems"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsiCsiFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsiCsiFkAssoc.CsCsi"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsiCsiFkAssoc.ClassSchemeItems"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </AccessorAttribute>
    <Key
       Name="CsiCsi2Uk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassSchemeItems.CsitlName" />
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassSchemeItems.CsiName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassSchemeItems.CsitlName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassSchemeItems.CsiName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="CSI_CSI_2_UK" />
@@ -148,7 +148,7 @@
    <Key
       Name="CsiPk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassSchemeItems.CsiIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassSchemeItems.CsiIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="CSI_PK" />
@@ -158,7 +158,7 @@
    <Key
       Name="SysC0061259" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassSchemeItems.CsiIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassSchemeItems.CsiIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0061259" />
@@ -169,7 +169,7 @@
    <Key
       Name="SysC0061260" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassSchemeItems.CsiName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassSchemeItems.CsiName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0061260" />
@@ -180,7 +180,7 @@
    <Key
       Name="SysC0061261" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassSchemeItems.CsitlName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassSchemeItems.CsitlName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0061261" />
@@ -191,7 +191,7 @@
    <Key
       Name="SysC0061262" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassSchemeItems.DateCreated" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassSchemeItems.DateCreated" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0061262" />
@@ -202,7 +202,7 @@
    <Key
       Name="SysC0061263" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassSchemeItems.CreatedBy" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassSchemeItems.CreatedBy" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0061263" />
@@ -213,7 +213,7 @@
    <Key
       Name="CsiCsitlFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassSchemeItems.CsitlName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassSchemeItems.CsitlName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="CSI_CSITL_FK" />

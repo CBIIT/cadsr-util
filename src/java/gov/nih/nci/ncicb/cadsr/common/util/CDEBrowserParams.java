@@ -1,9 +1,9 @@
-package gov.nih.nci.ncicb.cadsr.util;
+package gov.nih.nci.ncicb.cadsr.common.util;
 
-import gov.nih.nci.ncicb.cadsr.servicelocator.ApplicationServiceLocator;
-import gov.nih.nci.ncicb.cadsr.servicelocator.spring.ApplicationServiceLocatorImpl;
-import gov.nih.nci.ncicb.cadsr.util.logging.Log;
-import gov.nih.nci.ncicb.cadsr.util.logging.LogFactory;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ApplicationServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.spring.ApplicationServiceLocatorImpl;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Locale;

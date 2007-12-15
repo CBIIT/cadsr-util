@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.exception;
+package gov.nih.nci.ncicb.cadsr.common.exception;
 
 public class FatalException extends NestedRuntimeException 
 {

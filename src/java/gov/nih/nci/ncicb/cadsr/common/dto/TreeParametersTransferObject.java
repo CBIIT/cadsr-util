@@ -1,5 +1,5 @@
-package gov.nih.nci.ncicb.cadsr.dto;
-import gov.nih.nci.ncicb.cadsr.resource.TreeParameters;
+package gov.nih.nci.ncicb.cadsr.common.dto;
+import gov.nih.nci.ncicb.cadsr.common.resource.TreeParameters;
 
 public class TreeParametersTransferObject implements TreeParameters  {
   private String contextName = "";

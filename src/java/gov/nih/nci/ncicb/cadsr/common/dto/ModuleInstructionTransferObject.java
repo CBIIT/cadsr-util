@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.dto;
+package gov.nih.nci.ncicb.cadsr.common.dto;
 
-import gov.nih.nci.ncicb.cadsr.resource.Module;
-import gov.nih.nci.ncicb.cadsr.resource.ModuleInstruction;
+import gov.nih.nci.ncicb.cadsr.common.resource.Module;
+import gov.nih.nci.ncicb.cadsr.common.resource.ModuleInstruction;
 
 
 public class ModuleInstructionTransferObject extends InstructionTransferObject

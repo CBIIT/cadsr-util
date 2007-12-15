@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao.jdbc.util;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc.util;
 
 import oracle.jdbc.pool.OracleDataSource;
 

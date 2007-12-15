@@ -1,25 +1,25 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao.jdbc;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc;
 
-import gov.nih.nci.ncicb.cadsr.dto.CSITransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.FormValidValueTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.InstructionTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.ModuleTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.ProtocolTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.QuestionTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.TriggerActionTransferObject;
-import gov.nih.nci.ncicb.cadsr.exception.DMLException;
-import gov.nih.nci.ncicb.cadsr.persistence.PersistenceConstants;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.TriggerActionDAO;
-import gov.nih.nci.ncicb.cadsr.resource.ClassSchemeItem;
-import gov.nih.nci.ncicb.cadsr.resource.Form;
+import gov.nih.nci.ncicb.cadsr.common.dto.CSITransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.FormValidValueTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.InstructionTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ModuleTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ProtocolTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.QuestionTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.TriggerActionTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.exception.DMLException;
+import gov.nih.nci.ncicb.cadsr.common.persistence.PersistenceConstants;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.TriggerActionDAO;
+import gov.nih.nci.ncicb.cadsr.common.resource.ClassSchemeItem;
+import gov.nih.nci.ncicb.cadsr.common.resource.Form;
 
-import gov.nih.nci.ncicb.cadsr.resource.FormElement;
-import gov.nih.nci.ncicb.cadsr.resource.FormValidValue;
-import gov.nih.nci.ncicb.cadsr.resource.Instruction;
-import gov.nih.nci.ncicb.cadsr.resource.Module;
-import gov.nih.nci.ncicb.cadsr.resource.Protocol;
-import gov.nih.nci.ncicb.cadsr.resource.Question;
-import gov.nih.nci.ncicb.cadsr.resource.TriggerAction;
+import gov.nih.nci.ncicb.cadsr.common.resource.FormElement;
+import gov.nih.nci.ncicb.cadsr.common.resource.FormValidValue;
+import gov.nih.nci.ncicb.cadsr.common.resource.Instruction;
+import gov.nih.nci.ncicb.cadsr.common.resource.Module;
+import gov.nih.nci.ncicb.cadsr.common.resource.Protocol;
+import gov.nih.nci.ncicb.cadsr.common.resource.Question;
+import gov.nih.nci.ncicb.cadsr.common.resource.TriggerAction;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,8 +40,8 @@ import org.springframework.jdbc.object.MappingSqlQuery;
 import org.springframework.jdbc.object.SqlUpdate;
 import org.springframework.jdbc.object.StoredProcedure;
 
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocator;
-import gov.nih.nci.ncicb.cadsr.servicelocator.SimpleServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.SimpleServiceLocator;
 
 public class JDBCTriggerActionDAO extends JDBCAdminComponentDAO implements TriggerActionDAO,
                                                                            PersistenceConstants

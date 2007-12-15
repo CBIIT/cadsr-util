@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.dto;
-import gov.nih.nci.ncicb.cadsr.resource.Context;
-import gov.nih.nci.ncicb.cadsr.resource.ReferenceDocument;
+package gov.nih.nci.ncicb.cadsr.common.dto;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.resource.ReferenceDocument;
 import java.util.List;
 
 public class ReferenceDocumentTransferObject extends BaseTransferObject

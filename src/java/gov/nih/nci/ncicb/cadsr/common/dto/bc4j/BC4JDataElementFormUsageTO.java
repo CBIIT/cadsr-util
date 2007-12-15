@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.dto.bc4j;
-import gov.nih.nci.ncicb.cadsr.resource.DataElementFormUsage;
-import gov.nih.nci.ncicb.cadsr.persistence.bc4j.FormUsagesForACdeViewRowImpl;
+package gov.nih.nci.ncicb.cadsr.common.dto.bc4j;
+import gov.nih.nci.ncicb.cadsr.common.resource.DataElementFormUsage;
+import gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.FormUsagesForACdeViewRowImpl;
 
 public class BC4JDataElementFormUsageTO implements DataElementFormUsage  {
   private String protocolLongName;

@@ -1,13 +1,13 @@
-package gov.nih.nci.ncicb.cadsr.persistence.bc4j.handler;
+package gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.handler;
 
-import gov.nih.nci.ncicb.cadsr.dto.ConceptDerivationRuleTransferObject;
-import gov.nih.nci.ncicb.cadsr.persistence.bc4j.CDEBrowserBc4jModuleImpl;
-import gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValidValuesValueObject;
-import gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValidValuesViewRowImpl;
-import gov.nih.nci.ncicb.cadsr.resource.ConceptDerivationRule;
-import gov.nih.nci.ncicb.cadsr.resource.ValidValue;
-import gov.nih.nci.ncicb.cadsr.resource.handler.ValidValueHandler;
-import gov.nih.nci.ncicb.cadsr.util.PageIterator;
+import gov.nih.nci.ncicb.cadsr.common.dto.ConceptDerivationRuleTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CDEBrowserBc4jModuleImpl;
+import gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValidValuesValueObject;
+import gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValidValuesViewRowImpl;
+import gov.nih.nci.ncicb.cadsr.common.resource.ConceptDerivationRule;
+import gov.nih.nci.ncicb.cadsr.common.resource.ValidValue;
+import gov.nih.nci.ncicb.cadsr.common.resource.handler.ValidValueHandler;
+import gov.nih.nci.ncicb.cadsr.common.util.PageIterator;
 
 import java.util.HashMap;
 import java.util.Map;

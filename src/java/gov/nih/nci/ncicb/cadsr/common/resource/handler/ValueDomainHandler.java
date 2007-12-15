@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.resource.handler;
+package gov.nih.nci.ncicb.cadsr.common.resource.handler;
 
 import java.util.*;
 import oracle.cle.persistence.*;

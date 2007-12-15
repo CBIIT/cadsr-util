@@ -21,8 +21,8 @@
    FromList="CS_CSI CsCsi"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsiViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsiViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsiViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsiViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <DesignTime>
@@ -33,7 +33,7 @@
    </DesignTime>
    <EntityUsage
       Name="CsCsi"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsi" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsi" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
@@ -127,14 +127,14 @@
    </ViewAttribute>
    <ViewLinkAccessor
       Name="ClassificationSchemesView"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsiCsFKLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsiCsFKLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="ClassSchemeItemsView"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsiCsiFKLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsiCsiFKLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >

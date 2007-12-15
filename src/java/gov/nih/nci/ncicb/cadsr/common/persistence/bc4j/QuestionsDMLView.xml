@@ -17,8 +17,8 @@
    Where="qc.QTL_NAME = &#39;QUESTION&#39;"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestionsDMLViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestionsDMLViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestionsDMLViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestionsDMLViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <DesignTime>
@@ -28,7 +28,7 @@
    </DesignTime>
    <EntityUsage
       Name="qc"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExt" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExt" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="true" />
@@ -144,7 +144,7 @@
    </ViewAttribute>
    <ViewLinkAccessor
       Name="ModulesDMLView1"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestionModuleDMLLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestionModuleDMLLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >

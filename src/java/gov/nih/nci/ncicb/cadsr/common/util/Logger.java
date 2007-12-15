@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.util;
+package gov.nih.nci.ncicb.cadsr.common.util;
 
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;

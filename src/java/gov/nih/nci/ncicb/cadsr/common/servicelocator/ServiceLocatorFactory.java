@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.servicelocator;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ejb.ServiceLocatorImpl;
-import gov.nih.nci.ncicb.cadsr.util.ObjectFactory;
+package gov.nih.nci.ncicb.cadsr.common.servicelocator;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ejb.ServiceLocatorImpl;
+import gov.nih.nci.ncicb.cadsr.common.util.ObjectFactory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 

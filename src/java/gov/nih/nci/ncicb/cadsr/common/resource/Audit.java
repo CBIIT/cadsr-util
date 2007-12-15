@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.resource;
+package gov.nih.nci.ncicb.cadsr.common.resource;
 
-import gov.nih.nci.ncicb.cadsr.CaDSRConstants;
+import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
 
 import java.sql.Date;
 import java.sql.Timestamp;

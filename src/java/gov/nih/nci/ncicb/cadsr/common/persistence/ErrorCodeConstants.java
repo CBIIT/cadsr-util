@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.persistence;
+package gov.nih.nci.ncicb.cadsr.common.persistence;
 
 public interface ErrorCodeConstants 
 {

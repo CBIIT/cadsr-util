@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr;
+package gov.nih.nci.ncicb.cadsr.common;
 
 public interface CommonNavigationConstants 
 {

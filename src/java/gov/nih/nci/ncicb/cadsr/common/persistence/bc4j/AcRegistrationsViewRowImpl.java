@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.persistence.bc4j;
+package gov.nih.nci.ncicb.cadsr.common.persistence.bc4j;
 import oracle.jbo.server.ViewRowImpl;
 import oracle.jbo.server.AttributeDefImpl;
 import oracle.jbo.domain.Date;

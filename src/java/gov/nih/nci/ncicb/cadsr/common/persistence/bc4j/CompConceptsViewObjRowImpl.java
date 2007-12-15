@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.persistence.bc4j;
+package gov.nih.nci.ncicb.cadsr.common.persistence.bc4j;
 import oracle.jbo.server.ViewRowImpl;
 import oracle.jbo.server.AttributeDefImpl;
 import oracle.jbo.domain.Number;
@@ -7,7 +7,7 @@ import oracle.jbo.domain.Number;
 //  ---    Custom code may be added to this class.
 //  ---------------------------------------------------------------------
 
-public class CompConceptsViewObjRowImpl extends ViewRowImpl implements gov.nih.nci.ncicb.cadsr.persistence.bc4j.common.CompConceptsViewObjRow 
+public class CompConceptsViewObjRowImpl extends ViewRowImpl implements gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.common.CompConceptsViewObjRow 
 {
 
 

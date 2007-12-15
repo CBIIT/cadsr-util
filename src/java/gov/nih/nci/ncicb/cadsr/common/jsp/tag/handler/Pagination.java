@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.jsp.tag.handler;
-import gov.nih.nci.ncicb.cadsr.CaDSRConstants;
-import gov.nih.nci.ncicb.cadsr.jsp.bean.PaginationBean;
+package gov.nih.nci.ncicb.cadsr.common.jsp.tag.handler;
+import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
+import gov.nih.nci.ncicb.cadsr.common.jsp.bean.PaginationBean;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
@@ -9,7 +9,7 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.Tag;
 import javax.servlet.jsp.tagext.TagSupport;
 import javax.servlet.jsp.JspWriter;
-import gov.nih.nci.ncicb.cadsr.formbuilder.struts.common.FormConstants;
+import gov.nih.nci.ncicb.cadsr.common.formbuilder.struts.common.FormConstants;
 
 /**
  * This TagHandler is use to display Pagenation for a collection

@@ -1,12 +1,12 @@
-package gov.nih.nci.ncicb.cadsr.dto.bc4j;
+package gov.nih.nci.ncicb.cadsr.common.dto.bc4j;
 
-import gov.nih.nci.ncicb.cadsr.dto.base.AdminComponentTransferObject;
-import gov.nih.nci.ncicb.cadsr.persistence.bc4j.DataElementsViewRowImpl;
-import gov.nih.nci.ncicb.cadsr.resource.Context;
-import gov.nih.nci.ncicb.cadsr.resource.DataElement;
-import gov.nih.nci.ncicb.cadsr.resource.DataElementConcept;
-import gov.nih.nci.ncicb.cadsr.resource.DerivedDataElement;
-import gov.nih.nci.ncicb.cadsr.resource.ValueDomain;
+import gov.nih.nci.ncicb.cadsr.common.dto.base.AdminComponentTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DataElementsViewRowImpl;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.resource.DataElement;
+import gov.nih.nci.ncicb.cadsr.common.resource.DataElementConcept;
+import gov.nih.nci.ncicb.cadsr.common.resource.DerivedDataElement;
+import gov.nih.nci.ncicb.cadsr.common.resource.ValueDomain;
 
 import java.io.Serializable;
 

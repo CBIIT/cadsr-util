@@ -10,10 +10,10 @@
    <ViewLinkDefEnd
       Name="Protocol"
       Cardinality="0"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsView"
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsView"
       Source="true" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsView.ProtoIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsView.ProtoIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_isUpdateable" Value="true" />
@@ -24,9 +24,9 @@
    <ViewLinkDefEnd
       Name="Forms"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.FormsView" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.FormsView" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.FormsView.ProtoIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.FormsView.ProtoIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_isUpdateable" Value="true" />

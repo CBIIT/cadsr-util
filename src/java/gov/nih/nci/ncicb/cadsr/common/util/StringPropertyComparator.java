@@ -1,5 +1,5 @@
-package gov.nih.nci.ncicb.cadsr.util;
-import gov.nih.nci.ncicb.cadsr.exception.NestedRuntimeException;
+package gov.nih.nci.ncicb.cadsr.common.util;
+import gov.nih.nci.ncicb.cadsr.common.exception.NestedRuntimeException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 

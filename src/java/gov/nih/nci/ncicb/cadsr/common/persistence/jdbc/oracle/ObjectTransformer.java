@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.persistence.jdbc.oracle;
-import gov.nih.nci.ncicb.cadsr.persistence.jdbc.oracle.OracleFormValidvalueList;
-import gov.nih.nci.ncicb.cadsr.resource.FormValidValue;
+package gov.nih.nci.ncicb.cadsr.common.persistence.jdbc.oracle;
+import gov.nih.nci.ncicb.cadsr.common.persistence.jdbc.oracle.OracleFormValidvalueList;
+import gov.nih.nci.ncicb.cadsr.common.resource.FormValidValue;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.ListIterator;

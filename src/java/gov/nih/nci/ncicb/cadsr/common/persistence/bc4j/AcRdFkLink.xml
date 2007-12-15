@@ -3,7 +3,7 @@
 
 <ViewLink
    Name="AcRdFkLink"
-   EntityAssociation="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RdAcFkAssoc" >
+   EntityAssociation="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RdAcFkAssoc" >
    <DesignTime>
       <Attr Name="_isCodegen" Value="true" />
       <Attr Name="_version" Value="9.0.5.16.0" />
@@ -11,10 +11,10 @@
    <ViewLinkDefEnd
       Name="AdministeredComponentsView"
       Cardinality="0"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AdministeredComponentsView"
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AdministeredComponentsView"
       Source="true" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AdministeredComponentsView.AcIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AdministeredComponentsView.AcIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_isUpdateable" Value="true" />
@@ -25,9 +25,9 @@
    <ViewLinkDefEnd
       Name="ReferenceDocumentsView"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocumentsView" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocumentsView" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocumentsView.AcIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocumentsView.AcIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_isUpdateable" Value="true" />

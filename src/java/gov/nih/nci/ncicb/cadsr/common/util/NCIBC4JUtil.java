@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.util;
+package gov.nih.nci.ncicb.cadsr.common.util;
 
 
-import gov.nih.nci.ncicb.cadsr.cdebrowser.tree.CDEBrowserTree;
+import gov.nih.nci.ncicb.cadsr.contexttree.CDEBrowserTree;
 import java.util.Vector;
 import oracle.cle.exception.CLEException;
 import oracle.cle.util.CLEUtil;

@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.resource;
+package gov.nih.nci.ncicb.cadsr.common.resource;
 
 public interface ClassificationScheme  extends AdminComponent{
   public String getCsIdseq();

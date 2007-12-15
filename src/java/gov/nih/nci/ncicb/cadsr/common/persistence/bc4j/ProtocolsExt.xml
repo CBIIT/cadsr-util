@@ -10,7 +10,7 @@
    BindingStyle="Oracle"
    UseGlueCode="false"
    CodeGenFlag="79"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExtImpl" >
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExtImpl" >
    <DesignTime>
       <Attr Name="_isCodegen" Value="true" />
       <Attr Name="_version" Value="9.0.2.7.99" />
@@ -341,23 +341,23 @@
    </Attribute>
    <AccessorAttribute
       Name="Contexts"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtoCotFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtoCotFkAssoc.Contexts"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtoCotFkAssoc.ProtocolsExt"
-      Type="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ContextsImpl" >
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtoCotFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtoCotFkAssoc.Contexts"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtoCotFkAssoc.ProtocolsExt"
+      Type="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ContextsImpl" >
    </AccessorAttribute>
    <AccessorAttribute
       Name="QuestContentsExt"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcProtoFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcProtoFkAssoc.QuestContentsExt"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcProtoFkAssoc.ProtocolsExt"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcProtoFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcProtoFkAssoc.QuestContentsExt"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcProtoFkAssoc.ProtocolsExt"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </AccessorAttribute>
    <Key
       Name="Avcon1013618862Type000" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.Type" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.Type" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="AVCON_1013618862_TYPE_000" />
@@ -368,7 +368,7 @@
    <Key
       Name="Avcon1019059520Lates000" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.LatestVersionInd" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.LatestVersionInd" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="AVCON_1019059520_LATES_000" />
@@ -380,7 +380,7 @@
    <Key
       Name="Avcon1019059712Delet000" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.DeletedInd" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.DeletedInd" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="AVCON_1019059712_DELET_000" />
@@ -392,7 +392,7 @@
    <Key
       Name="Avcon1019241047Delet000" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.DeletedInd" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.DeletedInd" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="AVCON_1019241047_DELET_000" />
@@ -403,7 +403,7 @@
    <Key
       Name="Avcon1019241047Lates000" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.LatestVersionInd" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.LatestVersionInd" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="AVCON_1019241047_LATES_000" />
@@ -414,9 +414,9 @@
    <Key
       Name="ProtoUk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.Version" />
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.ConteIdseq" />
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.PreferredName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.Version" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.ConteIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.PreferredName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="PROTO_UK" />
@@ -426,7 +426,7 @@
    <Key
       Name="ProPk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.ProtoIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.ProtoIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="PRO_PK" />
@@ -436,7 +436,7 @@
    <Key
       Name="SysC0062115" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.ProtoIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.ProtoIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062115" />
@@ -447,7 +447,7 @@
    <Key
       Name="SysC0062116" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.Version" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.Version" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062116" />
@@ -458,7 +458,7 @@
    <Key
       Name="SysC0062117" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.ConteIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.ConteIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062117" />
@@ -469,7 +469,7 @@
    <Key
       Name="SysC0062118" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.PreferredName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.PreferredName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062118" />
@@ -480,7 +480,7 @@
    <Key
       Name="SysC0062119" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.PreferredDefinition" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.PreferredDefinition" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062119" />
@@ -491,7 +491,7 @@
    <Key
       Name="SysC0062120" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.AslName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.AslName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062120" />
@@ -502,7 +502,7 @@
    <Key
       Name="SysC0062121" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.DateCreated" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.DateCreated" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062121" />
@@ -513,7 +513,7 @@
    <Key
       Name="SysC0062122" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.CreatedBy" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.CreatedBy" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062122" />
@@ -524,7 +524,7 @@
    <Key
       Name="ProtoAsvFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.AslName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.AslName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="PROTO_ASV_FK" />
@@ -535,7 +535,7 @@
    <Key
       Name="ProtoCotFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt.ConteIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt.ConteIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="PROTO_COT_FK" />

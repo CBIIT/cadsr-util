@@ -1,8 +1,8 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao;
 
-import gov.nih.nci.ncicb.cadsr.exception.DMLException;
-import gov.nih.nci.ncicb.cadsr.resource.Question;
-import gov.nih.nci.ncicb.cadsr.resource.QuestionChange;
+import gov.nih.nci.ncicb.cadsr.common.exception.DMLException;
+import gov.nih.nci.ncicb.cadsr.common.resource.Question;
+import gov.nih.nci.ncicb.cadsr.common.resource.QuestionChange;
 
 import java.util.Collection;
 

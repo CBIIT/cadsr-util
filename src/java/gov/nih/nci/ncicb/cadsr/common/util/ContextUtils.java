@@ -1,5 +1,5 @@
-package gov.nih.nci.ncicb.cadsr.util;
-import gov.nih.nci.ncicb.cadsr.resource.Context;
+package gov.nih.nci.ncicb.cadsr.common.util;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -17,6 +17,7 @@ public class ContextUtils
     while(colIt.hasNext())
     {
       Context context = (Context)colIt.next();
+     System.out.println("Context : " + context.getName());
       if(context.getName().equalsIgnoreCase(contextName))
         return context;
     }

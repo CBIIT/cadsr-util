@@ -1,9 +1,9 @@
-package gov.nih.nci.ncicb.cadsr.security.jboss;
+package gov.nih.nci.ncicb.cadsr.common.security.jboss;
 
-import gov.nih.nci.ncicb.cadsr.persistence.dao.AbstractDAOFactory;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.UserManagerDAO;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocator;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocatorFactory;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.AbstractDAOFactory;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.UserManagerDAO;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocatorFactory;
 import java.util.Iterator;
 import java.util.Set;
 import org.apache.commons.logging.Log;

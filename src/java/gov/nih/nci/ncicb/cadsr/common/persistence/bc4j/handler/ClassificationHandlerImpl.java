@@ -1,11 +1,11 @@
-package gov.nih.nci.ncicb.cadsr.persistence.bc4j.handler;
+package gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.handler;
 
-import gov.nih.nci.ncicb.cadsr.persistence.bc4j.*;
+import gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.*;
 
 //Implementation Imports
-import gov.nih.nci.ncicb.cadsr.resource.*;
-import gov.nih.nci.ncicb.cadsr.resource.handler.ClassificationHandler;
-import gov.nih.nci.ncicb.cadsr.util.PageIterator;
+import gov.nih.nci.ncicb.cadsr.common.resource.*;
+import gov.nih.nci.ncicb.cadsr.common.resource.handler.ClassificationHandler;
+import gov.nih.nci.ncicb.cadsr.common.util.PageIterator;
 
 import oracle.cle.persistence.*;
 

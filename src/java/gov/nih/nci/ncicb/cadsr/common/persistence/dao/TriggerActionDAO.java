@@ -1,10 +1,10 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao;
 
-import gov.nih.nci.ncicb.cadsr.dto.CSITransferObject;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.jdbc.JDBCTriggerActionDAO;
-import gov.nih.nci.ncicb.cadsr.resource.ClassSchemeItem;
-import gov.nih.nci.ncicb.cadsr.resource.Protocol;
-import gov.nih.nci.ncicb.cadsr.resource.TriggerAction;
+import gov.nih.nci.ncicb.cadsr.common.dto.CSITransferObject;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc.JDBCTriggerActionDAO;
+import gov.nih.nci.ncicb.cadsr.common.resource.ClassSchemeItem;
+import gov.nih.nci.ncicb.cadsr.common.resource.Protocol;
+import gov.nih.nci.ncicb.cadsr.common.resource.TriggerAction;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.cdebrowser.userexception;
+package gov.nih.nci.ncicb.cadsr.common.cdebrowser.userexception;
 import java.io.*;
 
 public class DocumentNotFoundException extends Exception implements Serializable {

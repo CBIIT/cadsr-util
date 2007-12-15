@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.servicelocator;
-import gov.nih.nci.ncicb.cadsr.persistence.PersistenceConstants;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.jdbc.util.DataSourceUtil;
+package gov.nih.nci.ncicb.cadsr.common.servicelocator;
+import gov.nih.nci.ncicb.cadsr.common.persistence.PersistenceConstants;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc.util.DataSourceUtil;
 
 import java.net.URL;
 
@@ -34,7 +34,7 @@ public class SimpleServiceLocator extends ServiceLocatorAdapter implements Persi
        envEntrys = new HashMap();
        envEntrys.put(DRIVER_MANAGER_DS,"true");
        envEntrys.put(DRIVER_CLASS_NAME,"oracle.jdbc.driver.OracleDriver");
-       envEntrys.put(CONNECTION_STRING,"jdbc:oracle:thin:@cbiodb2-d.nci.nih.gov:1521:cbdev");
+       envEntrys.put(CONNECTION_STRING,"jdbc:oracle:thin:@cbiodb540.nci.nih.gov:1521:dsrdev");
        envEntrys.put(USERNAME,"sbrext");
        envEntrys.put(PASSWORD,"jjuser");
        envEntrys.put(DATASOURCE_LOCATION_KEY,"CDEBrowserDS");
@@ -47,7 +47,7 @@ public class SimpleServiceLocator extends ServiceLocatorAdapter implements Persi
        envEntrys.put(PASSWORD,"jjuser");
        **/
 
-       envEntrys.put(DAO_FACTORY_CLASS_KEY,"gov.nih.nci.ncicb.cadsr.persistence.dao.jdbc.JDBCDAOFactory");
+       envEntrys.put(DAO_FACTORY_CLASS_KEY,"gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc.JDBCDAOFactory");
 
         DataSource source = DataSourceUtil.getDriverManagerDS(getString(DRIVER_CLASS_NAME)
                       ,getString(CONNECTION_STRING),getString(USERNAME)

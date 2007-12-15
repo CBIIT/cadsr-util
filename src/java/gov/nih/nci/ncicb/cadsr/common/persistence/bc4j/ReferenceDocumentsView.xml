@@ -31,8 +31,8 @@
    FromList="REFERENCE_DOCUMENTS ReferenceDocuments"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocumentsViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocumentsViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocumentsViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocumentsViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <DesignTime>
@@ -43,7 +43,7 @@
    </DesignTime>
    <EntityUsage
       Name="ReferenceDocuments"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
@@ -178,7 +178,7 @@
    </ViewAttribute>
    <ViewLinkAccessor
       Name="ReferenceBlobsView"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RbRdFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RbRdFkLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>

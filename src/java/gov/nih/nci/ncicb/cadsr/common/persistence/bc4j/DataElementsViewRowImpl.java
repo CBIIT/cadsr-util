@@ -1,14 +1,14 @@
-package gov.nih.nci.ncicb.cadsr.persistence.bc4j;
+package gov.nih.nci.ncicb.cadsr.common.persistence.bc4j;
 
-import gov.nih.nci.ncicb.cadsr.dto.bc4j.BC4JContextTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.bc4j.BC4JDataElementConceptTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.bc4j.BC4JDesignationTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.bc4j.BC4JValueDomainTransferObject;
-import gov.nih.nci.ncicb.cadsr.resource.*;
+import gov.nih.nci.ncicb.cadsr.common.dto.bc4j.BC4JContextTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.bc4j.BC4JDataElementConceptTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.bc4j.BC4JDesignationTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.bc4j.BC4JValueDomainTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.resource.*;
 
-import gov.nih.nci.ncicb.cadsr.util.NCIBC4JUtil;
-import gov.nih.nci.ncicb.cadsr.util.logging.Log;
-import gov.nih.nci.ncicb.cadsr.util.logging.LogFactory;
+import gov.nih.nci.ncicb.cadsr.common.util.NCIBC4JUtil;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
 import oracle.clex.persistence.bc4j.*;
 
 import oracle.jbo.Key;

@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao;
-import gov.nih.nci.ncicb.cadsr.resource.Context;
-import gov.nih.nci.ncicb.cadsr.resource.Protocol;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.resource.Protocol;
 
 import java.util.Collection;
 import java.util.List;

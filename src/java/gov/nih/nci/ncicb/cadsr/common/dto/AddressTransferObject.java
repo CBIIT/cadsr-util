@@ -1,9 +1,9 @@
-package gov.nih.nci.ncicb.cadsr.dto;
+package gov.nih.nci.ncicb.cadsr.common.dto;
 
-import gov.nih.nci.ncicb.cadsr.dto.BaseTransferObject;
-import gov.nih.nci.ncicb.cadsr.resource.Address;
-import gov.nih.nci.ncicb.cadsr.resource.Organization;
-import gov.nih.nci.ncicb.cadsr.resource.Person;
+import gov.nih.nci.ncicb.cadsr.common.dto.BaseTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.resource.Address;
+import gov.nih.nci.ncicb.cadsr.common.resource.Organization;
+import gov.nih.nci.ncicb.cadsr.common.resource.Person;
 
 public class AddressTransferObject extends BaseTransferObject
   implements Address{

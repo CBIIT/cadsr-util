@@ -34,8 +34,8 @@ AND   frm.QC_IDSEQ = :1"
    OrderBy="DISPLAY_ORDER"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ModulesForAFormViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ModulesForAFormViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ModulesForAFormViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ModulesForAFormViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <DesignTime>
@@ -45,7 +45,7 @@ AND   frm.QC_IDSEQ = :1"
    </DesignTime>
    <EntityUsage
       Name="mod"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExt" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExt" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="true" />
@@ -58,37 +58,37 @@ AND   frm.QC_IDSEQ = :1" />
    </EntityUsage>
    <EntityUsage
       Name="qr"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QrsQcFk1Assoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QrsQcFk1Assoc.QcRecsExt"
-      SourceUsage="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ModulesForAFormView.mod" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QrsQcFk1Assoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QrsQcFk1Assoc.QcRecsExt"
+      SourceUsage="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ModulesForAFormView.mod" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
          <AttrArray Name="_srcAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExt.QcIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExt.QcIdseq" />
          </AttrArray>
          <AttrArray Name="_dstAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt.PQcIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt.PQcIdseq" />
          </AttrArray>
       </DesignTime>
    </EntityUsage>
    <EntityUsage
       Name="frm"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExt"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QrsQcFk1Assoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QrsQcFk1Assoc.QuestContentsExt"
-      SourceUsage="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ModulesForAFormView.qr"
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExt"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QrsQcFk1Assoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QrsQcFk1Assoc.QuestContentsExt"
+      SourceUsage="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ModulesForAFormView.qr"
       ReadOnly="true"
       Reference="true" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
          <AttrArray Name="_srcAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt.PQcIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt.PQcIdseq" />
          </AttrArray>
          <AttrArray Name="_dstAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExt.QcIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExt.QcIdseq" />
          </AttrArray>
       </DesignTime>
    </EntityUsage>

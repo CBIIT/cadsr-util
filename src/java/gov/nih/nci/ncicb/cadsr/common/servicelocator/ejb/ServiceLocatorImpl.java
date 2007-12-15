@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.servicelocator.ejb;
+package gov.nih.nci.ncicb.cadsr.common.servicelocator.ejb;
 
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocatorAdapter;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocatorException;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocatorAdapter;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocatorException;
 
 import java.net.URL;
 

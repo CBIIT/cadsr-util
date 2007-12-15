@@ -1,13 +1,13 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao.jdbc;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc;
 
-import gov.nih.nci.ncicb.cadsr.dto.ContextTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.ProtocolTransferObject;
-import gov.nih.nci.ncicb.cadsr.exception.DMLException;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.ContextDAO;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.ProtocolDAO;
-import gov.nih.nci.ncicb.cadsr.resource.Context;
-import gov.nih.nci.ncicb.cadsr.resource.Protocol;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.dto.ContextTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ProtocolTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.exception.DMLException;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.ContextDAO;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.ProtocolDAO;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.resource.Protocol;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocator;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.object.MappingSqlQuery;
-import gov.nih.nci.ncicb.cadsr.servicelocator.SimpleServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.SimpleServiceLocator;
 import java.util.Iterator;
 
 

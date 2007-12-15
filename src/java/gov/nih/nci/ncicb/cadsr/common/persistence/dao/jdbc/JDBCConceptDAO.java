@@ -1,18 +1,18 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao.jdbc;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc;
 
-import gov.nih.nci.ncicb.cadsr.dto.ComponentConceptTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.ConceptDerivationRuleTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.ConceptTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.ContextTransferObject;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.ConceptDAO;
-import gov.nih.nci.ncicb.cadsr.resource.ComponentConcept;
-import gov.nih.nci.ncicb.cadsr.resource.Concept;
-import gov.nih.nci.ncicb.cadsr.resource.ConceptDerivationRule;
-import gov.nih.nci.ncicb.cadsr.resource.Context;
-import gov.nih.nci.ncicb.cadsr.resource.ValidValue;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocator;
-import gov.nih.nci.ncicb.cadsr.servicelocator.SimpleServiceLocator;
-import gov.nih.nci.ncicb.cadsr.util.StringUtils;
+import gov.nih.nci.ncicb.cadsr.common.dto.ComponentConceptTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ConceptDerivationRuleTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ConceptTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ContextTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.ConceptDAO;
+import gov.nih.nci.ncicb.cadsr.common.resource.ComponentConcept;
+import gov.nih.nci.ncicb.cadsr.common.resource.Concept;
+import gov.nih.nci.ncicb.cadsr.common.resource.ConceptDerivationRule;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.resource.ValidValue;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.SimpleServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr;
+package gov.nih.nci.ncicb.cadsr.common;
 
 public interface CaDSRConstants {
   public static final String USER_KEY = "nciUser";
@@ -21,7 +21,7 @@ public interface CaDSRConstants {
   public static final String PREVIOUS_SESSION_ID="previousSessionId";
   public static final String YES="Yes";
   public static final String NO="No";
-  public static final String CDEBROWSER_SERVICE_LOCATOR_CLASSNAME = "gov.nih.nci.ncicb.cadsr.servicelocator.ejb.ServiceLocatorImpl";
+  public static final String CDEBROWSER_SERVICE_LOCATOR_CLASSNAME = "gov.nih.nci.ncicb.cadsr.common.servicelocator.ejb.ServiceLocatorImpl";
   public static final String TREE_REFRESH_INDICATOR="treeRefreshIndicator";
   public static final String ANCHOR="anchor";
   

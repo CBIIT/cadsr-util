@@ -1,14 +1,14 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao.jdbc;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc;
 
-import gov.nih.nci.ncicb.cadsr.dto.DataElementDerivationTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.DataElementDerivationTypeTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.DataElementTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.DerivedDataElementTransferObject;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.DerivedDataElementDAO;
-import gov.nih.nci.ncicb.cadsr.resource.DataElementDerivationType;
-import gov.nih.nci.ncicb.cadsr.resource.DerivedDataElement;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocator;
-import gov.nih.nci.ncicb.cadsr.servicelocator.SimpleServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.dto.DataElementDerivationTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.DataElementDerivationTypeTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.DataElementTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.DerivedDataElementTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.DerivedDataElementDAO;
+import gov.nih.nci.ncicb.cadsr.common.resource.DataElementDerivationType;
+import gov.nih.nci.ncicb.cadsr.common.resource.DerivedDataElement;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.SimpleServiceLocator;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.object.MappingSqlQuery;
-//import gov.nih.nci.ncicb.cadsr.dto.CDECartTransferObject;
+//import gov.nih.nci.ncicb.cadsr.common.dto.CDECartTransferObject;
 
 
 public class JDBCDerivedDataElementDAO extends JDBCBaseDAO implements DerivedDataElementDAO {

@@ -1,5 +1,5 @@
-package gov.nih.nci.ncicb.cadsr.ocbrowser.struts.common;
-import gov.nih.nci.ncicb.cadsr.CommonNavigationConstants;
+package gov.nih.nci.ncicb.cadsr.common.ocbrowser.struts.common;
+import gov.nih.nci.ncicb.cadsr.common.CommonNavigationConstants;
 
 public interface OCBrowserNavigationConstants extends CommonNavigationConstants
 {

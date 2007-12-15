@@ -1,8 +1,8 @@
-package gov.nih.nci.ncicb.cadsr.resource;
+package gov.nih.nci.ncicb.cadsr.common.resource;
 
 import java.sql.Timestamp;
-import gov.nih.nci.ncicb.cadsr.resource.DataElement;
-import gov.nih.nci.ncicb.cadsr.resource.AdminComponent;
+import gov.nih.nci.ncicb.cadsr.common.resource.DataElement;
+import gov.nih.nci.ncicb.cadsr.common.resource.AdminComponent;
 
 public interface CDECartItem  {
   public String getId();

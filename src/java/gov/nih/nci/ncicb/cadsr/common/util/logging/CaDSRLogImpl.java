@@ -9,10 +9,10 @@
  * @release 3.0
  * @author: <a href=”mailto:jane.jiang@oracle.com”>Jane Jiang</a>
  * @date: 8/16/2005
- * @version: $Id: CaDSRLogImpl.java,v 1.1 2007-12-15 21:24:06 hegdes Exp $
+ * @version: $Id: CaDSRLogImpl.java,v 1.2 2007-12-15 21:54:11 hegdes Exp $
  */
  
-package gov.nih.nci.ncicb.cadsr.util.logging;
+package gov.nih.nci.ncicb.cadsr.common.util.logging;
 
 public class CaDSRLogImpl implements Log {
 

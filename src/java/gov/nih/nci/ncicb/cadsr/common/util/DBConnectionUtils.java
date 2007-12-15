@@ -1,8 +1,8 @@
-package gov.nih.nci.ncicb.cadsr.util;
+package gov.nih.nci.ncicb.cadsr.common.util;
 
-import gov.nih.nci.ncicb.cadsr.exception.JDBCConnectionException;
-import gov.nih.nci.ncicb.cadsr.util.logging.Log;
-import gov.nih.nci.ncicb.cadsr.util.logging.LogFactory;
+import gov.nih.nci.ncicb.cadsr.common.exception.JDBCConnectionException;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

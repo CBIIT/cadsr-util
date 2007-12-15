@@ -9,10 +9,10 @@
   This build script was created using Ant version 1.6 and Java 1.4.2_06
 -->
 
-<project name="contexttree" default="init" basedir=".">
+<project name="cadsrutil" default="init" basedir=".">
   
-  <property name="contexttree.version" value="3.2.0.3" />
-  <property name="contexttree.build" value="1" />
+  <property name="cadsrutil.version" value="3.2.0.3" />
+  <property name="cadsrutil.build" value="1" />
   <property name="project.home" value="${basedir}/../.."/>
   <property name="app.name" value="cdebrowser" />
     
@@ -73,8 +73,8 @@
    </target>
    
 	<!-- ============ CREATE ctontexttree JAR FILE ================== -->
-	<target name="jar_contexttree" depends="clean,compile">
-	    <jar jarfile="${dist.dir}/contexttree.jar">
+	<target name="jar_cadsrutil" depends="clean,compile">
+	    <jar jarfile="${dist.dir}/cadsrutil.jar">
 	      <fileset dir="${classes.build.dir}">
 	        <patternset>
 	        	<include name="gov/nih/nci/ncicb/**/*.*"/>	        

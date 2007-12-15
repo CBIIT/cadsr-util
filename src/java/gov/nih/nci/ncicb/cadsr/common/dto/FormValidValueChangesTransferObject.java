@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.dto;
+package gov.nih.nci.ncicb.cadsr.common.dto;
 import java.util.List;
-import gov.nih.nci.ncicb.cadsr.resource.FormValidValueChanges;
+import gov.nih.nci.ncicb.cadsr.common.resource.FormValidValueChanges;
 
 public class FormValidValueChangesTransferObject implements FormValidValueChanges 
 {

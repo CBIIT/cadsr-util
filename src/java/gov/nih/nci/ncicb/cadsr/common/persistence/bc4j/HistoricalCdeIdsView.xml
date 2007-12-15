@@ -5,8 +5,8 @@
    Name="HistoricalCdeIdsView"
    BindingStyle="Oracle"
    CustomQuery="true"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.HistoricalCdeIdsViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.HistoricalCdeIdsViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.HistoricalCdeIdsViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.HistoricalCdeIdsViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    FetchMode="FETCH_AS_NEEDED"
    UseGlueCode="false" >

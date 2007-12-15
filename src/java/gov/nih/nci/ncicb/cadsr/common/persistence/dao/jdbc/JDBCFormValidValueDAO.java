@@ -1,13 +1,13 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao.jdbc;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc;
 
-import gov.nih.nci.ncicb.cadsr.dto.ContextTransferObject;
-import gov.nih.nci.ncicb.cadsr.exception.FatalException;
-import gov.nih.nci.ncicb.cadsr.persistence.jdbc.oracle.ObjectTransformer;
-import gov.nih.nci.ncicb.cadsr.persistence.jdbc.oracle.OracleFormValidvalueList;
-import gov.nih.nci.ncicb.cadsr.persistence.jdbc.spring.OracleJBossNativeJdbcExtractor;
-import gov.nih.nci.ncicb.cadsr.resource.Context;
-import gov.nih.nci.ncicb.cadsr.resource.Protocol;
-import gov.nih.nci.ncicb.cadsr.util.TimeUtils;
+import gov.nih.nci.ncicb.cadsr.common.dto.ContextTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.exception.FatalException;
+import gov.nih.nci.ncicb.cadsr.common.persistence.jdbc.oracle.ObjectTransformer;
+import gov.nih.nci.ncicb.cadsr.common.persistence.jdbc.oracle.OracleFormValidvalueList;
+import gov.nih.nci.ncicb.cadsr.common.persistence.jdbc.spring.OracleJBossNativeJdbcExtractor;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.resource.Protocol;
+import gov.nih.nci.ncicb.cadsr.common.util.TimeUtils;
 import java.sql.Connection;
 import java.util.ArrayList;
 
@@ -25,24 +25,24 @@ import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.object.StoredProcedure;
 import org.springframework.jdbc.object.SqlUpdate;
 
-import gov.nih.nci.ncicb.cadsr.dto.QuestionTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.FormTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.ProtocolTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.DataElementTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.ModuleTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.FormValidValueTransferObject;
-import gov.nih.nci.ncicb.cadsr.exception.DMLException;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.QuestionDAO;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.FormValidValueDAO;
+import gov.nih.nci.ncicb.cadsr.common.dto.QuestionTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.FormTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ProtocolTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.DataElementTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ModuleTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.FormValidValueTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.exception.DMLException;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.QuestionDAO;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.FormValidValueDAO;
 
-import gov.nih.nci.ncicb.cadsr.resource.Question;
-import gov.nih.nci.ncicb.cadsr.resource.Module;
-import gov.nih.nci.ncicb.cadsr.resource.Form;
-import gov.nih.nci.ncicb.cadsr.resource.DataElement;
-import gov.nih.nci.ncicb.cadsr.resource.FormValidValue;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocator;
-import gov.nih.nci.ncicb.cadsr.servicelocator.SimpleServiceLocator;
-import gov.nih.nci.ncicb.cadsr.util.StringUtils;
+import gov.nih.nci.ncicb.cadsr.common.resource.Question;
+import gov.nih.nci.ncicb.cadsr.common.resource.Module;
+import gov.nih.nci.ncicb.cadsr.common.resource.Form;
+import gov.nih.nci.ncicb.cadsr.common.resource.DataElement;
+import gov.nih.nci.ncicb.cadsr.common.resource.FormValidValue;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.SimpleServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.util.StringUtils;
 
 import java.util.Collection;
 import javax.sql.DataSource;
@@ -471,7 +471,7 @@ public class JDBCFormValidValueDAO extends JDBCAdminComponentDAO
   private class InsertFormValidValues extends StoredProcedure {
   
     static final String insertvalidvaluesSql = "begin sbrext_form_builder_pkg.ins_multi_values(?,?,?); end;";
-    static final String oracleCollectionClass = "gov.nih.nci.ncicb.cadsr.persistence.jdbc.oracle.OracleFormValidvalueList";
+    static final String oracleCollectionClass = "gov.nih.nci.ncicb.cadsr.common.persistence.jdbc.oracle.OracleFormValidvalueList";
     
     public InsertFormValidValues(DataSource ds) {
      super(ds,"dummySql");

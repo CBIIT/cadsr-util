@@ -1,11 +1,11 @@
-package gov.nih.nci.ncicb.cadsr.security.oc4j;
+package gov.nih.nci.ncicb.cadsr.common.security.oc4j;
 
 // com.evermind.security packages used in implementing custom user manager class
 import com.evermind.security.AbstractUserManager;
 import com.evermind.security.User;
 import com.evermind.security.Group;
-import gov.nih.nci.ncicb.cadsr.util.logging.Log;
-import gov.nih.nci.ncicb.cadsr.util.logging.LogFactory;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
 
 
 /**

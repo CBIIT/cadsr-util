@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.dto;
-import gov.nih.nci.ncicb.cadsr.resource.Instruction;
-import gov.nih.nci.ncicb.cadsr.resource.InstructionChanges;
+package gov.nih.nci.ncicb.cadsr.common.dto;
+import gov.nih.nci.ncicb.cadsr.common.resource.Instruction;
+import gov.nih.nci.ncicb.cadsr.common.resource.InstructionChanges;
 import java.util.List;
 import java.util.Map;
 

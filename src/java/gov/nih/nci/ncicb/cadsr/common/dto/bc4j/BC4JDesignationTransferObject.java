@@ -1,12 +1,12 @@
-package gov.nih.nci.ncicb.cadsr.dto.bc4j;
-import gov.nih.nci.ncicb.cadsr.persistence.base.BaseValueObject;
-import gov.nih.nci.ncicb.cadsr.resource.Designation;
-import gov.nih.nci.ncicb.cadsr.resource.ClassSchemeItem;
-import gov.nih.nci.ncicb.cadsr.resource.Context;
+package gov.nih.nci.ncicb.cadsr.common.dto.bc4j;
+import gov.nih.nci.ncicb.cadsr.common.persistence.base.BaseValueObject;
+import gov.nih.nci.ncicb.cadsr.common.resource.Designation;
+import gov.nih.nci.ncicb.cadsr.common.resource.ClassSchemeItem;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
 import java.sql.SQLException;
-import gov.nih.nci.ncicb.cadsr.dto.bc4j.BC4JContextTransferObject;
-import gov.nih.nci.ncicb.cadsr.persistence.bc4j.DesignationsViewRowImpl;
-import gov.nih.nci.ncicb.cadsr.persistence.bc4j.ContextsViewRowImpl;
+import gov.nih.nci.ncicb.cadsr.common.dto.bc4j.BC4JContextTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DesignationsViewRowImpl;
+import gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ContextsViewRowImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +49,7 @@ public class BC4JDesignationTransferObject extends BaseValueObject
        return csCsis;
     }
     
-    public void addCscsi(gov.nih.nci.ncicb.cadsr.resource.ClassSchemeItem cscsi) {
+    public void addCscsi(gov.nih.nci.ncicb.cadsr.common.resource.ClassSchemeItem cscsi) {
         if (csCsis == null) {
             csCsis = new ArrayList();
         }

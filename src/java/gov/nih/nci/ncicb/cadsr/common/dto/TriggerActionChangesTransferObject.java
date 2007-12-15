@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.dto;
+package gov.nih.nci.ncicb.cadsr.common.dto;
 
-import gov.nih.nci.ncicb.cadsr.resource.TriggerActionChanges;
+import gov.nih.nci.ncicb.cadsr.common.resource.TriggerActionChanges;
 
 import java.util.List;
 

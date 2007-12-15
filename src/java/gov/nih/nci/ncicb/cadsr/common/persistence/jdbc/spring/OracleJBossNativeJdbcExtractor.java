@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.persistence.jdbc.spring;
+package gov.nih.nci.ncicb.cadsr.common.persistence.jdbc.spring;
 
 import java.sql.Connection;
 import java.sql.SQLException;

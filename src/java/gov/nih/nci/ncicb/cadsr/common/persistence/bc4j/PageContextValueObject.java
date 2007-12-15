@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.persistence.bc4j;
+package gov.nih.nci.ncicb.cadsr.common.persistence.bc4j;
 import java.util.*;
-import gov.nih.nci.ncicb.cadsr.resource.CDEBrowserPageContext;
-import gov.nih.nci.ncicb.cadsr.resource.TreeParameters;
+import gov.nih.nci.ncicb.cadsr.common.resource.CDEBrowserPageContext;
+import gov.nih.nci.ncicb.cadsr.common.resource.TreeParameters;
 
 public class PageContextValueObject implements CDEBrowserPageContext,java.io.Serializable{
   private String contextName = "";

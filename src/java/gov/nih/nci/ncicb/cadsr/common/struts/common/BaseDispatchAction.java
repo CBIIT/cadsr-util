@@ -1,15 +1,15 @@
-package gov.nih.nci.ncicb.cadsr.struts.common;
+package gov.nih.nci.ncicb.cadsr.common.struts.common;
 
-import gov.nih.nci.ncicb.cadsr.CaDSRConstants;
-import gov.nih.nci.ncicb.cadsr.CommonNavigationConstants;
-import gov.nih.nci.ncicb.cadsr.exception.FatalException;
-import gov.nih.nci.ncicb.cadsr.formbuilder.common.FormBuilderConstants;
-import gov.nih.nci.ncicb.cadsr.formbuilder.struts.common.FormConstants;
-import gov.nih.nci.ncicb.cadsr.formbuilder.struts.common.NavigationConstants;
-import gov.nih.nci.ncicb.cadsr.persistence.PersistenceConstants;
+import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
+import gov.nih.nci.ncicb.cadsr.common.CommonNavigationConstants;
+import gov.nih.nci.ncicb.cadsr.common.exception.FatalException;
+import gov.nih.nci.ncicb.cadsr.common.formbuilder.common.FormBuilderConstants;
+import gov.nih.nci.ncicb.cadsr.common.formbuilder.struts.common.FormConstants;
+import gov.nih.nci.ncicb.cadsr.common.formbuilder.struts.common.NavigationConstants;
+import gov.nih.nci.ncicb.cadsr.common.persistence.PersistenceConstants;
 
-import gov.nih.nci.ncicb.cadsr.servicelocator.ApplicationServiceLocator;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocatorException;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ApplicationServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocatorException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;

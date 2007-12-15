@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.resource;
+package gov.nih.nci.ncicb.cadsr.common.resource;
 
 public interface QuestContent extends AdminComponent  {
   public String getQcIdseq();

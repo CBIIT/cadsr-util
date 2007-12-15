@@ -1,10 +1,10 @@
-package gov.nih.nci.ncicb.cadsr.jsp.tag.handler;
+package gov.nih.nci.ncicb.cadsr.common.jsp.tag.handler;
 
-import gov.nih.nci.ncicb.cadsr.CaDSRConstants;
-import gov.nih.nci.ncicb.cadsr.formbuilder.struts.common.FormConstants;
-import gov.nih.nci.ncicb.cadsr.resource.Context;
-import gov.nih.nci.ncicb.cadsr.resource.NCIUser;
-import gov.nih.nci.ncicb.cadsr.util.ContextUtils;
+import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
+import gov.nih.nci.ncicb.cadsr.common.formbuilder.struts.common.FormConstants;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.resource.NCIUser;
+import gov.nih.nci.ncicb.cadsr.common.util.ContextUtils;
 
 import java.util.Collection;
 
@@ -36,9 +36,9 @@ public class CheckAccess extends TagSupport implements CaDSRConstants,FormConsta
         out = pageContext.getOut();
         NCIUser user = (NCIUser)pageContext.getSession().getAttribute(this.USER_KEY);
         Collection contexts = (Collection)pageContext.getSession().getAttribute(this.ALL_CONTEXTS);
-        
         if(user!=null)
          {
+            System.out.println("user : " + user.toString()); 
            Context currContext = ContextUtils.getContextByName(contexts,contextName);     
            if(currContext!=null&&user.hasRoleAccess(role,currContext))
            {
@@ -50,10 +50,12 @@ public class CheckAccess extends TagSupport implements CaDSRConstants,FormConsta
          //Publish Change Order
          else
           {
+             System.out.println("user : null"); 
             pageContext.setAttribute(key,NO);
           }         
         
       } catch(Exception ioe ) {
+    	  System.out.println(" start tag error " + ioe.getMessage());
           throw new JspException( "I/O Error : " + ioe.getMessage() );
       }//end try/catch
       return Tag.SKIP_BODY;

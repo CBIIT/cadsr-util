@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao;
 
-import gov.nih.nci.ncicb.cadsr.exception.DMLException;
-import gov.nih.nci.ncicb.cadsr.resource.Instruction;
+import gov.nih.nci.ncicb.cadsr.common.exception.DMLException;
+import gov.nih.nci.ncicb.cadsr.common.resource.Instruction;
 import java.util.Collection;
 import java.util.List;
 

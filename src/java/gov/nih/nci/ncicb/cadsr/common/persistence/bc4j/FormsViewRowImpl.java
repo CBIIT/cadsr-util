@@ -1,9 +1,9 @@
-package gov.nih.nci.ncicb.cadsr.persistence.bc4j;
+package gov.nih.nci.ncicb.cadsr.common.persistence.bc4j;
 
-import gov.nih.nci.ncicb.cadsr.dto.bc4j.BC4JContextTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.bc4j.BC4JContextTransferObject;
 
-import gov.nih.nci.ncicb.cadsr.resource.Context;
-import gov.nih.nci.ncicb.cadsr.resource.Module;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.resource.Module;
 
 import oracle.jbo.domain.Date;
 import oracle.jbo.domain.Number;

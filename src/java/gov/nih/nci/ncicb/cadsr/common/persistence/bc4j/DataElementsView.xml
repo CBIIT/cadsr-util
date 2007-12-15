@@ -37,8 +37,8 @@ DataElements.CONTE_IDSEQ,
    FromList="DATA_ELEMENTS DataElements"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DataElementsViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DataElementsViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DataElementsViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DataElementsViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    FetchMode="FETCH_AS_NEEDED"
    PageIterMode="Partial"
@@ -51,7 +51,7 @@ DataElements.CONTE_IDSEQ,
    </DesignTime>
    <EntityUsage
       Name="DataElements"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DataElements" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DataElements" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
@@ -219,7 +219,7 @@ DataElements.CONTE_IDSEQ,
    </ViewAttribute>
    <ViewLinkAccessor
       Name="DataElementConceptsRow"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DeDecFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DeDecFkLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >

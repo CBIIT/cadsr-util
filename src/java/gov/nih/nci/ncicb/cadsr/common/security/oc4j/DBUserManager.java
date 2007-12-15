@@ -1,13 +1,13 @@
-package gov.nih.nci.ncicb.cadsr.security.oc4j;
+package gov.nih.nci.ncicb.cadsr.common.security.oc4j;
 // java utility classes
 import com.evermind.security.AbstractUserManager;
-import gov.nih.nci.ncicb.cadsr.CaDSRConstants;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.AbstractDAOFactory;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.UserManagerDAO;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocator;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocatorFactory;
-import gov.nih.nci.ncicb.cadsr.util.logging.Log;
-import gov.nih.nci.ncicb.cadsr.util.logging.LogFactory;
+import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.AbstractDAOFactory;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.UserManagerDAO;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocatorFactory;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +17,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.DriverManager;
 import com.evermind.security.User;
-import gov.nih.nci.ncicb.cadsr.persistence.PersistenceConstants;
+import gov.nih.nci.ncicb.cadsr.common.persistence.PersistenceConstants;
 
 public class DBUserManager extends BaseUserManager implements PersistenceConstants, CaDSRConstants {
 

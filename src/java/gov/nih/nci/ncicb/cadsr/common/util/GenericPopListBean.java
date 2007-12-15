@@ -1,12 +1,12 @@
 
 // Copyright (c) 2000 Oracle Corporation
-package gov.nih.nci.ncicb.cadsr.util;
+package gov.nih.nci.ncicb.cadsr.common.util;
 
 import java.sql.*;
 import java.util.Vector;
 import java.util.List;
 import java.util.Iterator;
-import gov.nih.nci.ncicb.cadsr.util.StringUtils;
+import gov.nih.nci.ncicb.cadsr.common.util.StringUtils;
 /**
  * GenericPopListBean will be used in JSP's to create a Poplist Item.
  * @author Ram Chilukuri

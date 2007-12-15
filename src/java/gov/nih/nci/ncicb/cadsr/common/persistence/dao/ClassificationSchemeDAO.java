@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao;
 
-import gov.nih.nci.ncicb.cadsr.resource.ClassSchemeItem;
-import gov.nih.nci.ncicb.cadsr.resource.ClassificationScheme;
+import gov.nih.nci.ncicb.cadsr.common.resource.ClassSchemeItem;
+import gov.nih.nci.ncicb.cadsr.common.resource.ClassificationScheme;
 
 import java.util.Collection;
 import java.util.List;

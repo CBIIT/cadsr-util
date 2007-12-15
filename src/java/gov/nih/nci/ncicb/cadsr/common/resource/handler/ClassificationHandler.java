@@ -5,12 +5,12 @@
    * @version 1.0 (8/9/2002)
    */
 
-package gov.nih.nci.ncicb.cadsr.resource.handler;
+package gov.nih.nci.ncicb.cadsr.common.resource.handler;
 
 import java.util.Vector;
 
 import oracle.cle.persistence.HandlerDefinition;
-import gov.nih.nci.ncicb.cadsr.util.PageIterator;
+import gov.nih.nci.ncicb.cadsr.common.util.PageIterator;
 
 public interface ClassificationHandler extends HandlerDefinition{
 

@@ -1,5 +1,5 @@
-package gov.nih.nci.ncicb.cadsr.servicelocator;
-import gov.nih.nci.ncicb.cadsr.exception.NestedRuntimeException;
+package gov.nih.nci.ncicb.cadsr.common.servicelocator;
+import gov.nih.nci.ncicb.cadsr.common.exception.NestedRuntimeException;
 
 public class ServiceLocatorException extends NestedRuntimeException {
   

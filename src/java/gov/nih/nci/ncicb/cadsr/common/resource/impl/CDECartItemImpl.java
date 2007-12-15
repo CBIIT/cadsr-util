@@ -1,9 +1,9 @@
-package gov.nih.nci.ncicb.cadsr.resource.impl;
-import gov.nih.nci.ncicb.cadsr.resource.CDECartItem;
+package gov.nih.nci.ncicb.cadsr.common.resource.impl;
+import gov.nih.nci.ncicb.cadsr.common.resource.CDECartItem;
 
 import java.sql.Timestamp;
-import gov.nih.nci.ncicb.cadsr.resource.DataElement;
-import gov.nih.nci.ncicb.cadsr.resource.AdminComponent;
+import gov.nih.nci.ncicb.cadsr.common.resource.DataElement;
+import gov.nih.nci.ncicb.cadsr.common.resource.AdminComponent;
 import java.io.Serializable;
 
 

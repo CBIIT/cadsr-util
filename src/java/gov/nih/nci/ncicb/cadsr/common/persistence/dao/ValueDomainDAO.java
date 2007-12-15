@@ -1,11 +1,11 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao;
 
 import java.util.Collection;
 import java.util.Map;
 import java.util.List;
 
-import gov.nih.nci.ncicb.cadsr.resource.ValueDomain;
-import gov.nih.nci.ncicb.cadsr.resource.ValueMeaning;
+import gov.nih.nci.ncicb.cadsr.common.resource.ValueDomain;
+import gov.nih.nci.ncicb.cadsr.common.resource.ValueMeaning;
 
 public interface ValueDomainDAO extends AdminComponentDAO {
   /**

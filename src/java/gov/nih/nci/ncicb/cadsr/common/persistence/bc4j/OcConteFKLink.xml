@@ -3,7 +3,7 @@
 
 <ViewLink
    Name="OcConteFKLink"
-   EntityAssociation="gov.nih.nci.ncicb.cadsr.persistence.bc4j.OctCotFkAssoc" >
+   EntityAssociation="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.OctCotFkAssoc" >
    <DesignTime>
       <Attr Name="_isCodegen" Value="true" />
       <Attr Name="_version" Value="9.0.5.16.0" />
@@ -11,10 +11,10 @@
    <ViewLinkDefEnd
       Name="ContextsRow"
       Cardinality="1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ContextsView"
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ContextsView"
       Source="true" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ContextsView.ConteIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ContextsView.ConteIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_minCardinality" Value="1" />
@@ -26,9 +26,9 @@
    <ViewLinkDefEnd
       Name="ObjectClassesExtRows"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ObjectClassesExtView" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ObjectClassesExtView" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ObjectClassesExtView.ConteIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ObjectClassesExtView.ConteIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_isUpdateable" Value="true" />

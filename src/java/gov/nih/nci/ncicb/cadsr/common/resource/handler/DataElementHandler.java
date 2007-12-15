@@ -1,8 +1,8 @@
-package gov.nih.nci.ncicb.cadsr.resource.handler;
+package gov.nih.nci.ncicb.cadsr.common.resource.handler;
 
-import gov.nih.nci.ncicb.cadsr.cdebrowser.userexception.*;
-import gov.nih.nci.ncicb.cadsr.resource.DataElement;
-import gov.nih.nci.ncicb.cadsr.util.PageIterator;
+import gov.nih.nci.ncicb.cadsr.common.cdebrowser.userexception.*;
+import gov.nih.nci.ncicb.cadsr.common.resource.DataElement;
+import gov.nih.nci.ncicb.cadsr.common.util.PageIterator;
 
 import oracle.cle.persistence.HandlerDefinition;
 

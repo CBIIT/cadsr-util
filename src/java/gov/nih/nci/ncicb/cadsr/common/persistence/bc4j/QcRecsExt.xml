@@ -8,7 +8,7 @@
    AliasName="QcRecsExt"
    BindingStyle="Oracle"
    UseGlueCode="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExtImpl" >
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExtImpl" >
    <DesignTime>
       <Attr Name="_isCodegen" Value="true" />
       <Attr Name="_version" Value="9.0.5.16.0" />
@@ -139,22 +139,22 @@
    </Attribute>
    <AccessorAttribute
       Name="QuestContentsExt"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QrsQcFk1Assoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QrsQcFk1Assoc.QuestContentsExt"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QrsQcFk1Assoc.QcRecsExt"
-      Type="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExtImpl" >
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QrsQcFk1Assoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QrsQcFk1Assoc.QuestContentsExt"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QrsQcFk1Assoc.QcRecsExt"
+      Type="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExtImpl" >
    </AccessorAttribute>
    <AccessorAttribute
       Name="QuestContentsExt1"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QrsQcFk2Assoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QrsQcFk2Assoc.QuestContentsExt1"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QrsQcFk2Assoc.QcRecsExt1"
-      Type="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExtImpl" >
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QrsQcFk2Assoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QrsQcFk2Assoc.QuestContentsExt1"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QrsQcFk2Assoc.QcRecsExt1"
+      Type="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExtImpl" >
    </AccessorAttribute>
    <Key
       Name="QqrsPk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt.QrIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt.QrIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="QQRS_PK" />
@@ -164,7 +164,7 @@
    <Key
       Name="SysC0062156" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt.QrIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt.QrIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062156" />
@@ -175,7 +175,7 @@
    <Key
       Name="SysC0062157" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt.PQcIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt.PQcIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062157" />
@@ -186,7 +186,7 @@
    <Key
       Name="SysC0062158" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt.CQcIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt.CQcIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062158" />
@@ -197,7 +197,7 @@
    <Key
       Name="SysC0062159" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt.DisplayOrder" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt.DisplayOrder" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062159" />
@@ -208,7 +208,7 @@
    <Key
       Name="SysC0062160" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt.RlName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt.RlName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062160" />
@@ -219,7 +219,7 @@
    <Key
       Name="QrsQcFk1" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt.PQcIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt.PQcIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="QRS_QC_FK1" />
@@ -230,7 +230,7 @@
    <Key
       Name="QrsQcFk2" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt.CQcIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt.CQcIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="QRS_QC_FK2" />
@@ -241,7 +241,7 @@
    <Key
       Name="QrsRlvFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt.RlName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt.RlName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="QRS_RLV_FK" />

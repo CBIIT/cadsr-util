@@ -1,5 +1,5 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao;
-import gov.nih.nci.ncicb.cadsr.resource.Context;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
 import java.util.Collection;
 import java.util.List;
 public interface ContextDAO  {

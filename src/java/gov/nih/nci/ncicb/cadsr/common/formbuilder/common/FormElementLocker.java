@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.formbuilder.common;
+package gov.nih.nci.ncicb.cadsr.common.formbuilder.common;
 
-import gov.nih.nci.ncicb.cadsr.resource.NCIUser;
+import gov.nih.nci.ncicb.cadsr.common.resource.NCIUser;
 
 import java.util.Date;
 

@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.dto;
+package gov.nih.nci.ncicb.cadsr.common.dto;
 
-import gov.nih.nci.ncicb.cadsr.dto.BaseTransferObject;
-import gov.nih.nci.ncicb.cadsr.resource.ContactCommunication;
+import gov.nih.nci.ncicb.cadsr.common.dto.BaseTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.resource.ContactCommunication;
 
 
 public class ContactCommunicationTransferObject extends BaseTransferObject

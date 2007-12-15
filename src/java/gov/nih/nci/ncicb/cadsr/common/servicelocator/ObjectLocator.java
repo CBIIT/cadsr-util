@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.servicelocator;
+package gov.nih.nci.ncicb.cadsr.common.servicelocator;
 
 public interface ObjectLocator 
 {

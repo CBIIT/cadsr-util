@@ -19,7 +19,7 @@
    FromList="VALUE_MEANINGS_LOV ValueMeaningsLov"
    BindingStyle="Oracle"
    CustomQuery="false"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueMeaningsLovViewImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLovViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <DesignTime>
@@ -29,7 +29,7 @@
    </DesignTime>
    <EntityUsage
       Name="ValueMeaningsLov"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueMeaningsLov" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLov" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
@@ -103,7 +103,7 @@
    </ViewAttribute>
    <ViewLinkAccessor
       Name="PermissibleValuesView"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PvVmvFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PvVmvFkLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>

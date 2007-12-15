@@ -1,8 +1,8 @@
-package gov.nih.nci.ncicb.cadsr.cdebrowser.service;
+package gov.nih.nci.ncicb.cadsr.common.cdebrowser.service;
 
 import java.util.List;
 
-import gov.nih.nci.ncicb.cadsr.resource.DataElement;
+import gov.nih.nci.ncicb.cadsr.common.resource.DataElement;
 
 import java.util.Locale;
 import java.util.Properties;

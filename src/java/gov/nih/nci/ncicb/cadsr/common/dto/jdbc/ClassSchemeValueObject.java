@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.dto.jdbc;
+package gov.nih.nci.ncicb.cadsr.common.dto.jdbc;
 
-import gov.nih.nci.ncicb.cadsr.resource.ClassificationScheme;
-import gov.nih.nci.ncicb.cadsr.dto.base.AdminComponentTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.resource.ClassificationScheme;
+import gov.nih.nci.ncicb.cadsr.common.dto.base.AdminComponentTransferObject;
 public class ClassSchemeValueObject extends AdminComponentTransferObject
                                     implements ClassificationScheme{
   protected String csIdseq = null;

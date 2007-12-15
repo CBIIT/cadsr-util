@@ -13,8 +13,8 @@
    OrderBy="qr.DISPLAY_ORDER"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.FormModuleRelViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.FormModuleRelViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.FormModuleRelViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.FormModuleRelViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    FetchMode="FETCH_AS_NEEDED"
    FetchSize="20"
@@ -28,7 +28,7 @@
    </DesignTime>
    <EntityUsage
       Name="qr"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="true" />
@@ -79,7 +79,7 @@
    </ViewAttribute>
    <ViewLinkAccessor
       Name="Form"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ModuleFormRelLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ModuleFormRelLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >

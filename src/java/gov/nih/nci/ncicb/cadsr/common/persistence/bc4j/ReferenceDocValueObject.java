@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.persistence.bc4j;
-import gov.nih.nci.ncicb.cadsr.persistence.base.BaseValueObject;
-import gov.nih.nci.ncicb.cadsr.resource.Context;
-import gov.nih.nci.ncicb.cadsr.resource.ReferenceDocument;
+package gov.nih.nci.ncicb.cadsr.common.persistence.bc4j;
+import gov.nih.nci.ncicb.cadsr.common.persistence.base.BaseValueObject;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.resource.ReferenceDocument;
 import java.sql.Timestamp;
 import java.util.List;
 

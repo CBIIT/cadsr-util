@@ -11,29 +11,29 @@
       Name="Protocol"
       Cardinality="1"
       Source="true"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Protocol" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Protocol" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Protocol.ProtoIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Protocol.ProtoIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="Protocol" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Protocol.ProPk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Protocol.ProPk" />
       </DesignTime>
    </AssociationEnd>
    <AssociationEnd
       Name="QuestContentsExt"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExt" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExt" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExt.ProtoIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExt.ProtoIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="QuestContentsExt" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExt.QcProtoFk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExt.QcProtoFk" />
       </DesignTime>
    </AssociationEnd>
 </Association>

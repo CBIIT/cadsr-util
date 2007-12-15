@@ -1,16 +1,16 @@
-package gov.nih.nci.ncicb.cadsr.dto.bc4j;
-import gov.nih.nci.ncicb.cadsr.dto.ContextTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.ObjectClassTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.PropertyTransferObject;
-import gov.nih.nci.ncicb.cadsr.resource.Context;
-import gov.nih.nci.ncicb.cadsr.resource.DataElementConcept;
-import gov.nih.nci.ncicb.cadsr.resource.ObjectClass;
-import gov.nih.nci.ncicb.cadsr.resource.Property;
+package gov.nih.nci.ncicb.cadsr.common.dto.bc4j;
+import gov.nih.nci.ncicb.cadsr.common.dto.ContextTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ObjectClassTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.PropertyTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.resource.DataElementConcept;
+import gov.nih.nci.ncicb.cadsr.common.resource.ObjectClass;
+import gov.nih.nci.ncicb.cadsr.common.resource.Property;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.io.Serializable;
-import gov.nih.nci.ncicb.cadsr.dto.base.AdminComponentTransferObject;
-import gov.nih.nci.ncicb.cadsr.persistence.bc4j.DataElementConceptsViewRowImpl;
+import gov.nih.nci.ncicb.cadsr.common.dto.base.AdminComponentTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DataElementConceptsViewRowImpl;
 import oracle.jbo.domain.Number;
 
 public class BC4JDataElementConceptTransferObject extends AdminComponentTransferObject

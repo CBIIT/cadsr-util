@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.persistence.bc4j;
+package gov.nih.nci.ncicb.cadsr.common.persistence.bc4j;
 import oracle.jbo.server.EntityImpl;
 import oracle.jbo.server.EntityDefImpl;
 import oracle.jbo.server.AttributeDefImpl;
@@ -64,7 +64,7 @@ public class ObjectClassesExtImpl extends EntityImpl  {
   {
     if (mDefinitionObject == null)
     {
-      mDefinitionObject = (EntityDefImpl)EntityDefImpl.findDefObject("gov.nih.nci.ncicb.cadsr.persistence.bc4j.ObjectClassesExt");
+      mDefinitionObject = (EntityDefImpl)EntityDefImpl.findDefObject("gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ObjectClassesExt");
     }
     return mDefinitionObject;
   }

@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.common.bc4j;
+package gov.nih.nci.ncicb.cadsr.common.common.bc4j;
 
-import gov.nih.nci.ncicb.cadsr.util.BC4JHelper;
+import gov.nih.nci.ncicb.cadsr.common.util.BC4JHelper;
 
 import java.util.Hashtable;
 import java.util.Properties;
@@ -12,8 +12,8 @@ import oracle.jbo.ApplicationModule;
 import oracle.jbo.common.ampool.ApplicationPool;
 import oracle.jbo.common.ampool.SessionCookie;
 
-import gov.nih.nci.ncicb.cadsr.util.logging.Log;
-import gov.nih.nci.ncicb.cadsr.util.logging.LogFactory;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
 
 public class BC4JConnectionProvider implements HttpSessionListener {
   private static Log log = LogFactory.getLog(BC4JConnectionProvider.class.getName());

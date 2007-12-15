@@ -1,14 +1,14 @@
-package gov.nih.nci.ncicb.cadsr.lov;
+package gov.nih.nci.ncicb.cadsr.common.lov;
 
 /**
  * A Bean class.
  * <P>
  * @author Oracle Corporation
- * @version: $Id: ValueDomainsLOVBean.java,v 1.1 2007-12-15 21:24:02 hegdes Exp $
+ * @version: $Id: ValueDomainsLOVBean.java,v 1.2 2007-12-15 21:54:10 hegdes Exp $
  */
-import gov.nih.nci.ncicb.cadsr.util.*;
-import gov.nih.nci.ncicb.cadsr.util.logging.Log;
-import gov.nih.nci.ncicb.cadsr.util.logging.LogFactory;
+import gov.nih.nci.ncicb.cadsr.common.util.*;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
 
 import java.sql.*;
 

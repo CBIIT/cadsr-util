@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.cdebrowser;
-import gov.nih.nci.ncicb.cadsr.dto.bc4j.BC4JDataElementTransferObject;
-import gov.nih.nci.ncicb.cadsr.resource.DataElement;
-import gov.nih.nci.ncicb.cadsr.util.DTOTransformer;
+package gov.nih.nci.ncicb.cadsr.common.cdebrowser;
+import gov.nih.nci.ncicb.cadsr.common.dto.bc4j.BC4JDataElementTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.resource.DataElement;
+import gov.nih.nci.ncicb.cadsr.common.util.DTOTransformer;
 import java.util.Iterator;
 import java.util.List;
 

@@ -1,8 +1,8 @@
-package gov.nih.nci.ncicb.cadsr.dto;
+package gov.nih.nci.ncicb.cadsr.common.dto;
 
-import gov.nih.nci.ncicb.cadsr.resource.DataElementConcept;
-import gov.nih.nci.ncicb.cadsr.resource.ObjectClass;
-import gov.nih.nci.ncicb.cadsr.resource.Property;
+import gov.nih.nci.ncicb.cadsr.common.resource.DataElementConcept;
+import gov.nih.nci.ncicb.cadsr.common.resource.ObjectClass;
+import gov.nih.nci.ncicb.cadsr.common.resource.Property;
 
 
 public class DataElementConceptTransferObject

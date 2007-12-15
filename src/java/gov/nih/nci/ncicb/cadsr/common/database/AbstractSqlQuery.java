@@ -1,8 +1,8 @@
-package gov.nih.nci.ncicb.cadsr.database;
+package gov.nih.nci.ncicb.cadsr.common.database;
 
-import gov.nih.nci.ncicb.cadsr.util.DBUtil;
-import gov.nih.nci.ncicb.cadsr.util.logging.Log;
-import gov.nih.nci.ncicb.cadsr.util.logging.LogFactory;
+import gov.nih.nci.ncicb.cadsr.common.util.DBUtil;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

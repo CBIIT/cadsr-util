@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.lov;
+package gov.nih.nci.ncicb.cadsr.common.lov;
 
 /**
  * A Bean class.
@@ -10,10 +10,10 @@ import javax.servlet.http.*;
 import java.sql.*;
 import java.util.*;
 import java.io.*;
-import gov.nih.nci.ncicb.cadsr.database.*;
-import gov.nih.nci.ncicb.cadsr.util.*;
-import gov.nih.nci.ncicb.cadsr.util.logging.Log;
-import gov.nih.nci.ncicb.cadsr.util.logging.LogFactory;
+import gov.nih.nci.ncicb.cadsr.common.database.*;
+import gov.nih.nci.ncicb.cadsr.common.util.*;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
 
 public class DataElementConceptsLOVBean extends Object {
   private static Log log = LogFactory.getLog(DataElementConceptsLOVBean.class.getName());

@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.html;
+package gov.nih.nci.ncicb.cadsr.common.html;
 
 import javax.swing.table.AbstractTableModel;
 import oracle.jbo.Row;

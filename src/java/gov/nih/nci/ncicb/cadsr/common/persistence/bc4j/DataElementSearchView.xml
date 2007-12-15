@@ -5,8 +5,8 @@
    Name="DataElementSearchView"
    BindingStyle="Oracle"
    CustomQuery="true"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DataElementSearchViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DataElementSearchViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DataElementSearchViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DataElementSearchViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <SQLQuery><![CDATA[

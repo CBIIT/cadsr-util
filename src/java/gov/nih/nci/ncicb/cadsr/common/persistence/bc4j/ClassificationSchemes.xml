@@ -8,7 +8,7 @@
    AliasName="ClassificationSchemes"
    BindingStyle="Oracle"
    UseGlueCode="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemesImpl" >
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemesImpl" >
    <DesignTime>
       <Attr Name="_isCodegen" Value="true" />
       <Attr Name="_version" Value="9.0.5.16.0" />
@@ -271,23 +271,23 @@
    </Attribute>
    <AccessorAttribute
       Name="Contexts"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsConteFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsConteFkAssoc.Contexts"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsConteFkAssoc.ClassificationSchemes"
-      Type="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ContextsImpl" >
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsConteFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsConteFkAssoc.Contexts"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsConteFkAssoc.ClassificationSchemes"
+      Type="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ContextsImpl" >
    </AccessorAttribute>
    <AccessorAttribute
       Name="CsCsi"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsiCsFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsiCsFkAssoc.CsCsi"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsiCsFkAssoc.ClassificationSchemes"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsiCsFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsiCsFkAssoc.CsCsi"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsiCsFkAssoc.ClassificationSchemes"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </AccessorAttribute>
    <Key
       Name="Avcon985894271Delet000" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.DeletedInd" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.DeletedInd" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="AVCON_985894271_DELET_000" />
@@ -298,7 +298,7 @@
    <Key
       Name="Avcon985894271Lates000" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.LatestVersionInd" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.LatestVersionInd" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="AVCON_985894271_LATES_000" />
@@ -309,7 +309,7 @@
    <Key
       Name="CsPk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.CsIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.CsIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="CS_PK" />
@@ -319,9 +319,9 @@
    <Key
       Name="CsUk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.PreferredName" />
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.Version" />
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.ConteIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.PreferredName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.Version" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.ConteIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="CS_UK" />
@@ -331,7 +331,7 @@
    <Key
       Name="SysC0061234" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.CsIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.CsIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0061234" />
@@ -342,7 +342,7 @@
    <Key
       Name="SysC0061235" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.Version" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.Version" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0061235" />
@@ -353,7 +353,7 @@
    <Key
       Name="SysC0061236" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.PreferredName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.PreferredName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0061236" />
@@ -364,7 +364,7 @@
    <Key
       Name="SysC0061237" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.PreferredDefinition" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.PreferredDefinition" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0061237" />
@@ -375,7 +375,7 @@
    <Key
       Name="SysC0061238" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.ConteIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.ConteIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0061238" />
@@ -386,7 +386,7 @@
    <Key
       Name="SysC0061239" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.AslName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.AslName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0061239" />
@@ -397,7 +397,7 @@
    <Key
       Name="SysC0061240" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.CstlName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.CstlName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0061240" />
@@ -408,7 +408,7 @@
    <Key
       Name="SysC0061241" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.LabelTypeFlag" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.LabelTypeFlag" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0061241" />
@@ -419,7 +419,7 @@
    <Key
       Name="SysC0061242" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.DateCreated" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.DateCreated" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0061242" />
@@ -430,7 +430,7 @@
    <Key
       Name="SysC0061243" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.CreatedBy" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.CreatedBy" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0061243" />
@@ -441,7 +441,7 @@
    <Key
       Name="CsAslFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.AslName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.AslName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="CS_ASL_FK" />
@@ -452,7 +452,7 @@
    <Key
       Name="CsCmslFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.CmslName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.CmslName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="CS_CMSL_FK" />
@@ -463,7 +463,7 @@
    <Key
       Name="CsConteFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.ConteIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.ConteIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="CS_CONTE_FK" />
@@ -474,7 +474,7 @@
    <Key
       Name="CsCstlFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.CstlName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.CstlName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="CS_CSTL_FK" />

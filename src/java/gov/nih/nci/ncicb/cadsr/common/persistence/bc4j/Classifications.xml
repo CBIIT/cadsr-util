@@ -5,8 +5,8 @@
    Name="Classifications"
    BindingStyle="Oracle"
    CustomQuery="true"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationsRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationsImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationsRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationsImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <SQLQuery><![CDATA[
@@ -35,7 +35,7 @@ WHERE
    </DesignTime>
    <EntityUsage
       Name="AcCsi"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AcCsi" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AcCsi" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
@@ -43,77 +43,77 @@ WHERE
    </EntityUsage>
    <EntityUsage
       Name="AdministeredComponents"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AdministeredComponents"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AcCsiAcFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AcCsiAcFkAssoc.AdministeredComponents"
-      SourceUsage="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Classifications.AcCsi"
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AdministeredComponents"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AcCsiAcFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AcCsiAcFkAssoc.AdministeredComponents"
+      SourceUsage="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Classifications.AcCsi"
       ReadOnly="true"
       Reference="true" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
          <AttrArray Name="_srcAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AcCsi.AcIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AcCsi.AcIdseq" />
          </AttrArray>
          <AttrArray Name="_dstAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AdministeredComponents.AcIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AdministeredComponents.AcIdseq" />
          </AttrArray>
       </DesignTime>
    </EntityUsage>
    <EntityUsage
       Name="ClassificationSchemes"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsiCsFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsiCsFkAssoc.ClassificationSchemes"
-      SourceUsage="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Classifications.CsCsi"
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsiCsFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsiCsFkAssoc.ClassificationSchemes"
+      SourceUsage="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Classifications.CsCsi"
       ReadOnly="true"
       Reference="true" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
          <AttrArray Name="_srcAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsi.CsIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsi.CsIdseq" />
          </AttrArray>
          <AttrArray Name="_dstAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.CsIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.CsIdseq" />
          </AttrArray>
       </DesignTime>
    </EntityUsage>
    <EntityUsage
       Name="ClassSchemeItems"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassSchemeItems"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsiCsiFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsiCsiFkAssoc.ClassSchemeItems"
-      SourceUsage="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Classifications.CsCsi"
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassSchemeItems"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsiCsiFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsiCsiFkAssoc.ClassSchemeItems"
+      SourceUsage="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Classifications.CsCsi"
       ReadOnly="true"
       Reference="true" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
          <AttrArray Name="_srcAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsi.CsiIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsi.CsiIdseq" />
          </AttrArray>
          <AttrArray Name="_dstAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassSchemeItems.CsiIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassSchemeItems.CsiIdseq" />
          </AttrArray>
       </DesignTime>
    </EntityUsage>
    <EntityUsage
       Name="CsCsi"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsi"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AcCsiCsCsiFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AcCsiCsCsiFkAssoc.CsCsi"
-      SourceUsage="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Classifications.AcCsi"
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsi"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AcCsiCsCsiFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AcCsiCsCsiFkAssoc.CsCsi"
+      SourceUsage="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Classifications.AcCsi"
       ReadOnly="true"
       Reference="true" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
          <AttrArray Name="_srcAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AcCsi.CsCsiIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AcCsi.CsCsiIdseq" />
          </AttrArray>
          <AttrArray Name="_dstAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsi.CsCsiIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsi.CsCsiIdseq" />
          </AttrArray>
       </DesignTime>
    </EntityUsage>

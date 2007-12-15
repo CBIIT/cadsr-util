@@ -1,11 +1,12 @@
-package gov.nih.nci.ncicb.cadsr.cdebrowser;
+package gov.nih.nci.ncicb.cadsr.common.cdebrowser;
 
-import gov.nih.nci.ncicb.cadsr.CaDSRConstants;
-import gov.nih.nci.ncicb.cadsr.cdebrowser.process.ProcessConstants;
-import gov.nih.nci.ncicb.cadsr.util.SimpleSortableColumnHeader;
-import gov.nih.nci.ncicb.cadsr.util.SortableColumnHeader;
-import gov.nih.nci.ncicb.cadsr.util.StringReplace;
-import gov.nih.nci.ncicb.cadsr.util.StringUtils;
+import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
+import gov.nih.nci.ncicb.cadsr.common.ProcessConstants;
+import gov.nih.nci.ncicb.cadsr.common.util.SimpleSortableColumnHeader;
+import gov.nih.nci.ncicb.cadsr.common.util.SortableColumnHeader;
+import gov.nih.nci.ncicb.cadsr.common.util.StringReplace;
+import gov.nih.nci.ncicb.cadsr.common.util.StringUtils;
+import gov.nih.nci.ncicb.cadsr.common.cdebrowser.DataElementSearchBean;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

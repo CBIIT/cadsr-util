@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.struts.common;
-import gov.nih.nci.ncicb.cadsr.cdebrowser.tree.CDEBrowserTreeCache;
-import gov.nih.nci.ncicb.cadsr.util.ObjectFactory;
+package gov.nih.nci.ncicb.cadsr.common.struts.common;
+import gov.nih.nci.ncicb.cadsr.contexttree.CDEBrowserTreeCache;
+import gov.nih.nci.ncicb.cadsr.common.util.ObjectFactory;
 import javax.servlet.ServletException;
 import org.apache.struts.action.ActionServlet;
 import org.apache.struts.action.PlugIn;

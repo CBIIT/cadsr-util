@@ -8,7 +8,7 @@
    AliasName="ConceptsExt"
    BindingStyle="Oracle"
    UseGlueCode="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptsExtImpl" >
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptsExtImpl" >
    <DesignTime>
       <Attr Name="_isCodegen" Value="true" />
       <Attr Name="_version" Value="9.0.5.16.0" />
@@ -268,31 +268,31 @@
    </Attribute>
    <AccessorAttribute
       Name="Contexts"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConCotFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConCotFkAssoc.Contexts"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConCotFkAssoc.ConceptsExt"
-      Type="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ContextsImpl" >
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConCotFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConCotFkAssoc.Contexts"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConCotFkAssoc.ConceptsExt"
+      Type="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ContextsImpl" >
    </AccessorAttribute>
    <AccessorAttribute
       Name="Representation"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RepCetFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RepCetFkAssoc.Representation"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RepCetFkAssoc.ConceptsExt"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RepCetFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RepCetFkAssoc.Representation"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RepCetFkAssoc.ConceptsExt"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </AccessorAttribute>
    <AccessorAttribute
       Name="ComponentConceptsExt"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CctCetFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CctCetFkAssoc.ComponentConceptsExt"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CctCetFkAssoc.ConceptsExt"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CctCetFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CctCetFkAssoc.ComponentConceptsExt"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CctCetFkAssoc.ConceptsExt"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </AccessorAttribute>
    <Key
       Name="ConPk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptsExt.ConIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptsExt.ConIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="CON_PK" />
@@ -302,9 +302,9 @@
    <Key
       Name="ConUk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptsExt.PreferredName" />
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptsExt.ConteIdseq" />
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptsExt.Version" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptsExt.PreferredName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptsExt.ConteIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptsExt.Version" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="CON_UK" />
@@ -314,7 +314,7 @@
    <Key
       Name="SysC00142847" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptsExt.ConIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptsExt.ConIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C00142847" />
@@ -325,7 +325,7 @@
    <Key
       Name="SysC00142848" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptsExt.PreferredName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptsExt.PreferredName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C00142848" />
@@ -336,7 +336,7 @@
    <Key
       Name="SysC00142849" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptsExt.PreferredDefinition" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptsExt.PreferredDefinition" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C00142849" />
@@ -347,7 +347,7 @@
    <Key
       Name="SysC00142850" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptsExt.ConteIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptsExt.ConteIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C00142850" />
@@ -358,7 +358,7 @@
    <Key
       Name="SysC00142851" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptsExt.Version" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptsExt.Version" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C00142851" />
@@ -369,7 +369,7 @@
    <Key
       Name="SysC00142852" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptsExt.AslName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptsExt.AslName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C00142852" />
@@ -380,7 +380,7 @@
    <Key
       Name="ConAsvFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptsExt.AslName" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptsExt.AslName" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="CON_ASV_FK" />
@@ -391,7 +391,7 @@
    <Key
       Name="ConCotFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptsExt.ConteIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptsExt.ConteIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="CON_COT_FK" />

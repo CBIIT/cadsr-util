@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.util;
+package gov.nih.nci.ncicb.cadsr.common.util;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;

@@ -20,8 +20,8 @@
    FromList="DESIGNATIONS Designations"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DesignationsViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DesignationsViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DesignationsViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DesignationsViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <DesignTime>
@@ -32,7 +32,7 @@
    </DesignTime>
    <EntityUsage
       Name="Designations"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Designations" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Designations" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
@@ -121,7 +121,7 @@
    </ViewAttribute>
    <ViewLinkAccessor
       Name="ContextsRow"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DesigConteFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DesigConteFkLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >

@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.persistence.jdbc.oracle;
+package gov.nih.nci.ncicb.cadsr.common.persistence.jdbc.oracle;
 
 import java.sql.SQLException;
 import java.sql.Connection;

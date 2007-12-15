@@ -1,12 +1,12 @@
-package gov.nih.nci.ncicb.cadsr.servicelocator.spring;
-import gov.nih.nci.ncicb.cadsr.cdebrowser.service.CDEBrowserService;
-import gov.nih.nci.ncicb.cadsr.cdebrowser.tree.service.CDEBrowserTreeService;
-import gov.nih.nci.ncicb.cadsr.formbuilder.service.LockingService;
-import gov.nih.nci.ncicb.cadsr.formbuilder.service.LockingService;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ApplicationServiceLocator;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocatorException;
+package gov.nih.nci.ncicb.cadsr.common.servicelocator.spring;
+import gov.nih.nci.ncicb.cadsr.common.cdebrowser.service.CDEBrowserService;
+import gov.nih.nci.ncicb.cadsr.contexttree.service.CDEBrowserTreeService;
+import gov.nih.nci.ncicb.cadsr.common.formbuilder.service.LockingService;
+import gov.nih.nci.ncicb.cadsr.common.formbuilder.service.LockingService;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ApplicationServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocatorException;
 import gov.nih.nci.ncicb.cadsr.spring.ApplicationContextFactory;
-import gov.nih.nci.ncicb.cadsr.ocbrowser.service.OCBrowserService;
+import gov.nih.nci.ncicb.cadsr.common.ocbrowser.service.OCBrowserService;
 
 public class ApplicationServiceLocatorImpl implements ApplicationServiceLocator
 {

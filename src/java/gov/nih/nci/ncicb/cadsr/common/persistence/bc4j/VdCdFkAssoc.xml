@@ -11,29 +11,29 @@
       Name="ConceptualDomains"
       Cardinality="0"
       Source="true"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptualDomains" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptualDomains" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptualDomains.CdIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptualDomains.CdIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="ConceptualDomains" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptualDomains.CdPk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptualDomains.CdPk" />
       </DesignTime>
    </AssociationEnd>
    <AssociationEnd
       Name="ValueDomains"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueDomains" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueDomains" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueDomains.CdIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueDomains.CdIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="ValueDomains" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueDomains.VdCdFk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueDomains.VdCdFk" />
       </DesignTime>
    </AssociationEnd>
 </Association>

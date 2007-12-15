@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.dto;
+package gov.nih.nci.ncicb.cadsr.common.dto;
 
-import gov.nih.nci.ncicb.cadsr.resource.ConceptDerivationRule;
-import gov.nih.nci.ncicb.cadsr.resource.Property;
+import gov.nih.nci.ncicb.cadsr.common.resource.ConceptDerivationRule;
+import gov.nih.nci.ncicb.cadsr.common.resource.Property;
 
 public class PropertyTransferObject extends AdminComponentTransferObject 
   implements Property

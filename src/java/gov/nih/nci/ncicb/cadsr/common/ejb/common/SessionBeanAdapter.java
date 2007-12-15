@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.ejb.common;
+package gov.nih.nci.ncicb.cadsr.common.ejb.common;
 
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;

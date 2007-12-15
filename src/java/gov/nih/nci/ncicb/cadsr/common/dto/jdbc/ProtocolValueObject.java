@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.dto.jdbc;
+package gov.nih.nci.ncicb.cadsr.common.dto.jdbc;
 import java.sql.Date;
-import gov.nih.nci.ncicb.cadsr.resource.Protocol;
-import gov.nih.nci.ncicb.cadsr.dto.base.AdminComponentTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.resource.Protocol;
+import gov.nih.nci.ncicb.cadsr.common.dto.base.AdminComponentTransferObject;
 
 public class ProtocolValueObject extends AdminComponentTransferObject 
                                          implements Protocol  {

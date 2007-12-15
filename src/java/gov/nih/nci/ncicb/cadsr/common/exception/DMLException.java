@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.exception;
+package gov.nih.nci.ncicb.cadsr.common.exception;
 
-import gov.nih.nci.ncicb.cadsr.exception.NestedRuntimeException;
+import gov.nih.nci.ncicb.cadsr.common.exception.NestedRuntimeException;
 
 public class DMLException extends NestedRuntimeException {
 

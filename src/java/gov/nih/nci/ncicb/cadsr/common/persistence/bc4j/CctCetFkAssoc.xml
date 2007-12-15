@@ -11,30 +11,30 @@
       Name="ConceptsExt"
       Cardinality="1"
       Source="true"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptsExt" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptsExt" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptsExt.ConIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptsExt.ConIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_minCardinality" Value="1" />
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="ConceptsExt" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptsExt.ConPk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptsExt.ConPk" />
       </DesignTime>
    </AssociationEnd>
    <AssociationEnd
       Name="ComponentConceptsExt"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ComponentConceptsExt" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ComponentConceptsExt" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ComponentConceptsExt.ConIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ComponentConceptsExt.ConIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="ComponentConceptsExt" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ComponentConceptsExt.CctCetFk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ComponentConceptsExt.CctCetFk" />
       </DesignTime>
    </AssociationEnd>
 </Association>

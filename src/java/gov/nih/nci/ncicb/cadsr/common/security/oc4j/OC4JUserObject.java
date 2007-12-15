@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.security.oc4j;
+package gov.nih.nci.ncicb.cadsr.common.security.oc4j;
 
 import java.util.ArrayList;
 import java.util.Collection;

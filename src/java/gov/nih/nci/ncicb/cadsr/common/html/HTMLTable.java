@@ -1,11 +1,11 @@
-package gov.nih.nci.ncicb.cadsr.html;
+package gov.nih.nci.ncicb.cadsr.common.html;
 
 import java.lang.IllegalArgumentException;
 
 import javax.swing.table.TableModel;
 
-import gov.nih.nci.ncicb.cadsr.util.logging.Log;
-import gov.nih.nci.ncicb.cadsr.util.logging.LogFactory;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
 
 public class HTMLTable  {
   private static Log log = LogFactory.getLog(HTMLTable.class.getName());
