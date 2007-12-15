@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.dto;
-import gov.nih.nci.ncicb.cadsr.resource.ConceptDerivationRule;
-import gov.nih.nci.ncicb.cadsr.resource.ValidValue;
-import gov.nih.nci.ncicb.cadsr.resource.ValueMeaning;
+package gov.nih.nci.ncicb.cadsr.common.dto;
+import gov.nih.nci.ncicb.cadsr.common.resource.ConceptDerivationRule;
+import gov.nih.nci.ncicb.cadsr.common.resource.ValidValue;
+import gov.nih.nci.ncicb.cadsr.common.resource.ValueMeaning;
 
 import java.util.Collection;
 

@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.dto;
+package gov.nih.nci.ncicb.cadsr.common.dto;
 
-import gov.nih.nci.ncicb.cadsr.resource.Instruction;
+import gov.nih.nci.ncicb.cadsr.common.resource.Instruction;
 
 
 public class InstructionTransferObject extends AdminComponentTransferObject

@@ -1,8 +1,8 @@
-package gov.nih.nci.ncicb.cadsr.xml;
+package gov.nih.nci.ncicb.cadsr.common.xml;
 
-import gov.nih.nci.ncicb.cadsr.util.ConnectionHelper;
-import gov.nih.nci.ncicb.cadsr.util.logging.Log;
-import gov.nih.nci.ncicb.cadsr.util.logging.LogFactory;
+import gov.nih.nci.ncicb.cadsr.common.util.ConnectionHelper;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
 
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;

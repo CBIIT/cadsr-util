@@ -1,9 +1,9 @@
-package gov.nih.nci.ncicb.cadsr.dto;
+package gov.nih.nci.ncicb.cadsr.common.dto;
 
-import gov.nih.nci.ncicb.cadsr.dto.AdminComponentTransferObject;
-import gov.nih.nci.ncicb.cadsr.resource.Contact;
-import gov.nih.nci.ncicb.cadsr.resource.Organization;
-import gov.nih.nci.ncicb.cadsr.resource.Person;
+import gov.nih.nci.ncicb.cadsr.common.dto.AdminComponentTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.resource.Contact;
+import gov.nih.nci.ncicb.cadsr.common.resource.Organization;
+import gov.nih.nci.ncicb.cadsr.common.resource.Person;
 
 public class ContactTransferObject extends AdminComponentTransferObject 
 implements Contact{

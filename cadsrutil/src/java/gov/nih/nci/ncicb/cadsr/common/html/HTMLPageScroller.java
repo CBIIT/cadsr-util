@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.html;
+package gov.nih.nci.ncicb.cadsr.common.html;
 
-import gov.nih.nci.ncicb.cadsr.util.PageIterator;
-import gov.nih.nci.ncicb.cadsr.util.GenericPopListBean;
+import gov.nih.nci.ncicb.cadsr.common.util.PageIterator;
+import gov.nih.nci.ncicb.cadsr.common.util.GenericPopListBean;
 
 public class HTMLPageScroller  {
 

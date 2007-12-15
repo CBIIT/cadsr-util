@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.dto.bc4j;
-import gov.nih.nci.ncicb.cadsr.resource.ReferenceBlob;
+package gov.nih.nci.ncicb.cadsr.common.dto.bc4j;
+import gov.nih.nci.ncicb.cadsr.common.resource.ReferenceBlob;
 import oracle.jbo.domain.BlobDomain;
-import gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceBlobsViewRowImpl;
+import gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceBlobsViewRowImpl;
 
 public class BC4JReferenceBlobTransferObject implements ReferenceBlob {
 	String mimeType = "";

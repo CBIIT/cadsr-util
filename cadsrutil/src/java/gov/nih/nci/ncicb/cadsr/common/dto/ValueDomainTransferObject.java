@@ -1,11 +1,11 @@
-package gov.nih.nci.ncicb.cadsr.dto;
-import gov.nih.nci.ncicb.cadsr.resource.ConceptDerivationRule;
-import gov.nih.nci.ncicb.cadsr.resource.Representation;
+package gov.nih.nci.ncicb.cadsr.common.dto;
+import gov.nih.nci.ncicb.cadsr.common.resource.ConceptDerivationRule;
+import gov.nih.nci.ncicb.cadsr.common.resource.Representation;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
-import gov.nih.nci.ncicb.cadsr.resource.ValueDomain;
+import gov.nih.nci.ncicb.cadsr.common.resource.ValueDomain;
 
 public class ValueDomainTransferObject extends AdminComponentTransferObject
   implements ValueDomain {

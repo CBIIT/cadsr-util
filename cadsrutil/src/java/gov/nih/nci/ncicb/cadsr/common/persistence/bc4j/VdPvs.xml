@@ -8,7 +8,7 @@
    AliasName="VdPvs"
    BindingStyle="Oracle"
    UseGlueCode="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvsImpl" >
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvsImpl" >
    <DesignTime>
       <Attr Name="_isCodegen" Value="true" />
       <Attr Name="_version" Value="9.0.5.16.0" />
@@ -171,37 +171,37 @@
    </Attribute>
    <AccessorAttribute
       Name="Contexts"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VpConteFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VpConteFkAssoc.Contexts"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VpConteFkAssoc.VdPvs"
-      Type="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ContextsImpl" >
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VpConteFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VpConteFkAssoc.Contexts"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VpConteFkAssoc.VdPvs"
+      Type="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ContextsImpl" >
    </AccessorAttribute>
    <AccessorAttribute
       Name="PermissibleValues"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VpPvFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VpPvFkAssoc.PermissibleValues"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VpPvFkAssoc.VdPvs"
-      Type="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PermissibleValuesImpl" >
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VpPvFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VpPvFkAssoc.PermissibleValues"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VpPvFkAssoc.VdPvs"
+      Type="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PermissibleValuesImpl" >
    </AccessorAttribute>
    <AccessorAttribute
       Name="ValueDomains"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VpVdFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VpVdFkAssoc.ValueDomains"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VpVdFkAssoc.VdPvs"
-      Type="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueDomainsImpl" >
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VpVdFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VpVdFkAssoc.ValueDomains"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VpVdFkAssoc.VdPvs"
+      Type="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueDomainsImpl" >
    </AccessorAttribute>
    <AccessorAttribute
       Name="QuestContentsExt"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcVpvFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcVpvFkAssoc.QuestContentsExt"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcVpvFkAssoc.VdPvs"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcVpvFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcVpvFkAssoc.QuestContentsExt"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcVpvFkAssoc.VdPvs"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </AccessorAttribute>
    <Key
       Name="SysC0062879" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs.VpIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs.VpIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062879" />
@@ -212,7 +212,7 @@
    <Key
       Name="SysC0062880" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs.VdIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs.VdIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062880" />
@@ -223,7 +223,7 @@
    <Key
       Name="SysC0062881" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs.PvIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs.PvIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062881" />
@@ -234,7 +234,7 @@
    <Key
       Name="SysC0062882" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs.DateCreated" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs.DateCreated" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062882" />
@@ -245,7 +245,7 @@
    <Key
       Name="SysC0062883" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs.CreatedBy" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs.CreatedBy" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062883" />
@@ -256,7 +256,7 @@
    <Key
       Name="VpPk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs.VpIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs.VpIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="VP_PK" />
@@ -266,9 +266,9 @@
    <Key
       Name="VpUk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs.VdIdseq" />
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs.ConteIdseq" />
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs.PvIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs.VdIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs.ConteIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs.PvIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="VP_UK" />
@@ -278,7 +278,7 @@
    <Key
       Name="VpConteFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs.ConteIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs.ConteIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="VP_CONTE_FK" />
@@ -289,7 +289,7 @@
    <Key
       Name="VpPvFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs.PvIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs.PvIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="VP_PV_FK" />
@@ -300,7 +300,7 @@
    <Key
       Name="VpVdFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs.VdIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs.VdIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="VP_VD_FK" />

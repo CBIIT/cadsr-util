@@ -1,5 +1,5 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao;
-import gov.nih.nci.ncicb.cadsr.resource.DerivedDataElement;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao;
+import gov.nih.nci.ncicb.cadsr.common.resource.DerivedDataElement;
 
 public interface DerivedDataElementDAO  {
   /**

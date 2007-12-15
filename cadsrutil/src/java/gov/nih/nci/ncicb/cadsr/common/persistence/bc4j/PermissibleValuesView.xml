@@ -23,7 +23,7 @@
    FromList="PERMISSIBLE_VALUES PermissibleValues"
    BindingStyle="Oracle"
    CustomQuery="false"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PermissibleValuesViewImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PermissibleValuesViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <DesignTime>
@@ -33,7 +33,7 @@
    </DesignTime>
    <EntityUsage
       Name="PermissibleValues"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PermissibleValues" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PermissibleValues" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
@@ -133,7 +133,7 @@
    </ViewAttribute>
    <ViewLinkAccessor
       Name="VdPvsView"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VpPvFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VpPvFkLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>

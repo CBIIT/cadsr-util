@@ -3,7 +3,7 @@
 
 <ViewLink
    Name="PvVmvFkLink"
-   EntityAssociation="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PvVmvFkAssoc" >
+   EntityAssociation="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PvVmvFkAssoc" >
    <DesignTime>
       <Attr Name="_isCodegen" Value="true" />
       <Attr Name="_version" Value="9.0.5.16.0" />
@@ -11,10 +11,10 @@
    <ViewLinkDefEnd
       Name="ValueMeaningsLovView"
       Cardinality="0"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueMeaningsLovView"
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLovView"
       Source="true" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueMeaningsLovView.ShortMeaning" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLovView.ShortMeaning" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_isUpdateable" Value="true" />
@@ -23,9 +23,9 @@
    <ViewLinkDefEnd
       Name="PermissibleValuesView"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PermissibleValuesView" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PermissibleValuesView" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PermissibleValuesView.ShortMeaning" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PermissibleValuesView.ShortMeaning" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_isUpdateable" Value="true" />

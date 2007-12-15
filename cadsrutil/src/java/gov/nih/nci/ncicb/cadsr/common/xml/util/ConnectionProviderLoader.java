@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.xml.util;
+package gov.nih.nci.ncicb.cadsr.common.xml.util;
 
 import java.util.*;
 import oracle.cle.util.xml.CLEDefaultHandler;

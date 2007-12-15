@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.util;
+package gov.nih.nci.ncicb.cadsr.common.util;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 

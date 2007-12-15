@@ -1,9 +1,9 @@
-package gov.nih.nci.ncicb.cadsr.persistence.bc4j.handler;
+package gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.handler;
 
-import gov.nih.nci.ncicb.cadsr.cdebrowser.userexception.DocumentNotFoundException;
-import gov.nih.nci.ncicb.cadsr.persistence.bc4j.CDEBrowserBc4jModuleImpl;
-import gov.nih.nci.ncicb.cadsr.resource.ReferenceBlob;
-import gov.nih.nci.ncicb.cadsr.resource.handler.ReferenceBlobHandler;
+import gov.nih.nci.ncicb.cadsr.common.cdebrowser.userexception.DocumentNotFoundException;
+import gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CDEBrowserBc4jModuleImpl;
+import gov.nih.nci.ncicb.cadsr.common.resource.ReferenceBlob;
+import gov.nih.nci.ncicb.cadsr.common.resource.handler.ReferenceBlobHandler;
 
 import oracle.cle.persistence.Handler;
 import oracle.cle.persistence.HandlerFactory;

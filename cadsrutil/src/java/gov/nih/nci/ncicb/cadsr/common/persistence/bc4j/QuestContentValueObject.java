@@ -1,9 +1,9 @@
-package gov.nih.nci.ncicb.cadsr.persistence.bc4j;
-import gov.nih.nci.ncicb.cadsr.resource.Context;
+package gov.nih.nci.ncicb.cadsr.common.persistence.bc4j;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
 import java.util.List;
 import java.sql.Date;
-import gov.nih.nci.ncicb.cadsr.resource.QuestContent;
-import gov.nih.nci.ncicb.cadsr.dto.base.AdminComponentTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.resource.QuestContent;
+import gov.nih.nci.ncicb.cadsr.common.dto.base.AdminComponentTransferObject;
 
 public class QuestContentValueObject extends AdminComponentTransferObject 
                                      implements QuestContent  {

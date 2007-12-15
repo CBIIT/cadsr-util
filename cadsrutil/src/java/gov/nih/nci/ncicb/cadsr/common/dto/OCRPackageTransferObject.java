@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.dto;
-import gov.nih.nci.ncicb.cadsr.resource.OCRPackage;
-import gov.nih.nci.ncicb.cadsr.resource.Project;
+package gov.nih.nci.ncicb.cadsr.common.dto;
+import gov.nih.nci.ncicb.cadsr.common.resource.OCRPackage;
+import gov.nih.nci.ncicb.cadsr.common.resource.Project;
 
 public class OCRPackageTransferObject extends AdminComponentTransferObject implements OCRPackage
 {

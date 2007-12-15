@@ -11,29 +11,29 @@
       Name="ConDerivationRulesExt"
       Cardinality="1"
       Source="true"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConDerivationRulesExt" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConDerivationRulesExt" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConDerivationRulesExt.CondrIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConDerivationRulesExt.CondrIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="ConDerivationRulesExt" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConDerivationRulesExt.CondrPk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConDerivationRulesExt.CondrPk" />
       </DesignTime>
    </AssociationEnd>
    <AssociationEnd
       Name="Representation"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Representation" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Representation" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Representation.CondrIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Representation.CondrIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="Representation" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Representation.RepCondrFk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Representation.RepCondrFk" />
       </DesignTime>
    </AssociationEnd>
 </Association>

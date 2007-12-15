@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.util;
+package gov.nih.nci.ncicb.cadsr.common.util;
 
-import gov.nih.nci.ncicb.cadsr.CaDSRConstants;
+import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -46,10 +46,7 @@ public class SessionUtils {
           {
             String key = (String)keyIt.next();
             Object obj = objectMap.get(key);
-            if (!key.equals("paramsTree"))
-            {
-                request.getSession().setAttribute(key,obj);
-            }
+            request.getSession().setAttribute(key,obj);
           }
         }
         log.error("SessionUtil.setPreviousSessionValues(synchronized End) at :"+TimeUtils.getEasternTime());

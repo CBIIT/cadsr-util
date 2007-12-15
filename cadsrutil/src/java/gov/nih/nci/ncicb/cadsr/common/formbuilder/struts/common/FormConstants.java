@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.formbuilder.struts.common;
+package gov.nih.nci.ncicb.cadsr.common.formbuilder.struts.common;
 
-import gov.nih.nci.ncicb.cadsr.formbuilder.common.FormBuilderConstants;
+import gov.nih.nci.ncicb.cadsr.common.formbuilder.common.FormBuilderConstants;
 
 
 public interface FormConstants extends FormBuilderConstants {

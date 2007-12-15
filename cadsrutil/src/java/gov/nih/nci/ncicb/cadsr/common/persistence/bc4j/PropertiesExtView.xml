@@ -34,8 +34,8 @@
    FromList="SBREXT.PROPERTIES_EXT PropertiesExt"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PropertiesExtViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PropertiesExtViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PropertiesExtViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PropertiesExtViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <DesignTime>
@@ -46,7 +46,7 @@
    </DesignTime>
    <EntityUsage
       Name="PropertiesExt"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PropertiesExt" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PropertiesExt" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
@@ -196,14 +196,14 @@
    </ViewAttribute>
    <ViewLinkAccessor
       Name="ContextsRow"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProConteFKLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProConteFKLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="DataElementConceptRows"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DecProFKLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DecProFKLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>

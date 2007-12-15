@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.jsp.tag.handler;
+package gov.nih.nci.ncicb.cadsr.common.jsp.tag.handler;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -6,8 +6,8 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.Tag;
 import javax.servlet.jsp.tagext.TagSupport;
-import gov.nih.nci.ncicb.cadsr.util.SortableColumnHeader;
-import gov.nih.nci.ncicb.cadsr.CaDSRConstants;
+import gov.nih.nci.ncicb.cadsr.common.util.SortableColumnHeader;
+import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
 
 /**
  * This Tag is used to display Columnn header which is displayed

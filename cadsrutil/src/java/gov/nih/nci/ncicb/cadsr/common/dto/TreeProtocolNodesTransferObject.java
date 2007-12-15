@@ -1,5 +1,5 @@
-package gov.nih.nci.ncicb.cadsr.dto;
-import gov.nih.nci.ncicb.cadsr.resource.TreeParameters;
+package gov.nih.nci.ncicb.cadsr.common.dto;
+import gov.nih.nci.ncicb.cadsr.common.resource.TreeParameters;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

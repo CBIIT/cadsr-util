@@ -10,10 +10,10 @@
    <ViewLinkDefEnd
       Name="Context"
       Cardinality="1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ContextsView"
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ContextsView"
       Source="true" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ContextsView.ConteIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ContextsView.ConteIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_minCardinality" Value="1" />
@@ -25,9 +25,9 @@
    <ViewLinkDefEnd
       Name="QuestionsView"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestionsView" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestionsView" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestionsView.ConteIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestionsView.ConteIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_isUpdateable" Value="true" />

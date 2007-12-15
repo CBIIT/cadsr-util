@@ -28,8 +28,8 @@
    OrderBy="qr.DISPLAY_ORDER"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestionsViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestionsViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestionsViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestionsViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    FetchMode="FETCH_AS_NEEDED"
    FetchSize="20"
@@ -43,7 +43,7 @@
    </DesignTime>
    <EntityUsage
       Name="qc"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExt" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExt" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="true" />
@@ -53,20 +53,20 @@
    </EntityUsage>
    <EntityUsage
       Name="qr"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QrsQcFk1Assoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QrsQcFk1Assoc.QcRecsExt"
-      SourceUsage="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestionsView.qc"
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QrsQcFk1Assoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QrsQcFk1Assoc.QcRecsExt"
+      SourceUsage="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestionsView.qc"
       ReadOnly="true"
       Reference="true" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
          <AttrArray Name="_srcAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExt.QcIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExt.QcIdseq" />
          </AttrArray>
          <AttrArray Name="_dstAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt.PQcIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt.PQcIdseq" />
          </AttrArray>
       </DesignTime>
    </EntityUsage>
@@ -190,27 +190,27 @@
    </ViewAttribute>
    <ViewLinkAccessor
       Name="Module"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestionModuleLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestionModuleLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="Context"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestionConteFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestionConteFkLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="FormValidValues"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.FormVVQuestionLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.FormVVQuestionLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="QuestionFormVVRecs"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.FormVVQuesRecsLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.FormVVQuesRecsLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>

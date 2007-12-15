@@ -1,10 +1,10 @@
-package gov.nih.nci.ncicb.cadsr.cdebrowser;
+package gov.nih.nci.ncicb.cadsr.common.cdebrowser;
 
-import gov.nih.nci.ncicb.cadsr.cdebrowser.process.ProcessConstants;
-import gov.nih.nci.ncicb.cadsr.util.CDEBrowserParams;
-import gov.nih.nci.ncicb.cadsr.util.DBUtil;
-import gov.nih.nci.ncicb.cadsr.util.GenericPopListBean;
-import gov.nih.nci.ncicb.cadsr.util.StringUtils;
+import gov.nih.nci.ncicb.cadsr.common.ProcessConstants;
+import gov.nih.nci.ncicb.cadsr.common.util.CDEBrowserParams;
+import gov.nih.nci.ncicb.cadsr.common.util.DBUtil;
+import gov.nih.nci.ncicb.cadsr.common.util.GenericPopListBean;
+import gov.nih.nci.ncicb.cadsr.common.util.StringUtils;
 
 import java.sql.SQLException;
 

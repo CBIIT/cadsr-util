@@ -1,11 +1,11 @@
-package gov.nih.nci.ncicb.cadsr.ocbrowser.util;
+package gov.nih.nci.ncicb.cadsr.common.ocbrowser.util;
 import gov.nih.nci.ncicb.cadsr.domain.AlternateName;
 import gov.nih.nci.ncicb.cadsr.domain.Concept;
 import gov.nih.nci.ncicb.cadsr.domain.ObjectClass;
 import gov.nih.nci.ncicb.cadsr.domain.ObjectClassRelationship;
-import gov.nih.nci.ncicb.cadsr.jsp.bean.OCRNavigationBean;
-import gov.nih.nci.ncicb.cadsr.ocbrowser.struts.common.OCBrowserFormConstants;
-import gov.nih.nci.ncicb.cadsr.util.CDEBrowserParams;
+import gov.nih.nci.ncicb.cadsr.common.jsp.bean.OCRNavigationBean;
+import gov.nih.nci.ncicb.cadsr.common.ocbrowser.struts.common.OCBrowserFormConstants;
+import gov.nih.nci.ncicb.cadsr.common.util.CDEBrowserParams;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;

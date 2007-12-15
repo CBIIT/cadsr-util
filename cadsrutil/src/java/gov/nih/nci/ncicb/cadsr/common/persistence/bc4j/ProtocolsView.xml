@@ -46,8 +46,8 @@
    FromList="SBREXT.PROTOCOLS_EXT Protocol"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <DesignTime>
@@ -58,7 +58,7 @@
    </DesignTime>
    <EntityUsage
       Name="Protocol"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Protocol" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Protocol" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
@@ -273,20 +273,20 @@
    </ViewAttribute>
    <ViewLinkAccessor
       Name="Context"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtoConteFKLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtoConteFKLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="CRFs"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcProtoFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcProtoFkLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="Forms"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.FormProtocolFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.FormProtocolFkLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>

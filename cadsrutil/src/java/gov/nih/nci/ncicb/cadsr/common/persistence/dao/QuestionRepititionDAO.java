@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao;
 
-import gov.nih.nci.ncicb.cadsr.resource.QuestionRepitition;
+import gov.nih.nci.ncicb.cadsr.common.resource.QuestionRepitition;
 import java.util.List;
 
 public interface QuestionRepititionDAO

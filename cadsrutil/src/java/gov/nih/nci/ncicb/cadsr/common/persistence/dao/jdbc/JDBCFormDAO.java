@@ -1,24 +1,24 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao.jdbc;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc;
 
-import gov.nih.nci.ncicb.cadsr.CaDSRConstants;
-import gov.nih.nci.ncicb.cadsr.dto.CSITransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.ContextTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.FormTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.ModuleTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.ProtocolTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.jdbc.JDBCFormTransferObject;
-import gov.nih.nci.ncicb.cadsr.exception.DMLException;
-import gov.nih.nci.ncicb.cadsr.persistence.PersistenceConstants;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.FormDAO;
-import gov.nih.nci.ncicb.cadsr.resource.ClassSchemeItem;
-import gov.nih.nci.ncicb.cadsr.resource.Form;
-import gov.nih.nci.ncicb.cadsr.resource.Module;
-import gov.nih.nci.ncicb.cadsr.resource.Protocol;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocator;
-import gov.nih.nci.ncicb.cadsr.servicelocator.SimpleServiceLocator;
-import gov.nih.nci.ncicb.cadsr.util.StringUtils;
-import gov.nih.nci.ncicb.cadsr.resource.Version;
-import gov.nih.nci.ncicb.cadsr.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
+import gov.nih.nci.ncicb.cadsr.common.dto.CSITransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ContextTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.FormTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ModuleTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ProtocolTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.jdbc.JDBCFormTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.exception.DMLException;
+import gov.nih.nci.ncicb.cadsr.common.persistence.PersistenceConstants;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.FormDAO;
+import gov.nih.nci.ncicb.cadsr.common.resource.ClassSchemeItem;
+import gov.nih.nci.ncicb.cadsr.common.resource.Form;
+import gov.nih.nci.ncicb.cadsr.common.resource.Module;
+import gov.nih.nci.ncicb.cadsr.common.resource.Protocol;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.SimpleServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.util.StringUtils;
+import gov.nih.nci.ncicb.cadsr.common.resource.Version;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -1278,9 +1278,8 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
                 + CaDSRConstants.FORM_CSI_TYPE + "')) accs"
         + " where PROTO_IDSEQ = '"+ protocolIdSeq +"'"
         + " and published.QC_IDSEQ = formview.QC_IDSEQ "
-        + "and formview.QC_IDSEQ = accs.AC_IDSEQ(+) "
-        + "and formview.proto_idseq = published.protocol_idseq "
-        + " ORDER BY upper(protocol_long_name), upper(context_name), upper (formview.long_name), published.qc_idseq";
+        +  "and formview.QC_IDSEQ = accs.AC_IDSEQ(+) "
+        + " ORDER BY upper(protocol_long_name), upper(context_name)";
       super.setSql(querySql);
     }
 

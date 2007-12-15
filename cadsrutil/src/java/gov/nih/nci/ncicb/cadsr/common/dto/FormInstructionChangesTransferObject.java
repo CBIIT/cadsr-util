@@ -1,5 +1,5 @@
-package gov.nih.nci.ncicb.cadsr.dto;
-import gov.nih.nci.ncicb.cadsr.resource.FormInstructionChanges;
+package gov.nih.nci.ncicb.cadsr.common.dto;
+import gov.nih.nci.ncicb.cadsr.common.resource.FormInstructionChanges;
 import java.util.Map;
 
 public class FormInstructionChangesTransferObject implements FormInstructionChanges

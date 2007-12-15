@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.util;
+package gov.nih.nci.ncicb.cadsr.common.util;
 
 /**
  * This utility class is used to implement a string replacement function.  This

@@ -1,16 +1,16 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao;
 
-import gov.nih.nci.ncicb.cadsr.dto.DefinitionTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.DesignationTransferObject;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.jdbc.JDBCAdminComponentDAO;
-import gov.nih.nci.ncicb.cadsr.resource.ClassSchemeItem;
+import gov.nih.nci.ncicb.cadsr.common.dto.DefinitionTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.DesignationTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc.JDBCAdminComponentDAO;
+import gov.nih.nci.ncicb.cadsr.common.resource.ClassSchemeItem;
 
 import java.util.Collection;
 import java.util.List;
-import gov.nih.nci.ncicb.cadsr.resource.Context;
-import gov.nih.nci.ncicb.cadsr.resource.Contact;
-import gov.nih.nci.ncicb.cadsr.resource.Definition;
-import gov.nih.nci.ncicb.cadsr.resource.Designation;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.resource.Contact;
+import gov.nih.nci.ncicb.cadsr.common.resource.Definition;
+import gov.nih.nci.ncicb.cadsr.common.resource.Designation;
 
 
 public interface AdminComponentDAO {

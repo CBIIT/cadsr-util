@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.util;
+package gov.nih.nci.ncicb.cadsr.common.util;
 
-import gov.nih.nci.ncicb.cadsr.resource.ReferenceDocument;
+import gov.nih.nci.ncicb.cadsr.common.resource.ReferenceDocument;
 
 import java.util.ArrayList;
 import java.util.List;

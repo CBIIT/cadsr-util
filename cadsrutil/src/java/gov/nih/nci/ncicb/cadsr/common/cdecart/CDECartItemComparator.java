@@ -1,5 +1,5 @@
-package gov.nih.nci.ncicb.cadsr.cdecart;
-import gov.nih.nci.ncicb.cadsr.resource.CDECartItem;
+package gov.nih.nci.ncicb.cadsr.common.cdecart;
+import gov.nih.nci.ncicb.cadsr.common.resource.CDECartItem;
 
 import java.io.Serializable;
 

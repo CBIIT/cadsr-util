@@ -3,7 +3,7 @@
 
 <ViewLink
    Name="QcProtoFkLink"
-   EntityAssociation="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcProtoFkAssoc" >
+   EntityAssociation="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcProtoFkAssoc" >
    <DesignTime>
       <Attr Name="_isCodegen" Value="true" />
       <Attr Name="_version" Value="9.0.5.16.0" />
@@ -11,10 +11,10 @@
    <ViewLinkDefEnd
       Name="Protocol"
       Cardinality="0"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsView"
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsView"
       Source="true" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsView.ProtoIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsView.ProtoIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_isUpdateable" Value="true" />
@@ -25,9 +25,9 @@
    <ViewLinkDefEnd
       Name="CRFs"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExtView" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExtView" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExtView.ProtoIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExtView.ProtoIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_isUpdateable" Value="true" />

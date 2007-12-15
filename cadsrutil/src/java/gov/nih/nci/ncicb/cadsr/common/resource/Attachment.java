@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.resource;
+package gov.nih.nci.ncicb.cadsr.common.resource;
 import java.io.Serializable;
 import java.sql.Blob;
 import org.apache.struts.upload.FormFile;

@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.cdebrowser.service.impl;
+package gov.nih.nci.ncicb.cadsr.common.cdebrowser.service.impl;
 
-import gov.nih.nci.ncicb.cadsr.CaDSRConstants;
-import gov.nih.nci.ncicb.cadsr.cdebrowser.service.CDEBrowserService;
+import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
+import gov.nih.nci.ncicb.cadsr.common.cdebrowser.service.CDEBrowserService;
 import gov.nih.nci.ncicb.cadsr.dao.AdminComponentDAO;
 import gov.nih.nci.ncicb.cadsr.dao.ClassificationSchemeItemDAO;
 import gov.nih.nci.ncicb.cadsr.dao.DataElementDAO;
@@ -12,14 +12,14 @@ import gov.nih.nci.ncicb.cadsr.domain.bean.ClassSchemeClassSchemeItemBean;
 import gov.nih.nci.ncicb.cadsr.domain.bean.ClassificationSchemeBean;
 import gov.nih.nci.ncicb.cadsr.domain.bean.ClassificationSchemeItemBean;
 import gov.nih.nci.ncicb.cadsr.domain.bean.DataElementBean;
-import gov.nih.nci.ncicb.cadsr.dto.CSITransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.ContextTransferObject;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.AbstractDAOFactory;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.UtilDAO;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.domain.AbstractDomainObjectsDAOFactory;
-import gov.nih.nci.ncicb.cadsr.resource.ClassSchemeItem;
-import gov.nih.nci.ncicb.cadsr.resource.Designation;
-import gov.nih.nci.ncicb.cadsr.resource.impl.DefinitionImpl;
+import gov.nih.nci.ncicb.cadsr.common.dto.CSITransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ContextTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.AbstractDAOFactory;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.UtilDAO;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.domain.AbstractDomainObjectsDAOFactory;
+import gov.nih.nci.ncicb.cadsr.common.resource.ClassSchemeItem;
+import gov.nih.nci.ncicb.cadsr.common.resource.Designation;
+import gov.nih.nci.ncicb.cadsr.common.resource.impl.DefinitionImpl;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -64,7 +64,7 @@ public class CDEBrowserServiceImpl implements CDEBrowserService
      * release 3.1 TT 1628
      * @param publicId
      */
-   public void populateDataElementAltNameDef (gov.nih.nci.ncicb.cadsr.resource.DataElement de)
+   public void populateDataElementAltNameDef (gov.nih.nci.ncicb.cadsr.common.resource.DataElement de)
    {
      DataElementDAO dao = domainObjectsDaoFactory.getDataElementDAO();
 
@@ -101,7 +101,7 @@ public class CDEBrowserServiceImpl implements CDEBrowserService
      iter = dePop.getDefinitions().iterator();
      while (iter.hasNext()){
          Definition defBean = (Definition) iter.next();
-         gov.nih.nci.ncicb.cadsr.resource.Definition definition = new DefinitionImpl();
+         gov.nih.nci.ncicb.cadsr.common.resource.Definition definition = new DefinitionImpl();
          definition.setContext(new ContextTransferObject());
          definition.getContext().setConteIdseq(defBean.getContext().getId());
          definition.getContext().setName(defBean.getContext().getName());

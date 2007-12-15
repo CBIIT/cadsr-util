@@ -1,5 +1,5 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao;
-import gov.nih.nci.ncicb.cadsr.resource.ConceptDerivationRule;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao;
+import gov.nih.nci.ncicb.cadsr.common.resource.ConceptDerivationRule;
 import java.util.List;
 import java.util.Map;
 

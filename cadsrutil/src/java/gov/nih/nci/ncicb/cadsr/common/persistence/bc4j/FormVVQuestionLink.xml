@@ -10,10 +10,10 @@
    <ViewLinkDefEnd
       Name="Question"
       Cardinality="1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestionsView"
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestionsView"
       Source="true" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestionsView.QcIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestionsView.QcIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_minCardinality" Value="1" />
@@ -25,9 +25,9 @@
    <ViewLinkDefEnd
       Name="FormValidValues"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.FormValidValuesView" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.FormValidValuesView" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.FormValidValuesView.PQstIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.FormValidValuesView.PQstIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_isUpdateable" Value="true" />

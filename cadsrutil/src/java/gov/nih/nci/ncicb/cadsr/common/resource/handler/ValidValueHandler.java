@@ -4,11 +4,11 @@
    * @author Amit kochar
    * @version 1.0 (8/7/2002)
    */
-package gov.nih.nci.ncicb.cadsr.resource.handler;
+package gov.nih.nci.ncicb.cadsr.common.resource.handler;
 import java.util.*;
 import oracle.cle.persistence.*;
 import oracle.jbo.ViewObject;
-import gov.nih.nci.ncicb.cadsr.util.PageIterator;
+import gov.nih.nci.ncicb.cadsr.common.util.PageIterator;
 
 public interface ValidValueHandler extends HandlerDefinition{
   

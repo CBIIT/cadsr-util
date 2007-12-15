@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.database;
+package gov.nih.nci.ncicb.cadsr.common.database;
 
 import java.util.List;
 

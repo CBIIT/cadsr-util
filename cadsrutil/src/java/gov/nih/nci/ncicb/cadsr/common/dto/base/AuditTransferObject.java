@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.dto.base;
+package gov.nih.nci.ncicb.cadsr.common.dto.base;
 
 import java.sql.Date;
 import java.sql.Timestamp;

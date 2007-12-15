@@ -1,12 +1,12 @@
-package gov.nih.nci.ncicb.cadsr.dto.bc4j;
+package gov.nih.nci.ncicb.cadsr.common.dto.bc4j;
 
-import gov.nih.nci.ncicb.cadsr.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
 
 import java.sql.Date;
 import java.sql.SQLException;
 import java.io.Serializable;
-import gov.nih.nci.ncicb.cadsr.dto.base.AuditTransferObject;
-import gov.nih.nci.ncicb.cadsr.persistence.bc4j.ContextsViewRowImpl;
+import gov.nih.nci.ncicb.cadsr.common.dto.base.AuditTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ContextsViewRowImpl;
 
 public class BC4JContextTransferObject extends AuditTransferObject 
                      implements Context,Serializable {

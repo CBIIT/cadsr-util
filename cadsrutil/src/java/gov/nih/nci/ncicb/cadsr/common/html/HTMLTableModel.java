@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.html;
+package gov.nih.nci.ncicb.cadsr.common.html;
 
 import oracle.jbo.Row;
 public class HTMLTableModel  {

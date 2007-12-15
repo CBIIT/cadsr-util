@@ -1,8 +1,8 @@
 package gov.nih.nci.ncicb.webtree;
 
-import gov.nih.nci.ncicb.cadsr.cdebrowser.tree.service.CDEBrowserTreeService;
+import gov.nih.nci.ncicb.cadsr.contexttree.service.CDEBrowserTreeService;
 
-import gov.nih.nci.ncicb.cadsr.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
 
 import java.util.List;
 

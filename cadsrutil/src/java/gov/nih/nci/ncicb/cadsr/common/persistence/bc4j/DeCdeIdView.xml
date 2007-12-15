@@ -8,8 +8,8 @@
    FromList="SBREXT.DE_CDE_ID_VIEW DeCdeId"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DeCdeIdViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DeCdeIdViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DeCdeIdViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DeCdeIdViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <DesignTime>
@@ -20,7 +20,7 @@
    </DesignTime>
    <EntityUsage
       Name="DeCdeId"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DeCdeId" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DeCdeId" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />

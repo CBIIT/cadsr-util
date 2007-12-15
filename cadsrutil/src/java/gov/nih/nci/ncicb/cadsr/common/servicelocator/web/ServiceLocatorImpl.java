@@ -1,9 +1,9 @@
-package gov.nih.nci.ncicb.cadsr.servicelocator.web;
+package gov.nih.nci.ncicb.cadsr.common.servicelocator.web;
 
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocator;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.jdbc.util.DataSourceUtil;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocatorException;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocatorAdapter;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc.util.DataSourceUtil;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocatorException;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocatorAdapter;
 
 import java.net.URL;
 
@@ -26,7 +26,7 @@ import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
 
 import javax.transaction.UserTransaction;
-import gov.nih.nci.ncicb.cadsr.persistence.PersistenceConstants;
+import gov.nih.nci.ncicb.cadsr.common.persistence.PersistenceConstants;
 
 /**
  * This class is an implementation of the Service Locator pattern. It is used

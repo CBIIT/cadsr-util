@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao.domain;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao.domain;
 import gov.nih.nci.ncicb.cadsr.dao.*;
 
 public abstract class AbstractDomainObjectsDAOFactory 

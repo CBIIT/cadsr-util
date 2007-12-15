@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.cdebrowser.userexception;
+package gov.nih.nci.ncicb.cadsr.common.cdebrowser.userexception;
 
-import gov.nih.nci.ncicb.cadsr.exception.NestedCheckedException;
+import gov.nih.nci.ncicb.cadsr.common.exception.NestedCheckedException;
 
 public class DataElementNotFoundException extends  NestedCheckedException  {
   public DataElementNotFoundException(String msg) {

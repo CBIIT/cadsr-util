@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.ocbrowser.service;
+package gov.nih.nci.ncicb.cadsr.common.ocbrowser.service;
 import gov.nih.nci.ncicb.cadsr.domain.ObjectClass;
 import java.util.List;
 

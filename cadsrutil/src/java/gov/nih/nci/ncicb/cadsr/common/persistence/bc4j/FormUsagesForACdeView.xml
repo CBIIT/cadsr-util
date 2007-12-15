@@ -6,8 +6,8 @@
    OrderBy="protocol_number,crf_long_name,que_long_name"
    BindingStyle="Oracle"
    CustomQuery="true"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.FormUsagesForACdeViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.FormUsagesForACdeViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.FormUsagesForACdeViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.FormUsagesForACdeViewImpl"
    UseGlueCode="false" >
    <SQLQuery><![CDATA[
 select  NVL(proto.long_name,'N/A') protocol_number,

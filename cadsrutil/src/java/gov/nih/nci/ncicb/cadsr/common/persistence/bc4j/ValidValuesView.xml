@@ -5,8 +5,8 @@
    Name="ValidValuesView"
    BindingStyle="Oracle"
    CustomQuery="true"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValidValuesViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValidValuesViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValidValuesViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValidValuesViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    FetchMode="FETCH_AS_NEEDED"
    PageIterMode="Partial"
@@ -31,7 +31,7 @@ WHERE (ValueDomains.VD_IDSEQ = VdPvs.VD_IDSEQ) AND (VdPvs.PV_IDSEQ = Permissible
    </DesignTime>
    <EntityUsage
       Name="VdPvs"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
@@ -39,60 +39,60 @@ WHERE (ValueDomains.VD_IDSEQ = VdPvs.VD_IDSEQ) AND (VdPvs.PV_IDSEQ = Permissible
    </EntityUsage>
    <EntityUsage
       Name="ValueMeaningsLov"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueMeaningsLov"
-      SourceUsage="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValidValuesView.VdPvs"
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLov"
+      SourceUsage="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValidValuesView.VdPvs"
       ReadOnly="true"
       Reference="true" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
          <AttrArray Name="_srcAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs.DateCreated" />
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs.CreatedBy" />
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs.DateModified" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs.DateCreated" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs.CreatedBy" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs.DateModified" />
          </AttrArray>
          <AttrArray Name="_dstAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueMeaningsLov.DateCreated" />
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueMeaningsLov.CreatedBy" />
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueMeaningsLov.DateModified" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLov.DateCreated" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLov.CreatedBy" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLov.DateModified" />
          </AttrArray>
       </DesignTime>
    </EntityUsage>
    <EntityUsage
       Name="ValueDomains"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueDomains"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VpVdFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VpVdFkAssoc.ValueDomains"
-      SourceUsage="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValidValuesView.VdPvs"
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueDomains"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VpVdFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VpVdFkAssoc.ValueDomains"
+      SourceUsage="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValidValuesView.VdPvs"
       ReadOnly="true"
       Reference="true" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
          <AttrArray Name="_srcAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs.VdIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs.VdIdseq" />
          </AttrArray>
          <AttrArray Name="_dstAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueDomains.VdIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueDomains.VdIdseq" />
          </AttrArray>
       </DesignTime>
    </EntityUsage>
    <EntityUsage
       Name="PermissibleValues"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PermissibleValues"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VpPvFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VpPvFkAssoc.PermissibleValues"
-      SourceUsage="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValidValuesView.VdPvs"
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PermissibleValues"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VpPvFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VpPvFkAssoc.PermissibleValues"
+      SourceUsage="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValidValuesView.VdPvs"
       ReadOnly="true"
       Reference="true" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
          <AttrArray Name="_srcAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs.PvIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs.PvIdseq" />
          </AttrArray>
          <AttrArray Name="_dstAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PermissibleValues.PvIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PermissibleValues.PvIdseq" />
          </AttrArray>
       </DesignTime>
    </EntityUsage>

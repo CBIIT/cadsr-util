@@ -8,7 +8,7 @@
    AliasName="ValueMeaningsLov"
    BindingStyle="Oracle"
    UseGlueCode="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueMeaningsLovImpl" >
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLovImpl" >
    <DesignTime>
       <Attr Name="_isCodegen" Value="true" />
       <Attr Name="_version" Value="9.0.5.16.0" />
@@ -128,23 +128,23 @@
    </Attribute>
    <AccessorAttribute
       Name="ConDerivationRulesExt"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VmCondrFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VmCondrFkAssoc.ConDerivationRulesExt"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VmCondrFkAssoc.ValueMeaningsLov"
-      Type="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConDerivationRulesExtImpl" >
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VmCondrFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VmCondrFkAssoc.ConDerivationRulesExt"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VmCondrFkAssoc.ValueMeaningsLov"
+      Type="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConDerivationRulesExtImpl" >
    </AccessorAttribute>
    <AccessorAttribute
       Name="PermissibleValues"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PvVmvFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PvVmvFkAssoc.PermissibleValues"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PvVmvFkAssoc.ValueMeaningsLov"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PvVmvFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PvVmvFkAssoc.PermissibleValues"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PvVmvFkAssoc.ValueMeaningsLov"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </AccessorAttribute>
    <Key
       Name="SysC0062875" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueMeaningsLov.ShortMeaning" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLov.ShortMeaning" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062875" />
@@ -155,7 +155,7 @@
    <Key
       Name="SysC0062876" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueMeaningsLov.DateCreated" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLov.DateCreated" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062876" />
@@ -166,7 +166,7 @@
    <Key
       Name="SysC0062877" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueMeaningsLov.CreatedBy" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLov.CreatedBy" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062877" />
@@ -177,7 +177,7 @@
    <Key
       Name="VmvPk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueMeaningsLov.ShortMeaning" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLov.ShortMeaning" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="VMV_PK" />
@@ -187,7 +187,7 @@
    <Key
       Name="VmCondrFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueMeaningsLov.CondrIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLov.CondrIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="VM_CONDR_FK" />

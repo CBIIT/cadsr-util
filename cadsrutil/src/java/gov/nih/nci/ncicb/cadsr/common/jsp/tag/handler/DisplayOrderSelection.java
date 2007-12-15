@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.jsp.tag.handler;
+package gov.nih.nci.ncicb.cadsr.common.jsp.tag.handler;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;

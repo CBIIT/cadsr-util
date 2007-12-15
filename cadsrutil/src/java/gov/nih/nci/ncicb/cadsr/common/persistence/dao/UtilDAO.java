@@ -1,5 +1,5 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao;
-import gov.nih.nci.ncicb.cadsr.exception.DMLException;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao;
+import gov.nih.nci.ncicb.cadsr.common.exception.DMLException;
 import java.util.Locale;
 import java.util.Properties;
 

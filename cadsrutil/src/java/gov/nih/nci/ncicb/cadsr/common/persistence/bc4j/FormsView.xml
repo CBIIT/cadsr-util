@@ -27,8 +27,8 @@
    Where="form.QTL_NAME IN (&#39;CRF&#39;,&#39;TEMPLATE&#39;)"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.FormsViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.FormsViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.FormsViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.FormsViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <DesignTime>
@@ -39,7 +39,7 @@
    </DesignTime>
    <EntityUsage
       Name="form"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExt" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExt" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="true" />
@@ -161,27 +161,27 @@
    </ViewAttribute>
    <ViewLinkAccessor
       Name="Context"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.formConteFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.formConteFkLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="Protocol"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.FormProtocolFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.FormProtocolFkLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="Modules"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ModuleFormLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ModuleFormLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="FormModuleRecs"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ModuleFormRelLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ModuleFormRelLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>

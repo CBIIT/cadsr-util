@@ -1,5 +1,5 @@
-package gov.nih.nci.ncicb.cadsr.dto;
-import gov.nih.nci.ncicb.cadsr.resource.Attachment;
+package gov.nih.nci.ncicb.cadsr.common.dto;
+import gov.nih.nci.ncicb.cadsr.common.resource.Attachment;
 
 public class AttachmentTransferObject extends BaseTransferObject 
 implements Attachment

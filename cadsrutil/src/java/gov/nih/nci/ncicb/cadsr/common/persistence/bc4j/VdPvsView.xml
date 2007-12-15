@@ -14,7 +14,7 @@
    FromList="VD_PVS VdPvs"
    BindingStyle="Oracle"
    CustomQuery="false"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvsViewImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvsViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <DesignTime>
@@ -24,7 +24,7 @@
    </DesignTime>
    <EntityUsage
       Name="VdPvs"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdPvs" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdPvs" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />

@@ -7,8 +7,8 @@ package gov.nih.nci.ncicb.webtree;
  * @version 1.0
  */
  
-import gov.nih.nci.ncicb.cadsr.util.logging.Log;
-import gov.nih.nci.ncicb.cadsr.util.logging.LogFactory;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
 
 import java.io.BufferedReader;
 import java.io.File;

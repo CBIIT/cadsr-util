@@ -1,11 +1,11 @@
-package gov.nih.nci.ncicb.cadsr.dto;
+package gov.nih.nci.ncicb.cadsr.common.dto;
 
-import gov.nih.nci.ncicb.cadsr.persistence.dao.FormValidValueDAO;
-import gov.nih.nci.ncicb.cadsr.resource.FormValidValue;
-import gov.nih.nci.ncicb.cadsr.resource.QuestionChange;
-import gov.nih.nci.ncicb.cadsr.resource.Question;
-import gov.nih.nci.ncicb.cadsr.resource.InstructionChanges;
-import gov.nih.nci.ncicb.cadsr.resource.FormValidValueChanges;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.FormValidValueDAO;
+import gov.nih.nci.ncicb.cadsr.common.resource.FormValidValue;
+import gov.nih.nci.ncicb.cadsr.common.resource.QuestionChange;
+import gov.nih.nci.ncicb.cadsr.common.resource.Question;
+import gov.nih.nci.ncicb.cadsr.common.resource.InstructionChanges;
+import gov.nih.nci.ncicb.cadsr.common.resource.FormValidValueChanges;
 
 public class QuestionChangeTransferObject implements QuestionChange 
 {

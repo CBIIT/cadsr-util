@@ -53,8 +53,8 @@ ValueDomains.PREFERRED_NAME,
    FromList="VALUE_DOMAINS ValueDomains"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueDomainsViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueDomainsViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueDomainsViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueDomainsViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <DesignTime>
@@ -65,7 +65,7 @@ ValueDomains.PREFERRED_NAME,
    </DesignTime>
    <EntityUsage
       Name="ValueDomains"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueDomains" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueDomains" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
@@ -311,26 +311,26 @@ ValueDomains.PREFERRED_NAME,
    </ViewAttribute>
    <ViewLinkAccessor
       Name="ConceptualDomainsRow"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdCdFKLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdCdFKLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="DataElementsView"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DeVdFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DeVdFkLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="VdPvsView"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VpVdFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VpVdFkLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="RepresentationViewObj"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VDRepViewLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VDRepViewLink"
       Type="oracle.jbo.Row"
       IsUpdateable="false" >
    </ViewLinkAccessor>

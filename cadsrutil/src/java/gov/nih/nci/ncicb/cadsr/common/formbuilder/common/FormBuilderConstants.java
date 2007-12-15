@@ -1,5 +1,5 @@
-package gov.nih.nci.ncicb.cadsr.formbuilder.common;
-import gov.nih.nci.ncicb.cadsr.CaDSRConstants;
+package gov.nih.nci.ncicb.cadsr.common.formbuilder.common;
+import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
 import java.util.HashMap;
 import java.util.Map;
 

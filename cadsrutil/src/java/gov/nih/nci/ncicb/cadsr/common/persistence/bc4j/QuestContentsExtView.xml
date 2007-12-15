@@ -82,8 +82,8 @@ QuestContentsExt.REVIEWER_FEEDBACK_EXTERNAL,
    FromList="SBREXT.QUEST_CONTENTS_EXT QuestContentsExt"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExtViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExtViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExtViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExtViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <DesignTime>
@@ -94,7 +94,7 @@ QuestContentsExt.REVIEWER_FEEDBACK_EXTERNAL,
    </DesignTime>
    <EntityUsage
       Name="QuestContentsExt"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExt" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExt" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
@@ -471,14 +471,14 @@ QuestContentsExt.REVIEWER_FEEDBACK_EXTERNAL,
    </ViewAttribute>
    <ViewLinkAccessor
       Name="ContextsRow"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcConteFKLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcConteFKLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="Protocol"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcProtoFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcProtoFkLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >

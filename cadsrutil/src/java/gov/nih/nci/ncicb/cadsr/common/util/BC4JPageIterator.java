@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.util;
+package gov.nih.nci.ncicb.cadsr.common.util;
 
-import gov.nih.nci.ncicb.cadsr.util.logging.Log;
-import gov.nih.nci.ncicb.cadsr.util.logging.LogFactory;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -219,7 +219,7 @@ public class BC4JPageIterator implements PageIterator  {
     try {
       BC4JPageIterator bpi = new BC4JPageIterator(10);
       amPool = BC4JHelper
-          .getApplicationPool("myPool","gov.nih.nci.ncicb.cadsr.persistence.bc4j","CDEBrowserBc4jModuleLocal",null);
+          .getApplicationPool("myPool","gov.nih.nci.ncicb.cadsr.common.persistence.bc4j","CDEBrowserBc4jModuleLocal",null);
       log.trace("Application pool name "+amPool.getPoolName());
       SessionCookie cookie1 = BC4JHelper
                     .createSessionCookie(amPool,"100","Test App",null);

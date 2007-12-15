@@ -4,7 +4,7 @@
    * @author Amit kochar
    * @version 1.0 (8/6/2002)
    */
-package gov.nih.nci.ncicb.cadsr.resource;
+package gov.nih.nci.ncicb.cadsr.common.resource;
 
 public interface Classification 
 {

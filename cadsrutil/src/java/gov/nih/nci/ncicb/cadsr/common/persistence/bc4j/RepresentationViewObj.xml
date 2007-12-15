@@ -26,8 +26,8 @@
    FromList="REPRESENTATIONS_EXT Representation"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RepresentationViewObjRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RepresentationViewObjImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RepresentationViewObjRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RepresentationViewObjImpl"
    UseGlueCode="false" >
    <DesignTime>
       <Attr Name="_isCodegen" Value="true" />
@@ -36,7 +36,7 @@
    </DesignTime>
    <EntityUsage
       Name="Representation"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Representation" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Representation" >
       <DesignTime>
          <Attr Name="_queryClause" Value="false" />
       </DesignTime>
@@ -172,14 +172,14 @@
    </ViewAttribute>
    <ViewLinkAccessor
       Name="ContextsRow"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RepConteFKLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RepConteFKLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="ValueDomainsView"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VDRepViewLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VDRepViewLink"
       Type="oracle.jbo.RowIterator"
       Reversed="true"
       IsUpdateable="false" >

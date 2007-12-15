@@ -23,8 +23,8 @@
    FromList="REFERENCE_BLOBS ReferenceBlobs"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceBlobsViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceBlobsViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceBlobsViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceBlobsViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <DesignTime>
@@ -35,7 +35,7 @@
    </DesignTime>
    <EntityUsage
       Name="ReferenceBlobs"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceBlobs" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceBlobs" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />

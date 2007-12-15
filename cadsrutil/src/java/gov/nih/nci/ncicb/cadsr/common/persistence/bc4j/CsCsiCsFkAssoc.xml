@@ -11,29 +11,29 @@
       Name="ClassificationSchemes"
       Cardinality="0"
       Source="true"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.CsIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.CsIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="ClassificationSchemes" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemes.CsPk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemes.CsPk" />
       </DesignTime>
    </AssociationEnd>
    <AssociationEnd
       Name="CsCsi"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsi" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsi" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsi.CsIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsi.CsIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="CsCsi" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsi.CsCsiCsFk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsi.CsCsiCsFk" />
       </DesignTime>
    </AssociationEnd>
 </Association>

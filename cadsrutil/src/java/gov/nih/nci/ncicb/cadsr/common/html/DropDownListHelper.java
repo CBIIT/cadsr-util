@@ -1,8 +1,8 @@
-package gov.nih.nci.ncicb.cadsr.html;
+package gov.nih.nci.ncicb.cadsr.common.html;
 
-import gov.nih.nci.ncicb.cadsr.exception.PopListBuilderException;
-import gov.nih.nci.ncicb.cadsr.util.DBUtil;
-import gov.nih.nci.ncicb.cadsr.util.GenericPopListBean;
+import gov.nih.nci.ncicb.cadsr.common.exception.PopListBuilderException;
+import gov.nih.nci.ncicb.cadsr.common.util.DBUtil;
+import gov.nih.nci.ncicb.cadsr.common.util.GenericPopListBean;
 
 
 public class DropDownListHelper {

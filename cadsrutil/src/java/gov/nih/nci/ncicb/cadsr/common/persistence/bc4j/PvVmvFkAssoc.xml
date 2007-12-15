@@ -11,29 +11,29 @@
       Name="ValueMeaningsLov"
       Cardinality="0"
       Source="true"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueMeaningsLov" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLov" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueMeaningsLov.ShortMeaning" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLov.ShortMeaning" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="ValueMeaningsLov" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueMeaningsLov.VmvPk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLov.VmvPk" />
       </DesignTime>
    </AssociationEnd>
    <AssociationEnd
       Name="PermissibleValues"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PermissibleValues" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PermissibleValues" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PermissibleValues.ShortMeaning" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PermissibleValues.ShortMeaning" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="PermissibleValues" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PermissibleValues.PvVmvFk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PermissibleValues.PvVmvFk" />
       </DesignTime>
    </AssociationEnd>
 </Association>

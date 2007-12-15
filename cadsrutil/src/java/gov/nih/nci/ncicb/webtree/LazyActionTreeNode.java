@@ -1,9 +1,9 @@
 package gov.nih.nci.ncicb.webtree;
 
-import gov.nih.nci.ncicb.cadsr.cdebrowser.tree.CDEBrowserTreeData;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ApplicationServiceLocator;
+import gov.nih.nci.ncicb.cadsr.contexttree.CDEBrowserTreeData;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ApplicationServiceLocator;
 
-import gov.nih.nci.ncicb.cadsr.util.StringUtils;
+import gov.nih.nci.ncicb.cadsr.common.util.StringUtils;
 
 import java.util.List;
 import java.util.ArrayList;

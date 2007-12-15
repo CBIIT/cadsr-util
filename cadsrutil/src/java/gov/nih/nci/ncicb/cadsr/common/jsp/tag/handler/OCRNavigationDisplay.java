@@ -1,12 +1,12 @@
-package gov.nih.nci.ncicb.cadsr.jsp.tag.handler;
+package gov.nih.nci.ncicb.cadsr.common.jsp.tag.handler;
 
 import gov.nih.nci.ncicb.cadsr.domain.ObjectClass;
 import gov.nih.nci.ncicb.cadsr.domain.ObjectClassRelationship;
-import gov.nih.nci.ncicb.cadsr.jsp.bean.OCRNavigationBean;
-import gov.nih.nci.ncicb.cadsr.ocbrowser.struts.common.OCBrowserFormConstants;
-import gov.nih.nci.ncicb.cadsr.ocbrowser.struts.common.OCBrowserNavigationConstants;
-import gov.nih.nci.ncicb.cadsr.ocbrowser.util.OCUtils;
-import gov.nih.nci.ncicb.cadsr.util.StringUtils;
+import gov.nih.nci.ncicb.cadsr.common.jsp.bean.OCRNavigationBean;
+import gov.nih.nci.ncicb.cadsr.common.ocbrowser.struts.common.OCBrowserFormConstants;
+import gov.nih.nci.ncicb.cadsr.common.ocbrowser.struts.common.OCBrowserNavigationConstants;
+import gov.nih.nci.ncicb.cadsr.common.ocbrowser.util.OCUtils;
+import gov.nih.nci.ncicb.cadsr.common.util.StringUtils;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.ListIterator;

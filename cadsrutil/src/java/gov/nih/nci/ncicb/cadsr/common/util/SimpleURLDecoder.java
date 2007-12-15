@@ -1,6 +1,6 @@
 
 // Copyright (c) 2000 Oracle Corporation
-package gov.nih.nci.ncicb.cadsr.util;
+package gov.nih.nci.ncicb.cadsr.common.util;
 
 import java.sql.*;
 import java.lang.*;

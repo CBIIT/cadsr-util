@@ -1,5 +1,5 @@
-package gov.nih.nci.ncicb.cadsr.persistence.bc4j;
-import gov.nih.nci.ncicb.cadsr.resource.ConceptDerivationRule;
+package gov.nih.nci.ncicb.cadsr.common.persistence.bc4j;
+import gov.nih.nci.ncicb.cadsr.common.resource.ConceptDerivationRule;
 import oracle.jbo.server.ViewRowImpl;
 import oracle.jbo.server.AttributeDefImpl;
 import oracle.jbo.RowIterator;

@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.ocbrowser.struts.common;
+package gov.nih.nci.ncicb.cadsr.common.ocbrowser.struts.common;
 
 public interface OCBrowserFormConstants
 {

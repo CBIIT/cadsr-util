@@ -11,30 +11,30 @@
       Name="QuestContentsExt"
       Cardinality="1"
       Source="true"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExt" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExt" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExt.QcIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExt.QcIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_minCardinality" Value="1" />
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="QuestContentsExt" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QuestContentsExt.QcePk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QuestContentsExt.QcePk" />
       </DesignTime>
    </AssociationEnd>
    <AssociationEnd
       Name="QcRecsExt"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt.PQcIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt.PQcIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="QcRecsExt" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt.QrsQcFk1" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt.QrsQcFk1" />
       </DesignTime>
    </AssociationEnd>
 </Association>

@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.util;
+package gov.nih.nci.ncicb.cadsr.common.util;
 
-import gov.nih.nci.ncicb.cadsr.cdebrowser.tree.TreeConstants;
+import gov.nih.nci.ncicb.cadsr.contexttree.TreeConstants;
 import gov.nih.nci.ncicb.webtree.WebNode;
 import java.net.URLEncoder;
 import java.util.Hashtable;

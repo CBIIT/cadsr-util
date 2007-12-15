@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.dto;
+package gov.nih.nci.ncicb.cadsr.common.dto;
 
-import gov.nih.nci.ncicb.cadsr.resource.OCRPackage;
-import gov.nih.nci.ncicb.cadsr.resource.Project;
+import gov.nih.nci.ncicb.cadsr.common.resource.OCRPackage;
+import gov.nih.nci.ncicb.cadsr.common.resource.Project;
 import java.util.ArrayList;
 import java.util.List;
 

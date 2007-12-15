@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.jsp.bean;
+package gov.nih.nci.ncicb.cadsr.common.jsp.bean;
 
 public class PaginationBean 
 {

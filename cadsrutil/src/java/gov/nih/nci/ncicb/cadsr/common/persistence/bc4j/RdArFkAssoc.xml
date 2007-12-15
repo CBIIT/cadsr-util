@@ -11,29 +11,29 @@
       Name="AcRegistrations"
       Cardinality="1"
       Source="true"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AcRegistrations" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AcRegistrations" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AcRegistrations.ArIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AcRegistrations.ArIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="AcRegistrations" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AcRegistrations.CraPk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AcRegistrations.CraPk" />
       </DesignTime>
    </AssociationEnd>
    <AssociationEnd
       Name="ReferenceDocuments"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.ArIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.ArIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="ReferenceDocuments" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocuments.RdArFk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocuments.RdArFk" />
       </DesignTime>
    </AssociationEnd>
 </Association>

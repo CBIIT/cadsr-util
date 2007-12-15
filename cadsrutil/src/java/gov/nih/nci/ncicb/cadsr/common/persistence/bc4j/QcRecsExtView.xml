@@ -18,8 +18,8 @@
    FromList="QC_RECS_EXT QcRecsExt"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExtViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExtViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExtViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExtViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <DesignTime>
@@ -30,7 +30,7 @@
    </DesignTime>
    <EntityUsage
       Name="QcRecsExt"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcRecsExt" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcRecsExt" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />

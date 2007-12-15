@@ -26,11 +26,11 @@
    Where="ConceptsExt.CON_IDSEQ = ComponentConceptsExt.CON_IDSEQ"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CompConceptsViewObjRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CompConceptsViewObjImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CompConceptsViewObjRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CompConceptsViewObjImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
-   RowInterface="gov.nih.nci.ncicb.cadsr.persistence.bc4j.common.CompConceptsViewObjRow"
-   ClientRowProxyName="gov.nih.nci.ncicb.cadsr.persistence.bc4j.client.CompConceptsViewObjRowClient"
+   RowInterface="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.common.CompConceptsViewObjRow"
+   ClientRowProxyName="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.client.CompConceptsViewObjRowClient"
    UseGlueCode="false" >
    <DesignTime>
       <Attr Name="_isCodegen" Value="true" />
@@ -40,7 +40,7 @@
    </DesignTime>
    <EntityUsage
       Name="ConceptsExt"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptsExt" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptsExt" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
@@ -48,20 +48,20 @@
    </EntityUsage>
    <EntityUsage
       Name="ComponentConceptsExt"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ComponentConceptsExt"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CctCetFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CctCetFkAssoc.ComponentConceptsExt"
-      SourceUsage="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CompConceptsViewObj.ConceptsExt"
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ComponentConceptsExt"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CctCetFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CctCetFkAssoc.ComponentConceptsExt"
+      SourceUsage="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CompConceptsViewObj.ConceptsExt"
       ReadOnly="true"
       Reference="true" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
          <AttrArray Name="_srcAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConceptsExt.ConIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConceptsExt.ConIdseq" />
          </AttrArray>
          <AttrArray Name="_dstAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ComponentConceptsExt.ConIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ComponentConceptsExt.ConIdseq" />
          </AttrArray>
       </DesignTime>
    </EntityUsage>

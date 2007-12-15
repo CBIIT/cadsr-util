@@ -1,11 +1,11 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao.jdbc;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc;
 
-import gov.nih.nci.ncicb.cadsr.dto.jdbc.ClassSchemeValueObject;
-import gov.nih.nci.ncicb.cadsr.dto.CSITransferObject;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.ClassificationSchemeDAO;
-import gov.nih.nci.ncicb.cadsr.resource.ClassSchemeItem;
-import gov.nih.nci.ncicb.cadsr.resource.ClassificationScheme;
-import gov.nih.nci.ncicb.cadsr.servicelocator.ServiceLocator;
+import gov.nih.nci.ncicb.cadsr.common.dto.jdbc.ClassSchemeValueObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.CSITransferObject;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.ClassificationSchemeDAO;
+import gov.nih.nci.ncicb.cadsr.common.resource.ClassSchemeItem;
+import gov.nih.nci.ncicb.cadsr.common.resource.ClassificationScheme;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocator;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

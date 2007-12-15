@@ -5,12 +5,12 @@
  * @release 3.0
  * @date: 8/16/2005
  */
-package gov.nih.nci.ncicb.cadsr.admin.actions;
+package gov.nih.nci.ncicb.cadsr.common.admin.actions;
 
 
 
-import gov.nih.nci.ncicb.cadsr.struts.common.BaseDispatchAction;
-import gov.nih.nci.ncicb.cadsr.util.CDEBrowserParams;
+import gov.nih.nci.ncicb.cadsr.common.struts.common.BaseDispatchAction;
+import gov.nih.nci.ncicb.cadsr.common.util.CDEBrowserParams;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -49,11 +49,11 @@ public class AdminAction extends BaseDispatchAction {
     try
     {
       CDEBrowserParams.reloadInstance(request.getRemoteUser());
-      saveMessage("cadsr.admin.cdebrowser.reload.properties.success", request);
+      saveMessage("cadsr.common.admin.cdebrowser.reload.properties.success", request);
     }
     catch (Exception e)
     {
-      saveError("cadsr.admin.cdebrowser.reload.properties.fail", request);
+      saveError("cadsr.common.admin.cdebrowser.reload.properties.fail", request);
     }
     
     

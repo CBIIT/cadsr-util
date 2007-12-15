@@ -1,8 +1,8 @@
-package gov.nih.nci.ncicb.cadsr.jsp.tag.handler;
-import gov.nih.nci.ncicb.cadsr.CaDSRConstants;
-import gov.nih.nci.ncicb.cadsr.resource.DataElement;
-import gov.nih.nci.ncicb.cadsr.resource.Module;
-import gov.nih.nci.ncicb.cadsr.resource.Question;
+package gov.nih.nci.ncicb.cadsr.common.jsp.tag.handler;
+import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
+import gov.nih.nci.ncicb.cadsr.common.resource.DataElement;
+import gov.nih.nci.ncicb.cadsr.common.resource.Module;
+import gov.nih.nci.ncicb.cadsr.common.resource.Question;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
@@ -12,9 +12,9 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.Tag;
 import javax.servlet.jsp.tagext.TagSupport;
-import gov.nih.nci.ncicb.cadsr.formbuilder.struts.common.FormConstants;
+import gov.nih.nci.ncicb.cadsr.common.formbuilder.struts.common.FormConstants;
 import org.apache.commons.beanutils.PropertyUtils;
-import gov.nih.nci.ncicb.cadsr.util.*;
+import gov.nih.nci.ncicb.cadsr.common.util.*;
 
 /**
  * This Handler is used to display Alternate Question text from a Dataelement property

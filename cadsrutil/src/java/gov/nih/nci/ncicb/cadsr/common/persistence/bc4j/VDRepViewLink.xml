@@ -10,10 +10,10 @@
    <ViewLinkDefEnd
       Name="ValueDomainsView"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueDomainsView"
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueDomainsView"
       Source="true" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ValueDomainsView.RepIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueDomainsView.RepIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_isUpdateable" Value="true" />
@@ -25,9 +25,9 @@
    <ViewLinkDefEnd
       Name="RepresentationViewObj"
       Cardinality="1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RepresentationViewObj" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RepresentationViewObj" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RepresentationViewObj.RepIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RepresentationViewObj.RepIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_isUpdateable" Value="true" />

@@ -17,8 +17,8 @@
    FromList="CONTEXTS Contexts"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ContextsViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ContextsViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ContextsViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ContextsViewImpl"
    FetchMode="FETCH_AS_NEEDED"
    UseGlueCode="false" >
    <DesignTime>
@@ -28,7 +28,7 @@
    </DesignTime>
    <EntityUsage
       Name="Contexts"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Contexts" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Contexts" >
       <DesignTime>
          <Attr Name="_queryClause" Value="false" />
       </DesignTime>
@@ -111,73 +111,73 @@
    </ViewAttribute>
    <ViewLinkAccessor
       Name="ConceptualDomainsRows"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CdConteFKLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CdConteFKLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="ClassificationSchemesView"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsConteFKLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsConteFKLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="DataElementsView"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DeConteFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DeConteFkLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="DataElementConceptsRows"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DecConteFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DecConteFkLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="DesignationsRows"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DesigConteFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DesigConteFkLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="ObjectClassesExtRows"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.OcConteFKLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.OcConteFKLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="PropertiesExtRows"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProConteFKLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProConteFKLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="Protocols"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtoConteFKLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtoConteFKLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="QuestContentsExtRows"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.QcConteFKLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.QcConteFKLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="RepresentationObjRows"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RepConteFKLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RepConteFKLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="ValueDomainsView"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VdConteFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VdConteFkLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="VdPvsView"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.VpConteFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.VpConteFkLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>

@@ -11,29 +11,29 @@
       Name="ObjectClassesExt"
       Cardinality="0"
       Source="true"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ObjectClassesExt" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ObjectClassesExt" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ObjectClassesExt.OcIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ObjectClassesExt.OcIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="ObjectClassesExt" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ObjectClassesExt.OctPk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ObjectClassesExt.OctPk" />
       </DesignTime>
    </AssociationEnd>
    <AssociationEnd
       Name="DataElementConcepts"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DataElementConcepts" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DataElementConcepts" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DataElementConcepts.OcIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DataElementConcepts.OcIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="DataElementConcepts" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DataElementConcepts.DecOctFk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DataElementConcepts.DecOctFk" />
       </DesignTime>
    </AssociationEnd>
 </Association>

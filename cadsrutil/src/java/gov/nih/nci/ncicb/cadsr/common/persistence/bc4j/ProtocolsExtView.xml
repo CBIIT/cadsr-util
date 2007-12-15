@@ -45,7 +45,7 @@
    FromList="SBREXT.PROTOCOLS_EXT ProtocolsExt"
    BindingStyle="Oracle"
    CustomQuery="false"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExtViewImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExtViewImpl"
    UseGlueCode="false" >
    <DesignTime>
       <Attr Name="_version" Value="9.0.2.7.99" />
@@ -53,7 +53,7 @@
    </DesignTime>
    <EntityUsage
       Name="ProtocolsExt"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ProtocolsExt" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ProtocolsExt" >
       <DesignTime>
          <Attr Name="_ReadOnly" Value="false" />
          <Attr Name="_EntireObjectTable" Value="false" />

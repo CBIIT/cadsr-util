@@ -1,8 +1,8 @@
-package gov.nih.nci.ncicb.cadsr.resource.impl;
+package gov.nih.nci.ncicb.cadsr.common.resource.impl;
 import java.util.Collection;
-import gov.nih.nci.ncicb.cadsr.resource.CDECartItem;
-import gov.nih.nci.ncicb.cadsr.resource.CDECart;
-import gov.nih.nci.ncicb.cadsr.cdecart.CDECartItemComparator;
+import gov.nih.nci.ncicb.cadsr.common.resource.CDECartItem;
+import gov.nih.nci.ncicb.cadsr.common.resource.CDECart;
+import gov.nih.nci.ncicb.cadsr.common.cdecart.CDECartItemComparator;
 import java.util.*;
 import java.io.Serializable;
 

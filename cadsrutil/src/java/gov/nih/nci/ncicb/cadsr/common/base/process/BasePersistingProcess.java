@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.base.process;
+package gov.nih.nci.ncicb.cadsr.common.base.process;
 
 import java.util.*;
 import java.io.*;

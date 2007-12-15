@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.dto;
+package gov.nih.nci.ncicb.cadsr.common.dto;
 
-import gov.nih.nci.ncicb.cadsr.resource.Concept;
+import gov.nih.nci.ncicb.cadsr.common.resource.Concept;
 
 
 public class ConceptTransferObject extends AdminComponentTransferObject

@@ -10,10 +10,10 @@
    <ViewLinkDefEnd
       Name="Module"
       Cardinality="1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ModulesView"
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ModulesView"
       Source="true" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ModulesView.QcIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ModulesView.QcIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_minCardinality" Value="1" />
@@ -25,9 +25,9 @@
    <ViewLinkDefEnd
       Name="ModuleQuestionRecs"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ModuleQuestionRecsView" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ModuleQuestionRecsView" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ModuleQuestionRecsView.PQcIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ModuleQuestionRecsView.PQcIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_isUpdateable" Value="true" />

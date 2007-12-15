@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.persistence;
+package gov.nih.nci.ncicb.cadsr.common.persistence;
 
 public interface PersistenceConstants {
   public static final String DAO_FACTORY_CLASS_KEY = "DAOFactoryClassName";

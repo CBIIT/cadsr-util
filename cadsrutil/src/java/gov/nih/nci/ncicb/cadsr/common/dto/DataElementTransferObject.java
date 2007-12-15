@@ -1,11 +1,11 @@
-package gov.nih.nci.ncicb.cadsr.dto;
+package gov.nih.nci.ncicb.cadsr.common.dto;
 
-import gov.nih.nci.ncicb.cadsr.resource.DataElement;
-import gov.nih.nci.ncicb.cadsr.resource.DataElementConcept;
-import gov.nih.nci.ncicb.cadsr.resource.DataElementDerivation;
-import gov.nih.nci.ncicb.cadsr.resource.DerivedDataElement;
-import gov.nih.nci.ncicb.cadsr.resource.ValueDomain;
-import gov.nih.nci.ncicb.cadsr.util.DebugStringBuffer;
+import gov.nih.nci.ncicb.cadsr.common.resource.DataElement;
+import gov.nih.nci.ncicb.cadsr.common.resource.DataElementConcept;
+import gov.nih.nci.ncicb.cadsr.common.resource.DataElementDerivation;
+import gov.nih.nci.ncicb.cadsr.common.resource.DerivedDataElement;
+import gov.nih.nci.ncicb.cadsr.common.resource.ValueDomain;
+import gov.nih.nci.ncicb.cadsr.common.util.DebugStringBuffer;
 import java.util.List;
 
 

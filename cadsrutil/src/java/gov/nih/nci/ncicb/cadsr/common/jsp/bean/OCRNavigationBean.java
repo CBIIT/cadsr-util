@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.jsp.bean;
+package gov.nih.nci.ncicb.cadsr.common.jsp.bean;
 import gov.nih.nci.ncicb.cadsr.domain.ObjectClass;
 import gov.nih.nci.ncicb.cadsr.domain.ObjectClassRelationship;
 

@@ -1,21 +1,21 @@
-package gov.nih.nci.ncicb.cadsr.persistence.bc4j;
+package gov.nih.nci.ncicb.cadsr.common.persistence.bc4j;
 
-import gov.nih.nci.ncicb.cadsr.cdebrowser.userexception.*;
-import gov.nih.nci.ncicb.cadsr.dto.ComponentConceptTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.ConceptDerivationRuleTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.ConceptTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.ValidValueTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.bc4j.BC4JClassificationsTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.bc4j.BC4JDataElementFormUsageTO;
-import gov.nih.nci.ncicb.cadsr.dto.bc4j.BC4JDataElementTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.bc4j.BC4JReferenceBlobTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.bc4j.BC4JValueDomainTransferObject;
-import gov.nih.nci.ncicb.cadsr.resource.*;
-import gov.nih.nci.ncicb.cadsr.util.BC4JPageIterator;
-import gov.nih.nci.ncicb.cadsr.util.PageIterator;
-import gov.nih.nci.ncicb.cadsr.util.logging.Log;
-import gov.nih.nci.ncicb.cadsr.util.logging.LogFactory;
-import gov.nih.nci.ncicb.cadsr.util.NCIBC4JUtil;
+import gov.nih.nci.ncicb.cadsr.common.cdebrowser.userexception.*;
+import gov.nih.nci.ncicb.cadsr.common.dto.ComponentConceptTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ConceptDerivationRuleTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ConceptTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ValidValueTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.bc4j.BC4JClassificationsTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.bc4j.BC4JDataElementFormUsageTO;
+import gov.nih.nci.ncicb.cadsr.common.dto.bc4j.BC4JDataElementTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.bc4j.BC4JReferenceBlobTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.bc4j.BC4JValueDomainTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.resource.*;
+import gov.nih.nci.ncicb.cadsr.common.util.BC4JPageIterator;
+import gov.nih.nci.ncicb.cadsr.common.util.PageIterator;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
+import gov.nih.nci.ncicb.cadsr.common.util.NCIBC4JUtil;
 import oracle.clex.persistence.bc4j.*;
 
 import oracle.jbo.*;
@@ -876,7 +876,7 @@ public class CDEBrowserBc4jModuleImpl extends ApplicationModuleImpl {
    */
   public static void main(String[] args) {
     launchTester(
-      "gov.nih.nci.ncicb.cadsr.persistence.bc4j", "CDEBrowserBc4jModuleLocal");
+      "gov.nih.nci.ncicb.cadsr.common.persistence.bc4j", "CDEBrowserBc4jModuleLocal");
   }
 
   /**

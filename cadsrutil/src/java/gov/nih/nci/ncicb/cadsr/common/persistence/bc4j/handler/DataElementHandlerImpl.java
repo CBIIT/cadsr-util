@@ -1,19 +1,19 @@
-package gov.nih.nci.ncicb.cadsr.persistence.bc4j.handler;
+package gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.handler;
 
-import gov.nih.nci.ncicb.cadsr.cdebrowser.userexception.*;
-import gov.nih.nci.ncicb.cadsr.dto.bc4j.BC4JDataElementTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.ContextTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.DataElementConceptTransferObject;
-import gov.nih.nci.ncicb.cadsr.dto.ValueDomainTransferObject;
-import gov.nih.nci.ncicb.cadsr.persistence.bc4j.CDEBrowserBc4jModuleImpl;
-import gov.nih.nci.ncicb.cadsr.persistence.bc4j.DataElementsViewRowImpl;
-import gov.nih.nci.ncicb.cadsr.resource.DataElement;
-import gov.nih.nci.ncicb.cadsr.resource.ValueDomain;
-import gov.nih.nci.ncicb.cadsr.resource.DataElementConcept;
-import gov.nih.nci.ncicb.cadsr.resource.Context;
-import gov.nih.nci.ncicb.cadsr.resource.handler.DataElementHandler;
-import gov.nih.nci.ncicb.cadsr.util.BC4JPageIterator;
-import gov.nih.nci.ncicb.cadsr.util.PageIterator;
+import gov.nih.nci.ncicb.cadsr.common.cdebrowser.userexception.*;
+import gov.nih.nci.ncicb.cadsr.common.dto.bc4j.BC4JDataElementTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ContextTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.DataElementConceptTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ValueDomainTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CDEBrowserBc4jModuleImpl;
+import gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DataElementsViewRowImpl;
+import gov.nih.nci.ncicb.cadsr.common.resource.DataElement;
+import gov.nih.nci.ncicb.cadsr.common.resource.ValueDomain;
+import gov.nih.nci.ncicb.cadsr.common.resource.DataElementConcept;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.resource.handler.DataElementHandler;
+import gov.nih.nci.ncicb.cadsr.common.util.BC4JPageIterator;
+import gov.nih.nci.ncicb.cadsr.common.util.PageIterator;
 
 import oracle.cle.persistence.Handler;
 import oracle.cle.persistence.HandlerFactory;
@@ -197,9 +197,14 @@ public class DataElementHandlerImpl extends Handler
       throw ex;
     }
     finally {
-      if (runtimeVO != null) {
-        runtimeVO.clearCache();
-      }
+      try {
+		if (runtimeVO != null) {
+			System.out.println(runtimeVO.getQuery());
+		    runtimeVO.clearCache();
+		  }
+	} catch (RuntimeException e) {
+		e.printStackTrace();
+	}
 
       releaseConnection(sessionId);
     }

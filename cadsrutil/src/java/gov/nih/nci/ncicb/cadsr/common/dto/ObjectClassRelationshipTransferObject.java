@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.dto;
-import gov.nih.nci.ncicb.cadsr.resource.ObjectClass;
-import gov.nih.nci.ncicb.cadsr.resource.ObjectClassRelationship;
+package gov.nih.nci.ncicb.cadsr.common.dto;
+import gov.nih.nci.ncicb.cadsr.common.resource.ObjectClass;
+import gov.nih.nci.ncicb.cadsr.common.resource.ObjectClassRelationship;
 import java.util.List;
 
 public class ObjectClassRelationshipTransferObject extends AdminComponentTransferObject implements ObjectClassRelationship

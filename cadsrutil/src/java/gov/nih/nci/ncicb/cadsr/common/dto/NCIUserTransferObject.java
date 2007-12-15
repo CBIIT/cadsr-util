@@ -1,10 +1,10 @@
-package gov.nih.nci.ncicb.cadsr.dto;
+package gov.nih.nci.ncicb.cadsr.common.dto;
 
-import gov.nih.nci.ncicb.cadsr.CaDSRConstants;
-import gov.nih.nci.ncicb.cadsr.resource.Context;
-import gov.nih.nci.ncicb.cadsr.resource.NCIUser;
+import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.resource.NCIUser;
 
-import gov.nih.nci.ncicb.cadsr.util.DebugStringBuffer;
+import gov.nih.nci.ncicb.cadsr.common.util.DebugStringBuffer;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;

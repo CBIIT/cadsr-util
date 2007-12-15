@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.common.bc4j;
+package gov.nih.nci.ncicb.cadsr.common.common.bc4j;
 
-import gov.nih.nci.ncicb.cadsr.xml.util.ConnectionProviderLoader;
+import gov.nih.nci.ncicb.cadsr.common.xml.util.ConnectionProviderLoader;
 
 import oracle.cle.util.xml.XMLUtil;
 

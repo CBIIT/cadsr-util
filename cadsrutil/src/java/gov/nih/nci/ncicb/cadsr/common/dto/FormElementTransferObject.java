@@ -1,8 +1,8 @@
-package gov.nih.nci.ncicb.cadsr.dto;
+package gov.nih.nci.ncicb.cadsr.common.dto;
 
-import gov.nih.nci.ncicb.cadsr.resource.FormElement;
+import gov.nih.nci.ncicb.cadsr.common.resource.FormElement;
 
-import gov.nih.nci.ncicb.cadsr.resource.TriggerAction;
+import gov.nih.nci.ncicb.cadsr.common.resource.TriggerAction;
 
 import java.util.ArrayList;
 import java.util.List;

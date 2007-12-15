@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.jsp.tag.handler;
-import gov.nih.nci.ncicb.cadsr.CaDSRConstants;
-import gov.nih.nci.ncicb.cadsr.util.SortableColumnHeader;
-import gov.nih.nci.ncicb.cadsr.util.StringUtils;
+package gov.nih.nci.ncicb.cadsr.common.jsp.tag.handler;
+import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
+import gov.nih.nci.ncicb.cadsr.common.util.SortableColumnHeader;
+import gov.nih.nci.ncicb.cadsr.common.util.StringUtils;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;

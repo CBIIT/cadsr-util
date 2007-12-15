@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao.domain.hibernate;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao.domain.hibernate;
 import gov.nih.nci.ncicb.cadsr.dao.*;
-import gov.nih.nci.ncicb.cadsr.persistence.dao.domain.AbstractDomainObjectsDAOFactory;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.domain.AbstractDomainObjectsDAOFactory;
 import gov.nih.nci.ncicb.cadsr.spring.ApplicationContextFactory;
 
 /**

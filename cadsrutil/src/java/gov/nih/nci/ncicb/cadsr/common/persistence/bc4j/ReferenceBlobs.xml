@@ -8,7 +8,7 @@
    AliasName="ReferenceBlobs"
    BindingStyle="Oracle"
    UseGlueCode="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceBlobsImpl" >
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceBlobsImpl" >
    <DesignTime>
       <Attr Name="_isCodegen" Value="true" />
       <Attr Name="_version" Value="9.0.5.16.0" />
@@ -149,15 +149,15 @@
    </Attribute>
    <AccessorAttribute
       Name="ReferenceDocuments"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RbRdFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RbRdFkAssoc.ReferenceDocuments"
-      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.RbRdFkAssoc.ReferenceBlobs"
-      Type="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceDocumentsImpl" >
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RbRdFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RbRdFkAssoc.ReferenceDocuments"
+      AssociationOtherEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.RbRdFkAssoc.ReferenceBlobs"
+      Type="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceDocumentsImpl" >
    </AccessorAttribute>
    <Key
       Name="RbPk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceBlobs.Name" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceBlobs.Name" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="RB_PK" />
@@ -167,7 +167,7 @@
    <Key
       Name="SysC0062573" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceBlobs.Name" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceBlobs.Name" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062573" />
@@ -178,7 +178,7 @@
    <Key
       Name="SysC0062574" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceBlobs.CreatedBy" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceBlobs.CreatedBy" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062574" />
@@ -189,7 +189,7 @@
    <Key
       Name="SysC0062575" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceBlobs.DateCreated" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceBlobs.DateCreated" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062575" />
@@ -200,7 +200,7 @@
    <Key
       Name="RbRdFk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ReferenceBlobs.RdIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ReferenceBlobs.RdIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="RB_RD_FK" />

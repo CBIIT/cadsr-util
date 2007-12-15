@@ -11,30 +11,30 @@
       Name="ConDerivationRulesExt"
       Cardinality="1"
       Source="true"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConDerivationRulesExt" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConDerivationRulesExt" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConDerivationRulesExt.CondrIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConDerivationRulesExt.CondrIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_minCardinality" Value="1" />
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="ConDerivationRulesExt" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ConDerivationRulesExt.CondrPk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ConDerivationRulesExt.CondrPk" />
       </DesignTime>
    </AssociationEnd>
    <AssociationEnd
       Name="ComponentConceptsExt"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ComponentConceptsExt" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ComponentConceptsExt" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ComponentConceptsExt.CondrIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ComponentConceptsExt.CondrIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_aggregation" Value="0" />
          <Attr Name="_isUpdateable" Value="true" />
          <Attr Name="_finderName" Value="ComponentConceptsExt" />
-         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ComponentConceptsExt.CctCondrFk" />
+         <Attr Name="_foreignKey" Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ComponentConceptsExt.CctCondrFk" />
       </DesignTime>
    </AssociationEnd>
 </Association>

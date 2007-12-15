@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.dto;
-import gov.nih.nci.ncicb.cadsr.resource.FormValidValue;
-import gov.nih.nci.ncicb.cadsr.resource.InstructionChanges;
-import gov.nih.nci.ncicb.cadsr.resource.FormValidValueChange;
+package gov.nih.nci.ncicb.cadsr.common.dto;
+import gov.nih.nci.ncicb.cadsr.common.resource.FormValidValue;
+import gov.nih.nci.ncicb.cadsr.common.resource.InstructionChanges;
+import gov.nih.nci.ncicb.cadsr.common.resource.FormValidValueChange;
 import java.util.List;
 
 public class FormValidValueChangeTransferObject implements FormValidValueChange 

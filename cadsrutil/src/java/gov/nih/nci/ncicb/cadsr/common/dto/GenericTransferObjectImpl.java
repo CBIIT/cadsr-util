@@ -1,4 +1,4 @@
-package gov.nih.nci.ncicb.cadsr.dto;
+package gov.nih.nci.ncicb.cadsr.common.dto;
 import java.util.HashMap;
 import java.util.Date;
 

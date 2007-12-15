@@ -12,8 +12,8 @@
    Where="ac.AC_IDSEQ = des.AC_IDSEQ"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CdeIdViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CdeIdViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CdeIdViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CdeIdViewImpl"
    UseGlueCode="false" >
    <DesignTime>
       <Attr Name="_isCodegen" Value="true" />
@@ -22,7 +22,7 @@
    </DesignTime>
    <EntityUsage
       Name="ac"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AdministeredComponents" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AdministeredComponents" >
       <DesignTime>
          <Attr Name="_ReadOnly" Value="false" />
          <Attr Name="_EntireObjectTable" Value="false" />
@@ -31,20 +31,20 @@
    </EntityUsage>
    <EntityUsage
       Name="des"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Designations"
-      Association="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DesigAcFkAssoc"
-      AssociationEnd="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DesigAcFkAssoc.Designations"
-      SourceUsage="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CdeIdView.ac"
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Designations"
+      Association="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DesigAcFkAssoc"
+      AssociationEnd="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DesigAcFkAssoc.Designations"
+      SourceUsage="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CdeIdView.ac"
       Reference="true" >
       <DesignTime>
          <Attr Name="_ReadOnly" Value="true" />
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
          <AttrArray Name="_srcAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AdministeredComponents.AcIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AdministeredComponents.AcIdseq" />
          </AttrArray>
          <AttrArray Name="_dstAttributes">
-            <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.Designations.AcIdseq" />
+            <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.Designations.AcIdseq" />
          </AttrArray>
       </DesignTime>
    </EntityUsage>

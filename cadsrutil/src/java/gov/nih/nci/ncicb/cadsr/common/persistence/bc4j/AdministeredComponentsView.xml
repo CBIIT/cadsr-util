@@ -34,8 +34,8 @@
    FromList="ADMINISTERED_COMPONENTS ac"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AdministeredComponentsViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AdministeredComponentsViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AdministeredComponentsViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AdministeredComponentsViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <DesignTime>
@@ -46,7 +46,7 @@
    </DesignTime>
    <EntityUsage
       Name="ac"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AdministeredComponents" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AdministeredComponents" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
@@ -214,7 +214,7 @@
    </ViewAttribute>
    <ViewLinkAccessor
       Name="ReferenceDocumentsView"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.AcRdFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.AcRdFkLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>

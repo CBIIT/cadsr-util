@@ -3,7 +3,7 @@
 
 <ViewLink
    Name="CsCsiCsFKLink"
-   EntityAssociation="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsiCsFkAssoc" >
+   EntityAssociation="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsiCsFkAssoc" >
    <DesignTime>
       <Attr Name="_isCodegen" Value="true" />
       <Attr Name="_version" Value="9.0.5.16.0" />
@@ -11,10 +11,10 @@
    <ViewLinkDefEnd
       Name="ClassificationSchemesView"
       Cardinality="1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemesView"
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemesView"
       Source="true" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.ClassificationSchemesView.CsIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationSchemesView.CsIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_minCardinality" Value="1" />
@@ -26,9 +26,9 @@
    <ViewLinkDefEnd
       Name="CsCsiView"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsiView" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsiView" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.CsCsiView.CsIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.CsCsiView.CsIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_isUpdateable" Value="true" />

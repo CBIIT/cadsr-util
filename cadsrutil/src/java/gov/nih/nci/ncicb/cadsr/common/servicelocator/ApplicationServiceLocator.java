@@ -1,8 +1,8 @@
-package gov.nih.nci.ncicb.cadsr.servicelocator;
-import gov.nih.nci.ncicb.cadsr.cdebrowser.service.CDEBrowserService;
-import gov.nih.nci.ncicb.cadsr.cdebrowser.tree.service.CDEBrowserTreeService;
-import gov.nih.nci.ncicb.cadsr.formbuilder.service.LockingService;
-import gov.nih.nci.ncicb.cadsr.ocbrowser.service.OCBrowserService;
+package gov.nih.nci.ncicb.cadsr.common.servicelocator;
+import gov.nih.nci.ncicb.cadsr.common.cdebrowser.service.CDEBrowserService;
+import gov.nih.nci.ncicb.cadsr.contexttree.service.CDEBrowserTreeService;
+import gov.nih.nci.ncicb.cadsr.common.formbuilder.service.LockingService;
+import gov.nih.nci.ncicb.cadsr.common.ocbrowser.service.OCBrowserService;
 
 public interface ApplicationServiceLocator
 {

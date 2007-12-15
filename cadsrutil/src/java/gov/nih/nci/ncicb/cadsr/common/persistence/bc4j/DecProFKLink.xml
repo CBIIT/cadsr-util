@@ -3,7 +3,7 @@
 
 <ViewLink
    Name="DecProFKLink"
-   EntityAssociation="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DecProFkAssoc" >
+   EntityAssociation="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DecProFkAssoc" >
    <DesignTime>
       <Attr Name="_isCodegen" Value="true" />
       <Attr Name="_version" Value="9.0.5.16.0" />
@@ -11,10 +11,10 @@
    <ViewLinkDefEnd
       Name="PropertiesExtRow"
       Cardinality="0"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PropertiesExtView"
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PropertiesExtView"
       Source="true" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.PropertiesExtView.PropIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.PropertiesExtView.PropIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_isUpdateable" Value="true" />
@@ -25,9 +25,9 @@
    <ViewLinkDefEnd
       Name="DataElementConceptRows"
       Cardinality="-1"
-      Owner="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DataElementConceptsView" >
+      Owner="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DataElementConceptsView" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DataElementConceptsView.PropIdseq" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DataElementConceptsView.PropIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_isUpdateable" Value="true" />

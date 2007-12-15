@@ -1,6 +1,6 @@
-package gov.nih.nci.ncicb.cadsr.persistence.dao;
+package gov.nih.nci.ncicb.cadsr.common.persistence.dao;
 
-import gov.nih.nci.ncicb.cadsr.exception.NestedRuntimeException;
+import gov.nih.nci.ncicb.cadsr.common.exception.NestedRuntimeException;
 
 public class ConnectionException extends NestedRuntimeException {
   public ConnectionException(String msg) {

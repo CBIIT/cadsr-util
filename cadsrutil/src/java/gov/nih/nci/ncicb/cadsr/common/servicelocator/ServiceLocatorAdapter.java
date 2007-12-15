@@ -1,9 +1,9 @@
-package gov.nih.nci.ncicb.cadsr.servicelocator;
+package gov.nih.nci.ncicb.cadsr.common.servicelocator;
 import javax.ejb.EJBLocalHome;
 import javax.ejb.EJBHome;
 import javax.sql.DataSource;
 import java.net.URL;
-import gov.nih.nci.ncicb.cadsr.persistence.PersistenceConstants;
+import gov.nih.nci.ncicb.cadsr.common.persistence.PersistenceConstants;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 

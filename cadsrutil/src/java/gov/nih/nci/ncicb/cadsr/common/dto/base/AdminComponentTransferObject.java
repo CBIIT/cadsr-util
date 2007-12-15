@@ -1,11 +1,11 @@
-package gov.nih.nci.ncicb.cadsr.dto.base;
+package gov.nih.nci.ncicb.cadsr.common.dto.base;
 
 import java.sql.Date;
 import java.sql.Timestamp;
-import gov.nih.nci.ncicb.cadsr.resource.*;
-import gov.nih.nci.ncicb.cadsr.persistence.base.BaseValueObject;
+import gov.nih.nci.ncicb.cadsr.common.resource.*;
+import gov.nih.nci.ncicb.cadsr.common.persistence.base.BaseValueObject;
 import java.util.List;
-import gov.nih.nci.ncicb.cadsr.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
 
 public class AdminComponentTransferObject extends BaseValueObject
                           implements java.io.Serializable {

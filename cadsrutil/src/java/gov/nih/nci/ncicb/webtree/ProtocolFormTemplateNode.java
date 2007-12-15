@@ -1,6 +1,6 @@
 package gov.nih.nci.ncicb.webtree;
 
-import gov.nih.nci.ncicb.cadsr.cdebrowser.tree.service.CDEBrowserTreeService;
+import gov.nih.nci.ncicb.cadsr.contexttree.service.CDEBrowserTreeService;
 
 import java.util.Iterator;
 import java.util.List;

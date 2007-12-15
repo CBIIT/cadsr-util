@@ -1,7 +1,7 @@
-package gov.nih.nci.ncicb.cadsr.dto;
+package gov.nih.nci.ncicb.cadsr.common.dto;
 
-import gov.nih.nci.ncicb.cadsr.resource.ComponentConcept;
-import gov.nih.nci.ncicb.cadsr.resource.Concept;
+import gov.nih.nci.ncicb.cadsr.common.resource.ComponentConcept;
+import gov.nih.nci.ncicb.cadsr.common.resource.Concept;
 
 import java.io.Serializable;
 

@@ -43,8 +43,8 @@
    FromList="DATA_ELEMENT_CONCEPTS DataElementConcepts"
    BindingStyle="Oracle"
    CustomQuery="false"
-   RowClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DataElementConceptsViewRowImpl"
-   ComponentClass="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DataElementConceptsViewImpl"
+   RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DataElementConceptsViewRowImpl"
+   ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DataElementConceptsViewImpl"
    MsgBundleClass="oracle.jbo.common.JboResourceBundle"
    UseGlueCode="false" >
    <DesignTime>
@@ -55,7 +55,7 @@
    </DesignTime>
    <EntityUsage
       Name="DataElementConcepts"
-      Entity="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DataElementConcepts" >
+      Entity="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DataElementConcepts" >
       <DesignTime>
          <Attr Name="_EntireObjectTable" Value="false" />
          <Attr Name="_queryClause" Value="false" />
@@ -250,35 +250,35 @@
    </ViewAttribute>
    <ViewLinkAccessor
       Name="ContextsRow"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DecConteFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DecConteFkLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="PropertiesExtRow"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DecProFKLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DecProFKLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="ObjectClassesExtRow"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DecOcFKLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DecOcFKLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="ConceptualDomainsRow"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DecCdFKLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DecCdFKLink"
       Type="oracle.jbo.Row"
       Reversed="true"
       IsUpdateable="false" >
    </ViewLinkAccessor>
    <ViewLinkAccessor
       Name="DataElementsRows"
-      ViewLink="gov.nih.nci.ncicb.cadsr.persistence.bc4j.DeDecFkLink"
+      ViewLink="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.DeDecFkLink"
       Type="oracle.jbo.RowIterator"
       IsUpdateable="false" >
    </ViewLinkAccessor>

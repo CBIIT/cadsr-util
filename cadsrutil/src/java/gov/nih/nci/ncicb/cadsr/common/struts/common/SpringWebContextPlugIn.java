@@ -1,5 +1,5 @@
-package gov.nih.nci.ncicb.cadsr.struts.common;
-import gov.nih.nci.ncicb.cadsr.servicelocator.spring.SpringObjectLocatorImpl;
+package gov.nih.nci.ncicb.cadsr.common.struts.common;
+import gov.nih.nci.ncicb.cadsr.common.servicelocator.spring.SpringObjectLocatorImpl;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import org.apache.struts.action.ActionServlet;
@@ -25,6 +25,7 @@ public class SpringWebContextPlugIn  implements PlugIn
     public void init(ActionServlet servlet, ModuleConfig config)
             throws ServletException {
             
+   System.out.println(config.toString() + " init " + servlet.toString());
         this.servlet = servlet;
         try {
           ServletContext servletContext = servlet.getServletContext();
