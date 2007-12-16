@@ -197,14 +197,9 @@ public class DataElementHandlerImpl extends Handler
       throw ex;
     }
     finally {
-      try {
-		if (runtimeVO != null) {
-			System.out.println(runtimeVO.getQuery());
-		    runtimeVO.clearCache();
-		  }
-	} catch (RuntimeException e) {
-		e.printStackTrace();
-	}
+      if (runtimeVO != null) {
+        runtimeVO.clearCache();
+      }
 
       releaseConnection(sessionId);
     }
