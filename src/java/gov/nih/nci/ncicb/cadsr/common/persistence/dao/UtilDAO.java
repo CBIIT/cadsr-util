@@ -18,5 +18,18 @@ public interface UtilDAO
    */
     public Properties getApplicationProperties(String ApplicationName, String locale) throws DMLException;
 
+    /**
+     * Utility method to get the Application properties
+     *
+     * @param <b>Application Name<b> corresponds to the target record whose 
+     *        display order is to be updated
+     * @param <b>Locale<b> of the user
+     * @param <b>property<b> specific property to search for
+     *
+     * @return <b>properties</b> containing application properties
+     *
+     * @throws <b>DMLException</b>
+     */
+      public Properties getApplicationURLProperties(String locale) throws DMLException;
 
 }

@@ -42,6 +42,8 @@ public class CDEBrowserParams
     String csTypeRegStatus="";
     String csTypeContainer="container";
     String sentinalAPIUrl="";
+    String formBuilderUrl="";
+    String cdeBrowserUrl="";
     
     Map evsUrlMap = new HashMap();
     
@@ -329,6 +331,10 @@ public class CDEBrowserParams
             index++;                
             umlBrowserUrl = properties.getProperty("UMLBROWSER_URL");
             index++;      
+            formBuilderUrl = properties.getProperty("FormBuilder_URL");
+            index++;      
+            cdeBrowserUrl = properties.getProperty("CDEBrowser_URL");
+            index++;      
             log.info("Loaded Properties"+properties);
                         
         } 
@@ -373,4 +379,20 @@ public class CDEBrowserParams
    public String getUmlBrowserUrl() {
       return umlBrowserUrl;
    }
+
+	public String getFormBuilderUrl() {
+		return formBuilderUrl;
+	}
+	
+	public void setFormBuilderUrl(String formBuilderUrl) {
+		this.formBuilderUrl = formBuilderUrl;
+	}
+
+	public String getCdeBrowserUrl() {
+		return cdeBrowserUrl;
+	}
+
+	public void setCdeBrowserUrl(String cdeBrowserUrl) {
+		this.cdeBrowserUrl = cdeBrowserUrl;
+	}
 }

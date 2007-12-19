@@ -45,6 +45,34 @@ public class JDBCUtilDAO extends JDBCBaseDAO implements UtilDAO
      return query.getProperties();
    }  
    
+   /**
+    * Utility method to get the Application properties
+    *
+    * @param <b>Application Name<b> corresponds to the target record whose 
+    *        display order is to be updated
+    * @param <b>Locale<b> of the user
+    *
+    * @param <b>property<b> specific property to search for
+    *
+    * @return <b>properties</b> containing application properties
+    *
+    * @throws <b>DMLException</b>
+    */
+    public Properties getApplicationURLProperties(String locale) throws DMLException 
+    {
+      ApplicationPropertiesQuery query = new ApplicationPropertiesQuery();
+      try{
+      query.setDataSource(getDataSource());
+      query.setSqlURL(locale);
+      query.execute();
+      }
+      catch(Exception exp)
+      {
+        throw new DMLException("Could not retreive application properties",exp);
+      }
+      return query.getProperties();
+    }  
+    
 
   /**
    * Inner class to get Properties
@@ -60,9 +88,14 @@ public class JDBCUtilDAO extends JDBCBaseDAO implements UtilDAO
      return properties;
    }
     public void setSql(String toolName,String locale) {
-      super.setSql("select PROPERTY, VALUE from TOOL_OPTIONS_EXT " +
+      super.setSql("select PROPERTY, VALUE from TOOL_OPTIONS_VIEW_EXT " +
         " where tool_name = '"+toolName +"' and locale = '" +locale +"'");
     }
+
+    public void setSqlURL(String locale) {
+        super.setSql("select TOOL_NAME || '_URL', VALUE from TOOL_OPTIONS_VIEW_EXT " +
+          " where property = 'URL' and locale = '" +locale +"'");
+      }
 
     protected Object mapRow(
       ResultSet rs,
