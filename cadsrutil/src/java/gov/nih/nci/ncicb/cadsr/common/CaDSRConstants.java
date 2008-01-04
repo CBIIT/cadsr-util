@@ -26,7 +26,6 @@ public interface CaDSRConstants {
   public static final String ANCHOR="anchor";
   
   public static final String CDEBROWSER = "CDEBrowser";
-  public static final String FORMBUILDER = "FormBuilder";
   
   public static final String ERROR_FATAL="FB911";
   
