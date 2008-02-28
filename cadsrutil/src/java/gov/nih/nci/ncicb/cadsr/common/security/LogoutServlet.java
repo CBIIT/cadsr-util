@@ -29,8 +29,8 @@ import org.apache.commons.logging.LogFactory;
 
 
 public class LogoutServlet extends HttpServlet {
-  private static String LOGOUT_JSP = "logout.jsp";
-  private static String AUTHORIZATION_ERROR_JSP = "authorizationError.jsp";
+  private static String LOGOUT_JSP = "jsp/logout.jsp";
+  private static String AUTHORIZATION_ERROR_JSP = "jsp/authorizationError.jsp";
   private String[] logoutKeys =
     { CaDSRConstants.USER_KEY, CaDSRConstants.USER_CONTEXTS };
   protected static Log log = LogFactory.getLog(LogoutServlet.class.getName());
