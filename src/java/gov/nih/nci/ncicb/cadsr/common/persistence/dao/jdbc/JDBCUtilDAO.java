@@ -94,7 +94,7 @@ public class JDBCUtilDAO extends JDBCBaseDAO implements UtilDAO
 
     public void setSqlURL(String locale) {
         super.setSql("select TOOL_NAME || '_URL', VALUE from TOOL_OPTIONS_VIEW_EXT " +
-          " where property = 'URL' and (locale = '" +locale +"' or locale = '')");
+          " where property = 'URL' and (locale = '" +locale +"' or locale is null)");
       }
 
     protected Object mapRow(
