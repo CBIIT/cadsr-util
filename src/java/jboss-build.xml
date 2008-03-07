@@ -27,9 +27,9 @@
 
   <!-- =========== CLEAN BUILD AREA ======================= -->
     <target name="clean">
-          <delete dir="${classes.build.dir}" quiet="false"/>
-          <delete dir="${build.dir}" quiet="false"/>   
-          <delete dir="${dist.dir}" quiet="false"/>          
+          <delete dir="${classes.build.dir}"/>
+          <delete dir="${build.dir}"/>   
+          <delete dir="${dist.dir}"/>          
     </target>
     
     <target name="clean_build_dir">
@@ -82,6 +82,8 @@
 	      </fileset>           
            <fileset dir="${java.src.dir}">
              <patternset>
+               <include name="gov/nih/nci/ncicb/cadsr/common/persistence/dao/jdbc/jndi.properties"/>
+               <include name="gov/nih/nci/ncicb/cadsr/common/jndi.properties"/>
                <include name="gov/nih/nci/ncicb/cadsr/common/persistence/**/*.xml"/>
              </patternset>
            </fileset>      
@@ -91,8 +93,8 @@
 
 	<!-- ============ copies jar to other tools mentioned in this target ================== -->	
 	 <target name="build_copy_jar" depends="jar_cadsrutil"> 
-	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="D:\NCI_CVS\CDEBrowser\cdebrowser\lib\java\cadsrutil.jar"/>
-	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="D:\NCI_CVS\FormBuilder\formbuilder\lib\java\cadsrutil.jar"/>
+	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="D:\NCI_CVS\CDEBrowser\cdebrowser\lib\java\cadsrutil.jar" overwrite="true"/>
+	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="D:\NCI_CVS\FormBuilder\formbuilder\lib\java\cadsrutil.jar" overwrite="true"/>
 	 </target>
 	
 </project>
