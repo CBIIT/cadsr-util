@@ -7,14 +7,17 @@ import gov.nih.nci.ncicb.cadsr.common.persistence.dao.BaseDAO;
 import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocator;
 import gov.nih.nci.ncicb.cadsr.common.servicelocator.SimpleServiceLocator;
 import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
+import gov.nih.nci.ncicb.cadsr.common.util.DBUtil;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import javax.sql.DataSource;
 
@@ -42,23 +45,50 @@ public class JDBCBaseDAO extends BaseDAO implements PersistenceConstants,ErrorCo
     return null;
   }
 
+//  public DataSource getDataSource() {
+//    DBUtil util = new DBUtil();    
+//    return util.getDataSource();
+//  }
+
+  /**
+   * get the property from the property file
+   * @return String 
+   */
+  private String getJNDIProperty()
+  {
+	  String jndiName = "";
+	  try {
+		  InputStream ins = getClass().getResourceAsStream("/gov/nih/nci/ncicb/cadsr/common/persistence/dao/jdbc/jndi.properties");
+		  Properties props = new Properties();
+		  props.load(ins);		  
+		  jndiName = props.getProperty("datasource.jndi.name");
+		  log.info("datasource name " + jndiName);
+		} catch (IOException e) {		
+			log.error("unable to get property file", e);
+		}	  
+	  return (jndiName == null) ? "" : jndiName;
+  }
+  
+  /**
+   * gets the datasource
+   * @return DataSource
+   */
   public DataSource getDataSource() {
-    DataSource ds = null;
+	    DataSource ds = null;
 
-    if (getServiceLocator() != null) {
-      ds = getServiceLocator().getDataSource(getDataSourceKey());
-    }
+	    if (getServiceLocator() != null) {
+	      ds = getServiceLocator().getDataSource(getJNDIProperty());
+	    }
 
-    if (log.isDebugEnabled()) {
-      log.debug("Return DataSource =  " + ds);
-    }
-    return ds;
-  }
-
+	    if (log.isDebugEnabled()) {
+	      log.debug("Return DataSource =  " + ds);
+	    }
+	    return ds;
+	  }
+  
   public String getDataSourceKey() {
-    return DATASOURCE_LOCATION_KEY;
+    return "whyisitneeded";  //DATASOURCE_LOCATION_KEY;
   }
-
   
   /**
    * Utility method to get global unique identifier used as a primary key in

@@ -1,6 +1,5 @@
 package gov.nih.nci.ncicb.cadsr.common.util;
 
-import gov.nih.nci.ncicb.cadsr.common.persistence.PersistenceConstants;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc.util.DataSourceUtil;
 import gov.nih.nci.ncicb.cadsr.common.persistence.jdbc.spring.OracleJBossNativeJdbcExtractor;
 import gov.nih.nci.ncicb.cadsr.common.servicelocator.ObjectLocator;
@@ -9,17 +8,17 @@ import gov.nih.nci.ncicb.cadsr.common.servicelocator.spring.SpringObjectLocatorI
 import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
 import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.util.Properties;
 import java.util.Vector;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-
 import javax.sql.DataSource;
+
 import oracle.cle.persistence.ConnectionManager;
 import oracle.cle.persistence.ConnectionProvider;
 import oracle.jdbc.OracleConnection;
@@ -28,8 +27,6 @@ import oracle.jdbc.pool.OracleDataSource;
 public class DBUtil  {
   private static Log log = LogFactory.getLog(DBUtil.class.getName());
 
-  private static final int INSERT_ERROR = -1;
-  private static final int UPDATE_ERROR = -1;
   public static final String CDEBROWSER_PROVIDER = "cdebrowser_bc4j";
   private Connection conn;
   private boolean isConnected = false;
@@ -38,7 +35,42 @@ public class DBUtil  {
     conn = null;
   }
   
-/**
+  /**
+   * get the property from the property file
+   * @return String 
+   */
+  private String getJNDIProperty()
+  {
+	  String jndiName = "";
+	  try {
+		  InputStream ins = getClass().getResourceAsStream("/gov/nih/nci/ncicb/cadsr/common/jndi.properties");
+		  Properties props = new Properties();
+		  props.load(ins);		  
+		  jndiName = props.getProperty("datasource.jndi.name");
+		} catch (IOException e) {		
+			log.error("unable to get property file", e);
+		}	  
+	  return (jndiName == null) ? "" : jndiName;
+  }
+  
+  /**
+   * gets the datasource
+   * @return DataSource
+   */
+  public DataSource getDataSource() {
+	    DataSource ds = null;
+
+	    if (getServiceLocator() != null) {
+	      ds = getServiceLocator().getDataSource(getJNDIProperty());
+	    }
+
+	    if (log.isDebugEnabled()) {
+	      log.debug("Return DataSource =  " + ds);
+	    }
+	    return ds;
+	  }
+
+  /**
  *  This method returns a Connection obtained from the container using the
  *  datasource name specified as a parameter
 */
@@ -46,13 +78,15 @@ public class DBUtil  {
                     throws Exception {
     if (!isConnected) {
       try {
-        DataSource ds = getServiceLocator().getDataSource(PersistenceConstants.DATASOURCE_LOCATION_KEY);
+        //DataSource ds = getServiceLocator().getDataSource(PersistenceConstants.DATASOURCE_LOCATION_KEY);
+          DataSource ds = getDataSource();
+     //log.info(PersistenceConstants.DATASOURCE_LOCATION_KEY + " dssource " + ds.toString());
         //Extract Oracle Native Connection
         conn = ds.getConnection();
         isConnected = true;
         isOracleConnection = false;
         log.info
-        ("Connected to the database successfully using datasource "+PersistenceConstants.DATASOURCE_LOCATION_KEY);
+        ("Connected to the database successfully using datasource "+ds.toString());
       }
       catch (Exception e) {
         log.error("Exception occurred in getConnectionFromContainer", e);
@@ -74,10 +108,8 @@ public class DBUtil  {
    {
      this.returnConnection();
    }
-    if (!isConnected) {
-     
-      try {
-     
+    if (!isConnected) {     
+      try {     
         ConnectionManager manager = ConnectionManager.getInstance();
         ConnectionProvider provider = manager.getProvider(CDEBROWSER_PROVIDER);
         
@@ -107,8 +139,7 @@ public class DBUtil  {
     int columnCount;
     Statement stmt = null;
     ResultSet	rs = null;
-    boolean isThereResult =false;
-     
+    boolean isThereResult =false;     
 		try {
       dataToReturn = new Vector();
       stmt = conn.createStatement();
@@ -120,7 +151,6 @@ public class DBUtil  {
   			for (int i = 0; i < columnCount; i++) {
 		  		rowData.addElement(rs.getString(i + 1));
         }
-
 				dataToReturn.addElement(rowData);
 				isThereResult = rs.next();
 			}
@@ -180,7 +210,6 @@ public class DBUtil  {
   			for (int i = 0; i < tableFields.length; i++) {
           rowData.addElement(rs.getString(i + 1));
         }
-
 				dataToReturn.addElement(rowData);
 				isThereResult = rs.next();
 			}
@@ -432,4 +461,5 @@ public class DBUtil  {
     ObjectLocator locator  = new SpringObjectLocatorImpl();
     return (ServiceLocator)locator.findObject("serviceLocator");
   }
+    
 }

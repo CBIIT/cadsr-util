@@ -37,7 +37,8 @@ public class SimpleServiceLocator extends ServiceLocatorAdapter implements Persi
        envEntrys.put(CONNECTION_STRING,"jdbc:oracle:thin:@cbiodb540.nci.nih.gov:1521:dsrdev");
        envEntrys.put(USERNAME,"sbrext");
        envEntrys.put(PASSWORD,"jjuser");
-       envEntrys.put(DATASOURCE_LOCATION_KEY,"CDEBrowserDS");
+       envEntrys.put(DATASOURCE_LOCATION_KEY,"IsThisNeeded");
+      // envEntrys.put(DATASOURCE_LOCATION_KEY,"CDEBrowserDS");
 
 
 
@@ -52,7 +53,8 @@ public class SimpleServiceLocator extends ServiceLocatorAdapter implements Persi
         DataSource source = DataSourceUtil.getDriverManagerDS(getString(DRIVER_CLASS_NAME)
                       ,getString(CONNECTION_STRING),getString(USERNAME)
                       ,getString(PASSWORD));
-        dataSources.put("CDEBrowserDS",source);
+ //       dataSources.put("CDEBrowserDS",source);
+        dataSources.put("AgainIsThisNeeded",source);
 
       }
       catch(Exception ex)
