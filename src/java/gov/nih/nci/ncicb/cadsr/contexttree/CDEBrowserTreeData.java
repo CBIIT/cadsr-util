@@ -59,9 +59,9 @@ public class CDEBrowserTreeData implements Serializable {
              
       Collection contexts = dao.getAllContexts();
       try {
-      FacesContext facesContext = FacesContext.getCurrentInstance();
-      HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);
-      DataElementSearchBean desb =(DataElementSearchBean) (SessionHelper.getInfoBean(session, "desb"));
+	      FacesContext facesContext = FacesContext.getCurrentInstance();
+	      HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);
+	      DataElementSearchBean desb =(DataElementSearchBean) (SessionHelper.getInfoBean(session, "desb"));
          if (desb != null) {
             excludeTest = desb.isExcludeTestContext();
             excludeTraining = desb.isExcludeTrainingContext();

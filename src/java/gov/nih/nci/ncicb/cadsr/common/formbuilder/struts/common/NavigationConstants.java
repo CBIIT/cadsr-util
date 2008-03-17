@@ -180,5 +180,6 @@ public interface NavigationConstants extends CommonNavigationConstants
   public static final String UPDATE_SKIP_PATTERN = "updateSkipPattern";
   
   public static final String SET_SENTINAL_ALERT="setAlertForForm";
-
+  public static final String GOTO_FORM_SEARCH_PREF="gotoFormSearchPref";
+  
 }
