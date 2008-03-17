@@ -16,5 +16,4 @@ public interface  BrowserNavigationConstants extends CommonNavigationConstants
   
   public static final String GOTO_CDE_SEARCH_PREF="gotoCDESearchPref";
   
-  
 }

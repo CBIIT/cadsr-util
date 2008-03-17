@@ -165,7 +165,9 @@ public class SessionHelper
            if (deGrp != null) 
             infoBean =  ((ProcessResult) deGrp.get(key)).getValue();
          }
-   }
+     	}
+      if (infoBean == null && key.equals("desb"))
+    	  infoBean = (Object)session.getAttribute("desb");
       return infoBean;
    }
 }
