@@ -871,7 +871,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
       super(ds, "SELECT  csi.csi_idseq "
                                +"       ,csi.long_name csi_name"
                                +"       ,csitl_name "
-                               +"       ,description "
+                               +"       ,csi.preferred_definition description "
                                +"       ,csc.cs_csi_idseq "
                                +"       ,cs.preferred_name "
                                +"FROM   sbr.cs_items_view csi "
@@ -1469,7 +1469,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
        public void setSql() {
          super.setSql( "SELECT csi.long_name csi_name, csi.csitl_name, csi.csi_idseq, " +
          "               cscsi.cs_csi_idseq, cs.preferred_definition, cs.long_name, "+
-         "                ext.aca_idseq, cs.cs_idseq, cs.version , csi.description description" +
+         "                ext.aca_idseq, cs.cs_idseq, cs.version , csi.preferred_definition description" +
          "        FROM ac_att_cscsi_ext ext, cs_csi cscsi, " +
          "             cs_items_view csi, classification_schemes cs  " +
          "        WHERE ext.ATT_IDSEQ = ? " +
