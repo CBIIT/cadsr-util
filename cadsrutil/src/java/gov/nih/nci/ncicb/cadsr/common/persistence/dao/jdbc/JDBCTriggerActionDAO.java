@@ -364,11 +364,11 @@ public class JDBCTriggerActionDAO extends JDBCAdminComponentDAO implements Trigg
         public void setSql()
         {
             super
-            .setSql("SELECT csi.csi_name, csi.csitl_name, csi.csi_idseq, " +
+            .setSql("SELECT csi.long_name csi_name, csi.csitl_name, csi.csi_idseq, " +
                          "       cscsi.cs_csi_idseq, cs.preferred_definition, cs.long_name, " +
                          "        accsi.ac_csi_idseq, cs.cs_idseq, cs.version " +
                          " FROM ac_csi accsi, cs_csi cscsi, " +
-                         "      class_scheme_items csi, classification_schemes cs  " +
+                         "      cs_items_view csi, classification_schemes cs  " +
                          "      ,TA_PROTO_CSI_EXT ta_proto_csi  " +
                          " WHERE ta_proto_csi.ta_idseq = ? " +
                          " AND   accsi.cs_csi_idseq = cscsi.cs_csi_idseq " +

@@ -89,7 +89,7 @@ public class ClassificationsLOVBean extends Object {
 					// Release 3.0, TT#1178
 					newSearchStr1 = StringReplace.strReplace(newSearchStr1,
 							"'", "''");
-					csiWhere = " and upper (csi.csi_name) like upper ( '"
+					csiWhere = " and upper (csi.long_name) like upper ( '"
 							+ newSearchStr1 + "') ";
 				}
 				if (request.getParameter("chkContext") == null) {
@@ -104,10 +104,10 @@ public class ClassificationsLOVBean extends Object {
 			// pass the following parameters to CommonListCntrlBean
 			String[] searchParm = { "cs.long_name", "Classification Scheme",
 					"cs.version", "CS Version", // Release 3.2 GF#1247
-					"csi.csi_name", "Class Scheme Item" };
+					"csi.long_name csi_name", "Class Scheme Item" };
 			String[] jspLinkParm = { "csc.cs_csi_idseq", "P_ID" };
 			String[] displayParm = {
-					"csi.csi_name",
+					"csi.long_name csi_name",
 					"Class Scheme Item Name",
 					"cs.preferred_name",
 					"CS Short Name",
@@ -124,7 +124,7 @@ public class ClassificationsLOVBean extends Object {
 					"cs.preferred_definition", "CS Definition" };
 			String[] sqlStmtParm = new String[2];
 			sqlStmtParm[0] = " from sbr.classification_schemes cs,sbr.contexts cs_conte, "
-					+ "      sbr.class_scheme_items csi, sbr.cs_csi csc "
+					+ "      sbr.cs_items_view csi, sbr.cs_csi csc "
 					+ " where cs.conte_idseq = cs_conte.conte_idseq "
 					+
 					// Release 3.2 GF#1247 " and cs.latest_version_ind = 'Yes' "

@@ -732,11 +732,11 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
 
     public void setSql() {
       super.setSql(
-        "SELECT csi.csi_name, csi.csitl_name, csi.csi_idseq, " +
+        "SELECT csi.long_name csi_name, csi.csitl_name, csi.csi_idseq, " +
         "       cscsi.cs_csi_idseq, cs.preferred_definition, cs.long_name, " +
         "        accsi.ac_csi_idseq, cs.cs_idseq, cs.version " +
         " FROM ac_csi accsi, cs_csi cscsi, " +
-        "      class_scheme_items csi, classification_schemes cs  " +
+        "      cs_items_view csi, classification_schemes cs  " +
         " WHERE accsi.ac_idseq = ?  " +
         " AND   accsi.cs_csi_idseq = cscsi.cs_csi_idseq " +
         " AND   cscsi.csi_idseq = csi.csi_idseq " +
@@ -869,19 +869,19 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
 
     CSCSIsByContextIDQuery(DataSource ds)  {
       super(ds, "SELECT  csi.csi_idseq "
-                               +"       ,csi_name "
+                               +"       ,csi.long_name csi_name"
                                +"       ,csitl_name "
                                +"       ,description "
                                +"       ,csc.cs_csi_idseq "
                                +"       ,cs.preferred_name "
-                               +"FROM   sbr.class_scheme_items csi "
+                               +"FROM   sbr.cs_items_view csi "
                                +"      ,sbr.cs_csi csc "
                                +"      ,sbr.classification_schemes cs "
                                +"WHERE csi.csi_idseq = csc.csi_idseq "
                                +"AND cs.CONTE_IDSEQ = ? "
                                +"AND csc.cs_idseq = cs.cs_idseq "
                                +"AND   cs.preferred_name in( 'CRF_DISEASE','Phase' ) "
-                               +"ORDER BY upper(csi.csi_name) " );
+                               +"ORDER BY upper(csi.long_name) " );
       declareParameter(new SqlParameter("context_id", Types.VARCHAR));
       compile();
     }
@@ -914,7 +914,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
         ds,
           "select distinct cscsi.CS_CSI_IDSEQ, i.CSITL_NAME , "  +
           " cs.LONG_NAME, cscsi.LABEL from  classification_schemes cs, "
-          + " sbr.class_scheme_items i , cs_csi cscsi "
+          + " sbr.cs_items_view i , cs_csi cscsi "
 	   			+" where cs.CSTL_NAME=? and i.CSITL_NAME=? "
 					+" and cscsi.CSI_IDSEQ=i.CSI_IDSEQ "
 					+" and cscsi.CS_IDSEQ=cs.CS_IDSEQ "
@@ -962,7 +962,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
           "select distinct cscsi.CS_CSI_IDSEQ, i.CSITL_NAME , "  +
           " cs.LONG_NAME, cscsi.LABEL , cs.CONTE_IDSEQ " +
           " from  classification_schemes cs, "
-          + " sbr.class_scheme_items i , cs_csi cscsi "
+          + " sbr.cs_items_view i , cs_csi cscsi "
 	   			+" where cs.CSTL_NAME=? and i.CSITL_NAME=? "
 					+" and cscsi.CSI_IDSEQ=i.CSI_IDSEQ "
 					+" and cscsi.CS_IDSEQ=cs.CS_IDSEQ "
@@ -1467,16 +1467,16 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
        }
 
        public void setSql() {
-         super.setSql( "SELECT csi.csi_name, csi.csitl_name, csi.csi_idseq, " +
+         super.setSql( "SELECT csi.long_name csi_name, csi.csitl_name, csi.csi_idseq, " +
          "               cscsi.cs_csi_idseq, cs.preferred_definition, cs.long_name, "+
          "                ext.aca_idseq, cs.cs_idseq, cs.version , csi.description description" +
          "        FROM ac_att_cscsi_ext ext, cs_csi cscsi, " +
-         "             class_scheme_items csi, classification_schemes cs  " +
+         "             cs_items_view csi, classification_schemes cs  " +
          "        WHERE ext.ATT_IDSEQ = ? " +
          "        AND   ext.cs_csi_idseq = cscsi.cs_csi_idseq " +
          "        AND   cscsi.csi_idseq = csi.csi_idseq " +
          "        AND   cscsi.cs_idseq = cs.cs_idseq " +
-         "        ORDER BY upper(csi.csi_name)  ");
+         "        ORDER BY upper(csi.long_name)  ");
            declareParameter(new SqlParameter("ATT_IDSEQ", Types.VARCHAR));
        }
 

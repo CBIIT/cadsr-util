@@ -58,11 +58,11 @@ public class JDBCClassificationSchemeDAO extends JDBCAdminComponentDAO
 
     public void setSql() {
       super.setSql(
-        "SELECT csi.csi_name, csi.csitl_name, csi.csi_idseq, " +
+        "SELECT csi.long_name csi_name, csi.csitl_name, csi.csi_idseq, " +
         "       cscsi.cs_csi_idseq, cs.preferred_definition, cs.long_name, " +
         "        accsi.ac_csi_idseq, cs.cs_idseq, cs.version " +
         " FROM ac_csi accsi, cs_csi cscsi, " +
-        "      class_scheme_items csi, classification_schemes cs  " +
+        "      cs_items_view csi, classification_schemes cs  " +
         " WHERE accsi.ac_idseq = ?  " +
         " AND   accsi.cs_csi_idseq = cscsi.cs_csi_idseq " +
         " AND   cscsi.csi_idseq = csi.csi_idseq " +
