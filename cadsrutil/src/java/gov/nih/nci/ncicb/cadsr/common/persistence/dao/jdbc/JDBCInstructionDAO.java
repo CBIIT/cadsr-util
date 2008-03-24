@@ -243,12 +243,13 @@ public abstract class JDBCInstructionDAO extends JDBCAdminComponentDAO
     public UpdateInstruction(DataSource ds) {
       String updateFormSql =
         " UPDATE quest_contents_ext SET " +
-        " long_name = ? ,  modified_by = ? " +
+        " long_name = ? , preferred_definition = ? , modified_by = ? " +
         " WHERE qc_idseq = ? ";
 
       this.setDataSource(ds);
       this.setSql(updateFormSql);
       declareParameter(new SqlParameter("long_name", Types.VARCHAR));
+      declareParameter(new SqlParameter("preferred_definition", Types.VARCHAR));
       declareParameter(new SqlParameter("modified_by", Types.VARCHAR));
       declareParameter(new SqlParameter("qc_idseq", Types.VARCHAR));
       compile();
@@ -260,6 +261,7 @@ public abstract class JDBCInstructionDAO extends JDBCAdminComponentDAO
       Object[] obj =
         new Object[] {
            instruction.getLongName(),
+           instruction.getPreferredDefinition(),
            instruction.getModifiedBy(),
            instruction.getIdseq()
         };
