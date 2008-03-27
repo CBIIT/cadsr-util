@@ -40,7 +40,7 @@ public class ObjectTransformer
     String prefName = null;
     String instruction = null;
     if(fvv.getInstruction()!=null)
-      instruction = fvv.getInstruction().getLongName();
+      instruction = fvv.getInstruction().getPreferredDefinition();   //.getLongName();
       FbValidvalue fbfvv = new FbValidvalue(parentidseq,fvv.getLongName(),prefName,fvv.getPreferredDefinition(),ver,contextId,fvv.getAslName(),fvv.getVpIdseq(),instruction);
     return fbfvv;
   }  
