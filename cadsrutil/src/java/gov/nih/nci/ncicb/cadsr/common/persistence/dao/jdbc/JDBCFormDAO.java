@@ -1104,6 +1104,7 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
         }
       }
 
+      //context filter or exclude contexts
       if (StringUtils.doesValueExist(context)) {
         if (hasWhere) {
           whereBuffer.append(" AND f.CONTE_IDSEQ ='" + context + "'");
@@ -1112,6 +1113,16 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
           whereBuffer.append(" WHERE f.CONTE_IDSEQ ='" + context + "'");
           hasWhere = true;
         }
+      }
+      else if (StringUtils.doesValueExist(contextRestriction)) {
+        if (hasWhere) {
+          whereBuffer.append(" AND ");
+        }
+        else {
+          whereBuffer.append(" WHERE ");
+          hasWhere = true;
+        }
+        whereBuffer.append("(f.CONTEXT_NAME not in (" + contextRestriction + "))");
       }
 
       if (StringUtils.doesValueExist(workflow)) {
@@ -1158,6 +1169,7 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
         }
       }
 
+/*     <!-- looks like this is not being used anymore  -->
       if (StringUtils.doesValueExist(contextRestriction)) {
         if (hasWhere) {
           whereBuffer.append(" AND (f.CONTE_IDSEQ !='" + contextRestriction + "' or f.type in ('TEMPLATE'))");
@@ -1167,17 +1179,7 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
           hasWhere = true;
         }
       }
-
-/*        if (StringUtils.doesValueExist(publicId)) {
-          if (hasWhere) {
-            whereBuffer.append(" AND (f.PUBLIC_ID =" + publicId + ")");
-          }
-          else {
-            whereBuffer.append(" WHERE (f.PUBLIC_ID =" + publicId + ")");
-            hasWhere = true;
-          }
-        }
-      */
+*/
         if (StringUtils.doesValueExist(publicId)) {
           if (hasWhere) {
             whereBuffer.append(" AND (f.PUBLIC_ID =" + publicId + ")");

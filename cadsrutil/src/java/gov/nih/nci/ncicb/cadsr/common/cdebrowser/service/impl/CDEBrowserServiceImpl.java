@@ -42,9 +42,13 @@ public class CDEBrowserServiceImpl implements CDEBrowserService
     UtilDAO utilDAO = daoFactory.getUtilDAO();
     Properties browseProperty = utilDAO.getApplicationProperties(CaDSRConstants.CDEBROWSER,locale.getCountry());
     Properties formProperty = utilDAO.getApplicationURLProperties(locale.getCountry());
+    Properties cadsrProperty = utilDAO.getApplicationProperties(CaDSRConstants.cadsrToolName,locale.getCountry());
  //System.out.println(browseProperty.toString() + " form property " + formProperty.toString());
  	if (formProperty != null)
  		browseProperty.putAll(formProperty);   //"FormBuilder_URL", formProperty.get("URL"));
+ 	if (cadsrProperty != null)
+ 		browseProperty.putAll(cadsrProperty);   //"context_test", formProperty.get("EXCLUDE.CONTEXT.00.NAME"));
+ 	
     return browseProperty;
   }
 
