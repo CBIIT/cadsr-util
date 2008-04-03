@@ -1,6 +1,7 @@
 package gov.nih.nci.ncicb.cadsr.contexttree;
 
 import gov.nih.nci.ncicb.cadsr.common.cdebrowser.DataElementSearchBean;
+import gov.nih.nci.ncicb.cadsr.common.formbuilder.struts.common.FormConstants;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.AbstractDAOFactory;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.ContextDAO;
 import gov.nih.nci.ncicb.cadsr.common.resource.Context;
@@ -57,35 +58,36 @@ public class CDEBrowserTreeData implements Serializable {
       boolean excludeTest = true;
       boolean noBuildException = true;
              
-      Collection contexts = dao.getAllContexts();
-      try {
+      try {    	  
 	      FacesContext facesContext = FacesContext.getCurrentInstance();
 	      HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);
-	      DataElementSearchBean desb =(DataElementSearchBean) (SessionHelper.getInfoBean(session, "desb"));
-         if (desb != null) {
-            excludeTest = desb.isExcludeTestContext();
-            excludeTraining = desb.isExcludeTrainingContext();
-      }
  
-      //first build a text folder node context.
-
-      for (Iterator iter = contexts.iterator(); iter.hasNext(); ) {
-         Context context = (Context)iter.next();
-         // if this context is not excluded by user preference
-         if ((context.getName().equalsIgnoreCase("test") && excludeTest)
-         || (context.getName().equalsIgnoreCase("training") && excludeTraining))
-            continue;
-         
-         LazyActionTreeNode contextNode =
-            new ContextNode("Context Folder", context.getName() + " (" + context.getDescription() + ")",
-              "javascript:performAction('P_PARAM_TYPE=CONTEXT&P_IDSEQ=" +
-              context.getConteIdseq() +
-              "&P_CONTE_IDSEQ=" +  context.getConteIdseq() +
-              "&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes"
-              +"')",
-              context.getConteIdseq(),  false);
-         contextFolder.addLeaf(contextNode);
-       }
+	      //first build a text folder node context.
+	      Collection<Context> contexts = (Collection)session.getAttribute(FormConstants.ALL_CONTEXTS);
+	      if (contexts == null || contexts.size() < 1)
+	      {
+	    	  contexts = dao.getAllContexts();
+	    	  DataElementSearchBean desb =(DataElementSearchBean) (SessionHelper.getInfoBean(session, "desb"));
+	    	  if (desb == null)
+	    	  {
+	    		  desb = new DataElementSearchBean();
+	    		  desb.initDefaultContextPreferences();
+	    	  }
+	    	  desb.getContextsList(contexts);
+	      }
+	      for (Iterator iter = contexts.iterator(); iter.hasNext(); ) {
+	         Context context = (Context)iter.next();
+	         
+	         LazyActionTreeNode contextNode =
+	            new ContextNode("Context Folder", context.getName() + " (" + context.getDescription() + ")",
+	              "javascript:performAction('P_PARAM_TYPE=CONTEXT&P_IDSEQ=" +
+	              context.getConteIdseq() +
+	              "&P_CONTE_IDSEQ=" +  context.getConteIdseq() +
+	              "&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes"
+	              +"')",
+	              context.getConteIdseq(),  false);
+	         contextFolder.addLeaf(contextNode);
+	       }
 
       } catch (Exception e) {
          noBuildException = false;

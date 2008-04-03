@@ -1,12 +1,15 @@
 package gov.nih.nci.ncicb.cadsr.common.cdebrowser;
 
 import gov.nih.nci.ncicb.cadsr.common.ProcessConstants;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
 import gov.nih.nci.ncicb.cadsr.common.util.CDEBrowserParams;
 import gov.nih.nci.ncicb.cadsr.common.util.DBUtil;
 import gov.nih.nci.ncicb.cadsr.common.util.GenericPopListBean;
 import gov.nih.nci.ncicb.cadsr.common.util.StringUtils;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -57,8 +60,15 @@ public class DataElementSearchBean extends Object {
   private String conceptCode = "";
   private String objectClass;
   private String property;
+  
+  private String excludeContextList;
 
-  public DataElementSearchBean( HttpServletRequest request) throws SQLException {
+  
+  public DataElementSearchBean() {
+	super();
+  }
+
+public DataElementSearchBean( HttpServletRequest request) throws SQLException {
     strArray = request.getParameterValues("SEARCH");
     vdPrefName = request.getParameter("txtValueDomain");
     decPrefName = request.getParameter("txtDataElementConcept");
@@ -631,5 +641,45 @@ public class DataElementSearchBean extends Object {
             pvSearchMode = ProcessConstants.DE_SEARCH_MODE_EXACT;
         return pvSearchMode;
     }
+    
+    public String getExcludeContextList()
+    {
+      CDEBrowserParams params = CDEBrowserParams.getInstance();  	  
+      String excludeList = "";
+	  if (this.isExcludeTestContext())
+		  excludeList = " '" + params.getContextTest() + "'";  // " '" + CaDSRConstants.CONTEXT_TEST + "'";
+	  if (this.isExcludeTrainingContext())
+	  {
+          if (!excludeList.equals("")) excludeList += ",";
+          excludeList += " '" + params.getContextTraining() + "'";   //" '" + CaDSRConstants.CONTEXT_TRAINING + "' ";
+	  }
+	  return excludeList;
+    }
+    
+    public void getContextsList(Collection<Context> contexts)
+    {
+       String excludeList = this.getExcludeContextList();
+  	   if (!excludeList.equals(""))
+	   {
+		  Collection<Context> exContexts = new ArrayList<Context>();
+	      for (Context context: contexts) {
+	          // if this context is not excluded by user preference
+	          if (excludeList.contains(context.getName()))
+	        	  exContexts.add(context);
+	      }
+	      if (!exContexts.isEmpty())
+	    	  contexts.removeAll(exContexts);
+	   }	  
+    }
+    
+    public void initDefaultContextPreferences()
+    {
+		// Initialize Search Preference Values
+		final boolean excludeTestContext = new Boolean("true").booleanValue();
+		final boolean excludeTrainingContext = new Boolean("true").booleanValue();
+		this.setExcludeTestContext(excludeTestContext);
+		this.setExcludeTrainingContext(excludeTrainingContext);
+    }
+    
 }
 

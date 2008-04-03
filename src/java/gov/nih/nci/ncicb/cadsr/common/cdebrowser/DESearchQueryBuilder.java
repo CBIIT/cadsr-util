@@ -116,8 +116,8 @@ public class DESearchQueryBuilder extends Object {
     }
 
     String contextExludeWhere ="";
-    String contextExludeToExclude ="";
-    if(searchBean.isExcludeTestContext())
+    String contextExludeToExclude = searchBean.getExcludeContextList();
+  /*  if(searchBean.isExcludeTestContext())
     {
       contextExludeToExclude=" '"+CaDSRConstants.CONTEXT_TEST+"'";
     }
@@ -131,10 +131,10 @@ public class DESearchQueryBuilder extends Object {
        {
          contextExludeToExclude = contextExludeToExclude+", '"+CaDSRConstants.CONTEXT_TRAINING+"' ";
        }
-    }
+    } */
     if(!contextExludeToExclude.equals(""))
     {
-      contextExludeWhere = " and upper(conte.name) NOT IN ("+contextExludeToExclude+" )";
+      contextExludeWhere = " and conte.name NOT IN ("+contextExludeToExclude+" )";
     }
 
     if (strArray == null) {

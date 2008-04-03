@@ -45,6 +45,9 @@ public class CDEBrowserParams
     String formBuilderUrl="";
     String cdeBrowserUrl="";
     
+    String contextTest = "";
+    String contextTraining = "";
+    
     Map evsUrlMap = new HashMap();
     
     static CDEBrowserParams instance;
@@ -335,6 +338,10 @@ public class CDEBrowserParams
             index++;      
             cdeBrowserUrl = properties.getProperty("CDEBrowser_URL");
             index++;      
+            contextTest = properties.getProperty("BROADCAST.EXCLUDE.CONTEXT.00.NAME");
+            index++;      
+            contextTraining = properties.getProperty("BROADCAST.EXCLUDE.CONTEXT.01.NAME");
+            index++;      
             log.info("Loaded Properties"+properties);
                         
         } 
@@ -394,5 +401,15 @@ public class CDEBrowserParams
 
 	public void setCdeBrowserUrl(String cdeBrowserUrl) {
 		this.cdeBrowserUrl = cdeBrowserUrl;
+	}
+	
+	public String getContextTest()
+	{
+		return contextTest;
+	}
+	
+	public String getContextTraining()
+	{
+		return contextTraining;
 	}
 }

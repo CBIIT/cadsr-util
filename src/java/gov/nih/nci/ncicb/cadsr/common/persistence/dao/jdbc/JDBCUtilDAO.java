@@ -89,7 +89,7 @@ public class JDBCUtilDAO extends JDBCBaseDAO implements UtilDAO
    }
     public void setSql(String toolName,String locale) {
       super.setSql("select PROPERTY, VALUE from TOOL_OPTIONS_VIEW_EXT " +
-        " where tool_name = '"+toolName +"' and locale = '" +locale +"'");
+        " where tool_name = '"+toolName +"' and (locale = '" +locale +"' or locale is null)");
     }
 
     public void setSqlURL(String locale) {
