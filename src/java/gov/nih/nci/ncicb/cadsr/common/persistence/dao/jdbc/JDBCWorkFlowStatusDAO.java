@@ -22,7 +22,7 @@ public class JDBCWorkFlowStatusDAO extends JDBCBaseDAO
 
   /**
    * Gets the workflow statuses for a particular admin component type. This
-   * info is maintained in Table: ASL_ACTL_EXT Columns: ASL_NAME, ACTL_NAME
+   * info is maintained in Table: ASL_ACTL_VIEW_EXT Columns: ASL_NAME, ACTL_NAME
    *
    * @param <b>adminComponentType</b> Indicates the admin component type
    */
@@ -63,7 +63,7 @@ public class JDBCWorkFlowStatusDAO extends JDBCBaseDAO
       String adminComponentType,
       String dummy) {
       String sqlStmt =
-        "select ASL_NAME from ASL_ACTL_EXT " + " where ACTL_NAME = '" +
+        "select ASL_NAME from ASL_ACTL_VIEW_EXT " + " where ACTL_NAME = '" +
         adminComponentType + "' " + "   and ASL_NAME != 'RETIRED DELETED' ";
       super.setSql(sqlStmt);
     }

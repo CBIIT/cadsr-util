@@ -96,7 +96,7 @@ public class JDBCQuestionRepititionDAO extends JDBCAdminComponentDAO implements 
     private class UpdateModuleRepeatCount extends SqlUpdate {
       public UpdateModuleRepeatCount(DataSource ds) {
         String updateSql =
-          " UPDATE quest_contents_ext " + 
+          " UPDATE sbrext.quest_contents_view_ext " + 
           " SET REPEAT_NO = ?,  modified_by = ? " +
           " WHERE QC_IDSEQ = ? ";
 

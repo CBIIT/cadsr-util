@@ -194,7 +194,7 @@ public DataElementSearchBean( HttpServletRequest request) throws SQLException {
     String where = " ACTL_NAME = 'DATAELEMENT' AND ASL_NAME != 'RETIRED DELETED' ";
     workflowFullList =
       GenericPopListBean.buildList(
-        "sbrext.ASL_ACTL_EXT", "ASL_NAME", "ASL_NAME", selectedIndex,
+        "sbrext.ASL_ACTL_VIEW_EXT", "ASL_NAME", "ASL_NAME", selectedIndex,
         "jspStatus", dbUtil, where, true, 8, false, true, false, false,
         "LongLOVField");
   }
@@ -209,7 +209,7 @@ public DataElementSearchBean( HttpServletRequest request) throws SQLException {
     String where = null;
     regStatusFullList =
       GenericPopListBean.buildList(
-        "sbr.REG_STATUS_LOV", "REGISTRATION_STATUS", "REGISTRATION_STATUS", selectedIndex,
+        "sbr.REG_STATUS_LOV_VIEW", "REGISTRATION_STATUS", "REGISTRATION_STATUS", selectedIndex,
         "regStatus", dbUtil, where, true, 8, false, true, false, false,
         "LongLOVField");
   }
@@ -245,7 +245,7 @@ public DataElementSearchBean( HttpServletRequest request) throws SQLException {
      }
     workflowList =
       GenericPopListBean.buildList(
-        "sbrext.ASL_ACTL_EXT", "ASL_NAME", "ASL_NAME", selectedIndex,
+        "sbrext.ASL_ACTL_VIEW_EXT", "ASL_NAME", "ASL_NAME", selectedIndex,
         "jspStatus", dbUtil, where, false, 4, true, true, false, true,
         "LongLOVField");
   }
@@ -264,7 +264,7 @@ public DataElementSearchBean( HttpServletRequest request) throws SQLException {
      }
     regStatusList =
       GenericPopListBean.buildList(
-        "sbr.REG_STATUS_LOV", "REGISTRATION_STATUS", "REGISTRATION_STATUS", selectedIndex,
+        "sbr.REG_STATUS_LOV_VIEW", "REGISTRATION_STATUS", "REGISTRATION_STATUS", selectedIndex,
         "regStatus", dbUtil, where, false, 4, true, true, false, true,
         "LongLOVField");
   }
@@ -281,7 +281,7 @@ public DataElementSearchBean( HttpServletRequest request) throws SQLException {
     String where = null;
     altNameList =
       GenericPopListBean.buildList(
-        "sbr.DESIGNATION_TYPES_LOV", "DETL_NAME", "DETL_NAME", selectedIndex,
+        "sbr.DESIGNATION_TYPES_LOV_VIEW", "DETL_NAME", "DETL_NAME", selectedIndex,
         "altName", dbUtil, where, true, 4, false, true, false, true,
         "LongLOVField");
   }

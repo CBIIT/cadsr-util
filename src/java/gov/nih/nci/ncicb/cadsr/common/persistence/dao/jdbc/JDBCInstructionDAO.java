@@ -127,7 +127,7 @@ public abstract class JDBCInstructionDAO extends JDBCAdminComponentDAO
   private class InsertQuestContent extends SqlUpdate {
     public InsertQuestContent(DataSource ds) {
       String contentInsertSql =
-        " INSERT INTO quest_contents_ext " +
+        " INSERT INTO sbrext.quest_contents_view_ext " +
         " (qc_idseq, version, preferred_name, long_name, preferred_definition, " +
         "  conte_idseq, asl_name, created_by, qtl_name) " +
         " VALUES " + " (?, ?, ?, ?, ?,?, ?, ?, ?) ";
@@ -172,7 +172,7 @@ public abstract class JDBCInstructionDAO extends JDBCAdminComponentDAO
   private class InsertQuestRec extends SqlUpdate {
     public InsertQuestRec(DataSource ds) {
       String questRecInsertSql =
-        " INSERT INTO qc_recs_ext " +
+        " INSERT INTO sbrext.qc_recs_view_ext " +
         " (qr_idseq, p_qc_idseq, c_qc_idseq, display_order, rl_name, created_by)" +
         " VALUES " + "( ?, ?, ?, ?, ?, ? )";
       this.setDataSource(ds);
@@ -242,7 +242,7 @@ public abstract class JDBCInstructionDAO extends JDBCAdminComponentDAO
   private class UpdateInstruction extends SqlUpdate {
     public UpdateInstruction(DataSource ds) {
       String updateFormSql =
-        " UPDATE quest_contents_ext SET " +
+        " UPDATE sbrext.quest_contents_view_ext SET " +
         " long_name = ? , preferred_definition = ? , modified_by = ? " +
         " WHERE qc_idseq = ? ";
 

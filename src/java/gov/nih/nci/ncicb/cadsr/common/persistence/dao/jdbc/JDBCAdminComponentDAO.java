@@ -390,6 +390,10 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
         return query.isAllACDesignatedToContext(acIdList,contextIdSeq);
     }
 
+    /**
+    * @param acIdList a list of AC
+    * @return Context object.
+     */
     public Context getContext(String acIdSeq) {
         ContextQuery query = new ContextQuery();
         query.setDataSource(getDataSource());
@@ -397,6 +401,10 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
         return query.getContext(acIdSeq);
     }
 
+    /**
+    * @param acIdList a list of AC
+    * @return contact list object.
+     */
    public List<Contact> getContacts(String acIdseq) {
       List<Contact> contacts = new ArrayList();
       PersonContactByACIdQuery personQuery = new PersonContactByACIdQuery();
@@ -601,7 +609,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
   private class InsertAcCsi extends SqlUpdate {
     public InsertAcCsi(DataSource ds) {
       String insertSql =
-        " INSERT INTO ac_csi (ac_csi_idseq, cs_csi_idseq, ac_idseq) " +
+        " INSERT INTO sbr.ac_csi_view (ac_csi_idseq, cs_csi_idseq, ac_idseq) " +
         " VALUES " + " (?, ?, ?) ";
 
       this.setDataSource(ds);
@@ -642,8 +650,8 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
 
       public DesignateCDE(DataSource ds) {
         String insertSql =
-          " INSERT INTO designations (desig_idseq, ac_idseq, conte_idseq, name, detl_name, lae_name, created_by) " +
-          " (select ?, ?, ?, PREFERRED_NAME, 'USED_BY', 'ENGLISH', ? from administered_components where " +
+          " INSERT INTO sbr.designations_view (desig_idseq, ac_idseq, conte_idseq, name, detl_name, lae_name, created_by) " +
+          " (select ?, ?, ?, PREFERRED_NAME, 'USED_BY', 'ENGLISH', ? from sbr.admin_components_view where " +
           " ac_idseq = ?)";
 
         this.setDataSource(ds);
@@ -700,7 +708,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
   private class DeleteAcCsi extends SqlUpdate {
     public DeleteAcCsi(DataSource ds) {
       String deleteSql =
-        " DELETE FROM ac_csi WHERE ac_csi_idseq = ? ";
+        " DELETE FROM sbr.ac_csi_view WHERE ac_csi_idseq = ? ";
 
       this.setDataSource(ds);
       this.setSql(deleteSql);
@@ -735,8 +743,8 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
         "SELECT csi.long_name csi_name, csi.csitl_name, csi.csi_idseq, " +
         "       cscsi.cs_csi_idseq, cs.preferred_definition, cs.long_name, " +
         "        accsi.ac_csi_idseq, cs.cs_idseq, cs.version " +
-        " FROM ac_csi accsi, cs_csi cscsi, " +
-        "      cs_items_view csi, classification_schemes cs  " +
+        " FROM sbr.ac_csi_view accsi, sbr.cs_csi_view cscsi, " +
+        "      sbr.cs_items_view csi, sbr.classification_schemes_view cs  " +
         " WHERE accsi.ac_idseq = ?  " +
         " AND   accsi.cs_csi_idseq = cscsi.cs_csi_idseq " +
         " AND   cscsi.csi_idseq = csi.csi_idseq " +
@@ -777,7 +785,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
         "SELECT ref.name, ref.dctl_name, ref.ac_idseq, " +
         "       ref.rd_idseq, ref.url, ref.doc_text, " +
         " ref.conte_idseq, con.name, ref.display_order" +
-        " FROM reference_documents ref, contexts con" +
+        " FROM sbr.reference_documents_view ref, sbr.contexts_view con" +
         " WHERE ref.ac_idseq = '" +adminCompId+"'"+
 //        " AND   ref.DCTL_NAME = '"+ docType+"'" +
         " AND ref.conte_idseq = con.conte_idseq " +
@@ -812,7 +820,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
     ReferenceAttachmentsQuery(DataSource ds) {
     super( ds,
       "SELECT refb.name, refb.mime_type, refb.doc_size, refb.DATE_CREATED" +
-        " FROM reference_blobs refb" +
+        " FROM sbr.reference_blobs_view refb" +
         " WHERE refb.rd_idseq = ?" +
         " order by date_created " );
       declareParameter(new SqlParameter("refDocId", Types.VARCHAR));
@@ -875,8 +883,8 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
                                +"       ,csc.cs_csi_idseq "
                                +"       ,cs.preferred_name "
                                +"FROM   sbr.cs_items_view csi "
-                               +"      ,sbr.cs_csi csc "
-                               +"      ,sbr.classification_schemes cs "
+                               +"      ,sbr.cs_csi_view csc "
+                               +"      ,sbr.classification_schemes_view cs "
                                +"WHERE csi.csi_idseq = csc.csi_idseq "
                                +"AND cs.CONTE_IDSEQ = ? "
                                +"AND csc.cs_idseq = cs.cs_idseq "
@@ -913,8 +921,8 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
       super(
         ds,
           "select distinct cscsi.CS_CSI_IDSEQ, i.CSITL_NAME , "  +
-          " cs.LONG_NAME, cscsi.LABEL from  classification_schemes cs, "
-          + " sbr.cs_items_view i , cs_csi cscsi "
+          " cs.LONG_NAME, cscsi.LABEL from  sbr.classification_schemes_view cs, "
+          + " sbr.cs_items_view i , sbr.cs_csi_view cscsi "
 	   			+" where cs.CSTL_NAME=? and i.CSITL_NAME=? "
 					+" and cscsi.CSI_IDSEQ=i.CSI_IDSEQ "
 					+" and cscsi.CS_IDSEQ=cs.CS_IDSEQ "
@@ -961,8 +969,8 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
         ds,
           "select distinct cscsi.CS_CSI_IDSEQ, i.CSITL_NAME , "  +
           " cs.LONG_NAME, cscsi.LABEL , cs.CONTE_IDSEQ " +
-          " from  classification_schemes cs, "
-          + " sbr.cs_items_view i , cs_csi cscsi "
+          " from  sbr.classification_schemes_view cs, "
+          + " sbr.cs_items_view i , sbr.cs_csi_view cscsi "
 	   			+" where cs.CSTL_NAME=? and i.CSITL_NAME=? "
 					+" and cscsi.CSI_IDSEQ=i.CSI_IDSEQ "
 					+" and cscsi.CS_IDSEQ=cs.CS_IDSEQ "
@@ -1009,7 +1017,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
   private class DeleteCSIForAdminComp extends SqlUpdate {
     public DeleteCSIForAdminComp(DataSource ds) {
       String deleteSql =
-        " DELETE FROM ac_csi WHERE cs_csi_idseq = ? and ac_idseq = ? ";
+        " DELETE FROM sbr.ac_csi_view WHERE cs_csi_idseq = ? and ac_idseq = ? ";
 
       this.setDataSource(ds);
       this.setSql(deleteSql);
@@ -1303,7 +1311,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
        String acIdListStr = getDelimetedIdSeq(acIdList, ", ");
        System.out.println("acIdListStr=" + acIdListStr);
         super.setSql(
-          "SELECT ac_idseq from designations where conte_idseq= '" + contextIdSeq + "' " +
+          "SELECT ac_idseq from sbr.designations_view where conte_idseq= '" + contextIdSeq + "' " +
           " and detl_name='USED_BY' and lae_name='ENGLISH' and ac_idseq in (" +
           acIdListStr + ")" );
 
@@ -1331,7 +1339,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
       public void setSql() {
         super.setSql(
           "select con.CONTE_IDSEQ, con.DESCRIPTION, con.NAME, con.PAL_NAME, con.LL_NAME, con.language "+
-    " from contexts con, Administered_components ac "+
+    " from sbr.contexts_view con, sbr.admin_components_view ac "+
     " where ac.CONTE_IDSEQ = con.CONTE_IDSEQ "+
     " and ac.ac_idseq = ?");
 
@@ -1373,7 +1381,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
        if (type== null){
         super.setSql(
           "select des.desig_idseq, des.name, des.detl_name, des.lae_name, con.CONTE_IDSEQ, con.NAME, con.PAL_NAME "+
-            " from contexts con, designations des "+
+            " from sbr.contexts_view con, sbr.designations_view des "+
             " where des.CONTE_IDSEQ = con.CONTE_IDSEQ "+
             " and des.ac_idseq = ?");
 
@@ -1381,7 +1389,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
        }else{
            super.setSql(
              "select des.desig_idseq, des.name, des.detl_name, des.lae_name, con.CONTE_IDSEQ, con.NAME, con.PAL_NAME "+
-           " from contexts con, designations des "+
+           " from sbr.contexts_view con, sbr.designations_view des "+
            " where des.CONTE_IDSEQ = con.CONTE_IDSEQ "+
            " and des.ac_idseq = ? and des.detl_name=?");
            declareParameter(new SqlParameter("AC_IDSEQ", Types.VARCHAR));
@@ -1428,7 +1436,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
         super.setSql(
           " select def.defin_idseq, def.definition,  def.defl_name, " +
           " def.lae_name, con.CONTE_IDSEQ, con.NAME, con.PAL_NAME " +
-          " from contexts con, definitions def " +
+          " from sbr.contexts_view con, sbr.definitions_view def " +
           " where def.CONTE_IDSEQ = con.CONTE_IDSEQ " +
           " and def.ac_idseq = ? ");
 
@@ -1470,8 +1478,8 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
          super.setSql( "SELECT csi.long_name csi_name, csi.csitl_name, csi.csi_idseq, " +
          "               cscsi.cs_csi_idseq, cs.preferred_definition, cs.long_name, "+
          "                ext.aca_idseq, cs.cs_idseq, cs.version , csi.preferred_definition description" +
-         "        FROM ac_att_cscsi_ext ext, cs_csi cscsi, " +
-         "             cs_items_view csi, classification_schemes cs  " +
+         "        FROM sbrext.ac_att_cscsi_view_ext ext, sbr.cs_csi_view cscsi, " +
+         "             sbr.cs_items_view csi, sbr.classification_schemes_view cs  " +
          "        WHERE ext.ATT_IDSEQ = ? " +
          "        AND   ext.cs_csi_idseq = cscsi.cs_csi_idseq " +
          "        AND   cscsi.csi_idseq = csi.csi_idseq " +
@@ -1538,7 +1546,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
        String querySql = " SELECT acc.acc_idseq, acc.org_idseq, acc.per_idseq, acc.contact_role,"
        +" per.LNAME, per.FNAME, addr.CADDR_IDSEQ,"
        + " addr.ADDR_LINE1, addr.ADDR_LINE2, addr.CADDR_IDSEQ, addr.CITY, addr.POSTAL_CODE, addr.STATE_PROV "
-      + "  FROM sbr.ac_contacts acc, sbr.persons per, sbr.contact_addresses addr "
+      + "  FROM sbr.ac_contacts_view acc, sbr.persons_view per, sbr.contact_addresses_view addr "
         + " where  acc.ac_idseq = '"+ acidSeq +"' and "
       + " acc.per_idseq = per.per_idseq  and addr.PER_IDSEQ = per.PER_IDSEQ "
       + "   ORDER BY acc.acc_idseq, acc.rank_order ";
@@ -1595,7 +1603,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
    public void setQuerySql(String idType, String orgIdSeq) {
     String querySql = " select cc.CCOMM_IDSEQ, cc.CTL_NAME, cc.CYBER_ADDRESS, " +
     " cc.RANK_ORDER " +
-    " from contact_comms cc "
+    " from sbr.contact_comms_view cc "
     + " where "+ idType +" = '"+ orgIdSeq +"'"
     + " and ( CTL_NAME='PHONE' OR CTL_NAME='EMAIL') "
        + " ORDER BY rank_order";
@@ -1641,7 +1649,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
        String querySql = " SELECT acc.acc_idseq, acc.org_idseq, acc.per_idseq, acc.contact_role,"
        +" org.name, addr.CADDR_IDSEQ,"
        + " addr.ADDR_LINE1, addr.ADDR_LINE2, addr.CADDR_IDSEQ, addr.CITY, addr.POSTAL_CODE, addr.STATE_PROV "
-      + "  FROM sbr.ac_contacts acc, sbr.organizations org, sbr.contact_addresses addr "
+      + "  FROM sbr.ac_contacts_view acc, sbr.organizations_view org, sbr.contact_addresses_view addr "
         + " where  acc.ac_idseq = '"+ acidSeq +"' and "
       + " acc.org_idseq = org.org_idseq  and addr.ORG_IDSEQ = ORG.ORG_IDSEQ "
       + "   ORDER BY acc.acc_idseq, acc.rank_order ";

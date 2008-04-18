@@ -15,7 +15,7 @@ public class DropDownListHelper {
       String where = " 1=1 ";
       StringBuffer contextList =
         GenericPopListBean.buildList(
-          "SBR.CONTEXTS","NAME", "CONTE_IDSEQ", selectedId, listName, dbUtil,
+          "SBR.CONTEXTS_VIEW","NAME", "CONTE_IDSEQ", selectedId, listName, dbUtil,
           where, false, 0, false, false, false, false, "LOVField");
       popList = contextList.toString();
     } catch (Exception ex) {
@@ -35,7 +35,7 @@ public class DropDownListHelper {
       String where = " ACTL_NAME = '" + acType + "'";
       StringBuffer workflowList =
         GenericPopListBean.buildList(
-          "sbrext.ASL_ACTL_EXT", "ASL_NAME", "ASL_NAME", selectedId, listName,
+          "sbrext.ASL_ACTL_VIEW_EXT", "ASL_NAME", "ASL_NAME", selectedId, listName,
           dbUtil, where, false, 0, false, false, false, false, "LOVField");
       popList = workflowList.toString();
     } catch (Exception ex) {
@@ -57,7 +57,7 @@ public class DropDownListHelper {
       String where = " 1=1 ";
       StringBuffer typesList =
         GenericPopListBean.buildList(
-          "SBREXT.QC_DISPLAY_LOV_EXT", "QCDL_NAME", "QCDL_NAME", selectedId,
+          "SBREXT.QC_DISPLAY_LOV_VIEW_EXT", "QCDL_NAME", "QCDL_NAME", selectedId,
           listName, dbUtil, where, false, 0, false, false, false, false,
           "LOVField");
       popList = typesList.toString();

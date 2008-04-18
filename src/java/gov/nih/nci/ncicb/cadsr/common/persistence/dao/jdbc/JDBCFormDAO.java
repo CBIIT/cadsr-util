@@ -795,8 +795,8 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
 
       public void setSql() {
         String sql = " SELECT p.proto_idseq, p.version, p.conte_idseq, p.preferred_name, p.preferred_definition, p.asl_name, p.long_name, p.LATEST_VERSION_IND, p.begin_date, p.END_DATE, p.PROTOCOL_ID, p.TYPE, p.PHASE, p.LEAD_ORG, p.origin, p.PROTO_ID, c.name contextname " +
-                     " FROM protocol_qc_ext fp, protocols_ext p , sbr.contexts c" +
-                     " where QC_IDSEQ = ? and fp.PROTO_IDSEQ = p.PROTO_IDSEQ and p.deleted_ind='No' " +
+                     " FROM protocol_qc_ext fp, sbrext.protocols_view_ext p , sbr.contexts_view c" +
+                     " where QC_IDSEQ = ? and fp.PROTO_IDSEQ = p.PROTO_IDSEQ " +
                      " AND p.conte_idseq = c.conte_idseq";
         super.setSql(sql);
         declareParameter(new SqlParameter("QC_IDSEQ", Types.VARCHAR));
@@ -1158,18 +1158,18 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
       if (StringUtils.doesValueExist(classificationIdseq)) {
         if (hasWhere) {
           whereBuffer.append(
-            " AND f.QC_IDSEQ in (select ac_idseq from ac_csi where CS_CSI_IDSEQ ='" +
+            " AND f.QC_IDSEQ in (select ac_idseq from sbr.ac_csi_view where CS_CSI_IDSEQ ='" +
             classificationIdseq + "')");
         }
         else {
           whereBuffer.append(
-            " WHERE f.QC_IDSEQ in (select ac_idseq from ac_csi where CS_CSI_IDSEQ ='" +
+            " WHERE f.QC_IDSEQ in (select ac_idseq from sbr.ac_csi_view where CS_CSI_IDSEQ ='" +
             classificationIdseq + "')");
           hasWhere = true;
         }
       }
 
-/*     <!-- looks like this is not being used anymore  -->
+/*     <!-- looks like this is not being used anymore commented for 4.0 -->
       if (StringUtils.doesValueExist(contextRestriction)) {
         if (hasWhere) {
           whereBuffer.append(" AND (f.CONTE_IDSEQ !='" + contextRestriction + "' or f.type in ('TEMPLATE'))");
@@ -1240,7 +1240,7 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
     }
 
     public void setQuerySql(String csidSeq) {
-     String querySql = " SELECT * FROM FB_FORMS_VIEW formview, sbr.cs_csi csc,sbr.ac_csi acs "
+     String querySql = " SELECT * FROM FB_FORMS_VIEW formview, sbr.cs_csi_view csc,sbr.ac_csi_view acs "
         + " where  csc.cs_idseq = '"+ csidSeq +"'"
         + " and csc.cs_csi_idseq = acs.cs_csi_idseq "
 				+ " and acs.AC_IDSEQ=formview.QC_IDSEQ "
@@ -1312,7 +1312,7 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
   private class InsertQuestContent extends SqlUpdate {
     public InsertQuestContent(DataSource ds) {
       String contentInsertSql =
-        " INSERT INTO quest_contents_ext " +
+        " INSERT INTO sbrext.quest_contents_view_ext " +
         " (qc_idseq, version, preferred_name, long_name, preferred_definition, " +
         "  conte_idseq, proto_idseq, asl_name, created_by, qtl_name, qcdl_name ) " +
         " VALUES " + " (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
@@ -1488,7 +1488,7 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
        //update form should keep the existing proto_idseq 
        //even though the protocols are stored in a new table in 3.1
        String updateFormSql =
-         " UPDATE quest_contents_ext SET " +
+         " UPDATE sbrext.quest_contents_view_ext SET " +
          " qtl_name = ?, conte_idseq = ?, asl_name = ?, preferred_name = ?, " +
          " preferred_definition = ?, long_name = ?, qcdl_name = ?, " +
          " modified_by = ? " +
@@ -1551,13 +1551,13 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
                 + " ,proto.preferred_name proto_preferred_name "
                 + "  ,proto.preferred_definition proto_preferred_definition, proto.CONTE_IDSEQ proto_context "
                 + ", accs.cs_csi_idseq, accs.cs_conte_idseq "
-                + " FROM  sbrext.quest_contents_ext quest,protocols_ext proto, protocol_qc_ext proto_qc,  "
+                + " FROM  sbrext.quest_contents_view_ext quest, sbrext.protocols_view_ext proto, sbrext.protocol_qc_ext proto_qc,  "
                 + " (select ac_idseq, cs_csi_idseq, cs_conte_idseq  from sbrext.ac_class_view_ext where upper(CSTL_NAME) = upper('"
                 + CaDSRConstants.FORM_CS_TYPE + "') and upper(CSITL_NAME) = upper('"
                 + CaDSRConstants.FORM_CSI_TYPE + "')) accs "
                 + " WHERE quest.QC_IDSEQ = proto_qc.QC_IDSEQ(+) and proto_qc.PROTO_IDSEQ = proto.PROTO_IDSEQ "
                 + " and quest.QC_IDSEQ = accs.AC_IDSEQ(+) and quest.qtl_name = 'CRF' "
-                + " AND   quest.deleted_ind = 'No' "
+                //+ " AND   quest.deleted_ind = 'No' "  this is done in teh view
                 + " AND   quest.latest_version_ind = 'Yes' "
                 + " ORDER BY proto.conte_idseq,upper(proto.LONG_NAME),upper(quest.long_name), quest.QC_IDSEQ";
 
@@ -1649,13 +1649,13 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
                     +" ,context.CONTE_IDSEQ "
                     +" ,context.NAME  "
                     + ", accs.cs_csi_idseq "
-                    +" FROM  sbrext.quest_contents_ext quest, contexts context, "
+                    +" FROM  sbrext.quest_contents_view_ext quest, sbr.contexts_view context, "
                     + " (select ac_idseq, cs_csi_idseq from sbrext.ac_class_view_ext where upper(CSTL_NAME) = upper('"
                     + CaDSRConstants.TEMPLATE_CS_TYPE + "') and upper(CSITL_NAME) = upper('"
                     + CaDSRConstants.TEMPLATE_CSI_TYPE + "')) accs "
                     +" where  context.CONTE_IDSEQ=quest.CONTE_IDSEQ "
                     + "AND  quest.QC_IDSEQ = accs.AC_IDSEQ(+)"
-                    +" AND   deleted_ind = 'No' "
+                    //+" AND   deleted_ind = 'No' "  this is done in teh view
                     +" AND   latest_version_ind = 'Yes' "
                     +" AND   qtl_name = 'TEMPLATE' "
                     +" ORDER BY conte_idseq, upper(long_name) " ;
@@ -1725,13 +1725,13 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
                                        +" ,qc.preferred_definition "
                                        +" ,qc.qcdl_name "
                                        +" ,acs.cs_csi_idseq "
-                                       +" FROM  sbrext.quest_contents_ext qc, contexts context"
-                                       +" ,sbr.ac_csi acs "
+                                       +" FROM  sbrext.quest_contents_view_ext qc, sbr.contexts_view context"
+                                       +" ,sbr.ac_csi_view acs "
                                        +" WHERE "
                                        +" context.CONTE_IDSEQ=qc.CONTE_IDSEQ "
                                        +" AND    qcdl_name is not null "
                                        +" AND    qc.conte_idseq =  ? "
-                                       +" AND   qc.deleted_ind = 'No' "
+                                      // +" AND   qc.deleted_ind = 'No' "  this is done in teh view
                                        +" AND   qc.latest_version_ind = 'Yes'  "
                                        +" AND   qc.qtl_name = 'TEMPLATE' "
                                        +" AND   qc.qc_idseq = acs.ac_idseq "
@@ -1848,12 +1848,12 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
       super(ds, " select distinct proto_idseq, proto.preferred_name "
                                             +" ,proto.long_name ,proto.preferred_definition "
                                             +" ,proto.conte_idseq "
-                                            +" from protocols_ext proto "
+                                            +" from sbrext.protocols_view_ext proto "
                                             +" , published_forms_view "
                                             +" where "
                                             +" proto.PROTO_IDSEQ=published_forms_view.PROTOCOL_IDSEQ "
                                             +" and proto.PROTO_IDSEQ=published_forms_view.PROTOCOL_IDSEQ "
-                                            +" and   proto.deleted_ind = 'No' "
+                                            //+" and   proto.deleted_ind = 'No' "  this is done in teh view
                                             +" and	 proto.latest_version_ind = 'Yes' "
                                             +" and   PUBLISH_CONTE_IDSEQ=? "
                                             +" order by upper(proto.long_name) " );
@@ -1889,10 +1889,10 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
     TemplateTypeQuery(DataSource ds)  {
 
       super(ds, "SELECT distinct qcdl_name "
-                                       +"FROM   quest_contents_ext "
+                                       +"FROM   sbrext.quest_contents_view_ext "
                                        +"WHERE  qtl_name = 'TEMPLATE' "
                                        +"AND    conte_idseq = ? "
-                                       +"AND    deleted_ind = 'No' "
+                                      // +"AND    deleted_ind = 'No' "  this is done in teh view
                                        +"AND    latest_version_ind = 'Yes' "
                                        +"AND    qcdl_name is not null "
                                        +"ORDER BY upper(qcdl_name) " );
@@ -1929,7 +1929,7 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
 
    public void setSql(int publicId) {
    String allFormVersionsByPublicId =
-      " SELECT qc_idseq, version, change_note, latest_version_ind from QUEST_CONTENTS_EXT crf where QC_ID=" + publicId + " order by version";
+      " SELECT qc_idseq, version, change_note, latest_version_ind from SBREXT.QUEST_CONTENTS_VIEW_EXT crf where QC_ID=" + publicId + " order by version";
    super.setSql(allFormVersionsByPublicId);
    compile();
   }
@@ -1973,7 +1973,7 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
 
       public void setSql(int publicId) {
       String maxFormVersionsByPublicId =
-               " SELECT MAX(version) from QUEST_CONTENTS_EXT crf where (crf.QTL_NAME = 'CRF' or crf.QTL_NAME = 'TEMPLATE') AND QC_ID = " + publicId;
+               " SELECT MAX(version) from SBREXT.QUEST_CONTENTS_VIEW_EXT crf where (crf.QTL_NAME = 'CRF' or crf.QTL_NAME = 'TEMPLATE') AND QC_ID = " + publicId;
       super.setSql(maxFormVersionsByPublicId);
       compile();
      }
@@ -1997,7 +1997,7 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
               latestVersionIndStr = "Yes";
           }
           String setLatestVersionSql =
-            "update quest_contents_ext set latest_version_ind = '" + latestVersionIndStr + "', change_note='"
+            "update sbrext.quest_contents_view_ext set latest_version_ind = '" + latestVersionIndStr + "', change_note='"
             + changeNote + "',  modified_by = '" + modifiedBy + "' where qc_idseq='" + formIdSeq + "'";
           setSql(setLatestVersionSql);
           compile();
@@ -2092,13 +2092,13 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
                   + " ,proto.preferred_name proto_preferred_name "
                   + "  ,proto.preferred_definition proto_preferred_definition, proto.CONTE_IDSEQ proto_context "
                   + ", accs.cs_csi_idseq, accs.cs_conte_idseq "
-                  + " FROM  sbrext.quest_contents_ext quest,protocols_ext proto, protocol_qc_ext proto_qc,  "
+                  + " FROM  sbrext.quest_contents_view_ext quest, sbrext.protocols_view_ext proto, protocol_qc_ext proto_qc,  "
                   + " (select ac_idseq, cs_csi_idseq, cs_conte_idseq  from sbrext.ac_class_view_ext where upper(CSTL_NAME) = upper('"
                   + CaDSRConstants.FORM_CS_TYPE + "') and upper(CSITL_NAME) = upper('"
                   + CaDSRConstants.FORM_CSI_TYPE + "')) accs "
                   + " WHERE quest.QC_IDSEQ = proto_qc.QC_IDSEQ(+) and proto_qc.PROTO_IDSEQ = proto.PROTO_IDSEQ "
                   + " and quest.QC_IDSEQ = accs.AC_IDSEQ(+) and quest.qtl_name = 'CRF' "
-                  + " AND   quest.deleted_ind = 'No' "
+                  //+ " AND   quest.deleted_ind = 'No' "  done in the view
                   + " AND   quest.latest_version_ind = 'Yes' "
                   + " AND  proto.conte_idseq = ? "
                   + " ORDER BY upper(proto.LONG_NAME),upper(quest.long_name), quest.QC_IDSEQ");

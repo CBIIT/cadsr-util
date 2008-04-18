@@ -18,7 +18,7 @@ public class JDBCFormTransferObject extends FormTransferObject {
     setPreferredName(rs.getString(7)); // PREFERRED_NAME
     //Publish Change Order
     setPreferredDefinition(rs.getString(8)); // PreferredDefinition
-
+    setPublicId(rs.getInt(17));
     //setContext(new ContextTransferObject(rs.getString("context_name")));
     ContextTransferObject contextTransferObject = new ContextTransferObject();
     contextTransferObject.setConteIdseq(rs.getString(4)); //CONTE_IDSEQ

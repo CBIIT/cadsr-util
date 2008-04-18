@@ -173,7 +173,7 @@ public class JDBCValueDomainDAO extends JDBCAdminComponentDAO implements ValueDo
     }
 
     public void setSql() {
-      String sql = " SELECT VD_IDSEQ, LONG_NAME, VERSION, VD_ID, ASL_NAME, UOML_NAME, MAX_LENGTH_NUM, MIN_LENGTH_NUM, DECIMAL_PLACE, HIGH_VALUE_NUM, LOW_VALUE_NUM, CONDR_IDSEQ, FORML_NAME, DTL_NAME from VALUE_DOMAINS where VD_IDSEQ=?" ;
+      String sql = " SELECT VD_IDSEQ, LONG_NAME, VERSION, VD_ID, ASL_NAME, UOML_NAME, MAX_LENGTH_NUM, MIN_LENGTH_NUM, DECIMAL_PLACE, HIGH_VALUE_NUM, LOW_VALUE_NUM, CONDR_IDSEQ, FORML_NAME, DTL_NAME from SBR.VALUE_DOMAINS_VIEW where VD_IDSEQ=?" ;
       setSql(sql);
       declareParameter(new SqlParameter("VD_IDSEQ", Types.VARCHAR));
       compile();

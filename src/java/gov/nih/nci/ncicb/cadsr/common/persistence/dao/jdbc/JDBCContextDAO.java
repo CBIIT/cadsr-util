@@ -79,8 +79,8 @@ public class JDBCContextDAO extends JDBCBaseDAO implements ContextDAO {
    */
 	class ContextQuery extends MappingSqlQuery {
     
-    String contextsql = " select conte_idseq, name, description from contexts order by upper(name) ";
-    String contextsqlNoOrderBy = " select conte_idseq, name , description from contexts  ";
+    String contextsql = " select conte_idseq, name, description from sbr.contexts_view order by upper(name) ";
+    String contextsqlNoOrderBy = " select conte_idseq, name , description from sbr.contexts_view  ";
     
     ContextQuery(){
       super();
@@ -117,7 +117,7 @@ public class JDBCContextDAO extends JDBCBaseDAO implements ContextDAO {
     }
 
     public void _setSql(String name){
-      super.setSql("select conte_idseq, name from contexts where name = '" + name + "'");
+      super.setSql("select conte_idseq, name from sbr.contexts_view where name = '" + name + "'");
     }
    /**
     * 3.0 Refactoring- Removed JDBCTransferObject
@@ -142,7 +142,7 @@ public class JDBCContextDAO extends JDBCBaseDAO implements ContextDAO {
     }
 
     public void setSql(){
-      super.setSql("select conte_idseq, name from contexts where name = ? ");
+      super.setSql("select conte_idseq, name from sbr.contexts_view where name = ? ");
       declareParameter(new SqlParameter("name", Types.VARCHAR));
     }
    /**

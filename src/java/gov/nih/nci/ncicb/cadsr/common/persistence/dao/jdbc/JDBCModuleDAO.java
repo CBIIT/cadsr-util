@@ -377,7 +377,7 @@ public class JDBCModuleDAO extends JDBCAdminComponentDAO implements ModuleDAO {
     public InsertQuestContent(DataSource ds) {
       // super(ds, contentInsertSql);
       String contentInsertSql = 
-      " INSERT INTO quest_contents_ext " + 
+      " INSERT INTO sbrext.quest_contents_view_ext " + 
       " (qc_idseq, version, preferred_name, long_name, preferred_definition, " + 
       "  conte_idseq, proto_idseq, asl_name, created_by, qtl_name ) " +
       " VALUES " +
@@ -428,7 +428,7 @@ public class JDBCModuleDAO extends JDBCAdminComponentDAO implements ModuleDAO {
  private class InsertQuestRec extends SqlUpdate {
     public InsertQuestRec(DataSource ds) {
       String questRecInsertSql = 
-      " INSERT INTO qc_recs_ext " +
+      " INSERT INTO sbrext.qc_recs_view_ext " +
       " (qr_idseq, p_qc_idseq, c_qc_idseq, display_order, rl_name, created_by)" +  
       " VALUES " + 
       "( ?, ?, ?, ?, ?, ? )";
@@ -625,7 +625,7 @@ public class JDBCModuleDAO extends JDBCAdminComponentDAO implements ModuleDAO {
   private class UpdateModuleComponent extends SqlUpdate {
     public UpdateModuleComponent(DataSource ds) {
       String updateSql =
-        " UPDATE quest_contents_ext " + 
+        " UPDATE sbrext.quest_contents_view_ext " + 
         " SET LONG_NAME = ?,  modified_by = ? " +
         " WHERE QC_IDSEQ = ? ";
 
