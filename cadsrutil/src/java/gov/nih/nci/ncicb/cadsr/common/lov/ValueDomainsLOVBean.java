@@ -4,7 +4,7 @@ package gov.nih.nci.ncicb.cadsr.common.lov;
  * A Bean class.
  * <P>
  * @author Oracle Corporation
- * @version: $Id: ValueDomainsLOVBean.java,v 1.2 2007-12-15 21:54:10 hegdes Exp $
+ * @version: $Id: ValueDomainsLOVBean.java,v 1.3 2008-04-18 19:06:49 hegdes Exp $
  */
 import gov.nih.nci.ncicb.cadsr.common.util.*;
 import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
@@ -74,9 +74,9 @@ public class ValueDomainsLOVBean extends Object {
                             "vd.preferred_definition","Definition",
                             "vd.version", "Version"};
       String[] sqlStmtParm = new String[2];
-      sqlStmtParm[0] = " from sbr.value_domains vd,sbr.contexts vd_conte " +
+      sqlStmtParm[0] = " from sbr.value_domains_view vd, sbr.contexts_view vd_conte " +
                            " where vd.conte_idseq = vd_conte.conte_idseq " +
-                           " and vd.deleted_ind = 'No' " +
+                           //" and vd.deleted_ind = 'No' " +  this is done in the view
                            " and vd.asl_name not in ('RETIRED PHASED OUT','RETIRED DELETED') " + whereClause;
       sqlStmtParm[1] = " order by vd.preferred_name ";
       int[] lovPassbackCols = {0};

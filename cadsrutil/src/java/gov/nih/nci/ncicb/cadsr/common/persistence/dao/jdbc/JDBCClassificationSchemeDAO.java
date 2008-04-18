@@ -61,8 +61,8 @@ public class JDBCClassificationSchemeDAO extends JDBCAdminComponentDAO
         "SELECT csi.long_name csi_name, csi.csitl_name, csi.csi_idseq, " +
         "       cscsi.cs_csi_idseq, cs.preferred_definition, cs.long_name, " +
         "        accsi.ac_csi_idseq, cs.cs_idseq, cs.version " +
-        " FROM ac_csi accsi, cs_csi cscsi, " +
-        "      cs_items_view csi, classification_schemes cs  " +
+        " FROM sbr.ac_csi_view accsi, sbr.cs_csi_view cscsi, " +
+        "      sbr.cs_items_view csi, sbr.classification_schemes_view cs  " +
         " WHERE accsi.ac_idseq = ?  " +
         " AND   accsi.cs_csi_idseq = cscsi.cs_csi_idseq " +
         " AND   cscsi.csi_idseq = csi.csi_idseq " +
@@ -120,7 +120,7 @@ public class JDBCClassificationSchemeDAO extends JDBCAdminComponentDAO
         public void setSql() {
             super.setSql("SELECT distinct CS_IDSEQ , preferred_name, long_name, " + 
                          "preferred_definition, cstl_name,asl_name,conte_idseq " + 
-                         " FROM classification_Schemes" + 
+                         " FROM sbr.classification_Schemes_view" + 
                          " WHERE CONTE_IDSEQ = ? " +
                          " and ASL_NAME = 'RELEASED' " +
                          " and CSTL_NAME != 'Publishing' " +
@@ -154,7 +154,7 @@ public class JDBCClassificationSchemeDAO extends JDBCAdminComponentDAO
         public void setSql() {
             super.setSql("SELECT distinct CS_IDSEQ , preferred_name, long_name, " + 
                          "preferred_definition, cstl_name,asl_name,conte_idseq " + 
-                         " FROM classification_Schemes, cs_recs c  " + 
+                         " FROM sbr.classification_Schemes_view, sbr.cs_recs_view c  " + 
                          " WHERE  cs_idseq = c_cs_idseq " + 
                          " AND rl_name = 'HAS_A' " +
                          " AND p_cs_idseq = ?"  +

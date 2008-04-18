@@ -123,13 +123,13 @@ public class ClassificationsLOVBean extends Object {
 					"cs.asl_name", "CS Workflow Status",
 					"cs.preferred_definition", "CS Definition" };
 			String[] sqlStmtParm = new String[2];
-			sqlStmtParm[0] = " from sbr.classification_schemes cs,sbr.contexts cs_conte, "
-					+ "      sbr.cs_items_view csi, sbr.cs_csi csc "
+			sqlStmtParm[0] = " from sbr.classification_schemes_view cs, sbr.contexts_view cs_conte, "
+					+ "      sbr.cs_items_view csi, sbr.cs_csi_view csc "
 					+ " where cs.conte_idseq = cs_conte.conte_idseq "
-					+
+					//+
 					// Release 3.2 GF#1247 " and cs.latest_version_ind = 'Yes' "
 					// +
-					" and cs.deleted_ind = 'No' "
+					//" and cs.deleted_ind = 'No' "  //when using view no need for this
 					+ " and cs.cs_idseq = csc.cs_idseq "
 					+ " and csi.csi_idseq = csc.csi_idseq "
 					+ " and cs.asl_name not in ('RETIRED PHASED OUT','RETIRED DELETED') "

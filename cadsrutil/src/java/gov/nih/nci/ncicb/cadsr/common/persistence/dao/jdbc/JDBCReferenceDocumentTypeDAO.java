@@ -21,7 +21,7 @@ public class JDBCReferenceDocumentTypeDAO
 
  /**
   * Gets all the reference document types. This info is maintained in
-  * Table:DOCUMENT_TYPES_LOV  Column:DCTL_NAME
+  * Table:DOCUMENT_TYPES_LOV_VIEW  Column:DCTL_NAME
   *
   * @return <b>Collection</b> Collection of categories (Strings)
   */
@@ -61,7 +61,7 @@ public class JDBCReferenceDocumentTypeDAO
   }
 
   public void setSql() {
-   super.setSql("select DCTL_NAME from DOCUMENT_TYPES_LOV order by upper(DCTL_NAME)");
+   super.setSql("select DCTL_NAME from SBR.DOCUMENT_TYPES_LOV_VIEW order by upper(DCTL_NAME)");
   }
 
   protected Object mapRow(ResultSet rs, int rownum) throws SQLException {

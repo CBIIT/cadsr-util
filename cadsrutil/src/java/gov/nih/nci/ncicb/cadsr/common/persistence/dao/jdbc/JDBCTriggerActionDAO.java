@@ -301,7 +301,7 @@ public class JDBCTriggerActionDAO extends JDBCAdminComponentDAO implements Trigg
         {
             super
             .setSql("select TA_P_CSI.proto_idseq,PROTO.LONG_NAME, PROTO.PREFERRED_DEFINITION " +
-                         "from TA_PROTO_CSI_EXT TA_P_CSI, PROTOCOLS_EXT PROTO ,TRIGGERED_ACTIONS_EXT TA " +
+                         "from TA_PROTO_CSI_EXT TA_P_CSI, PROTOCOLS_VIEW_EXT PROTO ,TRIGGERED_ACTIONS_EXT TA " +
                          " WHERE  TA_P_CSI.proto_idseq=PROTO.proto_idseq " +
                          " AND TA_P_CSI.TA_IDSEQ=TA.TA_IDSEQ " +
                          " AND TA.TA_IDSEQ = '" + triggerActionIdSeq + "'");
@@ -367,8 +367,8 @@ public class JDBCTriggerActionDAO extends JDBCAdminComponentDAO implements Trigg
             .setSql("SELECT csi.long_name csi_name, csi.csitl_name, csi.csi_idseq, " +
                          "       cscsi.cs_csi_idseq, cs.preferred_definition, cs.long_name, " +
                          "        accsi.ac_csi_idseq, cs.cs_idseq, cs.version " +
-                         " FROM ac_csi accsi, cs_csi cscsi, " +
-                         "      cs_items_view csi, classification_schemes cs  " +
+                         " FROM sbr.ac_csi_view accsi, sbr.cs_csi_view cscsi, " +
+                         "      sbr.cs_items_view csi, sbr.classification_schemes_view cs  " +
                          "      ,TA_PROTO_CSI_EXT ta_proto_csi  " +
                          " WHERE ta_proto_csi.ta_idseq = ? " +
                          " AND   accsi.cs_csi_idseq = cscsi.cs_csi_idseq " +

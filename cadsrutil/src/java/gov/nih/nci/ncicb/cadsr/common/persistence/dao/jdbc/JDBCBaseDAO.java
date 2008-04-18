@@ -267,7 +267,7 @@ public class JDBCBaseDAO extends BaseDAO implements PersistenceConstants,ErrorCo
   private class UpdateDisplayOrder extends SqlUpdate {
     public UpdateDisplayOrder(DataSource ds) {
       String updateSql = 
-        "update qc_recs_ext set display_order = ? ,  modified_by = ? where " + 
+        "update sbrext.qc_recs_view_ext set display_order = ? ,  modified_by = ? where " + 
         " C_QC_IDSEQ = ? and RL_NAME = ? ";
       this.setDataSource(ds);
       this.setSql(updateSql);
@@ -303,7 +303,7 @@ public class JDBCBaseDAO extends BaseDAO implements PersistenceConstants,ErrorCo
     }
 
     public void setSql() {
-      super.setSql("select QR_IDSEQ, P_QC_IDSEQ, DISPLAY_ORDER from QC_RECS_EXT " +
+      super.setSql("select QR_IDSEQ, P_QC_IDSEQ, DISPLAY_ORDER from SBREXT.QC_RECS_VIEW_EXT " +
         " where C_QC_IDSEQ = ? and RL_NAME = ? ");
       declareParameter(new SqlParameter("C_QC_IDSEQ", Types.VARCHAR));
       declareParameter(new SqlParameter("RL_NAME", Types.VARCHAR));
@@ -328,7 +328,7 @@ public class JDBCBaseDAO extends BaseDAO implements PersistenceConstants,ErrorCo
   private class UpdateSwappedRecDispOrder extends SqlUpdate {
     public UpdateSwappedRecDispOrder(DataSource ds) {
       String updateSql = 
-      " update qc_recs_ext set display_order = ? where p_qc_idseq = ? and " + 
+      " update sbr.qc_recs_view_ext set display_order = ? where p_qc_idseq = ? and " + 
       " display_order = ? ";
       this.setDataSource(ds);
       this.setSql(updateSql);
@@ -359,7 +359,7 @@ public class JDBCBaseDAO extends BaseDAO implements PersistenceConstants,ErrorCo
   private class UpdateRecDispOrder extends SqlUpdate {
     public UpdateRecDispOrder(DataSource ds) {
       String updateSql = 
-      " update qc_recs_ext set display_order = ? where qr_idseq = ? ";
+      " update sbr.qc_recs_view_ext set display_order = ? where qr_idseq = ? ";
       this.setDataSource(ds);
       this.setSql(updateSql);
       declareParameter(new SqlParameter("new_display_order", Types.INTEGER));

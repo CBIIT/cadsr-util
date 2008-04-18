@@ -59,7 +59,7 @@ public class JDBCFormCategoryDAO extends JDBCBaseDAO implements FormCategoryDAO 
     }
 
     public void setSql() {
-      super.setSql("select QCDL_NAME from QC_DISPLAY_LOV_EXT order by upper(QCDL_NAME)");
+      super.setSql("select QCDL_NAME from SBREXT.QC_DISPLAY_LOV_VIEW_EXT order by upper(QCDL_NAME)");
     }
 
     protected Object mapRow(

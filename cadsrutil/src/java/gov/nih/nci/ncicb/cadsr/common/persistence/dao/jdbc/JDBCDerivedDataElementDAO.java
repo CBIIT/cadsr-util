@@ -87,7 +87,7 @@ public class JDBCDerivedDataElementDAO extends JDBCBaseDAO implements DerivedDat
    */
   class DerivedDataElementQuery extends MappingSqlQuery {
     DerivedDataElementQuery(DataSource ds) {
-      super(ds,"SELECT * FROM COMPLEX_DATA_ELEMENTS where P_DE_IDSEQ = ? ");
+      super(ds,"SELECT * FROM SBR.COMPLEX_DATA_ELEMENTS_VIEW where P_DE_IDSEQ = ? ");
       declareParameter(new SqlParameter("p_de_idseq", Types.VARCHAR));
     }
 
@@ -116,7 +116,7 @@ public class JDBCDerivedDataElementDAO extends JDBCBaseDAO implements DerivedDat
     
       String dedSql = "select cdr.cdr_idseq, cdr.c_de_idseq, de.long_name, "
        + "de.CDE_ID, de.ASL_NAME, de.VERSION, cdr.display_order, ct.NAME" +
-      " from contexts ct, complex_de_relationships cdr, data_elements de " +
+      " from sbr.contexts_view ct, sbr.complex_de_rel_view cdr, sbr.data_elements_view de " +
       " where de.CONTE_IDSEQ = ct.CONTE_IDSEQ and cdr.c_de_idseq = de.de_idseq and p_de_idseq= ? " +
       "order by cdr.display_order";
 

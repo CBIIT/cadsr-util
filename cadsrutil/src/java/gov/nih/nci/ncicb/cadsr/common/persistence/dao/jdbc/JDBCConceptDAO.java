@@ -163,8 +163,8 @@ public class JDBCConceptDAO extends JDBCAdminComponentDAO implements ConceptDAO{
         " ,con.ORIGIN ,con.CON_ID, con.EVS_SOURCE " +
          " , comp.PRIMARY_FLAG_IND " +
         " from " +
-        " con_derivation_rules_ext der,component_concepts_ext comp " +
-        " , contexts ,concepts_ext con  where " +
+        " sbrext.con_derivation_rules_view_ext der, sbrext.component_concepts_view_ext comp " +
+        " , sbr.contexts_view contexts, sbrext.concepts_view_ext con  where " +
         "comp.CONDR_IDSEQ=der.CONDR_IDSEQ " +
         " and comp.CON_IDSEQ=con.CON_IDSEQ and der.CONDR_IDSEQ = ?" +
         " and con.CONTE_IDSEQ=contexts.CONTE_IDSEQ " +
@@ -233,8 +233,8 @@ public class JDBCConceptDAO extends JDBCAdminComponentDAO implements ConceptDAO{
 
     DECPropertyConDrIdseqQuery(DataSource ds) {
       String sql = "select condr_idseq "
-                    +" from data_element_concepts dec "
-	   			  	      +",properties_ext prop "
+                    +" from sbr.data_element_concepts_view dec "
+	   			  	      +", sbrext.properties_view_ext prop "
 					          +" where dec_idseq=? "
 					          + " and dec.PROP_IDSEQ=prop.PROP_IDSEQ ";
 
@@ -256,8 +256,8 @@ public class JDBCConceptDAO extends JDBCAdminComponentDAO implements ConceptDAO{
 
     DECObjectClassConDrIdseqQuery(DataSource ds) {
       String sql = "select condr_idseq "
-                    +" from data_element_concepts dec "
-	   			  	      +",object_classes_ext oc "
+                    +" from sbr.data_element_concepts_view dec "
+	   			  	      +", sbrext.object_classes_view_ext oc "
 					          +" where dec_idseq=? "
 					          + " and dec.OC_IDSEQ=oc.OC_IDSEQ ";
 
@@ -278,8 +278,8 @@ public class JDBCConceptDAO extends JDBCAdminComponentDAO implements ConceptDAO{
 
         VDRepresentationConDrIdseqQuery(DataSource ds) {
           String sql = "select rep.condr_idseq "
-                        +" from value_domains vd "
-                        +",representations_ext rep "
+                        +" from sbr.value_domains_view vd "
+                        +",sbrext.representations_view_ext rep "
                         +" where vd_idseq=? "
 					          + " and rep.REP_IDSEQ=vd.REP_IDSEQ ";
 
@@ -317,8 +317,8 @@ public class JDBCConceptDAO extends JDBCAdminComponentDAO implements ConceptDAO{
         " ,con.ORIGIN ,con.CON_ID, con.EVS_SOURCE " +
          " , comp.PRIMARY_FLAG_IND " +
         " from " +
-        " con_derivation_rules_ext der,component_concepts_ext comp " +
-        " , contexts ,concepts_ext con  where " +
+        " sbrext.con_derivation_rules_view_ext der, sbrext.component_concepts_view_ext comp " +
+        " , sbr.contexts_view contexts, sbrext.concepts_view_ext con  where " +
         "comp.CONDR_IDSEQ=der.CONDR_IDSEQ " +
         " and comp.CON_IDSEQ=con.CON_IDSEQ " +
         " and con.CONTE_IDSEQ=contexts.CONTE_IDSEQ ";

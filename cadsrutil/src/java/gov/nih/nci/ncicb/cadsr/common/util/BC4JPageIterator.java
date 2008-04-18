@@ -229,7 +229,7 @@ public class BC4JPageIterator implements PageIterator  {
       am1 = BC4JHelper
           .getApplicationModuleFromPool(cookie1);
       String sqlStmt = "SELECT preferred_name AS PreferredName " +
-                       "FROM   data_elements "+
+                       "FROM   sbr.data_elements_view "+
                        "WHERE  upper(preferred_name) like upper('%agent%') ";
       //bpi.createViewObject(sqlStmt,am1 );
       //ViewObject vo = am1.findViewObject("DataElementsView");

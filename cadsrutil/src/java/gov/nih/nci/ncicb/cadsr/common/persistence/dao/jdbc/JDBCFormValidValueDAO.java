@@ -291,7 +291,7 @@ public class JDBCFormValidValueDAO extends JDBCAdminComponentDAO
  private class InsertQuestContent extends SqlUpdate {
     public InsertQuestContent(DataSource ds) {
       String contentInsertSql = 
-      " INSERT INTO quest_contents_ext " + 
+      " INSERT INTO sbrext.quest_contents_view_ext " + 
       " (qc_idseq, version, preferred_name, long_name, preferred_definition, " + 
       "  conte_idseq, proto_idseq, asl_name, created_by, qtl_name, vp_idseq) " +
       " VALUES " +
@@ -352,7 +352,7 @@ public class JDBCFormValidValueDAO extends JDBCAdminComponentDAO
   private class InsertQuestRec extends SqlUpdate {
     public InsertQuestRec(DataSource ds) {
       String questRecInsertSql = 
-      " INSERT INTO qc_recs_ext " +
+      " INSERT INTO sbrext.qc_recs_view_ext " +
       " (qr_idseq, p_qc_idseq, c_qc_idseq, display_order, rl_name, created_by)" +  
       " VALUES " + 
       "( ?, ?, ?, ?, ?, ? )";

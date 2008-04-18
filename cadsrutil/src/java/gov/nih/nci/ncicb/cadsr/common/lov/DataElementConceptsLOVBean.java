@@ -82,9 +82,9 @@ public class DataElementConceptsLOVBean extends Object {
                             "dec.preferred_definition","Definition",
                             "dec.version", "Version"};
       String[] sqlStmtParm = new String[2];
-      sqlStmtParm[0] = " from sbr.data_element_concepts dec,sbr.contexts dec_conte " +
+      sqlStmtParm[0] = " from sbr.data_element_concepts_view dec, sbr.contexts_view dec_conte " +
                            " where dec.conte_idseq = dec_conte.conte_idseq " +
-                           " and dec.deleted_ind = 'No' " +
+                           //" and dec.deleted_ind = 'No' " +  //using view
                            " and dec.asl_name not in ('RETIRED PHASED OUT','RETIRED DELETED') " + whereClause;
       sqlStmtParm[1] = " order by dec.preferred_name ";
       int[] lovPassbackCols = {0};

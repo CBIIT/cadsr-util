@@ -62,12 +62,12 @@ public class ProtocolsLOVBean extends Object {
                             "proto.preferred_definition","Definition",
                             "proto.lead_org","Lead Organization"};
       String[] sqlStmtParm = new String[2];
-      sqlStmtParm[0] = " from sbrext.protocols_ext proto,sbr.contexts proto_conte " +
+      sqlStmtParm[0] = " from sbrext.protocols_view_ext proto, sbr.contexts_view proto_conte " +
                            " where proto.conte_idseq = proto_conte.conte_idseq " +
                            " and proto.latest_version_ind = 'Yes' " +
-                           " and proto.deleted_ind = 'No' "
+                           //" and proto.deleted_ind = 'No' "  this is done in the view
                            //" and proto.asl_name not in ('RETIRED PHASED OUT','RETIRED DELETED') ";
-                            + whereClause;
+                            whereClause;
       sqlStmtParm[1] = " order by proto.preferred_name ";
       int[] lovPassbackCols = {0};
 

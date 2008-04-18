@@ -471,7 +471,7 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
     public InsertQuestContent(DataSource ds) {
       // super(ds, contentInsertSql);
       String contentInsertSql =
-        " INSERT INTO quest_contents_ext " +
+        " INSERT INTO sbrext.quest_contents_view_ext " +
         " (qc_idseq, version, preferred_name, long_name, preferred_definition, " +
         "  conte_idseq, asl_name, created_by, qtl_name, de_idseq) " +
         " VALUES " + " (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
@@ -524,7 +524,7 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
   private class InsertQuestRec extends SqlUpdate {
     public InsertQuestRec(DataSource ds) {
       String questRecInsertSql =
-        " INSERT INTO qc_recs_ext " +
+        " INSERT INTO sbrext.qc_recs_view_ext " +
         " (qr_idseq, p_qc_idseq, c_qc_idseq, display_order, rl_name, created_by)" +
         " VALUES " + "( ?, ?, ?, ?, ?, ? )";
 
@@ -695,7 +695,7 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
  private class UpdateQuestionLongName extends SqlUpdate {
     public UpdateQuestionLongName(DataSource ds) {
       String longNameUpdateSql = 
-      " UPDATE Quest_contents_view_ext " +
+      " UPDATE sbrext.Quest_contents_view_ext " +
       " SET long_name = ?,  modified_by = ? " +
       " WHERE qc_idseq =  ?" ;
 
@@ -730,7 +730,7 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
   private class UpdateQuestionLongNameDeIdseq extends SqlUpdate {
     public UpdateQuestionLongNameDeIdseq(DataSource ds) {
       String updateSql =
-        " UPDATE quest_contents_ext " + 
+        " UPDATE sbrext.quest_contents_view_ext " + 
         " SET DE_IDSEQ = ? , LONG_NAME = ? ,  modified_by = ? " +
         " WHERE QC_IDSEQ = ? ";
 
@@ -772,7 +772,7 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
   private class CreateQuestAttrQuery extends SqlUpdate {
     public CreateQuestAttrQuery(DataSource ds) {
       String createSql =
-        " insert  into quest_attributes_ext(VV_IDSEQ, QC_IDSEQ, QUEST_IDSEQ, CREATED_BY, DEFAULT_VALUE, EDITABLE_IND, MANDATORY_IND ) values(?,?,?,?,?, 'Yes', ?)";
+        " insert  into sbrext.quest_attributes_ext(VV_IDSEQ, QC_IDSEQ, QUEST_IDSEQ, CREATED_BY, DEFAULT_VALUE, EDITABLE_IND, MANDATORY_IND ) values(?,?,?,?,?, 'Yes', ?)";
 
       this.setDataSource(ds);
       this.setSql(createSql);
@@ -929,7 +929,7 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
 
       public void setSql(String idSeq) {
         super.setSql(        
-          " select qa.QUEST_IDSEQ, qa.default_value,  qa.QC_IDSEQ, qa.VV_IDSEQ, qa.EDITABLE_IND, vv.LONG_NAME from quest_attributes_ext qa, quest_contents_ext vv " +
+          " select qa.QUEST_IDSEQ, qa.default_value,  qa.QC_IDSEQ, qa.VV_IDSEQ, qa.EDITABLE_IND, vv.LONG_NAME from quest_attributes_ext qa, sbrext.quest_contents_view_ext vv " +
           " where qa.VV_IDSEQ =vv.QC_IDSEQ(+) and qa.QC_IDSEQ = '" + idSeq + "'");
     //       declareParameter(new SqlParameter("QUESTION_IDSEQ", Types.VARCHAR));
             compile();

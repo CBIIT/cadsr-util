@@ -114,7 +114,7 @@ public ReferenceDocument createReferenceDoc(ReferenceDocument newRefDoc, String 
   private class InsertRefDoc extends SqlUpdate {
     public InsertRefDoc(DataSource ds) {
       String refDocInsertSql =
-        " INSERT INTO reference_documents " +
+        " INSERT INTO sbr.reference_documents_view " +
         " (rd_idseq, name, dctl_name, ac_idseq, doc_text, url, " +
         " display_order, conte_idseq ) " +
         " VALUES " + " (?, ?, ?, ?, ?,?, ?, ?) ";
@@ -178,7 +178,7 @@ public ReferenceDocument createReferenceDoc(ReferenceDocument newRefDoc, String 
   private class UpdateRefDoc extends SqlUpdate {
     public UpdateRefDoc(DataSource ds) {
       String updateRefDocSql =
-        " UPDATE reference_documents SET " +
+        " UPDATE sbr.reference_documents_view SET " +
         " name = ? ," + 
         " dctl_name = ? ," + 
         " doc_text = ? ," + 
