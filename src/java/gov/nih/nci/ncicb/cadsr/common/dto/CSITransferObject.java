@@ -21,6 +21,9 @@ public class CSITransferObject implements ClassSchemeItem, Serializable  {
   private String acCsiIdseq = null;
   private String csType = null;
   private Float csVersion = null;
+  private Float csiVersion = null;
+  private String csiID = null;
+  private String csID = null;
   
   public CSITransferObject() {
   }
@@ -146,7 +149,31 @@ public class CSITransferObject implements ClassSchemeItem, Serializable  {
        this.csVersion = csVersion;
    }
    
-    /**
+    public String getCsID() {
+    	return csID;
+	}
+	
+	public void setCsID(String csID) {
+		this.csID = csID;
+	}
+	
+	public String getCsiID() {
+		return csiID;
+	}
+	
+	public void setCsiID(String csiID) {
+		this.csiID = csiID;
+	}
+	
+	public Float getCsiVersion() {
+		return csiVersion;
+	}
+	
+	public void setCsiVersion(Float csiVersion) {
+		this.csiVersion = csiVersion;
+	}
+
+	/**
      * This equals method only compares the Idseq to define equals
      * @param obj
      * @return 

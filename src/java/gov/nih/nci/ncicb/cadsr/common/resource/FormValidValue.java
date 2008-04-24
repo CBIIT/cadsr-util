@@ -21,6 +21,8 @@ public interface FormValidValue extends FormElement,Orderable,Instructionable {
   //added for making value meaning an administered components;
   public String getFormValueMeaningText();
   public void setFormValueMeaningText(String vmText);
+  public String getFormValueMeaningIdVersion();
+  public void setFormValueMeaningIdVersion(String IdVersion);
   public String getFormValueMeaningDesc();
   public void setFormValueMeaningDesc(String desc);
   

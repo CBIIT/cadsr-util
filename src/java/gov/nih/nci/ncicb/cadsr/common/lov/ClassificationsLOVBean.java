@@ -107,19 +107,19 @@ public class ClassificationsLOVBean extends Object {
 					"csi.long_name csi_name", "Class Scheme Item" };
 			String[] jspLinkParm = { "csc.cs_csi_idseq", "P_ID" };
 			String[] displayParm = {
-					"csi.long_name csi_name",
-					"Class Scheme Item Name",
-					"cs.preferred_name",
-					"CS Short Name",
-					"cs.long_name",
-					"CS Long Name",
-					"cs_conte.name",
-					"CS Context",
-					"case when cs.version = trunc(cs.version) "
-							+ "            then  to_char(cs.version,'99.9')"
-							+ "			else   to_char(cs.version,'99.99')"
-							+ "			end csversion",
-					"CS Version", // Release 3.2 GF#1247
+					"csi.long_name csi_name",	"Class Scheme Item Name",
+					"csi.csi_id||'v'||" + "case when csi.version = trunc(csi.version) "
+							+ "then to_char(csi.version,'99.9') "
+							+ "else to_char(csi.version,'99.99') "
+							+ "end csi_version",
+					"CSI Public ID Version",
+					"cs.long_name", "CS Long Name",
+					"cs.cs_id||'v'||" + "case when cs.version = trunc(cs.version) "
+							+ "then  to_char(cs.version,'99.9') "
+							+ "else   to_char(cs.version,'99.99') "
+							+ "end csversion",
+					"CS Public ID Version", // Release 3.2 GF#1247
+					"cs_conte.name", "CS Context",
 					"cs.asl_name", "CS Workflow Status",
 					"cs.preferred_definition", "CS Definition" };
 			String[] sqlStmtParm = new String[2];
@@ -134,7 +134,7 @@ public class ClassificationsLOVBean extends Object {
 					+ " and csi.csi_idseq = csc.csi_idseq "
 					+ " and cs.asl_name not in ('RETIRED PHASED OUT','RETIRED DELETED') "
 					+ whereClause;
-			sqlStmtParm[1] = " order by cs.preferred_name ";
+			sqlStmtParm[1] = " order by cs.long_name, csi.long_name ";
 			int[] lovPassbackCols = { 0, 4 };
 
 			clb = new CommonLOVBean(request,

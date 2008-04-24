@@ -22,6 +22,7 @@ public class FormValidValueTransferObject extends FormElementTransferObject
   //added for making value meaning a admin components
   private ValueMeaning valueMeaning;
   private String formValueMeaningText; //this is the user's choice
+  private String formValueMeaningIdVersion; //this is the user's choice
   private String formValueMeaningDesc; //this is the user's choice
 
   public FormValidValueTransferObject() {
@@ -191,4 +192,14 @@ public class FormValidValueTransferObject extends FormElementTransferObject
     public ValueMeaning getValueMeaning() {
         return valueMeaning;
     }
+
+	public String getFormValueMeaningIdVersion() {
+		return formValueMeaningIdVersion;
+	}
+
+	public void setFormValueMeaningIdVersion(String formValueMeaningIdVersion) {
+		this.formValueMeaningIdVersion = formValueMeaningIdVersion;
+	}
+    
+
 }
