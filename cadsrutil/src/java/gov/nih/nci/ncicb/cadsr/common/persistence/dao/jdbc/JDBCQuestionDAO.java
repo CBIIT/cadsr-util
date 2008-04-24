@@ -583,19 +583,23 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
           fvv.setShortMeaning(rs.getString(15));    // Meaning  
           fvv.setVersion(new Float(rs.getString(2))); // VERSION
           //Bug Fix tt#1058
-          fvv.setAslName(rs.getString(5));
-          fvv.setPreferredDefinition(rs.getString(7));
-          fvv.setFormValueMeaningText(rs.getString(16)); //Meaning_text
-          fvv.setFormValueMeaningDesc(rs.getString("DESCRIPTION_TEXT")); //DESCRIPTION_TEXT          
-          ContextTransferObject contextTransferObject = new ContextTransferObject();
-          contextTransferObject.setConteIdseq(rs.getString(4)); //CONTE_IDSEQ
-          fvv.setContext(contextTransferObject);
-          
           //added for value meaning
           ValueMeaning vm = new ValueMeaningTransferObject();
           vm.setIdseq(rs.getString("VM_IDSEQ"));
           vm.setLongName(rs.getString("short_meaning"));
           vm.setPreferredDefinition(rs.getString("VM_DESCRIPTION"));
+          vm.setPublicId(rs.getInt("vm_public_id"));
+          vm.setVersion(rs.getFloat("vm_version"));
+          
+          fvv.setAslName(rs.getString(5));
+          fvv.setPreferredDefinition(rs.getString(7));
+          fvv.setFormValueMeaningText(rs.getString(16)); //Meaning_text
+          if (vm.getPublicId() > 0)
+        	  fvv.setFormValueMeaningIdVersion(String.valueOf(vm.getPublicId()) + "v"+String.valueOf(vm.getVersion())); //Meaning_id version
+          fvv.setFormValueMeaningDesc(rs.getString("DESCRIPTION_TEXT")); //DESCRIPTION_TEXT          
+          ContextTransferObject contextTransferObject = new ContextTransferObject();
+          contextTransferObject.setConteIdseq(rs.getString(4)); //CONTE_IDSEQ
+          fvv.setContext(contextTransferObject);
           
           vm = retrieveValueMeaningAttr(vm);
           

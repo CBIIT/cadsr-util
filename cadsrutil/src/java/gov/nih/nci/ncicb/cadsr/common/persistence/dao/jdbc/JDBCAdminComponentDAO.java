@@ -742,7 +742,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
       super.setSql(
         "SELECT csi.long_name csi_name, csi.csitl_name, csi.csi_idseq, " +
         "       cscsi.cs_csi_idseq, cs.preferred_definition, cs.long_name, " +
-        "        accsi.ac_csi_idseq, cs.cs_idseq, cs.version " +
+        "        accsi.ac_csi_idseq, cs.cs_idseq, cs.version, cs.cs_id, csi.csi_id, csi.version csi_version  " +
         " FROM sbr.ac_csi_view accsi, sbr.cs_csi_view cscsi, " +
         "      sbr.cs_items_view csi, sbr.classification_schemes_view cs  " +
         " WHERE accsi.ac_idseq = ?  " +
@@ -767,6 +767,10 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
       csito.setAcCsiIdseq(rs.getString(7));
       csito.setCsIdseq(rs.getString(8));
       csito.setCsVersion(new Float(rs.getString(9)));
+      csito.setCsID(rs.getString(10));
+      csito.setCsiID(rs.getString(11));
+      csito.setCsiVersion(new Float(rs.getString(12)));
+
       return csito;
     }
   }
