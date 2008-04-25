@@ -26,6 +26,7 @@ import oracle.jbo.server.ApplicationModuleImpl;
 import oracle.jbo.server.ViewLinkImpl;
 
 import java.util.*;
+import java.sql.Date;
 
 
 //  ---------------------------------------------------------------
@@ -112,10 +113,10 @@ public class CDEBrowserBc4jModuleImpl extends ApplicationModuleImpl {
   /**
    * Custom Method: Valid Values
    */
-  public Vector getValidValues(Object aVdIdseq) throws Exception {
+  public List getValidValues(Object aVdIdseq) throws Exception {
     NCIBC4JUtil bc4jUtil = new NCIBC4JUtil();
-    Vector rows = new Vector();
-
+    //Vector rows = new Vector();
+    List rows = null ;
     try {
       ViewObject view = getValidValuesView();
       ViewObjectImpl view1 =
@@ -127,19 +128,26 @@ public class CDEBrowserBc4jModuleImpl extends ApplicationModuleImpl {
       //view1.setOrderByClause(" UPPER(VALUE) ");
       //view1.setForwardOnly(true);
       view1.executeQuery();
-      rows = new Vector(view1.getRowCount());
+      rows = new ArrayList(view1.getRowCount());
 
       while (view1.hasNext()) {
-        /*rows.addElement(
-           new ValidValuesValueObject((ValidValuesViewRowImpl) view1.next()));*/
+        rows.add(
+           new ValidValuesValueObject((ValidValuesViewRowImpl) view1.next()));
         ValidValuesViewRowImpl vvImpl = (ValidValuesViewRowImpl) view1.next();
         ValidValue vv = new ValidValueTransferObject();
         vv.setVdIdseq(vvImpl.getVdIdseq());
-        vv.setDescription(vvImpl.getDescription());
-        vv.setShortMeaning(vvImpl.getShortMeaning());
+        // for 4.0 ShortMeaning is replaced with Long Name and Description with PreferredDefinition
+        vv.setDescription(vvImpl.getPreferredDefinition());
+        vv.setShortMeaning(vvImpl.getLongName());
         vv.setShortMeaningDescription(vvImpl.getMeaningDescription());
         vv.setShortMeaningValue(vvImpl.getValue());
         vv.setVpIdseq(vvImpl.getVpIdseq());
+        vv.setVmId(new Integer(vvImpl.getVmId().intValue()));
+        vv.setVmVersion(new Float(vvImpl.getVersion().floatValue()));
+        vv.setBeginDate( (vvImpl.getBeginDate()!= null) ? ((Date)vvImpl.getBeginDate().dateValue()).toString() : "" );
+        vv.setEndDate( (vvImpl.getEndDate()!=null) ? ((Date)vvImpl.getEndDate().dateValue()).toString() : "");
+        vv.setContext(vvImpl.getName());
+        vv.setWorkflowstatus(vvImpl.getAslName());
         String cdrIdseq = vvImpl.getCondrIdseq();
 
         if (cdrIdseq != null) {
@@ -191,7 +199,7 @@ public class CDEBrowserBc4jModuleImpl extends ApplicationModuleImpl {
   public Vector getClassificationSchemes(Object aDeIdseq)
     throws Exception {
     NCIBC4JUtil bc4jUtil = new NCIBC4JUtil();
-    Vector rows = new Vector();
+    Vector rows = new Vector();    
 
     try {
       ViewObject view = getClassificationsView();
@@ -199,7 +207,7 @@ public class CDEBrowserBc4jModuleImpl extends ApplicationModuleImpl {
         (ClassificationsViewImpl) bc4jUtil.cloneViewObject(view);
       view1.setWhereClause(" AC_IDSEQ = '" + aDeIdseq + "'");
       view1.executeQuery();
-      rows = new Vector(view1.getRowCount());
+      rows = new Vector(view1.getRowCount());      
 
       while (view1.hasNext()) {
         rows.addElement(
@@ -532,8 +540,10 @@ public class CDEBrowserBc4jModuleImpl extends ApplicationModuleImpl {
 
         //pageContextHT.put("ClassSchemeName",classSchemeRow.getPreferredName());
         pageContextHT.put("ClassSchemeName", classSchemeRow.getLongName());
+        /*pageContextHT.put(
+          "ClassSchemeItemName", classSchemeItemRow.getCsiName());*/
         pageContextHT.put(
-          "ClassSchemeItemName", classSchemeItemRow.getCsiName());
+                "ClassSchemeItemName", classSchemeItemRow.getLongName());
         pageContextHT.put("ConteIdseq", classSchemeRow.getConteIdseq());
         pc = new PageContextValueObject(pageContextHT);
       }
@@ -600,8 +610,10 @@ public class CDEBrowserBc4jModuleImpl extends ApplicationModuleImpl {
         pageContextHT.put("ParamType", "CORE");
         pageContextHT.put("ContextName", classSchemeRow.getContextName());
         pageContextHT.put("ClassSchemeName", classSchemeRow.getPreferredName());
+       /* pageContextHT.put(
+          "ClassSchemeItemName", classSchemeItemRow.getCsiName());*/
         pageContextHT.put(
-          "ClassSchemeItemName", classSchemeItemRow.getCsiName());
+                "ClassSchemeItemName", classSchemeItemRow.getLongName());
         pageContextHT.put("ConteIdseq", classSchemeRow.getConteIdseq());
         pc = new PageContextValueObject(pageContextHT);
       }
@@ -618,8 +630,10 @@ public class CDEBrowserBc4jModuleImpl extends ApplicationModuleImpl {
         pageContextHT.put("ParamType", "NON-CORE");
         pageContextHT.put("ContextName", classSchemeRow.getContextName());
         pageContextHT.put("ClassSchemeName", classSchemeRow.getPreferredName());
+        /*pageContextHT.put(
+          "ClassSchemeItemName", classSchemeItemRow.getCsiName());*/
         pageContextHT.put(
-          "ClassSchemeItemName", classSchemeItemRow.getCsiName());
+                "ClassSchemeItemName", classSchemeItemRow.getLongName());
         pageContextHT.put("ConteIdseq", classSchemeRow.getConteIdseq());
         pc = new PageContextValueObject(pageContextHT);
       }
@@ -684,7 +698,7 @@ public class CDEBrowserBc4jModuleImpl extends ApplicationModuleImpl {
     public List getAllCDEVersions(
       int cdeId ) throws DataElementNotFoundException, Exception {
       List deList =  new ArrayList();
-        DataElementsViewRowImpl deRow = null;
+      DataElementsViewRowImpl deRow = null;
       ViewObject vw = this.getDataElementsView();
       vw.setWhereClause(" CDE_ID= " + cdeId );
       vw.executeQuery();
@@ -1134,8 +1148,4 @@ public class CDEBrowserBc4jModuleImpl extends ApplicationModuleImpl {
   public RepresentationViewObjImpl getRepresentationViewObj1() {
     return (RepresentationViewObjImpl) findViewObject("RepresentationViewObj1");
   }
-
-
-
-
 }

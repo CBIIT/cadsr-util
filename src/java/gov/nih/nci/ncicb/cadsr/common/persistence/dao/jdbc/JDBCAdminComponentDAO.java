@@ -768,7 +768,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
       csito.setCsIdseq(rs.getString(8));
       csito.setCsVersion(new Float(rs.getString(9)));
       csito.setCsID(rs.getString(10));
-      csito.setCsiID(rs.getString(11));
+      csito.setCsiId(new Integer(rs.getString(11)));
       csito.setCsiVersion(new Float(rs.getString(12)));
 
       return csito;

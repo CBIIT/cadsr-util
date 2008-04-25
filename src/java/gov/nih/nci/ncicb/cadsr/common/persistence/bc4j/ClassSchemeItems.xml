@@ -4,7 +4,7 @@
 <Entity
    Name="ClassSchemeItems"
    DBObjectType="table"
-   DBObjectName="CLASS_SCHEME_ITEMS"
+   DBObjectName="CS_ITEMS_VIEW"
    AliasName="ClassSchemeItems"
    BindingStyle="Oracle"
    UseGlueCode="false"
@@ -23,8 +23,8 @@
       ColumnName="CSI_IDSEQ"
       Type="java.lang.String"
       ColumnType="CHAR"
-      SQLType="CHAR"
-      TableName="CLASS_SCHEME_ITEMS"
+      SQLType="VARCHAR"
+      TableName="CS_ITEMS_VIEW"
       PrimaryKey="true"
       RetrievedOnUpdate="true"
       RetrievedOnInsert="true" >
@@ -32,21 +32,21 @@
          <Attr Name="_DisplaySize" Value="36" />
       </DesignTime>
    </Attribute>
-   <Attribute
+   <!--<Attribute
       Name="CsiName"
       IsUnique="true"
       IsNotNull="true"
-      Precision="256"
+      Precision="255"
       ColumnName="CSI_NAME"
       Type="java.lang.String"
       ColumnType="VARCHAR2"
       SQLType="VARCHAR"
-      TableName="CLASS_SCHEME_ITEMS" >
+      TableName="CS_ITEMS_VIEW" >
       <DesignTime>
          <Attr Name="_DisplaySize" Value="20" />
       </DesignTime>
    </Attribute>
-   <Attribute
+   --><Attribute
       Name="CsitlName"
       IsUnique="true"
       IsNotNull="true"
@@ -55,31 +55,31 @@
       Type="java.lang.String"
       ColumnType="VARCHAR2"
       SQLType="VARCHAR"
-      TableName="CLASS_SCHEME_ITEMS" >
+      TableName="CS_ITEMS_VIEW" >
       <DesignTime>
          <Attr Name="_DisplaySize" Value="20" />
       </DesignTime>
    </Attribute>
-   <Attribute
+   <!--<Attribute
       Name="Description"
-      Precision="60"
+      Precision="255"
       ColumnName="DESCRIPTION"
       Type="java.lang.String"
       ColumnType="VARCHAR2"
       SQLType="VARCHAR"
-      TableName="CLASS_SCHEME_ITEMS" >
+      TableName="CS_ITEMS_VIEW" >
       <DesignTime>
          <Attr Name="_DisplaySize" Value="60" />
       </DesignTime>
    </Attribute>
-   <Attribute
+   --><Attribute
       Name="Comments"
       Precision="2000"
       ColumnName="COMMENTS"
       Type="java.lang.String"
       ColumnType="VARCHAR2"
       SQLType="VARCHAR"
-      TableName="CLASS_SCHEME_ITEMS" >
+      TableName="CS_ITEMS_VIEW" >
       <DesignTime>
          <Attr Name="_DisplaySize" Value="2000" />
       </DesignTime>
@@ -91,7 +91,7 @@
       Type="oracle.jbo.domain.Date"
       ColumnType="DATE"
       SQLType="DATE"
-      TableName="CLASS_SCHEME_ITEMS" >
+      TableName="CS_ITEMS_VIEW" >
    </Attribute>
    <Attribute
       Name="CreatedBy"
@@ -101,7 +101,7 @@
       Type="java.lang.String"
       ColumnType="VARCHAR2"
       SQLType="VARCHAR"
-      TableName="CLASS_SCHEME_ITEMS" >
+      TableName="CS_ITEMS_VIEW" >
       <DesignTime>
          <Attr Name="_DisplaySize" Value="30" />
       </DesignTime>
@@ -112,7 +112,7 @@
       Type="oracle.jbo.domain.Date"
       ColumnType="DATE"
       SQLType="DATE"
-      TableName="CLASS_SCHEME_ITEMS" >
+      TableName="CS_ITEMS_VIEW" >
    </Attribute>
    <Attribute
       Name="ModifiedBy"
@@ -121,9 +121,169 @@
       Type="java.lang.String"
       ColumnType="VARCHAR2"
       SQLType="VARCHAR"
-      TableName="CLASS_SCHEME_ITEMS" >
+      TableName="CS_ITEMS_VIEW" >
       <DesignTime>
          <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CondrIdseq"
+      Precision="36"
+      ColumnName="CONDR_IDSEQ"
+      Type="java.lang.String"
+      ColumnType="CHAR"
+      SQLType="CHAR"
+      TableName="CS_ITEMS_VIEW" >    
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="36" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="PreferredName"
+      Precision="30"
+      ColumnName="PREFERRED_NAME"
+      Type="java.lang.String"     
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="CS_ITEMS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LongName"
+      Precision="255"
+      ColumnName="LONG_NAME"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="CS_ITEMS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="255" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="PreferredDefinition"
+      Precision="2000"
+      ColumnName="PREFERRED_DEFINITION"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="CS_ITEMS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="2000" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ConteIdseq"
+      Precision="36"
+      ColumnName="CONTE_IDSEQ"
+      Type="java.lang.String"
+      ColumnType="CHAR"
+      SQLType="CHAR"
+      TableName="CS_ITEMS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="36" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="AslName"
+      Precision="20"
+      ColumnName="ASL_NAME"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="CS_ITEMS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="20" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DeletedInd"
+      Precision="3"
+      ColumnName="DELETED_IND"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="CS_ITEMS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="3" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LatestVersionInd"
+      Precision="3"
+      ColumnName="LATEST_VERSION_IND"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="CS_ITEMS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="3" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CsiId"                  
+      ColumnName="CSI_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="CS_ITEMS_VIEW" >
+      <DesignTime>
+      	<Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Version"      
+      Precision="4"
+      Scale="2"     
+      ColumnName="VERSION"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="CS_ITEMS_VIEW" >
+      <DesignTime>
+      	<Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Origin"
+      Precision="240"
+      ColumnName="Origin"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="CS_ITEMS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="240" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="BeginDate"
+      ColumnName="BEGIN_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="CS_ITEMS_VIEW" >
+   </Attribute>
+   <Attribute
+      Name="EndDate"
+      ColumnName="END_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="CS_ITEMS_VIEW" >
+   </Attribute>
+   <Attribute
+      Name="ChangeNote"
+      Precision="2000"
+      ColumnName="Change_Note"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="CS_ITEMS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="2000" />
       </DesignTime>
    </Attribute>
    <AccessorAttribute

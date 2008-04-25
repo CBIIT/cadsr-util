@@ -3,7 +3,8 @@
 
 <ViewObject
    Name="ValueMeaningsLovView"
-   SelectList="ValueMeaningsLov.SHORT_MEANING, 
+   SelectList="ValueMeaningsLov.VM_IDSEQ,
+   	   ValueMeaningsLov.SHORT_MEANING, 
        ValueMeaningsLov.DESCRIPTION, 
 
        ValueMeaningsLov.COMMENTS, 
@@ -16,7 +17,7 @@
        ValueMeaningsLov.DATE_MODIFIED, 
 
        ValueMeaningsLov.MODIFIED_BY"
-   FromList="VALUE_MEANINGS_LOV ValueMeaningsLov"
+   FromList="VALUE_MEANINGS_VIEW ValueMeaningsLov"
    BindingStyle="Oracle"
    CustomQuery="false"
    ComponentClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLovViewImpl"
@@ -35,6 +36,14 @@
          <Attr Name="_queryClause" Value="false" />
       </DesignTime>
    </EntityUsage>
+   <ViewAttribute
+      Name="VmIdseq"
+      IsNotNull="true"
+      PrecisionRule="false"
+      EntityAttrName="VmIdseq"
+      EntityUsage="ValueMeaningsLov"
+      AliasName="VM_IDSEQ" >
+   </ViewAttribute>
    <ViewAttribute
       Name="ShortMeaning"
       IsNotNull="true"

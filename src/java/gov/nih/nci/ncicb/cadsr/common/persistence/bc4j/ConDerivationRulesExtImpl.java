@@ -24,6 +24,7 @@ public class ConDerivationRulesExtImpl extends EntityImpl
   public static final int NAME = 9;
   public static final int COMPONENTCONCEPTSEXT = 10;
   public static final int VALUEMEANINGSLOV = 11;
+  //public static final int VALUEMEANINGSVIEW = 11;
   public static final int REPRESENTATION = 12;
   public static final int VALUEDOMAINS = 13;
 

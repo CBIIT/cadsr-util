@@ -138,7 +138,7 @@
       ColumnName="BEGIN_DATE"
       Type="oracle.jbo.domain.Date"
       ColumnType="DATE"
-      SQLType="TIMESTAMP"
+      SQLType="DATE"
       TableName="VD_PVS" >
       <DesignTime>
          <Attr Name="_DisplaySize" Value="7" />
@@ -149,7 +149,7 @@
       ColumnName="END_DATE"
       Type="oracle.jbo.domain.Date"
       ColumnType="DATE"
-      SQLType="TIMESTAMP"
+      SQLType="DATE"
       TableName="VD_PVS" >
       <DesignTime>
          <Attr Name="_DisplaySize" Value="7" />

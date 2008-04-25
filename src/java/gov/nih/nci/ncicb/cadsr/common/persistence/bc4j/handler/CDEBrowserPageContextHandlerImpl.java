@@ -50,7 +50,7 @@ public class CDEBrowserPageContextHandlerImpl extends Handler
     return pgContext;
   }
 
-  public static void main(String[] args) {
+  /*public static void main(String[] args) {
     Integer sessionId = new Integer(1);
 
     try {
@@ -65,5 +65,5 @@ public class CDEBrowserPageContextHandlerImpl extends Handler
       System.err.println("ERROR: " + e.getMessage());
       e.printStackTrace();
     }
-  }
+  }*/
 }

@@ -324,7 +324,7 @@ public class DataElementHandlerImpl extends Handler
     return usages;
   }  
 
-  public static void main(String[] args) {
+  /*public static void main(String[] args) {
     Integer sessionId = new Integer(1);
     PageIterator pg = new BC4JPageIterator(40);
 
@@ -335,15 +335,15 @@ public class DataElementHandlerImpl extends Handler
       DataElement de =
          (DataElement) dh.findDataElementsByPublicId(62757, 2.31f, sessionId);
          System.out.println("Long Name is: " + de.getLongName());
-      /*List l =
+      List l =
         dh.getAllFormUsages(
           "99BA9DC8-254B-4E69-E034-080020C9C0E0", sessionId, pg);
-      System.out.println("List size is " + l.size());*/
+      System.out.println("List size is " + l.size());
     }
     catch (Exception e) {
       System.err.println("ERROR: " + e.getMessage());
     }
-  }
+  }*/
 
   /**
    * Check for null value for the given Object. If the input Object is null, an

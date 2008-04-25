@@ -109,10 +109,11 @@ public class JDBCValueDomainDAO extends JDBCAdminComponentDAO implements ValueDo
     public ValueMeaning getValueMeaning(String shortMeaning){
         ValueMeaningQuery vmQuery = new ValueMeaningQuery(getDataSource());
         vmQuery.setSql();
-        ValueMeaning vm = vmQuery.getValueMeaning(shortMeaning);
-        
+        ValueMeaning vm = vmQuery.getValueMeaning(shortMeaning);        
         vm.setDefinitions(getDefinitions(vm.getIdseq()));
-        vm.setDesignations(getDesignations(vm.getIdseq(), null));
+        vm.setDesignations(getDesignations(vm.getIdseq(), null));  
+        //Added for 4.0 release
+        vm.setContext(getContext(vm.getIdseq()));
         return vm;
     }
     
@@ -133,8 +134,7 @@ public class JDBCValueDomainDAO extends JDBCAdminComponentDAO implements ValueDo
         setSql(sql);
         declareParameter(new SqlParameter("short_meaning", Types.VARCHAR));
         compile();
-      }  
-
+      }
       
       protected Object mapRow(
         ResultSet rs,
@@ -145,6 +145,11 @@ public class JDBCValueDomainDAO extends JDBCAdminComponentDAO implements ValueDo
         vm.setLongName(rs.getString("long_name"));
         vm.setIdseq(rs.getString("vm_idseq"));
         vm.setPreferredDefinition(rs.getString("preferred_definition"));
+        //Added for 4.0 release
+        vm.setPublicId(new Integer(rs.getString("vm_id")).intValue());
+        vm.setVersion(new Float(rs.getString("version")).floatValue());             
+        vm.setAslName(rs.getString("asl_name"));
+        //
         return vm;
       }
       

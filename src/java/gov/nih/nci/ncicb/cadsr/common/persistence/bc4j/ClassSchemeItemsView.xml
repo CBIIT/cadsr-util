@@ -4,10 +4,10 @@
 <ViewObject
    Name="ClassSchemeItemsView"
    SelectList="ClassSchemeItems.CSI_IDSEQ, 
-       ClassSchemeItems.CSI_NAME, 
+       ClassSchemeItems.LONG_NAME, 
 
        ClassSchemeItems.CSITL_NAME, 
-       ClassSchemeItems.DESCRIPTION, 
+       ClassSchemeItems.PREFERRED_DEFINITION, 
 
        ClassSchemeItems.COMMENTS, 
        ClassSchemeItems.DATE_CREATED, 
@@ -15,8 +15,11 @@
        ClassSchemeItems.CREATED_BY, 
        ClassSchemeItems.DATE_MODIFIED, 
 
-       ClassSchemeItems.MODIFIED_BY"
-   FromList="CLASS_SCHEME_ITEMS ClassSchemeItems"
+       ClassSchemeItems.MODIFIED_BY,
+       
+       ClassSchemeItems.CSI_ID,
+       ClassSchemeItems.VERSION"
+   FromList="CS_ITEMS_VIEW ClassSchemeItems"
    BindingStyle="Oracle"
    CustomQuery="false"
    RowClass="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassSchemeItemsViewRowImpl"
@@ -46,13 +49,13 @@
       AliasName="CSI_IDSEQ" >
    </ViewAttribute>
    <ViewAttribute
-      Name="CsiName"
+      Name="LongName"
       IsUnique="true"
       IsNotNull="true"
       PrecisionRule="false"
-      EntityAttrName="CsiName"
+      EntityAttrName="LongName"
       EntityUsage="ClassSchemeItems"
-      AliasName="CSI_NAME" >
+      AliasName="LONG_NAME" >
    </ViewAttribute>
    <ViewAttribute
       Name="CsitlName"
@@ -64,11 +67,11 @@
       AliasName="CSITL_NAME" >
    </ViewAttribute>
    <ViewAttribute
-      Name="Description"
+      Name="PreferredDefinition"
       PrecisionRule="false"
-      EntityAttrName="Description"
+      EntityAttrName="PreferredDefinition"
       EntityUsage="ClassSchemeItems"
-      AliasName="DESCRIPTION" >
+      AliasName="PREFERRED_DEFINITION" >
    </ViewAttribute>
    <ViewAttribute
       Name="Comments"
@@ -106,6 +109,20 @@
       EntityAttrName="ModifiedBy"
       EntityUsage="ClassSchemeItems"
       AliasName="MODIFIED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CsiId"
+      PrecisionRule="false"
+      EntityAttrName="CsiId"
+      EntityUsage="ClassSchemeItems"
+      AliasName="CSI_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Version"      
+      PrecisionRule="false"
+      EntityAttrName="Version"
+      EntityUsage="ClassSchemeItems"
+      AliasName="VERSION" >
    </ViewAttribute>
    <ViewLinkAccessor
       Name="CsCsiView"

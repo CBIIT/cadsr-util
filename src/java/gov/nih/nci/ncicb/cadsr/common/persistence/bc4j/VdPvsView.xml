@@ -10,7 +10,11 @@
        VdPvs.DATE_CREATED, 
        VdPvs.CREATED_BY, 
        VdPvs.DATE_MODIFIED, 
-       VdPvs.MODIFIED_BY"
+       VdPvs.MODIFIED_BY,
+       VdPvs.ORIGIN,
+       VdPvs.CON_IDSEQ,
+       VdPvs.BEGIN_DATE,
+       VdPvs.END_DATE"
    FromList="VD_PVS VdPvs"
    BindingStyle="Oracle"
    CustomQuery="false"
@@ -94,4 +98,35 @@
       EntityUsage="VdPvs"
       AliasName="MODIFIED_BY" >
    </ViewAttribute>
+   <ViewAttribute
+      Name="Origin"
+      PrecisionRule="false"
+      EntityAttrName="Origin"
+      EntityUsage="VdPvs"
+      AliasName="ORIGIN" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ConIdseq"
+      IsUnique="true"
+      PrecisionRule="false"
+      EntityAttrName="ConIdseq"
+      EntityUsage="VdPvs"
+      AliasName="CON_IDSEQ" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="BeginDate"
+      IsNotNull="true"
+      PrecisionRule="false"
+      EntityAttrName="BeginDate"
+      EntityUsage="VdPvs"
+      AliasName="BEGIN_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="EndDate"
+      IsNotNull="true"
+      PrecisionRule="false"
+      EntityAttrName="EndDate"
+      EntityUsage="VdPvs"
+      AliasName="END_DATE" >
+   </ViewAttribute>   
 </ViewObject>

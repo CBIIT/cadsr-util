@@ -39,6 +39,10 @@ public interface Classification
 
     public void setCsVersion(Float pVersion);
 
+    public Integer getClassSchemeItemId();
+    public void setClassSchemeItemId(Integer aClassSchemeItemId);
     
+    public Float getClassSchemeItemVersion();
+    public void setClassSchemeItemVersion(Float aClassSchemeItemVersion);
    
 }
