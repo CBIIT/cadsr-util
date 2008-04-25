@@ -12,7 +12,7 @@ import gov.nih.nci.ncicb.cadsr.common.util.PageIterator;
 
 public interface ValidValueHandler extends HandlerDefinition{
   
-  public Vector getValidValues(Object aVdIdseq, Object sessionId)
+  public List getValidValues(Object aVdIdseq, Object sessionId)
     throws Exception;
 
   public List getMyValidValues(Object aVdIdseq

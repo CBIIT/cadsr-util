@@ -34,9 +34,9 @@ public class ValidValueHandlerImpl extends Handler implements ValidValueHandler 
     return ValidValue.class;
   }
 
-  public Vector getValidValues(Object aVdIdseq, Object sessionId)
+  public List getValidValues(Object aVdIdseq, Object sessionId)
     throws Exception {
-    Vector validValues = new Vector();
+    List validValues = new ArrayList();
 
     try {
       CDEBrowserBc4jModuleImpl module =
@@ -64,8 +64,7 @@ public class ValidValueHandlerImpl extends Handler implements ValidValueHandler 
       //vw.setMaxFetchSize(1500);
       //vvIterator.setRangeSize(40);
       vvIterator.setScrollableObject(vw);
-      vvRows = (Row[]) vvIterator.getRowsInRange();
-      
+      vvRows = (Row[]) vvIterator.getRowsInRange();      
       for (int i = 0; i < vvRows.length; i++) {
         ValidValuesViewRowImpl rowImpl = (ValidValuesViewRowImpl) vvRows[i];
         ValidValuesValueObject validValue = new ValidValuesValueObject(rowImpl);
@@ -87,7 +86,7 @@ public class ValidValueHandlerImpl extends Handler implements ValidValueHandler 
     return vvList;
   }
 
-  public static void main(String[] args) {
+  /*public static void main(String[] args) {
     Integer sessionId = new Integer(1);
     String testVdIdseq = new String("99BA9DC8-213F-4E69-E034-080020C9C0E0");
 
@@ -97,5 +96,5 @@ public class ValidValueHandlerImpl extends Handler implements ValidValueHandler 
     } catch (Exception e) {
       System.err.println("Error: " + e.getMessage());
     }
-  }
+  }*/
 }

@@ -1,24 +1,24 @@
 package gov.nih.nci.ncicb.cadsr.common.dto.bc4j;
 
-import gov.nih.nci.ncicb.cadsr.common.resource.Classification;
-//import gov.nih.nci.ncicb.cadsr.common.resource.ValueDomain;
-import java.sql.Date;
-import java.sql.SQLException;
-import java.io.Serializable;
 import gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ClassificationsViewRowImpl;
+import gov.nih.nci.ncicb.cadsr.common.resource.Classification;
+
+import java.io.Serializable;
 
 public class BC4JClassificationsTransferObject implements Classification,Serializable {
 
 	protected String deIdseq;
 	protected String classSchemeName;
-   protected String classSchemeLongName;
+	protected String classSchemeLongName;
 	protected String classSchemeDefinition;
 	protected String classSchemeItemName;
 	protected String classSchemeItemType;
-   protected String csPublicId;
-   protected String csIdseq;
-   protected String csiIdseq;
-   protected Float csVersion;
+	protected String csPublicId;
+	protected String csIdseq;
+	protected String csiIdseq;
+	protected Float csVersion;
+	protected Integer classSchemeItemId;
+	protected Float classSchemeItemVersion;	
 
 	public BC4JClassificationsTransferObject() {
 		super();
@@ -28,17 +28,20 @@ public class BC4JClassificationsTransferObject implements Classification,Seriali
 		deIdseq = classificationsViewRowImpl.getAcIdseq();
 		classSchemeName = classificationsViewRowImpl.getPreferredName();
 		classSchemeDefinition = classificationsViewRowImpl.getPreferredDefinition();
-		classSchemeItemName = classificationsViewRowImpl.getCsiName();
-	   classSchemeLongName = classificationsViewRowImpl.getLongName();
-		classSchemeItemType = classificationsViewRowImpl.getCsitlName();
-      csIdseq = classificationsViewRowImpl.getCsIdseq();
-      csiIdseq = classificationsViewRowImpl.getCsiIdseq();
-      csVersion = new Float(classificationsViewRowImpl.getCsVersion().floatValue());
-    //If clause added by Ram
-    if (classificationsViewRowImpl.getCsId() != null)
-      csPublicId = classificationsViewRowImpl.getCsId().stringValue();
-    else
-      csPublicId = "";
+		classSchemeLongName = classificationsViewRowImpl.getCsLongName();
+		//classSchemeItemName = classificationsViewRowImpl.getCsiName();
+		classSchemeItemName = classificationsViewRowImpl.getLongName();	   
+		classSchemeItemType = classificationsViewRowImpl.getCsitlName();		
+		classSchemeItemId = new Integer(classificationsViewRowImpl.getCsiId().intValue());
+		classSchemeItemVersion = new Float(classificationsViewRowImpl.getCsiVersion().floatValue());		
+		csIdseq = classificationsViewRowImpl.getCsIdseq();
+		csiIdseq = classificationsViewRowImpl.getCsiIdseq();
+		csVersion = new Float(classificationsViewRowImpl.getCsVersion().floatValue());
+		//If clause added by Ram
+		if (classificationsViewRowImpl.getCsId() != null)
+			csPublicId = classificationsViewRowImpl.getCsId().stringValue();
+		else
+			csPublicId = "";
 	}
 
 	//getter method
@@ -59,13 +62,13 @@ public class BC4JClassificationsTransferObject implements Classification,Seriali
 		classSchemeName = aClassSchemeName;
 	}
 
-   public String getClassSchemeLongName() {
-      return classSchemeLongName;
-   }
+	public String getClassSchemeLongName() {
+		return classSchemeLongName;
+	}
 
-   public void setClassSchemeLongName(String aClassSchemeName) {
-      classSchemeLongName = aClassSchemeName;
-   }
+	public void setClassSchemeLongName(String aClassSchemeName) {
+		classSchemeLongName = aClassSchemeName;
+	}
 
 	public String getClassSchemeDefinition() {
 		return classSchemeDefinition;
@@ -91,38 +94,68 @@ public class BC4JClassificationsTransferObject implements Classification,Seriali
 		classSchemeItemType = aClassSchemeItemType;
 	}
 
-  public String getClassSchemePublicId() 
-  {
-    return csPublicId;
-  }
-  
-  public void setClassSchemePublicId(String publicId) 
-  {
-    csPublicId = publicId;
-  }
+	public String getClassSchemePublicId() 
+	{
+		return csPublicId;
+	}
+
+	public void setClassSchemePublicId(String publicId) 
+	{
+		csPublicId = publicId;
+	}
 
 
-   public void setCsIdseq(String csIdseq) {
-      this.csIdseq = csIdseq;
-   }
+	public void setCsIdseq(String csIdseq) {
+		this.csIdseq = csIdseq;
+	}
 
-   public String getCsIdseq() {
-      return csIdseq;
-   }
+	public String getCsIdseq() {
+		return csIdseq;
+	}
 
-   public void setCsiIdseq(String csiIdseq) {
-      this.csiIdseq = csiIdseq;
-   }
+	public void setCsiIdseq(String csiIdseq) {
+		this.csiIdseq = csiIdseq;
+	}
 
-   public String getCsiIdseq() {
-      return csiIdseq;
-   }
-   
-    public Float getCsVersion(){
-      return csVersion;
-    }
-    
-    public void setCsVersion(Float pVersion){
-       this.csVersion = pVersion;
-    }
+	public String getCsiIdseq() {
+		return csiIdseq;
+	}
+
+	public Float getCsVersion(){
+		return csVersion;
+	}
+
+	public void setCsVersion(Float pVersion){
+		this.csVersion = pVersion;
+	}
+
+	/**
+	 * @return the classSchemeItemId
+	 */
+	public Integer getClassSchemeItemId() {
+		return classSchemeItemId;
+	}
+
+	/**
+	 * @param classSchemeItemId the classSchemeItemId to set
+	 */
+	public void setClassSchemeItemId(Integer classSchemeItemId) {
+		this.classSchemeItemId = classSchemeItemId;
+	}
+
+	/**
+	 * @return the classSchemeItemVersion
+	 */
+	public Float getClassSchemeItemVersion() {
+		return classSchemeItemVersion;
+	}
+
+	/**
+	 * @param classSchemeItemVersion the classSchemeItemVersion to set
+	 */
+	public void setClassSchemeItemVersion(Float classSchemeItemVersion) {
+		this.classSchemeItemVersion = classSchemeItemVersion;
+	}
+
+
 }

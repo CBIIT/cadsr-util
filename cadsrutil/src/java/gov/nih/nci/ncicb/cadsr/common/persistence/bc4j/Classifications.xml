@@ -15,14 +15,14 @@ SELECT AdministeredComponents.AC_IDSEQ,
        AdministeredComponents.VERSION,
        AdministeredComponents.CONTE_IDSEQ,
        ClassSchemeItems.CSI_IDSEQ,
-       ClassSchemeItems.CSI_NAME, 
+       ClassSchemeItems.LONG_NAME, 
        ClassSchemeItems.CSITL_NAME, 
        ClassificationSchemes.CS_IDSEQ,
        ClassificationSchemes.PREFERRED_NAME, 
        ClassificationSchemes.PREFERRED_DEFINITION,
        ClassificationSchemes.CS_ID
 FROM AC_CSI AcCsi, ADMINISTERED_COMPONENTS AdministeredComponents, 
-CLASSIFICATION_SCHEMES ClassificationSchemes, CLASS_SCHEME_ITEMS ClassSchemeItems, CS_CSI CsCsi
+CLASSIFICATION_SCHEMES ClassificationSchemes, CS_ITEMS_VIEW ClassSchemeItems, CS_CSI CsCsi
 WHERE 
 (((AcCsi.AC_IDSEQ = AdministeredComponents.AC_IDSEQ)AND (CsCsi.CS_IDSEQ = ClassificationSchemes.CS_IDSEQ))AND 
 (CsCsi.CSI_IDSEQ = ClassSchemeItems.CSI_IDSEQ))AND (AcCsi.CS_CSI_IDSEQ = CsCsi.CS_CSI_IDSEQ)
@@ -160,14 +160,14 @@ WHERE
       AliasName="CSI_IDSEQ" >
    </ViewAttribute>
    <ViewAttribute
-      Name="CsiName"
+      Name="LongName"
       IsUpdateable="false"
       IsUnique="true"
       IsNotNull="true"
       PrecisionRule="false"
-      EntityAttrName="CsiName"
+      EntityAttrName="LongName"
       EntityUsage="ClassSchemeItems"
-      AliasName="CSI_NAME" >
+      AliasName="LONG_NAME" >
    </ViewAttribute>
    <ViewAttribute
       Name="CsitlName"

@@ -4,7 +4,7 @@
 <Entity
    Name="ValueMeaningsLov"
    DBObjectType="table"
-   DBObjectName="VALUE_MEANINGS_LOV"
+   DBObjectName="VALUE_MEANINGS_VIEW"
    AliasName="ValueMeaningsLov"
    BindingStyle="Oracle"
    UseGlueCode="false"
@@ -24,8 +24,7 @@
       Type="java.lang.String"
       ColumnType="VARCHAR2"
       SQLType="VARCHAR"
-      TableName="VALUE_MEANINGS_LOV"
-      PrimaryKey="true" >
+      TableName="VALUE_MEANINGS_VIEW" >
       <DesignTime>
          <Attr Name="_DisplaySize" Value="255" />
       </DesignTime>
@@ -37,7 +36,7 @@
       Type="java.lang.String"
       ColumnType="VARCHAR2"
       SQLType="VARCHAR"
-      TableName="VALUE_MEANINGS_LOV" >
+      TableName="VALUE_MEANINGS_VIEW" >
       <DesignTime>
          <Attr Name="_DisplaySize" Value="2000" />
       </DesignTime>
@@ -49,7 +48,7 @@
       Type="java.lang.String"
       ColumnType="VARCHAR2"
       SQLType="VARCHAR"
-      TableName="VALUE_MEANINGS_LOV" >
+      TableName="VALUE_MEANINGS_VIEW" >
       <DesignTime>
          <Attr Name="_DisplaySize" Value="2000" />
       </DesignTime>
@@ -60,7 +59,7 @@
       Type="oracle.jbo.domain.Date"
       ColumnType="DATE"
       SQLType="DATE"
-      TableName="VALUE_MEANINGS_LOV" >
+      TableName="VALUE_MEANINGS_VIEW" >
    </Attribute>
    <Attribute
       Name="EndDate"
@@ -68,7 +67,7 @@
       Type="oracle.jbo.domain.Date"
       ColumnType="DATE"
       SQLType="DATE"
-      TableName="VALUE_MEANINGS_LOV" >
+      TableName="VALUE_MEANINGS_VIEW" >
    </Attribute>
    <Attribute
       Name="DateCreated"
@@ -77,7 +76,7 @@
       Type="oracle.jbo.domain.Date"
       ColumnType="DATE"
       SQLType="DATE"
-      TableName="VALUE_MEANINGS_LOV" >
+      TableName="VALUE_MEANINGS_VIEW" >
    </Attribute>
    <Attribute
       Name="CreatedBy"
@@ -87,7 +86,7 @@
       Type="java.lang.String"
       ColumnType="VARCHAR2"
       SQLType="VARCHAR"
-      TableName="VALUE_MEANINGS_LOV" >
+      TableName="VALUE_MEANINGS_VIEW" >
       <DesignTime>
          <Attr Name="_DisplaySize" Value="30" />
       </DesignTime>
@@ -98,7 +97,7 @@
       Type="oracle.jbo.domain.Date"
       ColumnType="DATE"
       SQLType="DATE"
-      TableName="VALUE_MEANINGS_LOV" >
+      TableName="VALUE_MEANINGS_VIEW" >
    </Attribute>
    <Attribute
       Name="ModifiedBy"
@@ -107,7 +106,7 @@
       Type="java.lang.String"
       ColumnType="VARCHAR2"
       SQLType="VARCHAR"
-      TableName="VALUE_MEANINGS_LOV" >
+      TableName="VALUE_MEANINGS_VIEW" >
       <DesignTime>
          <Attr Name="_DisplaySize" Value="30" />
       </DesignTime>
@@ -119,11 +118,168 @@
       Type="java.lang.String"
       ColumnType="CHAR"
       SQLType="CHAR"
-      TableName="VALUE_MEANINGS_LOV"
+      TableName="VALUE_MEANINGS_VIEW"
       RetrievedOnUpdate="true"
       RetrievedOnInsert="true" >
       <DesignTime>
          <Attr Name="_DisplaySize" Value="36" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="VmIdseq"
+      Precision="36"
+      ColumnName="VM_IDSEQ"
+      Type="java.lang.String"
+      ColumnType="CHAR"
+      SQLType="CHAR"
+      TableName="VALUE_MEANINGS_VIEW"
+      PrimaryKey="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="36" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="PreferredName"
+      Precision="30"
+      ColumnName="PREFERRED_NAME"
+      Type="java.lang.String"     
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="VALUE_MEANINGS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="PreferredDefinition"
+      Precision="2000"
+      ColumnName="PREFERRED_DEFINITION"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="VALUE_MEANINGS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="2000" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LongName"
+      Precision="255"
+      ColumnName="LONG_NAME"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="VALUE_MEANINGS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="255" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ConteIdseq"
+      Precision="36"
+      ColumnName="CONTE_IDSEQ"
+      Type="java.lang.String"
+      ColumnType="CHAR"
+      SQLType="CHAR"
+      TableName="VALUE_MEANINGS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="36" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="AslName"
+      Precision="20"
+      ColumnName="ASL_NAME"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="VALUE_MEANINGS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="20" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Version"      
+      Precision="4"
+      Scale="2"     
+      ColumnName="VERSION"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="VALUE_MEANINGS_VIEW" >
+      <DesignTime>
+      	<Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="VmId"           
+      ColumnName="VM_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="VALUE_MEANINGS_VIEW" >
+      <DesignTime>
+      	<Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LatestVersionInd"
+      Precision="3"
+      ColumnName="LATEST_VERSION_IND"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="VALUE_MEANINGS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="3" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DeletedInd"
+      Precision="3"
+      ColumnName="DELETED_IND"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="VALUE_MEANINGS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="3" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Origin"
+      Precision="240"
+      ColumnName="Origin"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="VALUE_MEANINGS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="240" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ChangeNote"
+      Precision="2000"
+      ColumnName="Change_Note"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="VALUE_MEANINGS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="2000" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DefinitionSource"
+      Precision="2000"
+      ColumnName="DEFINITION_SOURCE"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="VALUE_MEANINGS_VIEW" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="2000" />
       </DesignTime>
    </Attribute>
    <AccessorAttribute
@@ -144,11 +300,11 @@
    <Key
       Name="SysC0062875" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLov.ShortMeaning" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLov.VmIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="SYS_C0062875" />
-         <Attr Name="_checkCondition" Value="&#34;SHORT_MEANING&#34; IS NOT NULL" />
+         <Attr Name="_checkCondition" Value="&#34;VM_IDSEQ&#34; IS NOT NULL" />
          <Attr Name="_isCheck" Value="true" />
       </DesignTime>
    </Key>
@@ -177,7 +333,7 @@
    <Key
       Name="VmvPk" >
       <AttrArray Name="Attributes">
-         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLov.ShortMeaning" />
+         <Item Value="gov.nih.nci.ncicb.cadsr.common.persistence.bc4j.ValueMeaningsLov.VmIdseq" />
       </AttrArray>
       <DesignTime>
          <Attr Name="_DBObjectName" Value="VMV_PK" />

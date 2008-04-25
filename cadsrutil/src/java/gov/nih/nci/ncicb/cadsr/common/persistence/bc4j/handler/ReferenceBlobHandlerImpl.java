@@ -96,7 +96,7 @@ public class ReferenceBlobHandlerImpl extends Handler
   }
   
 
-  public static void main(String[] args) {
+  /*public static void main(String[] args) {
     Integer sessionId = new Integer(1);
 
     try {
@@ -110,5 +110,5 @@ public class ReferenceBlobHandlerImpl extends Handler
     catch (Exception e) {
       System.err.println("ERROR: " + e.getMessage());
     }
-  }
+  }*/
 }

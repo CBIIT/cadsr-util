@@ -42,6 +42,12 @@ public interface ClassSchemeItem   extends Cloneable{
   public void setCsVersion(Float csVersion);
   public Float getCsVersion();
   
+  public void setCsiId(Integer csiId);
+  public Integer getCsiId();
+  
+  public void setCsiVersion(Float csiVersion);
+  public Float getCsiVersion();
+  
   public Object clone() throws CloneNotSupportedException;
 
 }

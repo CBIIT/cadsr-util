@@ -12,15 +12,17 @@ public class ClassSchemeItemsViewRowImpl extends ViewRowImpl
 
 
   public static final int CSIIDSEQ = 0;
-  public static final int CSINAME = 1;
+  public static final int LONGNAME = 1;
   public static final int CSITLNAME = 2;
-  public static final int DESCRIPTION = 3;
+  public static final int PREFERREDDEFINITION = 3;
   public static final int COMMENTS = 4;
   public static final int DATECREATED = 5;
   public static final int CREATEDBY = 6;
   public static final int DATEMODIFIED = 7;
   public static final int MODIFIEDBY = 8;
-  public static final int CSCSIVIEW = 9;
+  public static final int CSIID = 9;
+  public static final int VERSION = 10;
+  public static final int CSCSIVIEW = 11;
   /**
    * 
    * This is the default constructor (do not remove)
@@ -58,20 +60,20 @@ public class ClassSchemeItemsViewRowImpl extends ViewRowImpl
 
   /**
    * 
-   * Gets the attribute value for CSI_NAME using the alias name CsiName
+   * Gets the attribute value for LONG_NAME using the alias name LONG_NAME
    */
-  public String getCsiName()
+  public String getLongName()
   {
-    return (String)getAttributeInternal(CSINAME);
+    return (String)getAttributeInternal(LONGNAME);
   }
 
   /**
    * 
-   * Sets <code>value</code> as attribute value for CSI_NAME using the alias name CsiName
+   * Sets <code>value</code> as attribute value for LONG_NAME using the alias name LONG_NAME
    */
-  public void setCsiName(String value)
+  public void setLongName(String value)
   {
-    setAttributeInternal(CSINAME, value);
+    setAttributeInternal(LONGNAME, value);
   }
 
   /**
@@ -94,20 +96,20 @@ public class ClassSchemeItemsViewRowImpl extends ViewRowImpl
 
   /**
    * 
-   * Gets the attribute value for DESCRIPTION using the alias name Description
+   * Gets the attribute value for PREFERREDDEFINITION using the alias name PREFERREDDEFINITION
    */
-  public String getDescription()
+  public String getPreferredDefinition()
   {
-    return (String)getAttributeInternal(DESCRIPTION);
+    return (String)getAttributeInternal(PREFERREDDEFINITION);
   }
 
   /**
    * 
-   * Sets <code>value</code> as attribute value for DESCRIPTION using the alias name Description
+   * Sets <code>value</code> as attribute value for PREFERREDDEFINITION using the alias name PREFERREDDEFINITION
    */
-  public void setDescription(String value)
+  public void setPreferredDefinition(String value)
   {
-    setAttributeInternal(DESCRIPTION, value);
+    setAttributeInternal(PREFERREDDEFINITION, value);
   }
 
   /**
@@ -199,6 +201,31 @@ public class ClassSchemeItemsViewRowImpl extends ViewRowImpl
   {
     setAttributeInternal(MODIFIEDBY, value);
   }
+  
+  
+  /**Gets the attribute value for CsiId, using the alias name CsiId.
+   */
+  public Number getCsiId() {
+      return (Number)getAttributeInternal(CSIID);
+  }
+
+  /**Sets <code>value</code> as the attribute value for CsiId.
+   */
+  public void setCsiId(Number value) {
+      setAttributeInternal(CSIID, value);
+  }
+
+  /**Gets the attribute value for Version, using the alias name Version.
+   */
+  public Number getVersion() {
+      return (Number)getAttributeInternal(VERSION);
+  }
+
+  /**Sets <code>value</code> as the attribute value for Version.
+   */
+  public void setVersion(Number value) {
+      setAttributeInternal(VERSION, value);
+  }
   //  Generated method. Do not modify.
 
   protected Object getAttrInvokeAccessor(int index, AttributeDefImpl attrDef) throws Exception
@@ -207,12 +234,12 @@ public class ClassSchemeItemsViewRowImpl extends ViewRowImpl
       {
       case CSIIDSEQ:
         return getCsiIdseq();
-      case CSINAME:
-        return getCsiName();
+      case LONGNAME:
+        return getLongName();
       case CSITLNAME:
         return getCsitlName();
-      case DESCRIPTION:
-        return getDescription();
+      case PREFERREDDEFINITION:
+        return getPreferredDefinition();
       case COMMENTS:
         return getComments();
       case DATECREATED:
@@ -223,6 +250,10 @@ public class ClassSchemeItemsViewRowImpl extends ViewRowImpl
         return getDateModified();
       case MODIFIEDBY:
         return getModifiedBy();
+      case CSIID:
+          return getCsiId();
+      case VERSION:
+          return getVersion();
       case CSCSIVIEW:
         return getCsCsiView();
       default:
@@ -238,14 +269,14 @@ public class ClassSchemeItemsViewRowImpl extends ViewRowImpl
       case CSIIDSEQ:
         setCsiIdseq((String)value);
         return;
-      case CSINAME:
-        setCsiName((String)value);
+      case LONGNAME:
+        setLongName((String)value);
         return;
       case CSITLNAME:
         setCsitlName((String)value);
         return;
-      case DESCRIPTION:
-        setDescription((String)value);
+      case PREFERREDDEFINITION:
+        setPreferredDefinition((String)value);
         return;
       case COMMENTS:
         setComments((String)value);
@@ -262,6 +293,12 @@ public class ClassSchemeItemsViewRowImpl extends ViewRowImpl
       case MODIFIEDBY:
         setModifiedBy((String)value);
         return;
+      case CSIID:
+          setCsiId((Number)value);
+          return;
+      case VERSION:
+          setVersion((Number)value);
+          return;    
       default:
         super.setAttrInvokeAccessor(index, value, attrDef);
         return;
