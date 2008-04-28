@@ -2,11 +2,9 @@
 package gov.nih.nci.ncicb.cadsr.common.util;
 
 
-import java.sql.*;
-import java.util.Vector;
-import javax.servlet.http.*;
-//import healthtoolkit.beans.dbservice.*;
-//import healthtoolkit.utils.*;
+import java.sql.SQLException;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * A Bean class.
