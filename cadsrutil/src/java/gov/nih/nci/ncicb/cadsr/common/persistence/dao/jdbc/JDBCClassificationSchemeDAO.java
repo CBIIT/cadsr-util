@@ -128,7 +128,7 @@ public class JDBCClassificationSchemeDAO extends JDBCAdminComponentDAO
                          " WHERE CONTE_IDSEQ = ? " +
                          " and ASL_NAME = 'RELEASED' " +
                          " and CSTL_NAME != 'Publishing' " +
-                         "  order by long_name  ");
+                         "  order by UPPER(long_name)  ");
 
             declareParameter(new SqlParameter("CS_IDSEQ", Types.VARCHAR));
         }
