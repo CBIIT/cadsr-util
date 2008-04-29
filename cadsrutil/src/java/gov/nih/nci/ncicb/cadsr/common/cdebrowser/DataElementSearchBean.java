@@ -370,8 +370,8 @@ public DataElementSearchBean( HttpServletRequest request) throws SQLException {
       "<select multiple name=\"jspSearchIn\" size=\"4\" class=\"LongLOVField\"> ");
 
     if (searchIn == null) {
-      searchInList.append("<option  value=\"ALL\">ALL</option> ");
-      searchInList.append("<option  selected value=\"Long Name\">Long Name</option> ");
+      searchInList.append("<option selected value=\"ALL\">ALL</option> ");
+      searchInList.append("<option value=\"Long Name\">Long Name</option> ");
       searchInList.append(
         "<option value=\"Short Name\">Short Name</option> ");
       searchInList.append("<option value=\"Doc Text\">Preferred Question Text</option> ");
