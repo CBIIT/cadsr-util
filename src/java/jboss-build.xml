@@ -70,7 +70,7 @@
          <classpath refid="classpath"/>
          <src refid="srcpath"/>
       </javac>  
-   	  <unzip src="${java.lib.dir}/extension-client-framework.jar" dest="${classes.build.dir}"  overwrite="No"/>   	  
+   	  <!-- <unzip src="${java.lib.dir}/extension-client-framework.jar" dest="${classes.build.dir}"  overwrite="No"/>   	  
    	   	   <copy todir="${build.dir}">
    		     <fileset dir="${java.lib.dir}">
    		      <patternset>
@@ -87,7 +87,7 @@
    	   				<include name="gov/nih/nci/objectCart/domain/*.*"/>   	   		     	
    	   			</patternset>
    	   		</fileset>
-   	   	 </copy>
+   	   	 </copy> -->
    </target>
    
 	<!-- ============ CREATE cadsrutil JAR FILE ================== -->
@@ -95,8 +95,8 @@
 	    <jar jarfile="${dist.dir}/cadsrutil.jar">
 	      <fileset dir="${classes.build.dir}">
 	        <patternset>
-	        	<include name="gov/nih/nci/objectCart/**/*.*"/>
-	        	<include name="gov/nih/nci/ncicb/**/*.*"/>	        
+	        	<!-- <include name="gov/nih/nci/objectCart/**/*.*"/> -->
+	        	<include name="gov/nih/nci/ncicb/**/*.*"/>
 	        </patternset>
 	      </fileset>           
            <fileset dir="${java.src.dir}">
@@ -113,9 +113,9 @@
 	<!-- ============ copies jar to other tools mentioned in this target ================== -->	
 	 <target name="build_copy_jar" depends="jar_cadsrutil"> 
 	 	<!-- Each developer should change this to point to their local directory -->
-	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\workspace\Cdebrowser\lib\java\cadsrutil.jar"/>
-		<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\workspace\formbuilder\lib\java\javacadsrutil.jar"/>
-		<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\workspace\ocbrowser\lib\java\javacadsrutil.jar"/>
+	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\NCIWorkspace\Cdebrowser\lib\java\cadsrutil.jar"/>
+		<!--<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\workspace\formbuilder\lib\java\javacadsrutil.jar"/>
+		<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\workspace\ocbrowser\lib\java\javacadsrutil.jar"/> -->
 	 </target>
 	
 </project>
