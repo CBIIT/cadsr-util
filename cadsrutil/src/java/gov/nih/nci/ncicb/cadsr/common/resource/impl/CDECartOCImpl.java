@@ -22,7 +22,7 @@ import java.util.Map;
 public class CDECartOCImpl implements CDECart, Serializable  {
 
 	private Cart oCart;
-	private CartObjectItemComparator itemComparator;
+	private CDECartItemComparator itemComparator;
 	private CartManager cm;
 	private String CLASSIFICATION_SCHEME;
 	private String userId;
@@ -30,7 +30,7 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 
 	public CDECartOCImpl(CartManager cManager, String uid, String cName, String scheme) {
 		oCart = new Cart();
-		itemComparator = CartObjectItemComparator.getInstance();
+		itemComparator = new CDECartItemComparator();
 		cm = cManager;
 		CLASSIFICATION_SCHEME = scheme;
 		userId = uid;
@@ -50,6 +50,7 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 			Collections.sort(itemList,itemComparator);
 			return itemList;
 		} catch (ObjectCartException oce) {
+			oce.printStackTrace();
 			throw new RuntimeException("getDataElements: Error restoring the POJO Collection", oce);
 		}
 
@@ -59,7 +60,7 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 		CartObject co = this.getNativeObject(item.getId());
 		if (co == null){
 			try {
-				cm.getClient(CLASSIFICATION_SCHEME).storePOJO(oCart, CDECartItem.class, item.getItem().getLongName(), item.getId(), item);
+				oCart = cm.getClient(CLASSIFICATION_SCHEME).storePOJO(oCart, CDECartItem.class, item.getItem().getLongName(), item.getId(), item);
 			} catch (ObjectCartException oce) {
 				throw new RuntimeException("getDataElements: Error restoring the POJO Collection", oce);
 			}
@@ -76,7 +77,7 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 			objects.put(item.getId(), item);
 		}
 		try {
-			cm.getClient(CLASSIFICATION_SCHEME).storePOJOCollection(oCart, CDECartItemImpl.class, objectDisplayNames, objects);
+			oCart = cm.getClient(CLASSIFICATION_SCHEME).storePOJOCollection(oCart, CDECartItemImpl.class, objectDisplayNames, objects);
 		} catch (ObjectCartException oce) {
 			throw new RuntimeException("getDataElements: Error restoring the POJO Collection", oce);
 		}
@@ -93,7 +94,7 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 	public void setForm(CDECartItem form) {
 		try {
 			if (getId(oCart, form.getId()) != null)
-				cm.getClient(CLASSIFICATION_SCHEME).storePOJO(oCart, form.getClass(), form.getItem().getLongName(), form.getId(), form);
+				oCart = cm.getClient(CLASSIFICATION_SCHEME).storePOJO(oCart, form.getClass(), form.getItem().getLongName(), form.getId(), form);
 		} catch (ObjectCartException oce) {
 			throw new RuntimeException("getForms: Error storing the POJO Collection", oce);
 		}
@@ -109,7 +110,7 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 			objects.put(item.getId(), item);
 		}
 		try {
-			cm.getClient(CLASSIFICATION_SCHEME).storePOJOCollection(oCart, CDECartItemImpl.class, objectDisplayNames, objects);
+			oCart = cm.getClient(CLASSIFICATION_SCHEME).storePOJOCollection(oCart, CDECartItemImpl.class, objectDisplayNames, objects);
 		} catch (ObjectCartException oce) {
 			throw new RuntimeException("getDataElements: Error restoring the POJO Collection", oce);
 		}
@@ -128,7 +129,7 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 		CartObject co = getNativeObject(itemId);
 		if (co != null) {
 			try {	
-				cm.getClient(CLASSIFICATION_SCHEME).removeObject(oCart, co);
+				oCart = cm.getClient(CLASSIFICATION_SCHEME).removeObject(oCart, co);			
 			} catch (ObjectCartException oce) {
 				throw new RuntimeException("removeDataElement: Error removing object with native ID:"+itemId, oce);
 			}			
@@ -139,7 +140,7 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 		List<CartObject> cList = getNativeObjects(items);
 		if (!cList.isEmpty()) {
 			try {	
-				cm.getClient(CLASSIFICATION_SCHEME).removeObjectCollection(oCart, cList);
+				oCart = cm.getClient(CLASSIFICATION_SCHEME).removeObjectCollection(oCart, cList);
 			} catch (ObjectCartException oce) {
 				throw new RuntimeException("removeDataElements: Error removing collection of objects", oce);
 			}	
