@@ -33,6 +33,7 @@ public interface ClassSchemeItem   extends Cloneable{
   
   public void setCsiDescription(String csiDescription);
   public String getCsiDescription();
+  
   public void setParentCscsiId(String parentCscsiId);
   public String getParentCscsiId();
   
@@ -42,6 +43,9 @@ public interface ClassSchemeItem   extends Cloneable{
   public void setCsVersion(Float csVersion);
   public Float getCsVersion();
   
+  public void setCsID(String csID);
+  public String getCsID();
+
   public void setCsiId(Integer csiId);
   public Integer getCsiId();
   
