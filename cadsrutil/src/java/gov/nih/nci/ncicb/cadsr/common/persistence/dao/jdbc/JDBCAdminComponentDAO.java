@@ -1481,7 +1481,8 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
        public void setSql() {
          super.setSql( "SELECT csi.long_name csi_name, csi.csitl_name, csi.csi_idseq, " +
          "               cscsi.cs_csi_idseq, cs.preferred_definition, cs.long_name, "+
-         "                ext.aca_idseq, cs.cs_idseq, cs.version , csi.preferred_definition description" +
+         "                ext.aca_idseq, cs.cs_idseq, cs.version , csi.preferred_definition description, " +
+         "			cs.cs_id, csi.csi_id, csi.version csi_version " +
          "        FROM sbrext.ac_att_cscsi_view_ext ext, sbr.cs_csi_view cscsi, " +
          "             sbr.cs_items_view csi, sbr.classification_schemes_view cs  " +
          "        WHERE ext.ATT_IDSEQ = ? " +
@@ -1512,6 +1513,9 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
            csito.setCsIdseq(rs.getString(8));
            csito.setCsVersion(new Float(rs.getString(9)));
            csito.setCsiDescription(rs.getString("description"));
+           csito.setCsID(rs.getString("cs_id"));
+           csito.setCsiId(new Integer(rs.getString("csi_id")));
+           csito.setCsiVersion(new Float(rs.getString("csi_version")));
 
          return csito;
        }
