@@ -2,7 +2,7 @@ package gov.nih.nci.ncicb.cadsr.common;
 
 public interface CaDSRConstants {
   public static final String USER_KEY = "nciUser";
-  public static final String CDE_MANAGER = "CDE MANAGER";
+  public static final String CDE_MANAGER = "CDE MANAGER";  
   //Publish Chamge Order Oct 24/04
   public static final String CONTEXT_ADMIN = "CONTEXT ADMIN";
   public static final String CONTEXT_CABIG = "caBIG";
@@ -15,6 +15,7 @@ public interface CaDSRConstants {
   public static final String OBJ_SEPARATOR_START = "{";
   public static final String OBJ_SEPARATOR_END = "}";
   public static final String CDE_CART = "cdeCart";
+  public static final String CDE_CARTSCHEME = "CDE Cart Classification";
   public static final String USER_CONTEXTS = "userContexts";
   public static final String GLOBAL_SESSION_KEYS="globalSessionKeys";
   public static final String GLOBAL_SESSION_MAP="globalSessionMap";
