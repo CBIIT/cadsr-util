@@ -187,7 +187,7 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 
 	public void associatCart(String userId) {	
 		try {
-			 cm.getClient(CLASSIFICATION_SCHEME).associateCart(oCart, userId);
+			 oCart = cm.getClient(CLASSIFICATION_SCHEME).associateCart(oCart, userId);
 		} catch (ObjectCartException oce) {
 			throw new RuntimeException("associateCart: Error associating cart ("+oCart.getUserId()+") with new User ID "+userId, oce);
 		}
