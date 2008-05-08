@@ -1,14 +1,12 @@
 package gov.nih.nci.ncicb.cadsr.common.persistence.dao.domain.hibernate;
-import gov.nih.nci.ncicb.cadsr.dao.*;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.domain.AbstractDomainObjectsDAOFactory;
-import gov.nih.nci.ncicb.cadsr.spring.ApplicationContextFactory;
 
 /**
  * This class is currently intialized using spring 
  */
 public class DomainObjectsDAOFactory extends AbstractDomainObjectsDAOFactory
 {
-  public void setAdminComponentDAO(AdminComponentDAO adminComponentDAO)
+	/*public void setAdminComponentDAO(AdminComponentDAO adminComponentDAO)
   {
     this.adminComponentDAO = adminComponentDAO;
   }
@@ -159,7 +157,7 @@ public class DomainObjectsDAOFactory extends AbstractDomainObjectsDAOFactory
   public ConceptualDomainDAO getConceptualDomainDAO()
   {
     return conceptualDomainDAO;
-  }
+  }*/
 
 
 }

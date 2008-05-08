@@ -1,12 +1,11 @@
 package gov.nih.nci.ncicb.cadsr.common.persistence.dao.domain;
-import gov.nih.nci.ncicb.cadsr.dao.*;
 
 public abstract class AbstractDomainObjectsDAOFactory 
 {
-  public AbstractDomainObjectsDAOFactory()
-  {
-  }
-  protected AdminComponentDAO adminComponentDAO;
+	public AbstractDomainObjectsDAOFactory()
+	{
+	}
+	/*protected AdminComponentDAO adminComponentDAO;
   protected DataElementDAO dataElementDAO;
   protected DataElementConceptDAO dataElementConceptDAO;
   protected ValueDomainDAO valueDomainDAO;
@@ -30,7 +29,7 @@ public abstract class AbstractDomainObjectsDAOFactory
   public abstract DataElementConceptDAO getDataElementConceptDAO();
 
   public abstract ValueDomainDAO getValueDomainDAO();
-  
+
   public abstract PropertyDAO getPropertyDAO();
 
   public abstract ObjectClassDAO getObjectClassDAO();
@@ -50,5 +49,5 @@ public abstract class AbstractDomainObjectsDAOFactory
 
   public abstract ContextDAO getContextDAO();
 
-  public abstract ConceptualDomainDAO getConceptualDomainDAO();
+  public abstract ConceptualDomainDAO getConceptualDomainDAO();*/
 }
