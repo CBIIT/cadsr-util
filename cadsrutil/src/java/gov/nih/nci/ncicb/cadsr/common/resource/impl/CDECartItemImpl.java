@@ -67,7 +67,7 @@ public class CDECartItemImpl implements CDECartItem, Serializable {
 
   public void setItem(AdminComponent ac) {
     this.ac = ac;
-    id = ac.getIdseq();
+    id = ac.getIdseq().trim();
   }
 
   public boolean getDeletedInd() {
