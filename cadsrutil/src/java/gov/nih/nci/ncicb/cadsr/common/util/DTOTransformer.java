@@ -43,6 +43,7 @@ public class DTOTransformer {
     //take the default value meaning text
     fvv.setFormValueMeaningText(validValue.getShortMeaning());
     fvv.setFormValueMeaningDesc(validValue.getValueMeaning().getPreferredDefinition());
+    fvv.setFormValueMeaningIdVersion(validValue.getValueMeaning().getPublicId()+"v"+validValue.getValueMeaning().getVersion());
 
     return fvv;
   }
