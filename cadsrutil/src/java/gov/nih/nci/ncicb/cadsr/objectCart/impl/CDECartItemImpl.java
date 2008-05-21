@@ -9,81 +9,81 @@ import java.io.Serializable;
 
 
 public class CDECartItemImpl implements CDECartItem, Serializable {
-  protected String id;
-  protected String type;
-  protected Timestamp createdDate;
-  protected String createdBy;
-  protected DataElement cde;
-  protected AdminComponent ac;
-  protected boolean deletedInd;
-  protected boolean persistedInd;
+	  protected String id;
+	  protected String type;
+	  protected Timestamp createdDate;
+	  protected String createdBy;
+	  protected DataElement cde;
+	  protected AdminComponent ac;
+	  protected boolean deletedInd;
+	  protected boolean persistedInd;
 
-  public CDECartItemImpl() {
-  }
+	  public CDECartItemImpl() {
+	  }
 
-  public String getId() {
-    return id;
-  }
+	  public String getId() {
+	    return id;
+	  }
 
-  public void setId(String id) {
-    this.id = id;
-  }
+	  public void setId(String id) {
+	    this.id = id;
+	  }
 
-  public String getType() {
-    return type;
-  }
+	  public String getType() {
+	    return type;
+	  }
 
-  public void setType(String type) {
-    this.type = type;
-  }
+	  public void setType(String type) {
+	    this.type = type;
+	  }
 
-  public Timestamp getCreatedDate() {
-    return createdDate;
-  }
+	  public Timestamp getCreatedDate() {
+	    return createdDate;
+	  }
 
-  public String getCreatedBy() {
-    return createdBy;
-  }
+	  public String getCreatedBy() {
+	    return createdBy;
+	  }
 
-  public void setCreatedBy(String user) {
-    createdBy = user;
-  }
+	  public void setCreatedBy(String user) {
+	    createdBy = user;
+	  }
 
-  public boolean equals(Object obj) {
-    if (((CDECartItem)obj).getId().equals(id)) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
+	  public boolean equals(Object obj) {
+	    if (((CDECartItem)obj).getId().equals(id)) {
+	      return true;
+	    }
+	    else {
+	      return false;
+	    }
+	  }
 
-  public int hashCode() {
-    return 59878489;
-  }
+	  public int hashCode() {
+	    return 59878489;
+	  }
 
-  public AdminComponent getItem() {
-    return ac;
-  }
+	  public AdminComponent getItem() {
+	    return ac;
+	  }
 
-  public void setItem(AdminComponent ac) {
-    this.ac = ac;
-    id = ac.getIdseq();
-  }
+	  public void setItem(AdminComponent ac) {
+	    this.ac = ac;
+	    id = ac.getIdseq().trim();
+	  }
 
-  public boolean getDeletedInd() {
-    return deletedInd;
-  }
+	  public boolean getDeletedInd() {
+	    return deletedInd;
+	  }
 
-  public void setDeletedInd(boolean ind) {
-    deletedInd = ind;
-  }
+	  public void setDeletedInd(boolean ind) {
+	    deletedInd = ind;
+	  }
 
-  public boolean getPersistedInd() {
-    return persistedInd;
-  }
+	  public boolean getPersistedInd() {
+	    return persistedInd;
+	  }
 
-  public void setPersistedInd(boolean ind) {
-    persistedInd = ind;
-  }
-}
+	  public void setPersistedInd(boolean ind) {
+	    persistedInd = ind;
+	  }
+	}

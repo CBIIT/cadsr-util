@@ -1,7 +1,7 @@
 package gov.nih.nci.ncicb.cadsr.common.persistence.dao;
-import gov.nih.nci.ncicb.cadsr.common.resource.CDECart;
-import gov.nih.nci.ncicb.cadsr.common.resource.CDECartItem;
 import gov.nih.nci.ncicb.cadsr.common.exception.DMLException;
+import gov.nih.nci.ncicb.cadsr.objectCart.CDECart;
+import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItem;
 
 public interface CDECartDAO  {
   /**
