@@ -1,8 +1,7 @@
 package gov.nih.nci.ncicb.cadsr.common.jsp.tag.handler;
 import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
-import gov.nih.nci.ncicb.cadsr.common.resource.CDECart;
-import gov.nih.nci.ncicb.cadsr.common.resource.CDECartItem;
 import gov.nih.nci.ncicb.cadsr.common.resource.DataElement;
+import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItem;
 
 import java.io.IOException;
 

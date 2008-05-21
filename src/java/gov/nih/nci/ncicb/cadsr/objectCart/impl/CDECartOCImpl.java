@@ -1,5 +1,6 @@
 package gov.nih.nci.ncicb.cadsr.objectCart.impl;
 
+import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECart;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItem;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItemComparator;
@@ -116,13 +117,16 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 		}
 	}
 
-	public void mergeCart(CDECart cart) {
-		//TODO: Check if this can be done better since we have Clients 
-		//and option to merge within ObjectCartService
-		Collection deColl = cart.getDataElements();
-		setDataElements(deColl);
-		//Collection formColl = cart.getForms();
-		//setForms(formColl);
+	public void mergeCart(CDECart cart) {		
+		if(CaDSRConstants.CDE_CARTSCHEME.equalsIgnoreCase(CLASSIFICATION_SCHEME)){
+			Collection deColl = cart.getDataElements();
+			this.getDataElements().addAll(deColl);
+			setDataElements(this.getDataElements());
+		}else {
+			Collection formColl = cart.getForms();
+			this.getForms().addAll(formColl);
+			setForms(formColl);
+		}	    
 	}
 
 	public void removeDataElement(String itemId) {

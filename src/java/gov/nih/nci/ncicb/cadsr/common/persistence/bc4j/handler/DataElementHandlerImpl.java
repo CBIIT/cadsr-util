@@ -153,7 +153,7 @@ public class DataElementHandlerImpl extends Handler
 
       for (int i = 0; i < deRows.length; i++) {
         DataElement de = new BC4JDataElementTransferObject();
-        de.setDeIdseq((String) deRows[i].getAttribute(0));
+        de.setDeIdseq(((String) deRows[i].getAttribute(0)).trim());
         de.setPreferredName((String) deRows[i].getAttribute(1));
         de.setLongName((String) deRows[i].getAttribute(2));
 
@@ -166,13 +166,13 @@ public class DataElementHandlerImpl extends Handler
         de.setUsingContexts(checkForNull((String)deRows[i].getAttribute(8)));
 
         ValueDomain vd = new ValueDomainTransferObject();
-        vd.setVdIdseq((String)deRows[i].getAttribute(9));
+        vd.setVdIdseq(((String)deRows[i].getAttribute(9)).trim());
         de.setValueDomain(vd);
         DataElementConcept dec = new DataElementConceptTransferObject();
-        dec.setDecIdseq((String)deRows[i].getAttribute(10));
+        dec.setDecIdseq(((String)deRows[i].getAttribute(10)).trim());
         de.setDataElementConcept(dec);
         Context conte = new ContextTransferObject ();
-        conte.setConteIdseq((String)deRows[i].getAttribute(11));
+        conte.setConteIdseq(((String)deRows[i].getAttribute(11)).trim());
         de.setContext(conte);
         de.setPreferredDefinition((String)deRows[i].getAttribute(12));
         //System.out.println("Registration Status "+);
