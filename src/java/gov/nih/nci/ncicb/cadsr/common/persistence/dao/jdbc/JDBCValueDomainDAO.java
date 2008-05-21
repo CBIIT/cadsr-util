@@ -268,6 +268,8 @@ public class JDBCValueDomainDAO extends JDBCAdminComponentDAO implements ValueDo
         vm.setPreferredDefinition(rs.getString("VM_DESCRIPTION"));
         String vmIdSeq = rs.getString("VM_IDSEQ");
         vm.setIdseq(vmIdSeq);
+        vm.setPublicId(rs.getInt("VM_ID"));
+        vm.setVersion(rs.getFloat("VM_VERSION"));
         
         //set designations and definitions
         vm.setDefinitions(getDefinitions(vmIdSeq));
