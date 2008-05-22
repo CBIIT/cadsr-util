@@ -4,9 +4,7 @@ import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECart;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItem;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItemComparator;
-import gov.nih.nci.ncicb.cadsr.objectCart.CartObjectItemComparator;
 import gov.nih.nci.objectCart.client.CartManager;
-import gov.nih.nci.objectCart.client.ObjectCartClient;
 import gov.nih.nci.objectCart.client.ObjectCartException;
 import gov.nih.nci.objectCart.domain.Cart;
 import gov.nih.nci.objectCart.domain.CartObject;
@@ -16,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
