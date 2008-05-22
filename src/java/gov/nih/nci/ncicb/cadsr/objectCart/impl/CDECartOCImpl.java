@@ -1,10 +1,12 @@
 package gov.nih.nci.ncicb.cadsr.objectCart.impl;
 
 import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
-import gov.nih.nci.ncicb.cadsr.objectCart.CDECart;
+import gov.nih.nci.ncicb.cadsr.common.resource.CDECart;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItem;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItemComparator;
+import gov.nih.nci.ncicb.cadsr.objectCart.impl.CDECartItemImpl;
 import gov.nih.nci.objectCart.client.CartManager;
+import gov.nih.nci.objectCart.client.ClientManager;
 import gov.nih.nci.objectCart.client.ObjectCartException;
 import gov.nih.nci.objectCart.domain.Cart;
 import gov.nih.nci.objectCart.domain.CartObject;
@@ -21,12 +23,12 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 
 	private Cart oCart;
 	private CDECartItemComparator itemComparator;
-	private CartManager cm;
+	private ClientManager cm;
 	private String CLASSIFICATION_SCHEME;
 	private String userId;
 	private String cartName;
 
-	public CDECartOCImpl(CartManager cManager, String uid, String cName, String scheme) {
+	public CDECartOCImpl(ClientManager cManager, String uid, String cName, String scheme) {
 		oCart = new Cart();
 		itemComparator = new CDECartItemComparator();
 		cm = cManager;
@@ -186,12 +188,40 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 		return null;
 	}
 
-	public void associatCart(String userId) {	
-		try {
+	public void associateCart(String userId) {	
+		try {			
 			 oCart = cm.getClient(CLASSIFICATION_SCHEME).associateCart(oCart, userId);
 		} catch (ObjectCartException oce) {
 			throw new RuntimeException("associateCart: Error associating cart ("+oCart.getUserId()+") with new User ID "+userId, oce);
-		}
+		}		
 	}
+
+	/**
+	 * @return the userId
+	 */
+	public String getUserId() {
+		return userId;
+	}
+
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	/**
+	 * @return the cartName
+	 */
+	public String getCartName() {
+		return cartName;
+	}
+
+	/**
+	 * @param cartName the cartName to set
+	 */
+	public void setCartName(String cartName) {
+		this.cartName = cartName;
+	}	
 	
 }

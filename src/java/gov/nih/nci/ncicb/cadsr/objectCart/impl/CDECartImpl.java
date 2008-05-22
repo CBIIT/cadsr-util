@@ -1,11 +1,16 @@
 package gov.nih.nci.ncicb.cadsr.objectCart.impl;
-import java.util.Collection;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECart;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItem;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItemComparator;
 
-import java.util.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 public class CDECartImpl implements CDECart, Serializable  {
   private Map deCart;
@@ -75,5 +80,9 @@ public class CDECartImpl implements CDECart, Serializable  {
     if (deCart.containsKey(itemId))
       item = (CDECartItem)deCart.get(itemId);
     return item; 
+  }
+  
+  public void associateCart(String userId){
+	  
   }
 }
