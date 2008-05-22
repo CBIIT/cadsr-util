@@ -1,11 +1,9 @@
 package gov.nih.nci.ncicb.cadsr.objectCart.impl;
 
 import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
-import gov.nih.nci.ncicb.cadsr.common.resource.CDECart;
+import gov.nih.nci.ncicb.cadsr.objectCart.CDECart;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItem;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItemComparator;
-import gov.nih.nci.ncicb.cadsr.objectCart.impl.CDECartItemImpl;
-import gov.nih.nci.objectCart.client.CartManager;
 import gov.nih.nci.objectCart.client.ClientManager;
 import gov.nih.nci.objectCart.client.ObjectCartException;
 import gov.nih.nci.objectCart.domain.Cart;
