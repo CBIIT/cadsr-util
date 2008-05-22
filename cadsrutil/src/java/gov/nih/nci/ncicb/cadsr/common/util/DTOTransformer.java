@@ -74,7 +74,7 @@ public class DTOTransformer {
 
   public static DataElementTransferObject toDataElement(BC4JDataElementTransferObject bc4jDE) {
     DataElementTransferObject de = new DataElementTransferObject();
-    de.setDeIdseq(bc4jDE.getDeIdseq());
+    de.setDeIdseq(bc4jDE.getDeIdseq().trim());
     de.setPreferredName(bc4jDE.getPreferredName());
     de.setPublicId(bc4jDE.getPublicId());
     de.setLongName(bc4jDE.getLongName());

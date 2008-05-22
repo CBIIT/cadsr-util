@@ -1,5 +1,6 @@
 package gov.nih.nci.ncicb.cadsr.objectCart;
 
+import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItem;
 
 import java.util.Collection;
 
@@ -18,4 +19,6 @@ public interface CDECart  {
   public CDECartItem findDataElement(String itemId);
 
   public void mergeCart(CDECart cart);
+  
+  public void associateCart(String userId);
 }

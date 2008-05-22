@@ -23,8 +23,8 @@ public class CartObjectItemComparator implements Comparator   {
 	public int compare(Object o1, Object o2) {
 		CartObject itemOne = (CartObject)o1;
 		CartObject itemTwo = (CartObject)o2;
-		String longNameOne = itemOne.getDisplayName();
-		String longNameTwo = itemTwo.getDisplayName();
+		String longNameOne = itemOne.getDisplayText();
+		String longNameTwo = itemTwo.getDisplayText();
 		return longNameOne.compareToIgnoreCase(longNameTwo);
 	}
 
