@@ -43,10 +43,13 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 	public Collection getDataElements() {
 
 		try {
-			Collection items = cm.getClient(CLASSIFICATION_SCHEME).getPOJOCollection(CDECartItemImpl.class, oCart.getCartObjectCollection());
-			List itemList = new ArrayList(items);
-			Collections.sort(itemList,itemComparator);
-			return itemList;
+			if (oCart.getCartObjectCollection() != null){
+				Collection items = cm.getClient(CLASSIFICATION_SCHEME).getPOJOCollection(CDECartItemImpl.class, oCart.getCartObjectCollection());
+				List itemList = new ArrayList(items);
+				Collections.sort(itemList,itemComparator);
+				return itemList;
+			} else 
+				return new ArrayList();
 		} catch (ObjectCartException oce) {
 			oce.printStackTrace();
 			throw new RuntimeException("getDataElements: Error restoring the POJO Collection", oce);
@@ -117,15 +120,37 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 	public void mergeCart(CDECart cart) {		
 		if(CaDSRConstants.CDE_CARTSCHEME.equalsIgnoreCase(CLASSIFICATION_SCHEME)){
 			Collection deColl = cart.getDataElements();
-			this.getDataElements().addAll(deColl);
-			setDataElements(this.getDataElements());
+			Collection current = getDataElements();			
+			setDataElements(merge(current, deColl));
 		}else {
 			Collection formColl = cart.getForms();
-			this.getForms().addAll(formColl);
-			setForms(formColl);
+			Collection current = getForms();
+			setForms(merge(current, formColl));
 		}	    
 	}
 
+	public Collection merge(Collection current, Collection incoming) {	
+		
+		HashMap temp = new HashMap();
+		for (Object o: current){
+			if (o instanceof CDECartItem){
+				CDECartItem c  = (CDECartItem) o;
+				temp.put(c.getId(), c);
+			}
+		}
+		for (Object o: incoming){
+			if (o instanceof CDECartItem){
+				CDECartItem c  = (CDECartItem) o;
+				temp.put(c.getId(), c);
+			}
+		}
+		ArrayList ret = new ArrayList();
+		ret.add(temp.values());
+		
+		return ret;
+		
+	}
+	
 	public void removeDataElement(String itemId) {
 		CartObject co = getNativeObject(itemId);
 		if (co != null) {
