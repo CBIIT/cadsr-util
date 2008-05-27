@@ -86,7 +86,11 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 
 	public Collection getForms() {
 		try {
-			return cm.getClient(CLASSIFICATION_SCHEME).getPOJOCollection(CDECartItemImpl.class, oCart.getCartObjectCollection());
+			if (oCart.getCartObjectCollection() != null){
+				return cm.getClient(CLASSIFICATION_SCHEME).getPOJOCollection(CDECartItemImpl.class, oCart.getCartObjectCollection());
+			} else
+				return new ArrayList();
+			 
 		} catch (ObjectCartException oce) {
 			throw new RuntimeException("getForms: Error restoring the POJO Collection", oce);
 		}
@@ -187,6 +191,9 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 	}
 
 	private CartObject getNativeObject(String id) {
+		if (oCart.getCartObjectCollection() == null)
+			return null;
+		
 		for(CartObject co: oCart.getCartObjectCollection()){
 			if (co.getNativeId().equals(id))
 				return co;
@@ -196,6 +203,8 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 
 	private List<CartObject> getNativeObjects(Collection ids) {
 		List<CartObject> list = new ArrayList<CartObject>();
+		if (oCart.getCartObjectCollection() == null)
+			return list;
 		for(CartObject co: oCart.getCartObjectCollection()){
 			if (ids.contains(co.getNativeId()))
 				list.add(co);
