@@ -78,5 +78,9 @@ public class CDECartTransferObject implements CDECart, Serializable {
     System.out.println("Hashcode of i2: " + i2.hashCode());
   }
 
+  public void associateCart(String userId) {
+	// TODO Auto-generated method stub	
+  }
+
   
 }

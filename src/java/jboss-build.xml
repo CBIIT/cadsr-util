@@ -70,24 +70,6 @@
          <classpath refid="classpath"/>
          <src refid="srcpath"/>
       </javac>  
-   	  <!-- <unzip src="${java.lib.dir}/extension-client-framework.jar" dest="${classes.build.dir}"  overwrite="No"/>   	  
-   	   	   <copy todir="${build.dir}">
-   		     <fileset dir="${java.lib.dir}">
-   		      <patternset>
-   		      	<include name="gov/nih/nci/objectCart/applicationService/*.*"/>
-   		     	<include name="gov/nih/nci/objectCart/applicationService/impl/*.*"/>
-   		     	<include name="gov/nih/nci/objectCart/client/*.*"/>   		      	
-   		      </patternset>
-   		     </fileset>
-   		  </copy>
-   		<unzip src="${java.lib.dir}/objectCart-beans.jar" dest="${classes.build.dir}"  overwrite="No"/>
-   		<copy todir="${build.dir}">
-   	   		<fileset dir="${java.lib.dir}">
-   	   			<patternset>
-   	   				<include name="gov/nih/nci/objectCart/domain/*.*"/>   	   		     	
-   	   			</patternset>
-   	   		</fileset>
-   	   	 </copy> -->
    </target>
    
 	<!-- ============ CREATE cadsrutil JAR FILE ================== -->
@@ -113,9 +95,8 @@
 	<!-- ============ copies jar to other tools mentioned in this target ================== -->	
 	 <target name="build_copy_jar" depends="jar_cadsrutil"> 
 	 	<!-- Each developer should change this to point to their local directory -->
-	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\NCIWorkspace\Cdebrowser\lib\java\cadsrutil.jar"/>
-		<!--<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\workspace\formbuilder\lib\java\javacadsrutil.jar"/>
-		<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\workspace\ocbrowser\lib\java\javacadsrutil.jar"/> -->
+	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="D:\NCI_CVS\CDEBrowser\cdebrowser\lib\java\cadsrutil.jar"/>
+		<copy file="${dist.dir}/cadsrutil.jar" tofile="D:\NCI_CVS\FormBuilder\formbuilder\lib\java\cadsrutil.jar"/>
 	 </target>
 	
 </project>
