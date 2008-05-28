@@ -55,7 +55,7 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 			throw new RuntimeException("getDataElements: Error restoring the POJO Collection", oce);
 		}
 
-	}
+	}	
 
 	public void setDataElement(CDECartItem item) {
 		CartObject co = this.getNativeObject(item.getId());
@@ -74,8 +74,10 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 
 		for(Object o: items) {
 			CDECartItem item = (CDECartItem) o;
-			objectDisplayNames.put(item.getId(), item.getItem().getLongName());
-			objects.put(item.getId(), item);
+			if(getNativeObject(item.getId()) == null){
+				objectDisplayNames.put(item.getId(), item.getItem().getLongName());
+				objects.put(item.getId(), item);
+			}			
 		}
 		try {
 			oCart = cm.getClient(CLASSIFICATION_SCHEME).storePOJOCollection(oCart, CDECartItemImpl.class, objectDisplayNames, objects);
@@ -111,8 +113,10 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 
 		for(Object o: forms) {
 			CDECartItem item = (CDECartItem) o;
-			objectDisplayNames.put(item.getId(), item.getItem().getLongName());
-			objects.put(item.getId(), item);
+			if(getNativeObject(item.getId())== null){
+				objectDisplayNames.put(item.getId(), item.getItem().getLongName());
+				objects.put(item.getId(), item);
+			}
 		}
 		try {
 			oCart = cm.getClient(CLASSIFICATION_SCHEME).storePOJOCollection(oCart, CDECartItemImpl.class, objectDisplayNames, objects);
@@ -123,36 +127,12 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 
 	public void mergeCart(CDECart cart) {		
 		if(CaDSRConstants.CDE_CARTSCHEME.equalsIgnoreCase(CLASSIFICATION_SCHEME)){
-			Collection deColl = cart.getDataElements();
-			Collection current = getDataElements();			
-			setDataElements(merge(current, deColl));
+			Collection deColl = cart.getDataElements();						
+			setDataElements(deColl);
 		}else {
-			Collection formColl = cart.getForms();
-			Collection current = getForms();
-			setForms(merge(current, formColl));
+			Collection formColl = cart.getForms();			
+			setForms(formColl);
 		}	    
-	}
-
-	public Collection merge(Collection current, Collection incoming) {	
-		
-		HashMap temp = new HashMap();
-		for (Object o: current){
-			if (o instanceof CDECartItem){
-				CDECartItem c  = (CDECartItem) o;
-				temp.put(c.getId(), c);
-			}
-		}
-		for (Object o: incoming){
-			if (o instanceof CDECartItem){
-				CDECartItem c  = (CDECartItem) o;
-				temp.put(c.getId(), c);
-			}
-		}
-		ArrayList ret = new ArrayList();
-		ret.add(temp.values());
-		
-		return ret;
-		
 	}
 	
 	public void removeDataElement(String itemId) {
@@ -181,7 +161,7 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 		CartObject item = getId(oCart, itemId);
 		if ( item != null) {
 			try {
-				return (CDECartItem)cm.getClient(CLASSIFICATION_SCHEME).getPOJO(CDECartItem.class, item);
+				return (CDECartItem)cm.getClient(CLASSIFICATION_SCHEME).getPOJO(CDECartItemImpl.class, item);
 			} catch (ObjectCartException oce) {
 				throw new RuntimeException("findDataElement: Error finding objects with native Id:"+itemId, oce);
 			}
