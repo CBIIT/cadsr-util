@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -85,6 +86,29 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 			throw new RuntimeException("getDataElements: Error restoring the POJO Collection", oce);
 		}
 	}
+	
+	public void mergeDataElements(Collection items) {
+		Map<String, String> objectDisplayNames = new HashMap<String, String> ();
+		Map<String, Object>  objects = new HashMap<String, Object>();
+		HashSet<CartObject> forRemoval = new HashSet<CartObject>();
+		
+		for(Object o: items) {
+			CDECartItem item = (CDECartItem) o;
+			CartObject co = getNativeObject(item.getId());
+			
+			objectDisplayNames.put(item.getId(), item.getItem().getLongName());
+			objects.put(item.getId(), item);
+			
+			if(co != null)
+				forRemoval.add(co);
+		}
+		try {
+			oCart = cm.getClient(CLASSIFICATION_SCHEME).removeObjectCollection(oCart, forRemoval);
+			oCart = cm.getClient(CLASSIFICATION_SCHEME).storePOJOCollection(oCart, CDECartItemImpl.class, objectDisplayNames, objects);
+		} catch (ObjectCartException oce) {
+			throw new RuntimeException("getDataElements: Error restoring the POJO Collection", oce);
+		}
+	}
 
 	public Collection getForms() {
 		try {
@@ -128,7 +152,7 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 	public void mergeCart(CDECart cart) {		
 		if(CaDSRConstants.CDE_CARTSCHEME.equalsIgnoreCase(CLASSIFICATION_SCHEME)){
 			Collection deColl = cart.getDataElements();						
-			setDataElements(deColl);
+			mergeDataElements(deColl);
 		}else {
 			Collection formColl = cart.getForms();			
 			setForms(formColl);
