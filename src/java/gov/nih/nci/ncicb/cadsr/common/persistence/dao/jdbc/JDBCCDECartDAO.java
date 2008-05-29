@@ -81,7 +81,7 @@ public class JDBCCDECartDAO extends JDBCBaseDAO implements CDECartDAO {
     }
     return 1;
 }
-  public static void main(String[] args) {
+ /* public static void main(String[] args) {
     ServiceLocator locator = new SimpleServiceLocator();
 
     JDBCCDECartDAO cTest = new JDBCCDECartDAO(locator);
@@ -100,7 +100,7 @@ public class JDBCCDECartDAO extends JDBCBaseDAO implements CDECartDAO {
     }
     
     
-    /*
+    
     try {
       int res = formTest.deleteForm("D4700045-2FD0-0DAA-E034-0003BA0B1A09");
       System.out.println("\n*****Delete Form Result 1: " + res);
@@ -110,8 +110,8 @@ public class JDBCCDECartDAO extends JDBCBaseDAO implements CDECartDAO {
       de.printStackTrace();
       System.out.println("******Finishing printing DMLException*******");
     }
-    */
-  }
+    
+  }*/
 
   /**
    * Inner class
