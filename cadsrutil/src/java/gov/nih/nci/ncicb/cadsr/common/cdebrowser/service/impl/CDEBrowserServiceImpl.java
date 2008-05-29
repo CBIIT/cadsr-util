@@ -1,17 +1,13 @@
 package gov.nih.nci.ncicb.cadsr.common.cdebrowser.service.impl;
 
-import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
-import gov.nih.nci.ncicb.cadsr.common.cdebrowser.service.CDEBrowserService;
-
 import gov.nih.nci.cadsr.domain.ClassSchemeClassSchemeItem;
 import gov.nih.nci.cadsr.domain.ClassificationScheme;
 import gov.nih.nci.cadsr.domain.DataElement;
 import gov.nih.nci.cadsr.domain.Definition;
 import gov.nih.nci.cadsr.domain.DefinitionClassSchemeItem;
 import gov.nih.nci.cadsr.domain.DesignationClassSchemeItem;
-import gov.nih.nci.cadsr.domain.ReferenceDocument;
-
-
+import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
+import gov.nih.nci.ncicb.cadsr.common.cdebrowser.service.CDEBrowserService;
 import gov.nih.nci.ncicb.cadsr.common.dto.CSITransferObject;
 import gov.nih.nci.ncicb.cadsr.common.dto.ContextTransferObject;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.AbstractDAOFactory;
@@ -26,7 +22,6 @@ import gov.nih.nci.system.client.ApplicationServiceProvider;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
@@ -133,7 +128,7 @@ public class CDEBrowserServiceImpl implements CDEBrowserService
 			definition.setDefinition(def.getText());
 			definition.setType(def.getType());			
 			//definition.setLanguage(defBean.get);
-			
+
 			Collection<DefinitionClassSchemeItem> defCsis = def.getDefinitionClassSchemeItemCollection();
 			List<ClassSchemeClassSchemeItem> cscsis = new ArrayList<ClassSchemeClassSchemeItem>();
 
@@ -188,12 +183,11 @@ public class CDEBrowserServiceImpl implements CDEBrowserService
 	}
 
 	/* public List getReferenceDocumentsForCSI(String csiIdseq){
-      ClassificationSchemeItemDAO dao = domainObjectsDaoFactory.getClassificationSchemeItemDAO();
-      ClassificationSchemeItemBean csi = new ClassificationSchemeItemBean();
-      csi.setId(csiIdseq);
-      List refDocs = dao.getReferenceDocuments(csi);
-      return refDocs;
+    ClassificationSchemeItemDAO dao = domainObjectsDaoFactory.getClassificationSchemeItemDAO();
+    ClassificationSchemeItemBean csi = new ClassificationSchemeItemBean();
+    csi.setId(csiIdseq);
+    List refDocs = dao.getReferenceDocuments(csi);
+    return refDocs;
 
-   }*/
-
+ }*/
 }
