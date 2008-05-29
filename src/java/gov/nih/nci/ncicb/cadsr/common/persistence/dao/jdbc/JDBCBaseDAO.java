@@ -62,9 +62,9 @@ public class JDBCBaseDAO extends BaseDAO implements PersistenceConstants,ErrorCo
 		  Properties props = new Properties();
 		  props.load(ins);		  
 		  jndiName = props.getProperty("datasource.jndi.name");
-		  log.info("datasource name " + jndiName);
+		  //log.info("datasource name " + jndiName);
 		} catch (IOException e) {		
-			log.error("unable to get property file", e);
+			log.error("unable to get jndi.properties file", e);
 		}	  
 	  return (jndiName == null) ? "" : jndiName;
   }

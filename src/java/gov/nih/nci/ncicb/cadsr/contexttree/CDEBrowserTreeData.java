@@ -96,7 +96,7 @@ public class CDEBrowserTreeData implements Serializable {
       }
       contextFolder.setLoaded(noBuildException);
       contextFolder.setExpanded(noBuildException);
-      log.info("Finished Building UML Browser tree");
+      log.info("Finished Building CDE Browser tree");
 
       return contextFolder;
 
