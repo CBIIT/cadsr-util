@@ -23,7 +23,7 @@
   <property name="build.dir" value="${project.home}/build"/>
   <property name="dist.dir" value="${project.home}/dist"/>
   <property name="classes.build.dir" value="${build.dir}/classes"/>
-  <property name="java.lib.dir" value="${project.home}/lib/java"/>
+  <property name="java.lib.dir" value="${project.home}/lib/java"/>  
 
   <!-- =========== CLEAN BUILD AREA ======================= -->
     <target name="clean">
@@ -95,8 +95,12 @@
 	<!-- ============ copies jar to other tools mentioned in this target ================== -->	
 	 <target name="build_copy_jar" depends="jar_cadsrutil"> 
 	 	<!-- Each developer should change this to point to their local directory -->
-	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="D:\NCI_CVS\CDEBrowser\cdebrowser\lib\java\cadsrutil.jar"/>
-		<copy file="${dist.dir}/cadsrutil.jar" tofile="D:\NCI_CVS\FormBuilder\formbuilder\lib\java\cadsrutil.jar"/>
+	 	 	
+	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\workspace\tempCdebrowser\lib\java\cadsrutil.jar"/>	
+	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\workspace\formbuilder\lib\java\javacadsrutil.jar"/>
+	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\workspace\ocbrowser\lib\java\javacadsrutil.jar"/>
+ 	
+
 	 </target>
 	
 </project>

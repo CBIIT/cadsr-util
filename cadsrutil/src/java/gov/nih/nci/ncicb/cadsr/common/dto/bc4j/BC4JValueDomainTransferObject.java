@@ -72,9 +72,9 @@ public class BC4JValueDomainTransferObject extends AdminComponentTransferObject
 		version = new Float(vdViewRowImpl.getVersion().floatValue());
 		deletedInd = checkForNull(vdViewRowImpl.getDeletedInd());
 		latestVerInd = vdViewRowImpl.getLatestVersionInd();
-		vdIdseq = vdViewRowImpl.getVdIdseq();
-                idseq = vdIdseq;
-		datatype = vdViewRowImpl.getDtlName();
+		vdIdseq = vdViewRowImpl.getVdIdseq().trim();
+        idseq = vdIdseq;
+		datatype = vdViewRowImpl.getDtlName().trim();
 		uom = checkForNull(vdViewRowImpl.getUomlName());
 		dispFormat = checkForNull(vdViewRowImpl.getFormlName());
 		maxLength = checkForNull(vdViewRowImpl.getMaxLengthNum());
@@ -87,7 +87,7 @@ public class BC4JValueDomainTransferObject extends AdminComponentTransferObject
 		cdPrefName = vdViewRowImpl.getCDPrefName();
 		cdContextName = vdViewRowImpl.getCDContextName();
 		cdVersion = new Float(vdViewRowImpl.getCDVersion().floatValue());
-                cdPublicId = vdViewRowImpl.getCDPublicId().intValue();
+        cdPublicId = vdViewRowImpl.getCDPublicId().intValue();
     
             String cdrIdseq = vdViewRowImpl.getCondrIdseq();
              if(cdrIdseq!=null)
@@ -105,7 +105,7 @@ public class BC4JValueDomainTransferObject extends AdminComponentTransferObject
                Representation rep = new RepresentationTransferObject();
                rep.setLongName(repImpl.getLongName());
                rep.setPreferredName(repImpl.getPreferredName());
-               rep.setIdseq(repImpl.getRepIdseq());
+               rep.setIdseq(repImpl.getRepIdseq().trim());
                rep.setPublicId(repImpl.getRepId().intValue());
       
                ContextsViewRowImpl conImpl = (ContextsViewRowImpl) repImpl.getContextsRow();

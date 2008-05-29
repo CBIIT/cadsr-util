@@ -22,7 +22,7 @@ public class BC4JContextTransferObject extends AuditTransferObject
 	}
 
 	public BC4JContextTransferObject(ContextsViewRowImpl conteViewRowImpl) {
-		conteIdseq = conteViewRowImpl.getConteIdseq();
+		conteIdseq = conteViewRowImpl.getConteIdseq().trim();
 		name = conteViewRowImpl.getName();
 		llName = conteViewRowImpl.getLlName();
 		palName = conteViewRowImpl.getPalName();

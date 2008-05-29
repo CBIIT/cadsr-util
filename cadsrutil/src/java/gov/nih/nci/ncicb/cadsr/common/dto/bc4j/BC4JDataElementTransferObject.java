@@ -37,8 +37,8 @@ public class BC4JDataElementTransferObject extends AdminComponentTransferObject
 
   public BC4JDataElementTransferObject(
     DataElementsViewRowImpl dataElementsViewRowImpl) throws Exception {
-    deIdseq = dataElementsViewRowImpl.getDeIdseq();
-    idseq = deIdseq;
+    deIdseq = dataElementsViewRowImpl.getDeIdseq().trim();
+    idseq = deIdseq.trim();
     preferredDefinition = dataElementsViewRowImpl.getPreferredDefinition();
     preferredName = dataElementsViewRowImpl.getPreferredName();
     longName = checkForNull(dataElementsViewRowImpl.getLongName());
@@ -52,15 +52,15 @@ public class BC4JDataElementTransferObject extends AdminComponentTransferObject
     version = new Float(dataElementsViewRowImpl.getVersion().floatValue());
     deletedInd = checkForNull(dataElementsViewRowImpl.getDeletedInd());
     latestVerInd = checkForNull(dataElementsViewRowImpl.getLatestVersionInd());
-    vdIdseq = dataElementsViewRowImpl.getVdIdseq();
+    vdIdseq = dataElementsViewRowImpl.getVdIdseq().trim();
     valueDomain = dataElementsViewRowImpl.getValueDomain();
     context = dataElementsViewRowImpl.getContext();
-    conteIdseq = dataElementsViewRowImpl.getConteIdseq();
+    conteIdseq = dataElementsViewRowImpl.getConteIdseq().trim();
     contextName = context.getName();
-    decIdseq = dataElementsViewRowImpl.getDecIdseq();
+    decIdseq = dataElementsViewRowImpl.getDecIdseq().trim();
     longCDEName = checkForNull(dataElementsViewRowImpl.getLongCDEName());
     dec = dataElementsViewRowImpl.getDataElementConcept();
-    cdeId = checkForNull(dataElementsViewRowImpl.getCDEId());
+    cdeId = checkForNull(dataElementsViewRowImpl.getCDEId().trim());
     refDocs = dataElementsViewRowImpl.getReferenceDocs();
     designations = dataElementsViewRowImpl.getDesignations();
     usingContexts = dataElementsViewRowImpl.getUsingContexts();

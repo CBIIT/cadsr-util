@@ -25,7 +25,7 @@ public class BC4JClassificationsTransferObject implements Classification,Seriali
 	}
 
 	public BC4JClassificationsTransferObject(ClassificationsViewRowImpl classificationsViewRowImpl) {
-		deIdseq = classificationsViewRowImpl.getAcIdseq();
+		deIdseq = classificationsViewRowImpl.getAcIdseq().trim();
 		classSchemeName = classificationsViewRowImpl.getPreferredName();
 		classSchemeDefinition = classificationsViewRowImpl.getPreferredDefinition();
 		classSchemeLongName = classificationsViewRowImpl.getCsLongName();
@@ -34,8 +34,8 @@ public class BC4JClassificationsTransferObject implements Classification,Seriali
 		classSchemeItemType = classificationsViewRowImpl.getCsitlName();		
 		classSchemeItemId = new Integer(classificationsViewRowImpl.getCsiId().intValue());
 		classSchemeItemVersion = new Float(classificationsViewRowImpl.getCsiVersion().floatValue());		
-		csIdseq = classificationsViewRowImpl.getCsIdseq();
-		csiIdseq = classificationsViewRowImpl.getCsiIdseq();
+		csIdseq = classificationsViewRowImpl.getCsIdseq().trim();
+		csiIdseq = classificationsViewRowImpl.getCsiIdseq().trim();
 		csVersion = new Float(classificationsViewRowImpl.getCsVersion().floatValue());
 		//If clause added by Ram
 		if (classificationsViewRowImpl.getCsId() != null)

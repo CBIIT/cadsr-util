@@ -50,9 +50,9 @@ public class BC4JDataElementConceptTransferObject extends AdminComponentTransfer
 	public BC4JDataElementConceptTransferObject(DataElementConceptsViewRowImpl dataElementConceptsViewRowImpl)
 		throws SQLException {
 
-		decIdseq = dataElementConceptsViewRowImpl.getDecIdseq();
-    idseq = decIdseq;
-		cdIdseq = dataElementConceptsViewRowImpl.getCdIdseq();
+		decIdseq = dataElementConceptsViewRowImpl.getDecIdseq().trim();
+		idseq = decIdseq;
+		cdIdseq = dataElementConceptsViewRowImpl.getCdIdseq().trim();
 
 
 		changeNote = checkForNull(dataElementConceptsViewRowImpl.getChangeNote());

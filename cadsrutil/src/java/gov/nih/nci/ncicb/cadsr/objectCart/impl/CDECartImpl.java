@@ -83,6 +83,10 @@ public class CDECartImpl implements CDECart, Serializable  {
   }
   
   public void associateCart(String userId){
-	  
+	  //TODO
+  }
+  
+  public void mergeDataElements(Collection c){
+	  //TODO
   }
 }
