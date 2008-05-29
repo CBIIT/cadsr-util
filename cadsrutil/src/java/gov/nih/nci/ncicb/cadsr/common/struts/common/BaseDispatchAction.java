@@ -3,13 +3,10 @@ package gov.nih.nci.ncicb.cadsr.common.struts.common;
 import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
 import gov.nih.nci.ncicb.cadsr.common.CommonNavigationConstants;
 import gov.nih.nci.ncicb.cadsr.common.exception.FatalException;
-import gov.nih.nci.ncicb.cadsr.common.formbuilder.common.FormBuilderConstants;
-import gov.nih.nci.ncicb.cadsr.common.formbuilder.struts.common.FormConstants;
-import gov.nih.nci.ncicb.cadsr.common.formbuilder.struts.common.NavigationConstants;
 import gov.nih.nci.ncicb.cadsr.common.persistence.PersistenceConstants;
-
 import gov.nih.nci.ncicb.cadsr.common.servicelocator.ApplicationServiceLocator;
 import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocatorException;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -21,8 +18,6 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts.Globals;
-import org.apache.struts.action.ActionError;
-import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -116,20 +111,6 @@ abstract public class BaseDispatchAction extends DispatchAction
 
 
 
-  protected void saveError(
-      String key,
-       HttpServletRequest request) {
-    if (key != null) {
-      ActionError errorMessage = new ActionError(key);
-      ActionErrors errorMessages = null;
-      errorMessages = (ActionErrors)request.getAttribute(Globals.ERROR_KEY);
-      if(errorMessages==null)
-        errorMessages = new ActionErrors();
-
-      errorMessages.add(errorMessages.GLOBAL_ERROR, errorMessage);
-      saveErrors(request,errorMessages);
-    }
-  }
   protected void saveMessage(
     String key,
     HttpServletRequest request) {
@@ -199,7 +180,7 @@ abstract public class BaseDispatchAction extends DispatchAction
       {
         log.fatal(userName+": Exception in dispatchMethod in method "+name,throwable);
       }
-      saveError(ERROR_FATAL, request);
+      saveMessage(ERROR_FATAL, request);
       throw new FatalException(throwable);
     }
   }

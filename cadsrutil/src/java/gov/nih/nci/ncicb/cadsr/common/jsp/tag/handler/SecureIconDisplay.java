@@ -1,26 +1,19 @@
 package gov.nih.nci.ncicb.cadsr.common.jsp.tag.handler;
 import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
 import gov.nih.nci.ncicb.cadsr.common.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.resource.Form;
+import gov.nih.nci.ncicb.cadsr.common.resource.NCIUser;
+
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.Tag;
 import javax.servlet.jsp.tagext.TagSupport;
-import javax.servlet.jsp.JspWriter;
-import gov.nih.nci.ncicb.cadsr.common.resource.NCIUser;
-import gov.nih.nci.ncicb.cadsr.common.resource.Form;
-import org.apache.commons.beanutils.BeanUtils;
+
 import org.apache.commons.beanutils.PropertyUtils;
-import org.apache.struts.taglib.bean.*;
-import org.apache.struts.util.RequestUtils;
+import org.apache.struts.taglib.TagUtils;
 
 /**
  * This TagHandler is used to display icons by role
@@ -132,7 +125,7 @@ public class SecureIconDisplay extends TagSupport implements CaDSRConstants
  
  private String getConfirmMethod(String url) throws JspException
  {
-   String message = RequestUtils.message(pageContext,null,null,confirmMessageKey);
+   String message = TagUtils.getInstance().message(pageContext,null,null,confirmMessageKey);
    String method = "javascript:actionConfirm('"+message+"', '"+url+"')";
    return method;
  }

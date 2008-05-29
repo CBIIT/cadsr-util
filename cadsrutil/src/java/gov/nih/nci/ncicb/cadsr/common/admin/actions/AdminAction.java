@@ -53,7 +53,7 @@ public class AdminAction extends BaseDispatchAction {
     }
     catch (Exception e)
     {
-      saveError("cadsr.common.admin.cdebrowser.reload.properties.fail", request);
+      saveMessage("cadsr.common.admin.cdebrowser.reload.properties.fail", request);
     }
     
     
