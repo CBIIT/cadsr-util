@@ -25,7 +25,7 @@ public class BC4JDesignationTransferObject extends BaseValueObject
 		throws SQLException {
 		name = des.getName();
 		type = des.getDetlName();
-		desigIDSeq = des.getDesigIdseq();
+		desigIDSeq = des.getDesigIdseq().trim();
 		lang = checkForNull(des.getLaeName());
 		conte = new BC4JContextTransferObject((ContextsViewRowImpl) des.getContextsRow());
 	}

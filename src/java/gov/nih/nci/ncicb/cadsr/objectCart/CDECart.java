@@ -19,6 +19,7 @@ public interface CDECart  {
   public CDECartItem findDataElement(String itemId);
 
   public void mergeCart(CDECart cart);
+  public void mergeDataElements(Collection items);
   
   public void associateCart(String userId);
 }

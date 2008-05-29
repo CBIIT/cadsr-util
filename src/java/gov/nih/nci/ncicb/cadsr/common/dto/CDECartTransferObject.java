@@ -82,5 +82,8 @@ public class CDECartTransferObject implements CDECart, Serializable {
 	// TODO Auto-generated method stub	
   }
 
+  public void mergeDataElements(Collection items){
+	  //TODO 
+  }
   
 }

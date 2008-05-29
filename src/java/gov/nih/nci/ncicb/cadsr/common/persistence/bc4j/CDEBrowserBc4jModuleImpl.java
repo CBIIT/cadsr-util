@@ -133,13 +133,13 @@ public class CDEBrowserBc4jModuleImpl extends ApplicationModuleImpl {
 				//rows.add(new ValidValuesValueObject((ValidValuesViewRowImpl) view1.next()));         
 				ValidValuesViewRowImpl vvImpl = (ValidValuesViewRowImpl) view1.next();
 				ValidValue vv = new ValidValueTransferObject();        
-				vv.setVdIdseq(vvImpl.getVdIdseq());
+				vv.setVdIdseq(vvImpl.getVdIdseq().trim());
 				// for 4.0 ShortMeaning is replaced with Long Name and Description with PreferredDefinition
 				vv.setDescription(vvImpl.getPreferredDefinition());
 				vv.setShortMeaning(vvImpl.getLongName());
 				vv.setShortMeaningDescription(vvImpl.getMeaningDescription());
 				vv.setShortMeaningValue(vvImpl.getValue());
-				vv.setVpIdseq(vvImpl.getVpIdseq());
+				vv.setVpIdseq(vvImpl.getVpIdseq().trim());
 				vv.setVmId(new Integer(vvImpl.getVmId().intValue()));
 				vv.setVmVersion(new Float(vvImpl.getVersion().floatValue()));
 				vv.setBeginDate( (vvImpl.getBeginDate()!= null) ? ((Date)vvImpl.getBeginDate().dateValue()).toString() : "" );
@@ -148,9 +148,8 @@ public class CDEBrowserBc4jModuleImpl extends ApplicationModuleImpl {
 				vv.setWorkflowstatus(vvImpl.getAslName());
 				String cdrIdseq = vvImpl.getCondrIdseq();
 				if (cdrIdseq != null) {
-					ConceptDerivationRule rule =
-						new ConceptDerivationRuleTransferObject();
-					rule.setIdseq(cdrIdseq);
+					ConceptDerivationRule rule = new ConceptDerivationRuleTransferObject();
+					rule.setIdseq(cdrIdseq.trim());
 					vv.setConceptDerivationRule(rule);
 				}
 				rows.add(vv);
