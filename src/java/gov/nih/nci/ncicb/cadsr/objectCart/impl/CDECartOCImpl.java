@@ -13,6 +13,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -232,6 +233,22 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 		}		
 	}
 
+	public void expireCart(){
+		try{
+			oCart = cm.getClient(CLASSIFICATION_SCHEME).setDefaultExpiration(oCart);
+		}catch(ObjectCartException oce){
+			throw new RuntimeException("expireCart: Error in setting Cart for default Expiration("+oCart.getUserId()+")");
+		}		
+	}
+	
+	public void expireCart(Date expirationDate){
+		try{
+			oCart = cm.getClient(CLASSIFICATION_SCHEME).setCartExpiration(oCart, expirationDate);
+		}catch(ObjectCartException oce){
+			throw new RuntimeException("expireCart: Error in setting Cart Expiration by date("+oCart.getUserId()+")");
+		}		
+	}
+	
 	/**
 	 * @return the userId
 	 */

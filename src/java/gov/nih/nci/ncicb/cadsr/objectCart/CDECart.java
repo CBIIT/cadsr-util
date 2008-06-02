@@ -1,8 +1,7 @@
 package gov.nih.nci.ncicb.cadsr.objectCart;
 
-import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItem;
-
 import java.util.Collection;
+import java.util.Date;
 
 public interface CDECart  {
   public Collection getDataElements();
@@ -22,4 +21,7 @@ public interface CDECart  {
   public void mergeDataElements(Collection items);
   
   public void associateCart(String userId);
+  
+  public void expireCart();
+  public void expireCart(Date expireDate);
 }

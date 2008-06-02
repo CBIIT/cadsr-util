@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -87,6 +88,14 @@ public class CDECartImpl implements CDECart, Serializable  {
   }
   
   public void mergeDataElements(Collection c){
+	  //TODO
+  }
+  
+  public void expireCart(){
+	//TODO  
+  }
+  
+  public void expireCart(Date expireDate){
 	  //TODO
   }
 }
