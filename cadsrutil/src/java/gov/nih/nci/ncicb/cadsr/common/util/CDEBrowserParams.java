@@ -98,6 +98,14 @@ public class CDEBrowserParams
       getInstance();
    }
 
+   public static CDEBrowserParams getToolInstance(String toolName)
+   {
+       Properties properties = appServiceLocator.findCDEBrowserService().getApplicationProperties(Locale.US, toolName);
+       instance = new CDEBrowserParams();
+       instance.initAttributesFromProperties(properties);
+	   return instance;
+   }
+   
     public static CDEBrowserParams getDebugInstance(){
       if (instance == null ) {
           ResourceBundle b = ResourceBundle.getBundle("cdebrowser", java.util.Locale.getDefault());
