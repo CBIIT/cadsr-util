@@ -322,15 +322,15 @@ public class CDEBrowserParams
             excludeRegistrationStatuses = properties.getProperty("EXCLUDE_REGISTRATION_BY_DEFAULT");
             index++;      
 
-            adminToolUrl = properties.getProperty("ADMIN_TOOL_URL");
+            adminToolUrl = properties.getProperty("AdminTool_URL");
             index++;      
-            curationToolUrl = properties.getProperty("CURATION_TOOL_URL");
+            curationToolUrl = properties.getProperty("CURATION_URL");
             index++;
-            nciMetathesaurusUrl = properties.getProperty("NCI_METATHESAURUS_URL");
+            nciMetathesaurusUrl = properties.getProperty("EVSBrowser_URL");
             index++;            
-            nciTerminologyServerUrl = properties.getProperty("NCI_TERMINOLOGY_SERVER_URL");
+            nciTerminologyServerUrl = properties.getProperty("EVSBrowser_URL");
             index++;
-            sentinelToolUrl = properties.getProperty("SENTINEL_TOOL_URL");
+            sentinelToolUrl = properties.getProperty("SENTINEL_URL");
             index++;             
             regStatusCsTree = properties.getProperty("CS_TYPE_REGISTRATION_STATUS");
             index++;             
@@ -338,9 +338,9 @@ public class CDEBrowserParams
             index++;      
             csTypeContainer = properties.getProperty("CS_TYPE_CONTAINER");
             index++;      
-            sentinalAPIUrl = properties.getProperty("SENTINAL_API_URL");
+            sentinalAPIUrl = properties.getProperty("SENTINAL_URL");
             index++;                
-            umlBrowserUrl = properties.getProperty("UMLBROWSER_URL");
+            umlBrowserUrl = properties.getProperty("UMLBrowser_URL");
             index++;      
             formBuilderUrl = properties.getProperty("FormBuilder_URL");
             index++;      
