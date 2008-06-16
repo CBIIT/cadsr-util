@@ -1,10 +1,9 @@
-package gov.nih.nci.ncicb.cadsr.common.dto;
+package gov.nih.nci.ncicb.cadsr.objectCart;
 
 
 import java.sql.Timestamp;
 import gov.nih.nci.ncicb.cadsr.common.resource.DataElement;
 import gov.nih.nci.ncicb.cadsr.common.resource.AdminComponent;
-import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItem;
 
 import java.io.Serializable;
 

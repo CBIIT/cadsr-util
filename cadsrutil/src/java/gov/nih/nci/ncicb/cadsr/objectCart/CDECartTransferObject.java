@@ -1,7 +1,5 @@
-package gov.nih.nci.ncicb.cadsr.common.dto;
+package gov.nih.nci.ncicb.cadsr.objectCart;
 
-import gov.nih.nci.ncicb.cadsr.objectCart.CDECart;
-import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItem;
 
 import java.io.Serializable;
 
