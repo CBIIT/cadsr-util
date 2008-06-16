@@ -19,6 +19,7 @@ import gov.nih.nci.ncicb.cadsr.common.resource.impl.DefinitionImpl;
 import gov.nih.nci.system.applicationservice.ApplicationException;
 import gov.nih.nci.system.applicationservice.ApplicationService;
 import gov.nih.nci.system.client.ApplicationServiceProvider;
+import gov.nih.nci.ncicb.cadsr.common.util.CDEBrowserParams;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -33,14 +34,6 @@ public class CDEBrowserServiceImpl implements CDEBrowserService
 	AbstractDomainObjectsDAOFactory domainObjectsDaoFactory = null;
 
 	private ApplicationService appService = null;
-
-	{
-		try {
-			appService = ApplicationServiceProvider.getApplicationService("CaDsrServiceInfo");
-		} catch (Exception e) {
-			e.printStackTrace();			
-		}
-	}
 
 	public CDEBrowserServiceImpl()
 	{
@@ -86,6 +79,28 @@ public class CDEBrowserServiceImpl implements CDEBrowserService
 	{
 		return daoFactory;
 	}
+	
+	/**
+	 * instantiate the application service for cadsr api
+	 *
+	 */
+	private void getCadsrService()
+	{
+		try {
+			if (appService == null)
+			{
+				CDEBrowserParams params = CDEBrowserParams.getInstance();
+				String url = params.getCadsrAPIUrl();
+				if (!url.equals(""))
+					appService = ApplicationServiceProvider.getApplicationServiceFromUrl(url, "CaDsrServiceInfo");
+				else
+					appService = ApplicationServiceProvider.getApplicationService("CaDsrServiceInfo");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();			
+		}
+	}
+
 	/**
 	 * This method populate the input params designation and definition
 	 * release 3.1 TT 1628
@@ -99,7 +114,8 @@ public class CDEBrowserServiceImpl implements CDEBrowserService
 
 		List deList = null;
 
-		try {    	 
+		try { 
+			this.getCadsrService();
 			deList = appService.search(deExample.getClass(), deExample);
 		} catch(Exception e) {
 			throw new RuntimeException(e);
@@ -182,6 +198,7 @@ public class CDEBrowserServiceImpl implements CDEBrowserService
 		cs.setId(acIdseq);
 		List csList;
 		try {
+			this.getCadsrService();
 			csList = appService.search(cs.getClass(), cs);
 		} catch (ApplicationException e) {
 			throw new RuntimeException(e);

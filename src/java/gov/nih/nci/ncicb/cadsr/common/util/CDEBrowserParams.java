@@ -44,6 +44,8 @@ public class CDEBrowserParams
     String sentinalAPIUrl="";
     String formBuilderUrl="";
     String cdeBrowserUrl="";
+    String objectCartUrl="";
+    String cadsrAPIUrl="";
     
     String contextTest = "";
     String contextTraining = "";
@@ -60,10 +62,6 @@ public class CDEBrowserParams
    private CDEBrowserParams()
    {
    }
-
-    
-    
-    
 
     public String getXMLDownloadDir(){
       return xmlDownloadDir;
@@ -346,6 +344,10 @@ public class CDEBrowserParams
             index++;      
             cdeBrowserUrl = properties.getProperty("CDEBrowser_URL");
             index++;      
+            objectCartUrl = properties.getProperty("ObjectCartAPI_URL");
+            index++;      
+            cadsrAPIUrl = properties.getProperty("CADSRAPI_URL");
+            index++;      
             contextTest = properties.getProperty("BROADCAST.EXCLUDE.CONTEXT.00.NAME");
             index++;      
             contextTraining = properties.getProperty("BROADCAST.EXCLUDE.CONTEXT.01.NAME");
@@ -411,6 +413,22 @@ public class CDEBrowserParams
 		this.cdeBrowserUrl = cdeBrowserUrl;
 	}
 	
+	public String getObjectCartUrl() {
+		return (objectCartUrl == null) ? "" : objectCartUrl;
+	}
+
+	public void setObjectCartUrl(String objectCartUrl) {
+		this.objectCartUrl = objectCartUrl;
+	}
+
+	public String getCadsrAPIUrl() {
+		return (cadsrAPIUrl == null) ? "" : cadsrAPIUrl;
+	}
+
+	public void setCadsrAPIUrl(String cadsrAPIUrl) {
+		this.cadsrAPIUrl = cadsrAPIUrl;
+	}
+
 	public String getContextTest()
 	{
 		return contextTest;

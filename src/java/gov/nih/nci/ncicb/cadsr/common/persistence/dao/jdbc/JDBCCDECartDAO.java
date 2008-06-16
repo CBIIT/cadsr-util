@@ -1,6 +1,5 @@
 package gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc;
 
-import gov.nih.nci.ncicb.cadsr.common.dto.CDECartItemTransferObject;
 import gov.nih.nci.ncicb.cadsr.common.dto.DataElementTransferObject;
 import gov.nih.nci.ncicb.cadsr.common.dto.ValueDomainTransferObject;
 import gov.nih.nci.ncicb.cadsr.common.exception.DMLException;
@@ -12,6 +11,7 @@ import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocator;
 import gov.nih.nci.ncicb.cadsr.common.servicelocator.SimpleServiceLocator;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECart;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItem;
+import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItemTransferObject;
 import gov.nih.nci.ncicb.cadsr.objectCart.impl.CDECartImpl;
 
 import java.sql.ResultSet;
