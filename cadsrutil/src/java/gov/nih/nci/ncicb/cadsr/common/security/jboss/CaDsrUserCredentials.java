@@ -1,6 +1,6 @@
 // Copyright (c) 2008 ScenPro, Inc.
 
-// $Header: /share/content/gforge/cadsrutil/cadsrutil/src/java/gov/nih/nci/ncicb/cadsr/common/security/jboss/CaDsrUserCredentials.java,v 1.1 2008-06-16 15:20:41 hegdes Exp $
+// $Header: /share/content/gforge/cadsrutil/cadsrutil/src/java/gov/nih/nci/ncicb/cadsr/common/security/jboss/CaDsrUserCredentials.java,v 1.2 2008-06-18 19:43:01 hegdes Exp $
 // $Name: not supported by cvs2svn $
 
 package gov.nih.nci.ncicb.cadsr.common.security.jboss;
@@ -123,10 +123,14 @@ public class CaDsrUserCredentials
         + "from sbrext.tool_options_view_ext " 
         + "where tool_name = 'caDSR' " 
         + "and property = 'LOCKOUT.THRESHOLD') "
-        + "union "
+        + "union all "
         + "select 'User does not exist in sbr.user_accounts' "
         + "from dual "
-        + "where ? not in (select ua_name from sbr.user_accounts_view)";
+        + "where ? not in (select ua_name from sbr.user_accounts_view) "
+        + "union all "
+        + "select 'User disabled in sbr.user_accounts' "
+        + "from sbr.user_accounts_view "
+        + "where ua_name = ? and enabled_ind <> 'Yes' ";
     
     private static final String INCLOCK = "update sbrext.users_lockout_view " 
         + "set LOCKOUT_COUNT = LOCKOUT_COUNT + 1, VALIDATION_TIME = SYSDATE " 
@@ -411,6 +415,7 @@ public class CaDsrUserCredentials
             _pstmt = _conn.prepareStatement(CHECKLOCK);
             _pstmt.setString(1, _localUser);
             _pstmt.setString(2, _localUser);
+            _pstmt.setString(3, _localUser);
             _rs = _pstmt.executeQuery();
             _locked = _rs.next();
             if (_locked)

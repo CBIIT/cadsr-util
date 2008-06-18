@@ -118,9 +118,10 @@ public class DBLoginModule extends AbstractServerLoginModule {
 		      if (!errMsg.equals(""))
 		          throw new FailedLoginException(errMsg);
 		      
+		      /* since user credential takes care of the authentication, it is not needed
 		      if (!authenticateUser(username, password)) {
 		          throw new FailedLoginException("Incorrect username and password");
-		      }
+		      } */
 		    }
 		    if (getUseFirstPass()) {
 		      sharedState.put("javax.security.auth.login.name", username);
