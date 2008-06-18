@@ -30,7 +30,7 @@ import org.apache.commons.logging.LogFactory;
 
 public class LogoutServlet extends HttpServlet {
 	private String LOGOUT_JSP = "/logout.jsp";
-	private static String AUTHORIZATION_ERROR_JSP = "/authorizationError.jsp";
+	private String AUTHORIZATION_ERROR_JSP = "/authorizationError.jsp";
 	private String[] logoutKeys = { CaDSRConstants.USER_KEY, CaDSRConstants.USER_CONTEXTS };
 	protected static Log log = LogFactory.getLog(LogoutServlet.class.getName());
 
@@ -49,10 +49,13 @@ public class LogoutServlet extends HttpServlet {
 
 		//unlock all forms locked by this session
 		HttpSession session = request.getSession(); 
-		String lojsp = request.getParameter("LogoutJSP");
+		String lojsp =  getServletConfig().getInitParameter("LogoutJSP");
 		if (lojsp != null && !lojsp.equals(""))
 			LOGOUT_JSP = lojsp;
-		
+		String authjsp =  getServletConfig().getInitParameter("ErrorJSP");
+		if (authjsp != null && !authjsp.equals(""))
+			AUTHORIZATION_ERROR_JSP = authjsp;
+
 		if (!request.getContextPath().contains("CDEBrowser")){
 			getApplicationServiceLocator(session.getServletContext()).findLockingService().unlockFormByUser(request.getRemoteUser());
 		}
