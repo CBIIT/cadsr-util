@@ -39,7 +39,7 @@ public class DBUtil  {
    * get the property from the property file
    * @return String 
    */
-  private String getJNDIProperty()
+  public String getJNDIProperty()
   {
 	  String jndiName = "";
 	  try {
