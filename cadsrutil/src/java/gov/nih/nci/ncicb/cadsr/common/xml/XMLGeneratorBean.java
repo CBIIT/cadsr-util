@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import oracle.xml.sql.dataset.OracleXMLDataSet;
+import oracle.xml.sql.dataset.OracleXMLDataSetExtJdbc;
 import oracle.xml.sql.query.OracleXMLQuery;
 
 public class XMLGeneratorBean  {
@@ -37,19 +39,54 @@ public class XMLGeneratorBean  {
   }
 
   public String getXMLString() {
+	    String xmlString = "";
+	    ConnectionHelper connHelper = null;
+	    try{
+	    
+	    buildQuery();
+	    System.out.println("Sql Stmt: " + sqlQuery);
+	    
+	    /*connHelper = new ConnectionHelper(dataSource);
+	    cn = connHelper.getConnection();*/
+	    
+	    initializeDBConnection();
+	    xmlQuery = new OracleXMLQuery(cn,sqlQuery);
+	    
+	    xmlQuery.setEncoding("UTF-8");
+	    if (!rowset.equals("")) {
+	      xmlQuery.setRowsetTag(rowset);
+	    }
+
+	    if (!row.equals("")) {
+	      xmlQuery.setRowTag(row);
+	    }
+	    if (maxRows != -1) {
+	      xmlQuery.setMaxRows(maxRows);
+	    }
+	    xmlQuery.useNullAttributeIndicator(showNull);
+	    xmlString = xmlQuery.getXMLString();
+	    
+	    }
+	    catch (Exception e) {
+	      log.error("getXMLString()", e);
+	    }
+	    finally {
+	      closeResources();
+	    }
+	    return xmlString;
+	  }
+  
+  public String getXMLStringExtJDBC() {
     String xmlString = "";
-    ConnectionHelper connHelper = null;
+   // ConnectionHelper connHelper = null;
     try{
     
-    buildQuery();
-    //System.out.println("Sql Stmt: " + sqlQuery);
-    
-    /*connHelper = new ConnectionHelper(dataSource);
-    cn = connHelper.getConnection();*/
-    
+    buildQuery();   
     initializeDBConnection();
     
-    xmlQuery = new OracleXMLQuery(cn,sqlQuery);
+    OracleXMLDataSet dset = new OracleXMLDataSetExtJdbc(cn, sqlQuery);	  
+    xmlQuery = new OracleXMLQuery(dset);
+    
     xmlQuery.setEncoding("UTF-8");
     if (!rowset.equals("")) {
       xmlQuery.setRowsetTag(rowset);
