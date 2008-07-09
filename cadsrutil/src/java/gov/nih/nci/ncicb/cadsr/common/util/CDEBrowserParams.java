@@ -41,7 +41,7 @@ public class CDEBrowserParams
     String regStatusCsTree="";
     String csTypeRegStatus="";
     String csTypeContainer="container";
-    String sentinalAPIUrl="";
+    String sentinelAPIUrl="";
     String formBuilderUrl="";
     String cdeBrowserUrl="";
     String objectCartUrl="";
@@ -336,7 +336,7 @@ public class CDEBrowserParams
             index++;      
             csTypeContainer = properties.getProperty("CS_TYPE_CONTAINER");
             index++;      
-            sentinalAPIUrl = properties.getProperty("SENTINAL_URL");
+            sentinelAPIUrl = properties.getProperty("SENTINEL_URL");
             index++;                
             umlBrowserUrl = properties.getProperty("UMLBrowser_URL");
             index++;      
@@ -379,14 +379,14 @@ public class CDEBrowserParams
        return csTypeContainer;
     }
 
-    public void setSentinalAPIUrl(String sentinalAPIUrl)
+    public void setSentinelAPIUrl(String sentinelAPIUrl)
     {
-        this.sentinalAPIUrl = sentinalAPIUrl;
+        this.sentinelAPIUrl = sentinelAPIUrl;
     }
 
-    public String getSentinalAPIUrl()
+    public String getSentinelAPIUrl()
     {
-        return sentinalAPIUrl;
+        return sentinelAPIUrl;
     }
 
    public void setUmlBrowserUrl(String umlBrowserUrl) {
