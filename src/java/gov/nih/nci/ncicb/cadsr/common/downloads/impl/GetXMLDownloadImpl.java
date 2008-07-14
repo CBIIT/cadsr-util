@@ -14,13 +14,21 @@ import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.net.URL;
 import java.sql.Connection;
-import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Vector;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+
+import oracle.jdbc.pool.OracleDataSource;
+import oracle.sql.CHAR;
+import oracle.sql.CharacterSet;
+import oracle.sql.Datum;
+import oracle.sql.STRUCT;
 
 
 /**
@@ -148,8 +156,20 @@ public class GetXMLDownloadImpl implements GetXMLDownload{
     //	  this.getConnection();
      // xmlBean.setConnection(cn);
 	  DBUtil dbutil = new DBUtil();
-      xmlBean.setDataSource("java:comp/env/jdbc/" + dbutil.getJNDIProperty());
-      xmlBean.setJndiDatasource(true);
+      /*xmlBean.setDataSource("java:comp/env/jdbc/" + dbutil.getJNDIProperty());
+      xmlBean.setJndiDatasource(true);*/
+	  
+	  OracleDataSource ds = new OracleDataSource();
+	  ds.setURL("jdbc:oracle:thin:@cbiodb540.nci.nih.gov:1521:DSRDEV");
+	  ds.setUser("formbuilder");
+	  ds.setPassword("formbuilder");
+	  
+	  cn = ds.getConnection();
+	  xmlBean.setConnection(cn);
+	  
+	  Statement st = null;
+	  ResultSet rs = null;
+	  
       fileName = getFileName("xml");
       if (paginate.equals("yes")) {
     	Vector zipFileVec = new Vector(10);
@@ -167,7 +187,7 @@ public class GetXMLDownloadImpl implements GetXMLDownload{
         	createZipFile(zipFileVec, getFileName("zip"));
       }
       else {
-        xmlString = xmlBean.getXMLStringExtJDBC();
+        xmlString = xmlBean.getXMLString();
         writeToFile(xmlString, fileName);
       }
 
