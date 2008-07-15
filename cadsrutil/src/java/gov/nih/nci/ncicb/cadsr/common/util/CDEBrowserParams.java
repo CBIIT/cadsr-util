@@ -319,8 +319,8 @@ public class CDEBrowserParams
             index++;
             excludeRegistrationStatuses = properties.getProperty("EXCLUDE_REGISTRATION_BY_DEFAULT");
             index++;      
-
-            adminToolUrl = properties.getProperty("AdminTool_URL");
+            //Temporary Page for Admin Tool
+            adminToolUrl = "/CDEBrowser/common/adminRedirection.html";//properties.getProperty("AdminTool_URL");
             index++;      
             curationToolUrl = properties.getProperty("CURATION_URL");
             index++;
