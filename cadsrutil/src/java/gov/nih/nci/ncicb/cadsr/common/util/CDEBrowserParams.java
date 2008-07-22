@@ -99,8 +99,16 @@ public class CDEBrowserParams
    public static CDEBrowserParams getToolInstance(String toolName)
    {
        Properties properties = appServiceLocator.findCDEBrowserService().getApplicationProperties(Locale.US, toolName);
+       String browseurl = properties.getProperty("CDEBrowser_URL");
+       if (browseurl.contains("/CDEBrowser/"))
+       {
+    	   browseurl = browseurl.replace("/CDEBrowser/","");
+    	   properties.put("CDEBrowser_URL", browseurl);
+       }
+
        instance = new CDEBrowserParams();
        instance.initAttributesFromProperties(properties);
+       
 	   return instance;
    }
    
