@@ -29,7 +29,7 @@ import java.util.zip.ZipOutputStream;
 public class GetXMLDownloadImpl implements GetXMLDownload{
 	static final int BUFFER = 2048;
 	private static Log log = LogFactory.getLog(GetXMLDownloadImpl.class .getName());
-	private Connection cn = null;
+	private String jndiName = null;
 	private String source;
 	private String where;
 	private String fileName = "";
@@ -37,8 +37,12 @@ public class GetXMLDownloadImpl implements GetXMLDownload{
   public GetXMLDownloadImpl() {
 	  super();
   }
-	public void generateXMLForCDECart(CDECart cart, String src, Connection con) throws Exception 
+	public void generateXMLForCDECart(CDECart cart, String src, String _jndiName) throws Exception 
 	{
+		if (_jndiName == null) {
+	    	throw new Exception("JNDI name cannot be null");  
+	    }
+		
 		Collection items = cart.getDataElements();
 		CDECartItem item = null;
 		boolean firstOne = true;
@@ -61,15 +65,19 @@ public class GetXMLDownloadImpl implements GetXMLDownload{
 
 		where = whereBuffer.toString();
 		source = src;
-		cn = con;
+		jndiName = _jndiName;
 		generateXMLFile();
 	}
 
-	public void generateXMLForDESearch(String sWhere, String src, Connection con) throws Exception 
+	public void generateXMLForDESearch(String sWhere, String src, String _jndiName) throws Exception 
 	{
+		if (_jndiName == null) {
+			throw new Exception("JNDI name cannot be null");  
+	    }
+		
 		where = sWhere;
 		source = src;
-		cn = con;
+		jndiName = _jndiName;
 		generateXMLFile();
 	}
 
@@ -100,12 +108,20 @@ public class GetXMLDownloadImpl implements GetXMLDownload{
 	@SuppressWarnings("static-access")
 	public String getFileName(String prefix)
 	{
+		Connection cn = null;
+		
 		try {
 			if (fileName.equals(""))
 			{
 				DBUtil dbutil = new DBUtil();
-				if (cn == null)
-					this.getConnection();
+				
+				ConnectionHelper connHelper = new ConnectionHelper(jndiName);
+			    cn = connHelper.getConnection();
+			    
+			    if (cn == null) {
+			    	throw new Exception("Cannot get the connection for the JNDI name ["+jndiName+"]");
+			    }
+			    
 				String zipFileSuffix = dbutil.getUniqueId(cn, "SBREXT.XML_FILE_SEQ.NEXTVAL");
 				String downLoadDir = CDEBrowserParams.getInstance().getXMLDownloadDir();
 				if (prefix.equals(""))
@@ -114,6 +130,10 @@ public class GetXMLDownloadImpl implements GetXMLDownload{
 			}
 		} catch (Exception e) {
 			log.error("Unable to determine the file name ", e);
+		} finally {
+			if (cn != null) {
+				try { cn.close(); } catch(Exception e) {}
+			}
 		}
 		return fileName;
 	}
@@ -127,6 +147,8 @@ public class GetXMLDownloadImpl implements GetXMLDownload{
 	private void generateXMLFile() throws Exception
 	{
     XMLGeneratorBean xmlBean = null;
+    Connection cn = null;
+    
     try {      
       String xmlString = null;
       
@@ -143,11 +165,13 @@ public class GetXMLDownloadImpl implements GetXMLDownload{
       String paginate = CDEBrowserParams.getInstance().getXMLPaginationFlag();
       if (paginate == null)
     	  paginate = "no";
-
-	  DBUtil dbutil = new DBUtil();
-	  String jndiName = "java:comp/env/jdbc/"+dbutil.getJNDIProperty();
+      
 	  ConnectionHelper connHelper = new ConnectionHelper(jndiName);
       cn = connHelper.getConnection();
+      
+      if (cn == null) {
+    	  throw new Exception("Cannot get the connection for the JNDI name ["+jndiName+"]");
+      }
 
       fileName = getFileName("xml");
       if (paginate.equals("yes")) {
@@ -290,11 +314,5 @@ public class GetXMLDownloadImpl implements GetXMLDownload{
     		out.close();
     }
   }
-	private void getConnection() throws Exception
-	{
-		DBUtil dbutil = new DBUtil();
-		if (dbutil.getConnectionFromContainer())
-			cn = dbutil.getConnection();
-	}
 
 }
