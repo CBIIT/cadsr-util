@@ -2,6 +2,7 @@ package gov.nih.nci.ncicb.cadsr.common.downloads.impl;
 
 import gov.nih.nci.ncicb.cadsr.common.downloads.GetXMLDownload;
 import gov.nih.nci.ncicb.cadsr.common.util.CDEBrowserParams;
+import gov.nih.nci.ncicb.cadsr.common.util.ConnectionHelper;
 import gov.nih.nci.ncicb.cadsr.common.util.DBUtil;
 import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
 import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
@@ -14,21 +15,12 @@ import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.net.URL;
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Vector;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-
-import oracle.jdbc.pool.OracleDataSource;
-import oracle.sql.CHAR;
-import oracle.sql.CharacterSet;
-import oracle.sql.Datum;
-import oracle.sql.STRUCT;
 
 
 /**
@@ -140,7 +132,6 @@ public class GetXMLDownloadImpl implements GetXMLDownload{
       
       xmlBean = new XMLGeneratorBean();
       xmlBean.setQuery(getSQLStatement());
-     // xmlBean.setWhereClause(where);
 
       xmlBean.setRowsetTag("DataElementsList");
       xmlBean.setRowTag("DataElement");
@@ -152,24 +143,12 @@ public class GetXMLDownloadImpl implements GetXMLDownload{
       String paginate = CDEBrowserParams.getInstance().getXMLPaginationFlag();
       if (paginate == null)
     	  paginate = "no";
-      //if (cn == null)
-    //	  this.getConnection();
-     // xmlBean.setConnection(cn);
+
 	  DBUtil dbutil = new DBUtil();
-      /*xmlBean.setDataSource("java:comp/env/jdbc/" + dbutil.getJNDIProperty());
-      xmlBean.setJndiDatasource(true);*/
-	  
-	  OracleDataSource ds = new OracleDataSource();
-	  ds.setURL("jdbc:oracle:thin:@cbiodb540.nci.nih.gov:1521:DSRDEV");
-	  ds.setUser("formbuilder");
-	  ds.setPassword("formbuilder");
-	  
-	  cn = ds.getConnection();
-	  xmlBean.setConnection(cn);
-	  
-	  Statement st = null;
-	  ResultSet rs = null;
-	  
+	  String jndiName = "java:comp/env/jdbc/"+dbutil.getJNDIProperty();
+	  ConnectionHelper connHelper = new ConnectionHelper(jndiName);
+      cn = connHelper.getConnection();
+
       fileName = getFileName("xml");
       if (paginate.equals("yes")) {
     	Vector zipFileVec = new Vector(10);
@@ -187,7 +166,7 @@ public class GetXMLDownloadImpl implements GetXMLDownload{
         	createZipFile(zipFileVec, getFileName("zip"));
       }
       else {
-        xmlString = xmlBean.getXMLString();
+        xmlString = xmlBean.getXMLString(cn);
         writeToFile(xmlString, fileName);
       }
 
@@ -200,9 +179,9 @@ public class GetXMLDownloadImpl implements GetXMLDownload{
     }
     finally {
       try {
-    	if (cn != null)
+    	if (cn != null) {
     		cn.close();
-        xmlBean.closeResources();
+    	}
       }
       catch (Exception e) {
         log.error("Error while Closing connections", e);
@@ -317,6 +296,5 @@ public class GetXMLDownloadImpl implements GetXMLDownload{
 		if (dbutil.getConnectionFromContainer())
 			cn = dbutil.getConnection();
 	}
-	
 
 }

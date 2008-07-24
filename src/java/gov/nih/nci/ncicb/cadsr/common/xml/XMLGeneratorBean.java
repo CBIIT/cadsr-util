@@ -1,19 +1,17 @@
 package gov.nih.nci.ncicb.cadsr.common.xml;
 
 import gov.nih.nci.ncicb.cadsr.common.util.ConnectionHelper;
+import gov.nih.nci.ncicb.cadsr.common.util.DBUtil;
 import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
 import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
 
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import oracle.xml.sql.dataset.OracleXMLDataSet;
-import oracle.xml.sql.dataset.OracleXMLDataSetExtJdbc;
 import oracle.xml.sql.query.OracleXMLQuery;
 
 public class XMLGeneratorBean  {
@@ -38,78 +36,42 @@ public class XMLGeneratorBean  {
   public XMLGeneratorBean() {
   }
 
-  public String getXMLString() {
+  public String getXMLString(Connection con) {
+	  
 	    String xmlString = "";
-	    ConnectionHelper connHelper = null;
-	    try{
 	    
-	    buildQuery();
-	    System.out.println("Sql Stmt: " + sqlQuery);
-	    
-	    /*connHelper = new ConnectionHelper(dataSource);
-	    cn = connHelper.getConnection();*/
-	    
-	    initializeDBConnection();
-	    xmlQuery = new OracleXMLQuery(cn,sqlQuery);
-	    
-	    xmlQuery.setEncoding("UTF-8");
-	    if (!rowset.equals("")) {
-	      xmlQuery.setRowsetTag(rowset);
-	    }
-
-	    if (!row.equals("")) {
-	      xmlQuery.setRowTag(row);
-	    }
-	    if (maxRows != -1) {
-	      xmlQuery.setMaxRows(maxRows);
-	    }
-	    xmlQuery.useNullAttributeIndicator(showNull);
-	    xmlString = xmlQuery.getXMLString();
-	    
+	    try {
+	    	buildQuery();
+	    	
+		    if (log.isDebugEnabled()) {
+		    	log.debug("Sql Stmt: " + sqlQuery);
+		    }
+		    
+		    Connection oracleConn = DBUtil.extractOracleConnection(con);
+		    xmlQuery = new OracleXMLQuery(oracleConn, sqlQuery);
+		    xmlQuery.setEncoding("UTF-8");
+		    xmlQuery.useNullAttributeIndicator(showNull);
+		    
+		    if (!rowset.equals("")) {
+		      xmlQuery.setRowsetTag(rowset);
+		    }
+	
+		    if (!row.equals("")) {
+		      xmlQuery.setRowTag(row);
+		    }
+		    
+		    if (maxRows != -1) {
+		      xmlQuery.setMaxRows(maxRows);
+		    }
+		    
+		    xmlString = xmlQuery.getXMLString();
 	    }
 	    catch (Exception e) {
 	      log.error("getXMLString()", e);
 	    }
-	    finally {
-	      closeResources();
-	    }
 	    return xmlString;
 	  }
   
-  public String getXMLStringExtJDBC() {
-    String xmlString = "";
-   // ConnectionHelper connHelper = null;
-    try{
-    
-    buildQuery();   
-    initializeDBConnection();
-    
-    OracleXMLDataSet dset = new OracleXMLDataSetExtJdbc(cn, sqlQuery);	  
-    xmlQuery = new OracleXMLQuery(dset);
-    
-    xmlQuery.setEncoding("UTF-8");
-    if (!rowset.equals("")) {
-      xmlQuery.setRowsetTag(rowset);
-    }
-
-    if (!row.equals("")) {
-      xmlQuery.setRowTag(row);
-    }
-    if (maxRows != -1) {
-      xmlQuery.setMaxRows(maxRows);
-    }
-    xmlQuery.useNullAttributeIndicator(showNull);
-    xmlString = xmlQuery.getXMLString();
-    
-    }
-    catch (Exception e) {
-      log.error("getXMLString()", e);
-    }
-    finally {
-      closeResources();
-    }
-    return xmlString;
-  }
   public void createOracleXMLQuery() throws SQLException{
     try {
       buildQuery();
@@ -244,49 +206,6 @@ public class XMLGeneratorBean  {
     }
     
   }
-  
-  public static void main(String[] args) {
-    try {
-      String filename = "c:\\cadsr\\cdebrowser\\download\\xml\\cadsr.xml";
-      XMLGeneratorBean xmlBean = new XMLGeneratorBean();
-      //xmlBean.setDataSource("jdbc/SBR_DCoreDS");
-      xmlBean.setDataSource("jdbc/SBREXT_CBPRODCoreDS");
-      //xmlBean.setDataSource("jdbc/SBR_CBTESTCoreDS");
-      String stmt = " SELECT \"CDEId\" "+
-                          ", \"LongName\" "+
-                          ", \"PreferredName\" "+
-                          ", \"PreferredDefinition\" "+
-                          ", \"Version\" "+
-                          ", \"ContextName\" "+
-                          ", \"ContextVersion\" "+
-                          ", \"DataElementConcept\" "+
-                          ", \"ValueDomain\" " +
-                          ", \"ReferenceDocumentsList\" " +
-                          ", \"ClassificationsList\" " +
-                    " FROM sbrext.DE_XML_GENERATOR_VIEW ";
-      //xmlBean.setTargetDBObject("CABIO_DEC_XML_GENERATOR_VIEW");
-    
-      //xmlBean.setTargetDBObject("CDE_BROWSER_XML_VIEW");
-      xmlBean.setQuery(stmt);
-      xmlBean.setWhereClause("1 = 1");
-      //xmlBean.setOrderBy("\"PreferredName\"");
-      //xmlBean.setRowsetTag("DataElementConceptsList");
-      xmlBean.setRowsetTag("DataElementsList");
-      //xmlBean.setRowTag("DataElementConcept");
-      xmlBean.setRowTag("DataElement");
-      xmlBean.setMaxRowSize(5);
-      //System.out.println(xmlBean.getXMLString());
-      xmlBean.writeToFile(xmlBean.getXMLString(),filename);
-    } 
-    catch (Exception ex) {
-      ex.printStackTrace();
-    } 
-    finally {
-    }
-    
-    
-  }
-
 
   public void setJndiDatasource(boolean jndiDatasource) {
     this.jndiDatasource = jndiDatasource;
@@ -300,4 +219,5 @@ public class XMLGeneratorBean  {
   public void setConnection (Connection conn) {
     cn = conn;
   }
+  
 }

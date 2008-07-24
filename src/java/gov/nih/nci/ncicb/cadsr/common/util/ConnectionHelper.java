@@ -51,9 +51,4 @@ public class ConnectionHelper  {
   }
   
   }
-
-  public static void main(String[] args) {
-    ConnectionHelper connectionHelper = new ConnectionHelper("jdbc/SBREXT_CBPRODCoreDS");
-    Connection c = connectionHelper.getConnection();
-  }
 }
