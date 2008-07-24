@@ -2,6 +2,7 @@ package gov.nih.nci.ncicb.cadsr.common.downloads.impl;
 
 import gov.nih.nci.ncicb.cadsr.common.downloads.GetExcelDownload;
 import gov.nih.nci.ncicb.cadsr.common.util.CDEBrowserParams;
+import gov.nih.nci.ncicb.cadsr.common.util.ConnectionHelper;
 import gov.nih.nci.ncicb.cadsr.common.util.DBUtil;
 import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
 import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
@@ -30,7 +31,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 public class GetExcelDownloadImpl implements GetExcelDownload {
 	private static Log log = LogFactory.getLog(GetExcelDownloadImpl.class.getName());
-	private Connection cn = null;
+	private String jndiName = null;
 	private String source;
 	private String where;
 	private String fileName = "";
@@ -40,8 +41,12 @@ public class GetExcelDownloadImpl implements GetExcelDownload {
 		
 	}
 
-	public void generateExcelForCDECart(CDECart cart, String src, Connection con) throws Exception 
+	public void generateExcelForCDECart(CDECart cart, String src, String _jndiName) throws Exception 
 	{
+		if (_jndiName == null) {
+			throw new Exception("JNDI name cannot be null");
+		}
+		
 		Collection items = cart.getDataElements();
 		CDECartItem item = null;
 		boolean firstOne = true;
@@ -64,32 +69,46 @@ public class GetExcelDownloadImpl implements GetExcelDownload {
 
 		where = whereBuffer.toString();
 		source = src;
-		cn = con;		
+		jndiName = _jndiName;		
 		generateExcelFile();
 	}
 	
-	public void generateExcelForDESearch(String sWhere, String src, Connection con) throws Exception 
+	public void generateExcelForDESearch(String sWhere, String src, String _jndiName) throws Exception 
 	{
+		if (_jndiName == null) {
+			throw new Exception("JNDI name cannot be null");
+		}
+		
 		where = sWhere;
 		source = src;
-		cn = con;			
+		jndiName = _jndiName;			
 		generateExcelFile();
 	}
 	
 	@SuppressWarnings("static-access")
 	public String getFileName()
 	{
+		Connection cn = null;
+		
 		try {
 			if (fileName.equals(""))
 			{
+				ConnectionHelper connHelper = new ConnectionHelper(jndiName);
+				cn = connHelper.getConnection();
+			      
+				if (cn == null) {
+					throw new Exception("Cannot get the connection for the JNDI name ["+jndiName+"]");
+				}
+				
 				DBUtil dbutil = new DBUtil();
 				String excelFileSuffix = dbutil.getUniqueId(cn, "SBREXT.XML_FILE_SEQ.NEXTVAL");
 				String downLoadDir = CDEBrowserParams.getInstance().getXMLDownloadDir();
 				fileName =	downLoadDir + "DataElements" + "_" + excelFileSuffix + ".xls";
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			log.error("Error trying to get the download file name", e);
+		} finally {
+			try {if (cn != null) cn.close();} catch (Exception e) {}
 		}
 		return fileName;
 	}
@@ -99,19 +118,14 @@ public class GetExcelDownloadImpl implements GetExcelDownload {
 		fileName = sfile;
 	}
 	
-	private void getConnection() throws Exception
-	{
-		DBUtil dbutil = new DBUtil();
-		if (dbutil.getConnectionFromContainer())
-			cn = dbutil.getConnection();
-	}
-	
 	//generate the workbook and format it and crate the header
 	private void generateExcelFile() throws Exception
 	{
+		Connection cn = null;
 		Statement st = null;
 		ResultSet rs = null;
 		FileOutputStream fileOut = null;
+		
 		try {
 			HSSFWorkbook wb = new HSSFWorkbook();
 			HSSFSheet sheet = wb.createSheet();
@@ -153,8 +167,14 @@ public class GetExcelDownloadImpl implements GetExcelDownload {
 			String sqlStmt =
 				"SELECT * FROM DE_EXCEL_GENERATOR_VIEW " + "WHERE DE_IDSEQ IN " +
 				" ( " + where + " )  ";
-			if (cn == null)
-				this.getConnection();
+			
+			ConnectionHelper connHelper = new ConnectionHelper(jndiName);
+			cn = connHelper.getConnection();
+		      
+			if (cn == null) {
+				throw new Exception("Cannot get the connection for the JNDI name ["+jndiName+"]");
+			}
+		      
 			st = cn.createStatement();
 			rs = st.executeQuery(sqlStmt);
 			generateDataRow(rowNumber, sheet, colInfo, rs);
