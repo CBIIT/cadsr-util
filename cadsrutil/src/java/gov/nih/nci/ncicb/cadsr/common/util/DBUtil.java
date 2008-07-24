@@ -443,7 +443,7 @@ public class DBUtil  {
    * Need to recode after the class loading problem is fixed
    *@return Oracle native Connection from jboss wrapper connection
    */
-  private static OracleConnection extractOracleConnection(
+  public static OracleConnection extractOracleConnection(
     Connection conn
     ) throws Exception {
       OracleJBossNativeJdbcExtractor extractor = new OracleJBossNativeJdbcExtractor();
