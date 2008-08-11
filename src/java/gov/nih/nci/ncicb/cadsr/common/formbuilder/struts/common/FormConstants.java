@@ -35,6 +35,25 @@ public interface FormConstants extends FormBuilderConstants {
   public static final String MODULE_INDEX = "moduleIndex";
   public static final String TARGET_MODULE_INDEX = "targetModuleIndex";
     
+  public static final String SEARCH_FORM_NAME = "searchFormName";
+  public static final String SEARCH_PROTO_IDSEQ = "searchProtoIdseq";
+  public static final String SEARCH_CONTEXT_IDSEQ = "searchContextIdseq";
+  public static final String SEARCH_CONTEXT_NAME = "searchContextName";
+  public static final String SEARCH_WORKFLOW = "searchWorkflow";
+  public static final String SEARCH_CATEGORY_NAME = "searchCategoryName";
+  public static final String SEARCH_FORM_TYPE = "searchFormType";
+  public static final String SEARCH_CSI_NAME = "searchCsiName";
+  public static final String SEARCH_CLASSIFICATION = "searchClassification";
+  public static final String SEARCH_PROTO_NAME = "searchProtoName";
+  public static final String SEARCH_FORM_IDSEQ = "searchFormIdseq";
+  public static final String SEARCH_SORT_FIELD = "searchSortField";
+  public static final String SEARCH_SORT_ORDER = "searchSortOrder";
+  public static final String SEARCH_CS_IDSEQ = "searchCsIdseq";
+  public static final String SEARCH_FORM_PUBLICID = "searchFormPublicID";
+  public static final String SEARCH_VERSION_IND = "searchVersionInd";
+  public static final String SEARCH_MODULE_NAME = "searchModuleName";
+  public static final String SEARCH_CDE_PUBLICID = "searchCdePublicID";
+
   public static final String DELETED_MODULE_INDEX = "deletedModuleIndex";
   public static final String ADD_DELETED_MODULE_IDSEQ = "addDeletedModuleIdSeq";
   public static final String FORM_ID = "formId";
