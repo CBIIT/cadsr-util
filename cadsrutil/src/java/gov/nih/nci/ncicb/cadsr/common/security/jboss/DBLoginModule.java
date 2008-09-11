@@ -245,7 +245,7 @@ public class DBLoginModule extends AbstractServerLoginModule {
 	    }
 	    catch (Exception ex)
 	    {
-	        logger.error("Failed credential validation, code is " + uc.getCheckCode());
+	        logger.error("Failed credential validation, code is " + uc.getCheckCode(), ex);
 	    	return "Failed credential validation, code is " + uc.getCheckCode();
 	    }
 	    return "";
