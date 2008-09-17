@@ -96,15 +96,15 @@ public class JDBCDerivedDataElementDAO extends JDBCBaseDAO implements DerivedDat
       int rownum) throws SQLException {
       DerivedDataElementTransferObject dde = new DerivedDataElementTransferObject();
       DataElementDerivationType dedt = new DataElementDerivationTypeTransferObject();
-      dde.setDdeIdSeq(rs.getString(1));
-      dde.setMethods(rs.getString(2));
-      dde.setRule(rs.getString(3));
-      dde.setConcatenationCharacter(rs.getString(4));
-      dde.setDateModified(rs.getTimestamp(5));
-      dde.setDateCreated(rs.getTimestamp(6));
-      dde.setModifiedBy(rs.getString(7));
-      dde.setCreatedBy(rs.getString(8));
-      dedt.setName(rs.getString(9));
+      dde.setDdeIdSeq(rs.getString("P_DE_IDSEQ"));
+      dde.setMethods(rs.getString("METHODS"));
+      dde.setRule(rs.getString("RULE"));
+      dde.setConcatenationCharacter(rs.getString("CONCAT_CHAR"));
+      dde.setDateModified(rs.getTimestamp("DATE_MODIFIED"));
+      dde.setDateCreated(rs.getTimestamp("DATE_CREATED"));
+      dde.setModifiedBy(rs.getString("MODIFIED_BY"));
+      dde.setCreatedBy(rs.getString("CREATED_BY"));
+      dedt.setName(rs.getString("CRTL_NAME"));
       dde.setType(dedt);
 
       return dde;
