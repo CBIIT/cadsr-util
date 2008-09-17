@@ -332,9 +332,9 @@ public class CDEBrowserParams
             index++;      
             curationToolUrl = properties.getProperty("CURATION_URL");
             index++;
-            nciMetathesaurusUrl = properties.getProperty("EVSBrowser_URL");
+            nciMetathesaurusUrl = properties.getProperty("NCI_METATHESAURUS_URL");
             index++;            
-            nciTerminologyServerUrl = properties.getProperty("EVSBrowser_URL");
+            nciTerminologyServerUrl = properties.getProperty("NCI_TERMINOLOGY_SERVER_URL");
             index++;
             sentinelToolUrl = properties.getProperty("SENTINEL_URL");
             index++;             
