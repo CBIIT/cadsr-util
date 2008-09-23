@@ -13,6 +13,7 @@ import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringEscapeUtils;
 
 public class DataElementSearchBean extends Object {
   private String simpleSearchStr = "";
@@ -70,29 +71,29 @@ public class DataElementSearchBean extends Object {
 
 public DataElementSearchBean( HttpServletRequest request) throws SQLException {
     strArray = request.getParameterValues("SEARCH");
-    vdPrefName = request.getParameter("txtValueDomain");
-    decPrefName = request.getParameter("txtDataElementConcept");
-    csiName = request.getParameter("txtClassSchemeItem");
-    searchText = request.getParameter("jspKeyword");
-    simpleSearchStr = request.getParameter("jspSimpleKeyword");
+    vdPrefName = StringEscapeUtils.escapeHtml(request.getParameter("txtValueDomain"));
+    decPrefName = StringEscapeUtils.escapeHtml(request.getParameter("txtDataElementConcept"));
+    csiName = StringEscapeUtils.escapeHtml(request.getParameter("txtClassSchemeItem"));
+    searchText = StringEscapeUtils.escapeHtml(request.getParameter("jspKeyword"));
+    simpleSearchStr = StringEscapeUtils.escapeHtml(request.getParameter("jspSimpleKeyword"));
     aslName = request.getParameterValues("jspStatus");
     regStatus = request.getParameterValues("regStatus");
     altNames = request.getParameterValues("altName");
-    vdIdseq = request.getParameter("jspValueDomain");
-    decIdseq = request.getParameter("jspDataElementConcept");
-    csCsiIdseq = request.getParameter("jspClassification");
-    cdeId = request.getParameter("jspCdeId");
-    latVersionInd = request.getParameter("jspLatestVersion");
-    contextUse = request.getParameter("contextUse");
-    validValue = request.getParameter("jspValidValue");
-    altName = request.getParameter("jspAltName");
-    basicSearchType = request.getParameter("jspBasicSearchType");
-    conceptName = request.getParameter("jspConceptName");
-    conceptCode = request.getParameter("jspConceptCode");
-    objectClass = request.getParameter("jspObjectClass");
-    property = request.getParameter("jspProperty");
-    nameSearchMode = request.getParameter("jspNameSearchMode");
-    pvSearchMode = request.getParameter("jspPVSearchMode");
+    vdIdseq = StringEscapeUtils.escapeHtml(request.getParameter("jspValueDomain"));
+    decIdseq = StringEscapeUtils.escapeHtml(request.getParameter("jspDataElementConcept"));
+    csCsiIdseq = StringEscapeUtils.escapeHtml(request.getParameter("jspClassification"));
+    cdeId = StringEscapeUtils.escapeHtml(request.getParameter("jspCdeId"));
+    latVersionInd = StringEscapeUtils.escapeHtml(request.getParameter("jspLatestVersion"));
+    contextUse = StringEscapeUtils.escapeHtml(request.getParameter("contextUse"));
+    validValue = StringEscapeUtils.escapeHtml(request.getParameter("jspValidValue"));
+    altName = StringEscapeUtils.escapeHtml(request.getParameter("jspAltName"));
+    basicSearchType = StringEscapeUtils.escapeHtml(request.getParameter("jspBasicSearchType"));
+    conceptName = StringEscapeUtils.escapeHtml(request.getParameter("jspConceptName"));
+    conceptCode = StringEscapeUtils.escapeHtml(request.getParameter("jspConceptCode"));
+    objectClass = StringEscapeUtils.escapeHtml(request.getParameter("jspObjectClass"));
+    property = StringEscapeUtils.escapeHtml(request.getParameter("jspProperty"));
+    nameSearchMode = StringEscapeUtils.escapeHtml(request.getParameter("jspNameSearchMode"));
+    pvSearchMode = StringEscapeUtils.escapeHtml(request.getParameter("jspPVSearchMode"));
 
     if (contextUse == null) {
       contextUse = "";
@@ -114,7 +115,7 @@ public DataElementSearchBean( HttpServletRequest request) throws SQLException {
     buildAlternateNameList(altNames, dbUtil);
     buildContextUseList(contextUse);
     */
-
+    
     searchInList = new StringBuffer("");
 
     String[] searchIn = request.getParameterValues("jspSearchIn");
