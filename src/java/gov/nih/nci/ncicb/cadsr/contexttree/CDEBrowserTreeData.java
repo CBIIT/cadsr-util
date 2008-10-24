@@ -20,6 +20,7 @@ import javax.faces.context.FacesContext;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.myfaces.custom.tree2.TreeModelBase;
@@ -83,7 +84,7 @@ public class CDEBrowserTreeData implements Serializable {
 	              "javascript:performAction('P_PARAM_TYPE=CONTEXT&P_IDSEQ=" +
 	              context.getConteIdseq() +
 	              "&P_CONTE_IDSEQ=" +  context.getConteIdseq() +
-	              "&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes"
+	              StringEscapeUtils.escapeHtml("&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes")
 	              +"')",
 	              context.getConteIdseq(),  false);
 	         contextFolder.addLeaf(contextNode);

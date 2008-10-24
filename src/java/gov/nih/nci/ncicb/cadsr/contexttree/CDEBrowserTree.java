@@ -13,6 +13,7 @@ import java.util.ListIterator;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -24,7 +25,7 @@ public class CDEBrowserTree
  
  private String treeType;
  private String functionName;
- private String extraURLParameters = "&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes";
+ private String extraURLParameters = StringEscapeUtils.escapeHtml("&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes");
  private String contextExcludeListStr = null;
 
 
@@ -32,10 +33,10 @@ public class CDEBrowserTree
  }
 
  public DefaultMutableTreeNode getTree(Hashtable params) throws Exception {
-  treeType = (String)params.get("treeType");
+  treeType = StringEscapeUtils.escapeHtml((String)params.get("treeType"));
 
-  functionName = (String)params.get("functionName");
-  contextExcludeListStr = (String)params.get(TreeConstants.BR_CONTEXT_EXCLUDE_LIST_STR);
+  functionName = StringEscapeUtils.escapeHtml((String)params.get("functionName"));
+  contextExcludeListStr = StringEscapeUtils.escapeHtml((String)params.get(TreeConstants.BR_CONTEXT_EXCLUDE_LIST_STR));
   return buildTree(params);
  }
 
