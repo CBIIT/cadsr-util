@@ -4,6 +4,8 @@ import gov.nih.nci.ncicb.cadsr.common.CaDSRConstants;
 
 import java.util.Hashtable;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 
 public class BaseTreeNode implements TreeConstants, CaDSRConstants,TreeFunctions  {
 
@@ -18,19 +20,18 @@ public class BaseTreeNode implements TreeConstants, CaDSRConstants,TreeFunctions
   public String getJsFunctionName() {
     String functionName = (String)treeParams.get(FUNCTION_NAME_URL_PARAM);
     if (functionName == null) functionName = "performAction";
-    return functionName;
+    return StringEscapeUtils.escapeJavaScript(functionName);
   }
 
   public String getTreeType() {
     String treeType = (String)treeParams.get(TREE_TYPE_URL_PARAM);
     if (treeType == null) treeType = DE_SEARCH_TREE;
-    return treeType;
+    return StringEscapeUtils.escapeJavaScript(treeType);
   }
   public String getExtraURLParameters() {
     String extraURLParameters = (String)treeParams.get(EXTRA_URL_PARAMS);
     if ( extraURLParameters == null || getTreeType().equals(DE_SEARCH_TREE) ) {
-      extraURLParameters =
-        "&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes";
+      extraURLParameters = "&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes";
     }
 
     if (getTreeType().equals(DE_SEARCH_TREE) ) {
@@ -49,7 +50,7 @@ public class BaseTreeNode implements TreeConstants, CaDSRConstants,TreeFunctions
     else
       extraURLParameters = extraURLParameters + "&"+TREE_BREADCRUMBS+"="+TREE_BREADCRUMBS_HOLDER;
 
-    return extraURLParameters;
+    return StringEscapeUtils.escapeJavaScript(extraURLParameters);
   }
 
   public String getFormJsFunctionName() {
@@ -59,7 +60,7 @@ public class BaseTreeNode implements TreeConstants, CaDSRConstants,TreeFunctions
     else
       functionName = (String)treeParams.get(FUNCTION_NAME_URL_PARAM);
     if (functionName == null) functionName = "performAction";
-    return functionName;
+    return StringEscapeUtils.escapeJavaScript(functionName);
   }
 
 

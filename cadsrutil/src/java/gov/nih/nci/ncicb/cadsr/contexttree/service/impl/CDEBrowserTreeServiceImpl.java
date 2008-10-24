@@ -42,6 +42,7 @@ import java.util.Map;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
+import org.apache.commons.lang.StringEscapeUtils;
 
 public class CDEBrowserTreeServiceImpl
 implements CDEBrowserTreeService {
@@ -1141,7 +1142,7 @@ implements CDEBrowserTreeService {
 										template.getFormCategory()) + "&templateName=" + URLEncoder.encode(
 												longName) + "&contextName="
 												+ URLEncoder.encode(contextName) 
-												+ "&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes&" +
+												+ StringEscapeUtils.escapeHtml("&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes&") +
 												csi.getClassSchemeItemName() + ">>" + longName                                
 												+    "')",
 												templateIdseq, true);
@@ -1276,8 +1277,7 @@ implements CDEBrowserTreeService {
 
 	private LazyActionTreeNode getClassificationSchemeNode(ClassSchemeItem csi)
 	throws Exception {
-		String      extraURLParameters = 
-			"&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes";
+		String      extraURLParameters = StringEscapeUtils.escapeHtml("&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes");
 
 		LazyActionTreeNode csNode = new LazyActionTreeNode("Classifications", 
 				csi.getClassSchemeLongName(),  
@@ -1292,8 +1292,7 @@ implements CDEBrowserTreeService {
 	}
 	private ClassSchemeNode getClassificationSchemeNode(ClassificationScheme cs)
 	throws Exception {
-		String      extraURLParameters = 
-			"&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes";
+		String      extraURLParameters = StringEscapeUtils.escapeHtml("&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes");
 
 		ClassSchemeNode csNode = new ClassSchemeNode("Classifications", 
 				cs.getLongName(),  
@@ -1309,8 +1308,7 @@ implements CDEBrowserTreeService {
 
 	private ClassSchemeContainerNode getClassificationSchemeContainerNode(ClassificationScheme cs)
 	throws Exception {
-		String      extraURLParameters = 
-			"&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes";
+		String      extraURLParameters = StringEscapeUtils.escapeHtml("&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes");
 
 		ClassSchemeContainerNode csNode = new ClassSchemeContainerNode("Container", 
 				cs.getLongName(),  
@@ -1325,8 +1323,7 @@ implements CDEBrowserTreeService {
 	}
 	private ClassSchemeRegStatusNode getRegStatusNode(String regStatus,
 			String contextIdseq, String csIdseq) throws Exception {
-		String      extraURLParameters = 
-			"&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes";
+		String      extraURLParameters = StringEscapeUtils.escapeHtml("&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes");
 
 		ClassSchemeRegStatusNode regStatusNode = new ClassSchemeRegStatusNode(
 				"Registration Status", regStatus,
@@ -1341,8 +1338,7 @@ implements CDEBrowserTreeService {
 
 	private ClassSchemeItemNode getClassificationSchemeItemNode( 
 			ClassSchemeItem csi) throws Exception {
-		String      extraURLParameters = 
-			"&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes";
+		String      extraURLParameters = StringEscapeUtils.escapeHtml("&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes");
 		ClassSchemeItemNode csiNode =new ClassSchemeItemNode(
 				"Classification Scheme Item", csi.getClassSchemeItemName(),
 				"javascript:performAction" + "('P_PARAM_TYPE=CSI&P_IDSEQ="
@@ -1354,8 +1350,7 @@ implements CDEBrowserTreeService {
 	}
 	private CSIRegStatusNode getRegStatusCSINode(ClassSchemeItem csi,
 			String regStatus) throws Exception {
-		String  extraURLParameters = 
-			"&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes";
+		String  extraURLParameters = StringEscapeUtils.escapeHtml("&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes");
 		CSIRegStatusNode csiRSNode = new CSIRegStatusNode(  "Classification Scheme Item",
 				csi.getClassSchemeItemName(),
 				"javascript:performAction('P_PARAM_TYPE=REGCSI&P_IDSEQ="
@@ -1371,8 +1366,7 @@ implements CDEBrowserTreeService {
 	private LazyActionTreeNode getDiseaseSubNode(ClassSchemeItem csi, 
 			String nodeName) throws Exception {
 		int firstSpace = nodeName.indexOf(" ");
-		String  extraURLParameters = 
-			"&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes";
+		String  extraURLParameters = StringEscapeUtils.escapeHtml("&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes");
 
 		String nodeType = nodeName.substring(0, firstSpace).toUpperCase();
 		return new LazyActionTreeNode(
@@ -1516,8 +1510,7 @@ implements CDEBrowserTreeService {
 
 	private LazyActionTreeNode getFormNode(Form form, boolean showContextName) throws Exception {
 		String formIdseq = form.getFormIdseq();
-		String  extraURLParameters = 
-			"&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes";
+		String  extraURLParameters = StringEscapeUtils.escapeHtml("&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes");
 
 		String displayName = form.getLongName();
 		String preferred_definition = form.getPreferredDefinition();
@@ -1555,8 +1548,7 @@ implements CDEBrowserTreeService {
 	private LazyActionTreeNode getProtocolNode(Protocol protocol,
 			String contextId ) throws Exception {
 		String protoIdseq = protocol.getProtoIdseq();
-		String  extraURLParameters = 
-			"&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes";
+		String  extraURLParameters = StringEscapeUtils.escapeHtml("&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes");
 
 		String longName = protocol.getLongName();
 
@@ -1572,8 +1564,7 @@ implements CDEBrowserTreeService {
 	private ProtocolFormNode getLazyProtocolNode(Protocol protocol,
 			String contextId ) throws Exception {
 		String protoIdseq = protocol.getProtoIdseq();
-		String  extraURLParameters = 
-			"&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes";
+		String  extraURLParameters = StringEscapeUtils.escapeHtml("&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes");
 
 		String longName = protocol.getLongName();
 
@@ -1639,8 +1630,7 @@ implements CDEBrowserTreeService {
 	private LazyActionTreeNode getTemplateNode( Form template, 
 			String contextIdseq) throws Exception {
 		String templateIdseq = template.getFormIdseq();
-		String  extraURLParameters = 
-			"&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes";
+		String  extraURLParameters = StringEscapeUtils.escapeHtml("&PageId=DataElementsGroup&NOT_FIRST_DISPLAY=1&performQuery=yes");
 
 		String currContextId = template.getConteIdseq();
 		String contextName = "";
