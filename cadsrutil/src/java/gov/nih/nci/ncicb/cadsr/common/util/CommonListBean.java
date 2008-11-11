@@ -13,6 +13,7 @@ import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringEscapeUtils;
 /**
  * A Bean class.
  * <P>
@@ -112,7 +113,7 @@ public class CommonListBean extends Object {
     int ss=0;
     //System.out.println("numSearchParm: "+ numSearchFields);
 
-    mySearchStr=request.getParameterValues("SEARCH");
+    mySearchStr=request.getParameterValues("SEARCH");    
     if (buildSearchClause) {
       if (mySearchStr!=null){
         ss=mySearchStr.length;
@@ -324,10 +325,10 @@ public class CommonListBean extends Object {
       result.append("<p class=\"OraFieldText\">Current Page: <b>" + (startRec/this.showRowNum +1) + "&nbsp;&nbsp;&nbsp;&nbsp;");
       if (rNum-startRec>this.showRowNum){
         if(this.mySearchStr!=null) {
-          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ (startRec+this.showRowNum) +"&NOT_FIRST_DISPLAY=1" +extraURLInfo + xSearchStr +"')\">Next Page</A>");
+          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ (startRec+this.showRowNum) +"&NOT_FIRST_DISPLAY=1" +StringEscapeUtils.escapeHtml(extraURLInfo + xSearchStr) +"')\">Next Page</A>");
         }
         else {
-          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ (startRec+this.showRowNum) +"&NOT_FIRST_DISPLAY=1" +extraURLInfo +"')\">Next Page</A>");
+          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ (startRec+this.showRowNum) +"&NOT_FIRST_DISPLAY=1" +StringEscapeUtils.escapeHtml(extraURLInfo) +"')\">Next Page</A>");
         }
       }
       result.append("</p>");
@@ -338,10 +339,10 @@ public class CommonListBean extends Object {
           result.append("<br>");
         }
         if(this.mySearchStr!=null) {
-          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ i +"&NOT_FIRST_DISPLAY=1" + extraURLInfo + xSearchStr  +"')\">" + (i/this.showRowNum +1) + "</A>");
+          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ i +"&NOT_FIRST_DISPLAY=1" + StringEscapeUtils.escapeHtml(extraURLInfo + xSearchStr)  +"')\">" + (i/this.showRowNum +1) + "</A>");
         }
         else {
-          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ i +"&NOT_FIRST_DISPLAY=1" + extraURLInfo +"')\">" + (i/this.showRowNum +1) + "</A>");
+          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ i +"&NOT_FIRST_DISPLAY=1" + StringEscapeUtils.escapeHtml(extraURLInfo) +"')\">" + (i/this.showRowNum +1) + "</A>");
         }
       }
       
@@ -398,7 +399,7 @@ public class CommonListBean extends Object {
      colNum = displayParm.length;
      for (int i=1; i<colNum; i+=2){ // for loop 1
        //result.append("<TH ALIGN=\"LEFT\" valign=\"BOTTOM\" BGCOLOR=\"#CCCC99\"><font size=\"-1\" FACE=\"ARIAL\" >" + displayParm[i] + "</font></TH>");
-       result.append("<TH ALIGN=\"LEFT\" valign=\"BOTTOM\"><font size=\"-1\" FACE=\"ARIAL\" nowrap>" + displayParm[i] + "</font></TH>");
+       result.append("<TH ALIGN=\"LEFT\" valign=\"BOTTOM\"><font size=\"-1\" FACE=\"ARIAL\" nowrap>" + StringEscapeUtils.escapeHtml(displayParm[i]) + "</font></TH>");
      } //for loop 1  over
 
      result.append("</TR>");
@@ -453,8 +454,8 @@ public class CommonListBean extends Object {
                 if (displayMode == LIST_DISPLAY) {
                   result.append(
                     "<TD ALIGN=\"LEFT\" valign=\"TOP\"><font size=\"-1\" FACE=\"ARIAL\" nowrap><a href=\"javascript:redirect1('" +
-                    this.getDetailReq_Type() + "','" + linkParms +
-                    "')\">" + this.getColValue(d) + "</font></a></TD>");
+                    StringEscapeUtils.escapeHtml(this.getDetailReq_Type()) + "','" + StringEscapeUtils.escapeHtml(linkParms) +
+                    "')\">" + StringEscapeUtils.escapeHtml(this.getColValue(d)) + "</font></a></TD>");
                 }
                 else {
                   // THIS ASSUMES THAT THERE IS ONLY ONE LINK COLUMN
@@ -477,12 +478,12 @@ public class CommonListBean extends Object {
                   }
                   result.append(
                     "<TD ALIGN=\"LEFT\" valign=\"TOP\"><font size=\"-1\" FACE=\"ARIAL\" nowrap><a href=\"javascript:passback('" +
-                    this.getColValue(dispLength/2) + "'," + lovLink +
-                    ")\">" + this.getColValue(d) + "</font></a></TD>");
+                    StringEscapeUtils.escapeHtml(this.getColValue(dispLength/2)) + "'," + StringEscapeUtils.escapeHtml(lovLink) +
+                    ")\">" + StringEscapeUtils.escapeHtml(this.getColValue(d)) + "</font></a></TD>");
                 }
               }
               else {
-                result.append("<TD ALIGN=\"LEFT\" valign=\"TOP\"><font size=\"-1\" FACE=\"ARIAL\" nowrap>" + this.getColValue(d) + "</font></TD>");
+                result.append("<TD ALIGN=\"LEFT\" valign=\"TOP\"><font size=\"-1\" FACE=\"ARIAL\" nowrap>" + StringEscapeUtils.escapeHtml(this.getColValue(d)) + "</font></TD>");
               }
             }
             else {
@@ -493,8 +494,8 @@ public class CommonListBean extends Object {
             if (displayMode == LIST_DISPLAY) {
               result.append(
                 "<TD ALIGN=\"LEFT\" valign=\"TOP\"><font size=\"-1\" FACE=\"ARIAL\" nowrap><a href=\"javascript:redirect1('" +
-                this.getDetailReq_Type() + "','" + linkParms + "')\">" +
-                this.getColValue(d) + "</font></a></TD>");
+                StringEscapeUtils.escapeHtml(this.getDetailReq_Type()) + "','" + StringEscapeUtils.escapeHtml(linkParms) + "')\">" +
+                StringEscapeUtils.escapeHtml(this.getColValue(d)) + "</font></a></TD>");
             }
             else {
               // THIS ASSUMES THAT THERE IS ONLY ONE LINK COLUMN
@@ -505,14 +506,14 @@ public class CommonListBean extends Object {
               
               result.append(
                 "<TD ALIGN=\"LEFT\" valign=\"TOP\"><font size=\"-1\" FACE=\"ARIAL\" nowrap><a href=\"javascript:passback('" +
-                this.getColValue(dispLength/2) + "','" + this.getColValue(0) +
-                "')\">" + this.getColValue(d) + "</font></a></TD>");
+                StringEscapeUtils.escapeHtml(this.getColValue(dispLength/2)) + "','" + StringEscapeUtils.escapeHtml(this.getColValue(0)) +
+                "')\">" + StringEscapeUtils.escapeHtml(this.getColValue(d)) + "</font></a></TD>");
             }
           }
           else {
             // for all non link columns, replace nulls with a single space
             if (this.getColValue(d) != null) {
-              result.append("<TD ALIGN=\"LEFT\" valign=\"TOP\"><font size=\"-1\" FACE=\"ARIAL\" nowrap>" + this.getColValue(d) + "</font></TD>");
+              result.append("<TD ALIGN=\"LEFT\" valign=\"TOP\"><font size=\"-1\" FACE=\"ARIAL\" nowrap>" + StringEscapeUtils.escapeHtml(this.getColValue(d)) + "</font></TD>");
             }
             else {
               result.append("<TD>&nbsp;</TD>");
@@ -540,11 +541,11 @@ public class CommonListBean extends Object {
     //String   xSearchStr="";
     for( int s=0; s<sArLength; s++) {
       //result.append("<TR><TD ALIGN=\"LEFT\">" + searchParm[2*s+1] + "</TD>");
-      result.append("<TR><TD class=\"fieldtitlebold\" nowrap>" + searchParm[2*s+1] + "</TD>");
+      result.append("<TR><TD class=\"fieldtitlebold\" nowrap>" + StringEscapeUtils.escapeHtml(searchParm[2*s+1]) + "</TD>");
       if (mySearchStr!=null) {
-        xSearchStr+="&SEARCH=" + mySearchStr[s];
+        xSearchStr+=StringEscapeUtils.escapeHtml("&SEARCH=" + mySearchStr[s]);        
         //result.append("<TD ALIGN=\"LEFT\"><INPUT TYPE=\"text\" NAME=\"SEARCH\" SIZE=\"15\" value=\"" + mySearchStr[s] + "\"></TD></TR>");
-        result.append("<TD class=\"OraFieldText\" nowrap><INPUT TYPE=\"text\" NAME=\"SEARCH\" SIZE=\"15\" value=\"" + mySearchStr[s] + "\"></TD></TR>");
+        result.append("<TD class=\"OraFieldText\" nowrap><INPUT TYPE=\"text\" NAME=\"SEARCH\" SIZE=\"15\" value=\"" + StringEscapeUtils.escapeHtml(mySearchStr[s]) + "\"></TD></TR>");
       }
       else {
         //result.append("<TD ALIGN=\"LEFT\"><INPUT TYPE=\"text\" NAME=\"SEARCH\" SIZE=\"15\" value=\"\"></TD></TR>");
@@ -601,20 +602,20 @@ public class CommonListBean extends Object {
       result.append("<p>Current Page: <b>" + (startRec/this.showRowNum +1) + "&nbsp;&nbsp;&nbsp;&nbsp;");
       if (rNum-startRec>this.showRowNum){
         if(this.mySearchStr!=null) {
-          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ (startRec+this.showRowNum) +"&NOT_FIRST_DISPLAY=1" +extraURLInfo + xSearchStr +"')\">Next Page</A>");
+          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ (startRec+this.showRowNum) +"&NOT_FIRST_DISPLAY=1" +StringEscapeUtils.escapeHtml(extraURLInfo + xSearchStr) +"')\">Next Page</A>");
         }
         else {
-          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ (startRec+this.showRowNum) +"&NOT_FIRST_DISPLAY=1" +extraURLInfo +"')\">Next Page</A>");
+          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ (startRec+this.showRowNum) +"&NOT_FIRST_DISPLAY=1" +StringEscapeUtils.escapeHtml(extraURLInfo) +"')\">Next Page</A>");
         }
       }
       result.append("</p>");
       result.append("<P><b>Go Page: ");
       for (int i=0; i < rNum; i+=this.showRowNum) {
         if(this.mySearchStr!=null) {
-          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ i +"&NOT_FIRST_DISPLAY=1" + extraURLInfo + xSearchStr  +"')\">" + (i/this.showRowNum +1) + "</A>");
+          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ i +"&NOT_FIRST_DISPLAY=1" + StringEscapeUtils.escapeHtml(extraURLInfo) + xSearchStr  +"')\">" + (i/this.showRowNum +1) + "</A>");
         }
         else {
-          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ i +"&NOT_FIRST_DISPLAY=1" + extraURLInfo +"')\">" + (i/this.showRowNum +1) + "</A>");
+          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ i +"&NOT_FIRST_DISPLAY=1" + StringEscapeUtils.escapeHtml(extraURLInfo) +"')\">" + (i/this.showRowNum +1) + "</A>");
         }
       }
     }
