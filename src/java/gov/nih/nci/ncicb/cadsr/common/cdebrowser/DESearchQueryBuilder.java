@@ -486,6 +486,7 @@ public class DESearchQueryBuilder extends Object {
                                decFrom +
                                registrationFrom +
                                wkFlowFrom+
+                               fromClause+
                         // " where de.deleted_ind = 'No' "+
                          " where de.de_idseq = rd.ac_idseq (+) and rd.dctl_name (+) = 'Preferred Question Text'" +
                          registrationExcludeWhere + workflowExcludeWhere+contextExludeWhere +
