@@ -46,6 +46,7 @@ public class CDEBrowserParams
     String cdeBrowserUrl="";
     String objectCartUrl="";
     String cadsrAPIUrl="";
+    String formBuilderHelpUrl="";
     
     String contextTest = "";
     String contextTraining = "";
@@ -359,6 +360,8 @@ public class CDEBrowserParams
             contextTest = properties.getProperty("BROADCAST.EXCLUDE.CONTEXT.00.NAME");
             index++;      
             contextTraining = properties.getProperty("BROADCAST.EXCLUDE.CONTEXT.01.NAME");
+            index++; 
+            formBuilderHelpUrl = properties.getProperty("HELP.ROOT");
             index++;      
             log.info("Loaded Properties"+properties);
                         
@@ -446,4 +449,13 @@ public class CDEBrowserParams
 	{
 		return contextTraining;
 	}
+
+	public String getFormBuilderHelpUrl() {
+		return (formBuilderHelpUrl == null) ? "/help" : formBuilderHelpUrl;
+	}
+
+	public void setFormBuilderHelpUrl(String formBuilderHelpUrl) {
+		this.formBuilderHelpUrl = formBuilderHelpUrl;
+	}
+	
 }
