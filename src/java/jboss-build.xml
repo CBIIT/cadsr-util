@@ -24,6 +24,7 @@
   <property name="dist.dir" value="${project.home}/dist"/>
   <property name="classes.build.dir" value="${build.dir}/classes"/>
   <property name="java.lib.dir" value="${project.home}/lib/java"/>  
+  <property name="odi.dir" location="${project.home}/ospack" />  
 
   <!-- =========== CLEAN BUILD AREA ======================= -->
     <target name="clean">
@@ -101,6 +102,27 @@
 	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\workspace\ocbrowser\lib\java\javacadsrutil.jar"/>
  	
 
+	 </target>
+    <target name="package-download" description="Packages the project for public distribution and access.">
+        <echo>Building project Open Source Download package ...</echo>
+        <delete dir="${odi.dir}"/>
+        <mkdir dir="${odi.dir}"/>
+        <mkdir dir="${odi.dir}/conf"/>
+        <copy todir="${odi.dir}/conf">
+            <fileset dir="${project.home}/conf"/>
+        </copy>
+        <mkdir dir="${odi.dir}/lib/java"/>
+        <copy todir="${odi.dir}/lib/java">
+            <fileset dir="${project.home}/lib"/>
+        </copy>
+        <mkdir dir="${odi.dir}/src/java"/>
+        <copy todir="${odi.dir}/src/java">
+            <fileset dir="${java.src.dir}"/>
+        </copy>
+        <zip destfile="${dist.dir}/cadsrutil_ospack.zip">
+            <zipfileset dir="${odi.dir}"/>
+        </zip>
+        <tar destfile="${dist.dir}/cadsrutil_ospack.tar.gz" basedir="${odi.dir}" compression="gzip"/>        
 	 </target>
 	
 </project>
