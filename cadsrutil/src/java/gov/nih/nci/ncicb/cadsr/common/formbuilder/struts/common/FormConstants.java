@@ -66,6 +66,7 @@ public interface FormConstants extends FormBuilderConstants {
   public static final String CHANGED_FORM_DELETED_MODULES = "gotoEdit";
   public static final String MODULE_LONG_NAME = "moduleLongName";
   public static final String REFERENCE_DOC_ATTACHMENT_NAME = "refDocAttName";
+  public static final String FORM_FORWARD = "forward";
  // public static final String MODULE_INSTRUCTION_LONG_NAME =
    // "moduleInstructionLongName";
   public static final String CLONED_CRF = "clonedCrf";
