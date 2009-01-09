@@ -1,39 +1,38 @@
 package gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc;
 
+import gov.nih.nci.ncicb.cadsr.common.dto.AddressTransferObject;
 import gov.nih.nci.ncicb.cadsr.common.dto.AttachmentTransferObject;
 import gov.nih.nci.ncicb.cadsr.common.dto.CSITransferObject;
-import gov.nih.nci.ncicb.cadsr.common.dto.ContextTransferObject;
-import gov.nih.nci.ncicb.cadsr.common.dto.AddressTransferObject;
-import gov.nih.nci.ncicb.cadsr.common.dto.PersonTransferObject;
-import gov.nih.nci.ncicb.cadsr.common.dto.ContactTransferObject;
-import gov.nih.nci.ncicb.cadsr.common.dto.OrganizationTransferObject;
 import gov.nih.nci.ncicb.cadsr.common.dto.ContactCommunicationTransferObject;
-import gov.nih.nci.ncicb.cadsr.common.dto.ReferenceDocumentTransferObject;
-import gov.nih.nci.ncicb.cadsr.common.dto.jdbc.JDBCFormTransferObject;
-import gov.nih.nci.ncicb.cadsr.common.dto.DesignationTransferObject;
-import gov.nih.nci.ncicb.cadsr.common.dto.CSITransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ContactTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ContextTransferObject;
 import gov.nih.nci.ncicb.cadsr.common.dto.DefinitionTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.DesignationTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.OrganizationTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.PersonTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.ReferenceDocumentTransferObject;
 import gov.nih.nci.ncicb.cadsr.common.exception.DMLException;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.AdminComponentDAO;
+import gov.nih.nci.ncicb.cadsr.common.resource.Address;
 import gov.nih.nci.ncicb.cadsr.common.resource.Attachment;
 import gov.nih.nci.ncicb.cadsr.common.resource.ClassSchemeItem;
 import gov.nih.nci.ncicb.cadsr.common.resource.Contact;
 import gov.nih.nci.ncicb.cadsr.common.resource.ContactCommunication;
 import gov.nih.nci.ncicb.cadsr.common.resource.Context;
-import gov.nih.nci.ncicb.cadsr.common.resource.Person;
-import gov.nih.nci.ncicb.cadsr.common.resource.Address;
-import gov.nih.nci.ncicb.cadsr.common.resource.Organization;
-import gov.nih.nci.ncicb.cadsr.common.resource.Designation;
 import gov.nih.nci.ncicb.cadsr.common.resource.Definition;
+import gov.nih.nci.ncicb.cadsr.common.resource.Designation;
+import gov.nih.nci.ncicb.cadsr.common.resource.Organization;
+import gov.nih.nci.ncicb.cadsr.common.resource.Person;
 import gov.nih.nci.ncicb.cadsr.common.resource.ReferenceDocument;
 import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocator;
 import gov.nih.nci.ncicb.cadsr.common.servicelocator.SimpleServiceLocator;
 import gov.nih.nci.ncicb.cadsr.common.util.StringUtils;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -805,7 +804,10 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
       refDoc.setDocName(rs.getString(1));
       refDoc.setDocType(rs.getString(2));
       refDoc.setDocIDSeq(rs.getString(4));
-      refDoc.setUrl(rs.getString(5));
+      
+      String url = getURLWithProtocol(rs.getString(5));
+      
+      refDoc.setUrl(getURLWithProtocol(url));
       refDoc.setDocText(rs.getString(6));
       refDoc.setDisplayOrder(rs.getInt(9));
 
@@ -816,6 +818,21 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
       return refDoc;
     }
   }
+  
+  private String getURLWithProtocol(String incompleteURL)  {
+	  
+	  if (incompleteURL == null) return null;
+	  String urlWithProtocol = incompleteURL;
+	  
+	  try {
+		new URL(incompleteURL);
+	} catch (MalformedURLException e) {
+		urlWithProtocol = "http://"+incompleteURL.trim();
+	}
+	
+	return urlWithProtocol;
+  }
+  
   /**
    * Inner class to get all ReferenceDocuments that belong to
    * the specified Admin Component
