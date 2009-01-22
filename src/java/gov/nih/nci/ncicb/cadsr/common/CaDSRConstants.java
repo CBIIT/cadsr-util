@@ -3,7 +3,7 @@ package gov.nih.nci.ncicb.cadsr.common;
 public interface CaDSRConstants {
   public static final String USER_KEY = "nciUser";
   public static final String CDE_MANAGER = "CDE MANAGER";  
-  //Publish Chamge Order Oct 24/04
+  //Publish Change Order Oct 24/04
   public static final String CONTEXT_ADMIN = "CONTEXT ADMIN";
   public static final String CONTEXT_CABIG = "caBIG";
   public static final String CONTEXT_TEST = "TEST";
@@ -44,4 +44,12 @@ public interface CaDSRConstants {
   public static final String EXCLUDE_TEST_CONTEXT="excludeTestContext";
   public static final String EXCLUDE_TRAINING_CONTEXT="excludeTrainingContext";
   public static final String SEARCH_PREFERENCES="searchpreferences";  
+  
+  public static final String REFERENCE_DOC_ATTACHMENT_NAME = "refDocAttName";
+  public static final String REFDOC_ATTACHMENT_MAP = "refDocAttachmentMap";
+  
+  public static final String VALUE_MEANING_OBJ = "ValueMeaningObj";
+  public static final String PROTOCOLS_LOV_TAB_BEAN = "protocolLOVTabBean";
+  public static final String PROTOCOLS_LOV_BEAN = "protocolLOVBean";
+  
 }
