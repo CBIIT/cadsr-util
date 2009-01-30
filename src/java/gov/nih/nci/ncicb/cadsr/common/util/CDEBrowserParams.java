@@ -328,8 +328,8 @@ public class CDEBrowserParams
             index++;
             excludeRegistrationStatuses = properties.getProperty("EXCLUDE_REGISTRATION_BY_DEFAULT");
             index++;      
-            //Temporary Page for Admin Tool
-            adminToolUrl = "/CDEBrowser/common/adminRedirection.html";//properties.getProperty("AdminTool_URL");
+            //URL to Temporary Page for Admin Tool retrieved from Tools options table
+            adminToolUrl = properties.getProperty("AdminTool_URL"); //"/CDEBrowser/common/adminRedirection.html";
             index++;      
             curationToolUrl = properties.getProperty("CURATION_URL");
             index++;
