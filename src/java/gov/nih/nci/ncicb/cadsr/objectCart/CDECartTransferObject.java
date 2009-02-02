@@ -1,8 +1,10 @@
 package gov.nih.nci.ncicb.cadsr.objectCart;
 
 
-import java.io.Serializable;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -13,7 +15,9 @@ import java.util.Set;
 public class CDECartTransferObject implements CDECart, Serializable {
   protected Set dataElements;
   protected Set forms;
-
+  
+  private static Log log = LogFactory.getLog(CDECartTransferObject.class.getName());
+  
   public CDECartTransferObject() {
     dataElements = new HashSet();
     forms = new HashSet();
@@ -72,9 +76,9 @@ public class CDECartTransferObject implements CDECart, Serializable {
 
     c.setDataElements(l);
 
-    System.out.println("Cart size: " + c.getDataElements().size());
-    System.out.println("Hashcode of i1: " + i1.hashCode());
-    System.out.println("Hashcode of i2: " + i2.hashCode());
+    log.debug("Cart size: " + c.getDataElements().size());
+    log.debug("Hashcode of i1: " + i1.hashCode());
+    log.debug("Hashcode of i2: " + i2.hashCode());
   }
 
   public void associateCart(String userId) {
