@@ -20,13 +20,13 @@ public class BaseTreeNode implements TreeConstants, CaDSRConstants,TreeFunctions
   public String getJsFunctionName() {
     String functionName = (String)treeParams.get(FUNCTION_NAME_URL_PARAM);
     if (functionName == null) functionName = "performAction";
-    return StringEscapeUtils.escapeJavaScript(functionName);
+    return StringEscapeUtils.escapeHtml(functionName);
   }
 
   public String getTreeType() {
     String treeType = (String)treeParams.get(TREE_TYPE_URL_PARAM);
     if (treeType == null) treeType = DE_SEARCH_TREE;
-    return StringEscapeUtils.escapeJavaScript(treeType);
+    return StringEscapeUtils.escapeHtml(treeType);
   }
   public String getExtraURLParameters() {
     String extraURLParameters = (String)treeParams.get(EXTRA_URL_PARAMS);
@@ -50,7 +50,7 @@ public class BaseTreeNode implements TreeConstants, CaDSRConstants,TreeFunctions
     else
       extraURLParameters = extraURLParameters + "&"+TREE_BREADCRUMBS+"="+TREE_BREADCRUMBS_HOLDER;
 
-    return StringEscapeUtils.escapeJavaScript(extraURLParameters);
+    return StringEscapeUtils.escapeHtml(extraURLParameters);
   }
 
   public String getFormJsFunctionName() {
@@ -60,7 +60,7 @@ public class BaseTreeNode implements TreeConstants, CaDSRConstants,TreeFunctions
     else
       functionName = (String)treeParams.get(FUNCTION_NAME_URL_PARAM);
     if (functionName == null) functionName = "performAction";
-    return StringEscapeUtils.escapeJavaScript(functionName);
+    return StringEscapeUtils.escapeHtml(functionName);
   }
 
 
