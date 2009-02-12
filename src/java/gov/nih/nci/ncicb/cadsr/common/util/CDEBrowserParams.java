@@ -47,6 +47,7 @@ public class CDEBrowserParams
     String objectCartUrl="";
     String cadsrAPIUrl="";
     String formBuilderHelpUrl="";
+    String cdebrowserHelpUrl="";
     
     String contextTest = "";
     String contextTraining = "";
@@ -364,6 +365,9 @@ public class CDEBrowserParams
             formBuilderHelpUrl = properties.getProperty("HELP.ROOT");
             index++;      
             log.info("Loaded Properties"+properties);
+            cdebrowserHelpUrl = properties.getProperty("HELP.ROOT");
+            index++;      
+            log.info("Loaded Properties"+properties);
                         
         } 
         catch (java.util.MissingResourceException mre) 
@@ -456,6 +460,13 @@ public class CDEBrowserParams
 
 	public void setFormBuilderHelpUrl(String formBuilderHelpUrl) {
 		this.formBuilderHelpUrl = formBuilderHelpUrl;
-	}
+	}	
 	
+	public String getCdeBrowserHelpUrl() {
+		return (cdebrowserHelpUrl == null) ? "/help" : cdebrowserHelpUrl;
+	}
+
+	public void setCdeBrowserHelpUrl(String cdebrowserHelpUrl) {
+		this.cdebrowserHelpUrl = cdebrowserHelpUrl;
+	}
 }
