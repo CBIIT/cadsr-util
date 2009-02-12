@@ -325,10 +325,10 @@ public class CommonListBean extends Object {
       result.append("<p class=\"OraFieldText\">Current Page: <b>" + (startRec/this.showRowNum +1) + "&nbsp;&nbsp;&nbsp;&nbsp;");
       if (rNum-startRec>this.showRowNum){
         if(this.mySearchStr!=null) {
-          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ (startRec+this.showRowNum) +"&NOT_FIRST_DISPLAY=1" +StringEscapeUtils.escapeJavaScript(extraURLInfo + xSearchStr) +"')\">Next Page</A>");
+          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ (startRec+this.showRowNum) +"&NOT_FIRST_DISPLAY=1" +StringEscapeUtils.escapeHtml(extraURLInfo + xSearchStr) +"')\">Next Page</A>");
         }
         else {
-          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ (startRec+this.showRowNum) +"&NOT_FIRST_DISPLAY=1" +StringEscapeUtils.escapeJavaScript(extraURLInfo) +"')\">Next Page</A>");
+          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ (startRec+this.showRowNum) +"&NOT_FIRST_DISPLAY=1" +StringEscapeUtils.escapeHtml(extraURLInfo) +"')\">Next Page</A>");
         }
       }
       result.append("</p>");
@@ -339,10 +339,10 @@ public class CommonListBean extends Object {
           result.append("<br>");
         }
         if(this.mySearchStr!=null) {
-          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ i +"&NOT_FIRST_DISPLAY=1" + StringEscapeUtils.escapeJavaScript(extraURLInfo + xSearchStr)  +"')\">" + (i/this.showRowNum +1) + "</A>");
+          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ i +"&NOT_FIRST_DISPLAY=1" + StringEscapeUtils.escapeHtml(extraURLInfo + xSearchStr)  +"')\">" + (i/this.showRowNum +1) + "</A>");
         }
         else {
-          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ i +"&NOT_FIRST_DISPLAY=1" + StringEscapeUtils.escapeJavaScript(extraURLInfo) +"')\">" + (i/this.showRowNum +1) + "</A>");
+          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ i +"&NOT_FIRST_DISPLAY=1" + StringEscapeUtils.escapeHtml(extraURLInfo) +"')\">" + (i/this.showRowNum +1) + "</A>");
         }
       }
       
@@ -602,20 +602,20 @@ public class CommonListBean extends Object {
       result.append("<p>Current Page: <b>" + (startRec/this.showRowNum +1) + "&nbsp;&nbsp;&nbsp;&nbsp;");
       if (rNum-startRec>this.showRowNum){
         if(this.mySearchStr!=null) {
-          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ (startRec+this.showRowNum) +"&NOT_FIRST_DISPLAY=1" +StringEscapeUtils.escapeJavaScript(extraURLInfo + xSearchStr) +"')\">Next Page</A>");
+          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ (startRec+this.showRowNum) +"&NOT_FIRST_DISPLAY=1" +StringEscapeUtils.escapeHtml(extraURLInfo + xSearchStr) +"')\">Next Page</A>");
         }
         else {
-          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ (startRec+this.showRowNum) +"&NOT_FIRST_DISPLAY=1" +StringEscapeUtils.escapeJavaScript(extraURLInfo) +"')\">Next Page</A>");
+          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ (startRec+this.showRowNum) +"&NOT_FIRST_DISPLAY=1" +StringEscapeUtils.escapeHtml(extraURLInfo) +"')\">Next Page</A>");
         }
       }
       result.append("</p>");
       result.append("<P><b>Go Page: ");
       for (int i=0; i < rNum; i+=this.showRowNum) {
         if(this.mySearchStr!=null) {
-          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ i +"&NOT_FIRST_DISPLAY=1" + StringEscapeUtils.escapeJavaScript(extraURLInfo) + xSearchStr  +"')\">" + (i/this.showRowNum +1) + "</A>");
+          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ i +"&NOT_FIRST_DISPLAY=1" + StringEscapeUtils.escapeHtml(extraURLInfo) + xSearchStr  +"')\">" + (i/this.showRowNum +1) + "</A>");
         }
         else {
-          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ i +"&NOT_FIRST_DISPLAY=1" + StringEscapeUtils.escapeJavaScript(extraURLInfo) +"')\">" + (i/this.showRowNum +1) + "</A>");
+          result.append("&nbsp;<A HREF= \"javascript:goPage('page_num="+ i +"&NOT_FIRST_DISPLAY=1" + StringEscapeUtils.escapeHtml(extraURLInfo) +"')\">" + (i/this.showRowNum +1) + "</A>");
         }
       }
     }
