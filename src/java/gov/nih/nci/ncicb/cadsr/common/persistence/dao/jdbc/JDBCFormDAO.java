@@ -11,30 +11,31 @@ import gov.nih.nci.ncicb.cadsr.common.exception.DMLException;
 import gov.nih.nci.ncicb.cadsr.common.persistence.PersistenceConstants;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.FormDAO;
 import gov.nih.nci.ncicb.cadsr.common.resource.ClassSchemeItem;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
 import gov.nih.nci.ncicb.cadsr.common.resource.Form;
 import gov.nih.nci.ncicb.cadsr.common.resource.Module;
 import gov.nih.nci.ncicb.cadsr.common.resource.Protocol;
+import gov.nih.nci.ncicb.cadsr.common.resource.Version;
 import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocator;
 import gov.nih.nci.ncicb.cadsr.common.servicelocator.SimpleServiceLocator;
 import gov.nih.nci.ncicb.cadsr.common.util.StringUtils;
-import gov.nih.nci.ncicb.cadsr.common.resource.Version;
-import gov.nih.nci.ncicb.cadsr.common.resource.Context;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.sql.Types;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Iterator;
-
 
 import javax.sql.DataSource;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.SqlOutParameter;
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.object.MappingSqlQuery;
@@ -979,7 +980,6 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
                           publicId, version, moduleName, cdePublicId, hasWhere);
       String sql = selectWhat.toString() + " " + fromWhat.toString() + " "
                     + initialWhere.toString() + whereClause;
-      System.out.println(sql);
       super.setSql(sql);
 /*
       if (StringUtils.doesValueExist(moduleName) || StringUtils.doesValueExist(cdePublicId)){
@@ -1986,22 +1986,31 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
     }
 
 
-    private class SetLatestVersion extends SqlUpdate {
-        public SetLatestVersion(DataSource ds){
-            this.setDataSource(ds);
+    private class SetLatestVersion {
+    	private DataSource ds;
+    	
+        public SetLatestVersion(DataSource _ds){
+            this.ds = _ds;
         }
 
-        protected int updateVersionInfo(String formIdSeq, String changeNote, boolean lastestVersionInd, String modifiedBy){
-          String latestVersionIndStr = "No";
-          if (lastestVersionInd){
-              latestVersionIndStr = "Yes";
-          }
-          String setLatestVersionSql =
-            "update sbrext.quest_contents_view_ext set latest_version_ind = '" + latestVersionIndStr + "', change_note='"
-            + changeNote + "',  modified_by = '" + modifiedBy + "' where qc_idseq='" + formIdSeq + "'";
-          setSql(setLatestVersionSql);
-          compile();
-          int res = update();
+        protected int updateVersionInfo(final String formIdSeq, final String changeNote, final boolean lastestVersionInd, final String modifiedBy){
+          JdbcTemplate jdbcTemplate = new JdbcTemplate(ds);
+          String sql = "update sbrext.quest_contents_view_ext set latest_version_ind = ?, change_note=?,  modified_by = ? where qc_idseq=?";
+
+          int res = jdbcTemplate.update(sql, new PreparedStatementSetter() {
+			public void setValues(PreparedStatement ps) throws SQLException {
+				String latestVersionIndStr = "No";
+				if (lastestVersionInd){
+					latestVersionIndStr = "Yes";
+				}
+				
+				ps.setString(1, latestVersionIndStr);
+				ps.setString(2, changeNote);
+				ps.setString(3, modifiedBy);
+				ps.setString(4, formIdSeq);
+			}
+          });
+          
           return res;
         }
     }
