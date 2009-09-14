@@ -760,7 +760,7 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
     }
 
     public void _setSql(String id) {
-      super.setSql("SELECT * FROM FB_MODULES_VIEW where CRF_IDSEQ = '" + id + "'");
+      super.setSql("SELECT a.*, b.PUBLIC_ID FROM FB_MODULES_VIEW a, AC_PUBLIC_ID_VIEW_EXT b where a.CRF_IDSEQ = '" + id + "' and a.MOD_IDSEQ = b.AC_IDSEQ");
 //       declareParameter(new SqlParameter("CRF_IDSEQ", Types.VARCHAR));
     }
 
@@ -780,6 +780,7 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
      module.setLongName(rs.getString(8));     // LONG_NAME
      module.setDisplayOrder(rs.getInt(13));   // DISPLAY_ORDER
      module.setNumberOfRepeats(rs.getInt(14));//repeat_no
+     module.setPublicId(rs.getInt(15));
      return module;
     }
   }
@@ -981,6 +982,8 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
       String sql = selectWhat.toString() + " " + fromWhat.toString() + " "
                     + initialWhere.toString() + whereClause;
       super.setSql(sql);
+      
+      System.out.println("FRM SEARCH QRY: ["+sql+"]");
 /*
       if (StringUtils.doesValueExist(moduleName) || StringUtils.doesValueExist(cdePublicId)){
         whereClause = makeWhereClause(
@@ -2078,10 +2081,13 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
 
     protected int addFormProtocol( String formIdseq, String protocolIdseq, String createdBy) {
         String sql =
-              "insert into protocol_qc_ext  (qc_idseq, proto_idseq, created_by ) values ('" + formIdseq + "', '" + protocolIdseq + "', '" + createdBy + "' )";
+              "insert into protocol_qc_ext  (qc_idseq, proto_idseq, created_by ) values (?,?,?)";
           this.setSql(sql);
+          declareParameter(new SqlParameter("qc_idseq", Types.VARCHAR));
+          declareParameter(new SqlParameter("proto_idseq", Types.VARCHAR));
+          declareParameter(new SqlParameter("created_by", Types.VARCHAR));
           compile();
-          int res = update();
+          int res = update(new Object[]{formIdseq,protocolIdseq, createdBy});
           return res;
       }
     }
