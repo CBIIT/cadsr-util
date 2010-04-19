@@ -96,5 +96,15 @@ public class CDECartTransferObject implements CDECart, Serializable {
   public void expireCart(Date expireDate){
 		  //TODO
   }
+
+public String getCartId() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+public String getCartName() {
+	// TODO Auto-generated method stub
+	return null;
+}
   
 }
