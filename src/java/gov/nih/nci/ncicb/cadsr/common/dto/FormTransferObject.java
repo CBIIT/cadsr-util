@@ -32,6 +32,7 @@ public class FormTransferObject extends FormElementTransferObject
    private String contextName = null;
    private String protocolLongName = null;
    private Collection classifications = null;
+   private boolean checked = false;
    
    private static final String DELIMITER = ", ";
 
@@ -402,4 +403,12 @@ public class FormTransferObject extends FormElementTransferObject
     return CDEList;
     }//end of method
 
+  public boolean isChecked() {
+	  return checked;
+  }
+  
+  public void setChecked(boolean checked) {
+	  this.checked = checked;
+  }
+  
   }

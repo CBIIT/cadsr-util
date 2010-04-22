@@ -7,7 +7,7 @@
  * performed before incurring the overhead of the logging method call 
  *
  * @release 3.0
- * @author: <a href=”mailto:jane.jiang@oracle.com”>Jane Jiang</a>
+ * @author: <a href="mailto:jane.jiang@oracle.com">Jane Jiang</a>
  * @date: 8/16/2005
  * @version: $Id: CaDSRLogImpl.java,v 1.2 2007-12-15 21:54:11 hegdes Exp $
  */

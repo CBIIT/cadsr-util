@@ -1,5 +1,7 @@
 package gov.nih.nci.ncicb.cadsr.objectCart.impl;
 
+import gov.nih.nci.cadsr.domain.Form;
+import gov.nih.nci.ncicb.cadsr.common.dto.FormTransferObject;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECart;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItem;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItemComparator;
@@ -13,6 +15,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -59,26 +62,48 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 	}  
 	
 	public Collection getDataElements() {
-		return getElements();
+		return getElements(CDECartItemTransferObject.class);
 	}	
 
 	public Collection getForms() {
-		return getElements();
+		return getElements(FormTransferObject.class);
 	}
 
-	private Collection getElements() {
+	private Collection getElements(Class type) {
 		try {
-			Collection cartElements = cartClient.getObjectsByType(oCart, CDECartObjectType);
+			Collection cartElements = cartClient.getObjectsByType(oCart, type);
 			if (cartElements != null){
-				Collection items = ObjectCartClient.getPOJOCollection(CDECartObjectType, cartElements);
+				Collection items = ObjectCartClient.getPOJOCollection(type, cartElements);
 				List itemList = new ArrayList(items);
-				Collections.sort(itemList,itemComparator);
+				Collections.sort(itemList,getComparator(type));
 				return itemList;
 			} else 
 				return new ArrayList();
 		} catch (ObjectCartException oce) {
 			oce.printStackTrace();
 			throw new RuntimeException("getElements: Error restoring the POJO Collection", oce);
+		}
+	}
+	
+	private Comparator getComparator(Class type) {
+		if (type.getName().equalsIgnoreCase("CDECartItemTransferObject")) {
+			return itemComparator;
+		}
+		else if (type.getName().equalsIgnoreCase("FormTransferObject")) {
+			return new Comparator() {
+				public int compare(Object o1, Object o2) {
+					Form form1 = (Form)o1;
+					Form form2 = (Form)o2;
+					return form1.getLongName().compareToIgnoreCase(form2.getLongName());
+				}
+			};
+		}
+		else {
+			return new Comparator() {	
+				public int compare(Object o1, Object o2) {
+					return 0;
+				}
+			};
 		}
 	}
 	
