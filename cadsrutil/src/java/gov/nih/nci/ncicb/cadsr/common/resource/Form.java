@@ -42,5 +42,6 @@ public interface Form extends FormElement,Instructionable  {
 
   public List getCDEIdList();
   
-  
+  public boolean isChecked();
+  public void setChecked(boolean checked);
 }
