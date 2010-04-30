@@ -136,7 +136,7 @@ public class Pagination extends TagSupport implements CaDSRConstants,FormConstan
   {
      StringBuffer htmlStr = new StringBuffer(generateJavaScript());
      //StringBuffer htmlStr = new StringBuffer();
-     htmlStr.append("<table width=\"100%\" align=\"center\" cellpadding=\"1\" cellspacing=\"1\" border=\"0\">");
+     htmlStr.append("<table width=\"50%\" align=\"right\" cellpadding=\"1\" cellspacing=\"1\" border=\"0\">");
      htmlStr.append("<tr> <td CLASS=\""+textClassName+"\" align=\"right\"> <td align=\"right\">");
     return htmlStr.toString();
   }
