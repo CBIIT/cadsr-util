@@ -106,5 +106,15 @@ public String getCartName() {
 	// TODO Auto-generated method stub
 	return null;
 }
+
+public Object findElement(String itemId, Class objectType) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+public void mergeElements(Collection items) {
+	// TODO Auto-generated method stub
+	
+}
   
 }

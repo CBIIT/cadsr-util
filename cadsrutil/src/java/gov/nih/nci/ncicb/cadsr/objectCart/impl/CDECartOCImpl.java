@@ -182,6 +182,30 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 		}
 	}
 	
+	public void mergeElements(Collection items) {
+		Map<String, String> objectDisplayNames = new HashMap<String, String> ();
+		Map<String, Object>  objects = new HashMap<String, Object>();
+		HashSet<CartObject> forRemoval = new HashSet<CartObject>();
+		
+		for(Object o: items) {
+			FormTransferObject item = (FormTransferObject) o;
+			CartObject co = getNativeObject(item.getIdseq());
+			
+			objectDisplayNames.put(item.getIdseq(), item.getLongName());
+			objects.put(item.getIdseq(), item);
+			
+			if(co != null)
+				forRemoval.add(co);
+		}
+		try {
+			oCart = cartClient.removeObjectCollection(oCart, forRemoval);
+			oCart = cartClient.storePOJOCollection(oCart, FormTransferObject.class, objectDisplayNames, objects);
+		} catch (ObjectCartException oce) {
+			throw new RuntimeException("mergeElements: Error restoring the POJO Collection", oce);
+		}
+	}
+	
+	
 	public void removeDataElement(String itemId) {
 		CartObject co = getNativeObject(itemId);
 		if (co != null) {
@@ -209,6 +233,19 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 		if ( item != null) {
 			try {
 				return (CDECartItem)cartClient.getPOJO(CDECartObjectType, item);
+			} catch (ObjectCartException oce) {
+				throw new RuntimeException("findDataElement: Error finding objects with native Id:"+itemId, oce);
+			}
+		}
+
+		return null; 
+	}
+	
+	public Object findElement(String itemId, Class objectType) {
+		CartObject item = getId(oCart, itemId);
+		if ( item != null) {
+			try {
+				return cartClient.getPOJO(objectType, item);
 			} catch (ObjectCartException oce) {
 				throw new RuntimeException("findDataElement: Error finding objects with native Id:"+itemId, oce);
 			}
