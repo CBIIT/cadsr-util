@@ -102,17 +102,11 @@ public class ClassificationsLOVBean extends Object {
 
 			}
 			// pass the following parameters to CommonListCntrlBean
-			String[] searchParm = { "cs.long_name", "Classification Scheme",
+			String[] searchParm = { "cs.long_name", "CS Long Name",
 					"cs.version", "CS Version", // Release 3.2 GF#1247
 					"csi.long_name csi_name", "Class Scheme Item" };
 			String[] jspLinkParm = { "csc.cs_csi_idseq", "P_ID" };
 			String[] displayParm = {
-					"csi.long_name csi_name",	"Class Scheme Item Name",
-					"csi.csi_id||'v'||" + "case when csi.version = trunc(csi.version) "
-							+ "then to_char(csi.version,'99.9') "
-							+ "else to_char(csi.version,'99.99') "
-							+ "end csi_version",
-					"CSI Public ID Version",
 					"cs.long_name", "CS Long Name",
 					"cs.cs_id||'v'||" + "case when cs.version = trunc(cs.version) "
 							+ "then  to_char(cs.version,'99.9') "
@@ -120,8 +114,17 @@ public class ClassificationsLOVBean extends Object {
 							+ "end csversion",
 					"CS Public ID Version", // Release 3.2 GF#1247
 					"cs_conte.name", "CS Context",
+					"cs.cstl_name", "CS Type",
 					"cs.asl_name", "CS Workflow Status",
-					"cs.preferred_definition", "CS Definition" };
+					"cs.preferred_definition", "CS Definition",
+					"csi.long_name csi_name",	"Class Scheme Item Name",
+					"csi.csi_id||'v'||" + "case when csi.version = trunc(csi.version) "
+							+ "then to_char(csi.version,'99.9') "
+							+ "else to_char(csi.version,'99.99') "
+							+ "end csi_version",
+					"CSI Public ID Version",
+					"csi.csitl_name", "CSI Type",
+					 };
 			String[] sqlStmtParm = new String[2];
 			sqlStmtParm[0] = " from sbr.classification_schemes_view cs, sbr.contexts_view cs_conte, "
 					+ "      sbr.cs_items_view csi, sbr.cs_csi_view csc "
