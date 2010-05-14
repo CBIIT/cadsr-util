@@ -740,14 +740,16 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
     public void setSql() {
       super.setSql(
         "SELECT csi.long_name csi_name, csi.csitl_name, csi.csi_idseq, " +
-        "       cscsi.cs_csi_idseq, cs.preferred_definition, cs.long_name, " +
+        "       cscsi.cs_csi_idseq, cs.preferred_definition, cs.long_name," +
         "        accsi.ac_csi_idseq, cs.cs_idseq, cs.version, cs.cs_id, csi.csi_id, csi.version csi_version  " +
-        " FROM sbr.ac_csi_view accsi, sbr.cs_csi_view cscsi, " +
+        "        ,  cs.cstl_name, cs_conte.name"+
+        " FROM sbr.ac_csi_view accsi, sbr.cs_csi_view cscsi, sbr.contexts_view cs_conte," +
         "      sbr.cs_items_view csi, sbr.classification_schemes_view cs  " +
         " WHERE accsi.ac_idseq = ?  " +
         " AND   accsi.cs_csi_idseq = cscsi.cs_csi_idseq " +
         " AND   cscsi.csi_idseq = csi.csi_idseq " +
-        " AND   cscsi.cs_idseq = cs.cs_idseq " );
+        " AND   cscsi.cs_idseq = cs.cs_idseq " +
+        " AND   cs.conte_idseq = cs_conte.conte_idseq ");
 
       declareParameter(new SqlParameter("AC_IDSEQ", Types.VARCHAR));
     }
@@ -769,6 +771,8 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
       csito.setCsID(rs.getString(10));
       csito.setCsiId(new Integer(rs.getString(11)));
       csito.setCsiVersion(new Float(rs.getString(12)));
+      csito.setClassSchemeType(rs.getString(13));
+      csito.setCsContext(rs.getString(14));
 
       return csito;
     }
