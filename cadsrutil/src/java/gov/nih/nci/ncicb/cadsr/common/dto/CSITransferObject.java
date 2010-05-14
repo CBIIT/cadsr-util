@@ -24,6 +24,7 @@ public class CSITransferObject implements ClassSchemeItem, Serializable  {
   private Float csVersion = null;
   private Integer csiId = null;
   private Float csiVersion = null;
+  private String csContext = null;
   /*private String csiID = null;
   */
   
@@ -220,4 +221,12 @@ public class CSITransferObject implements ClassSchemeItem, Serializable  {
       copy = (ClassSchemeItem)super.clone();
       return copy;
     }
+
+	public void setCsContext(String csContext) {
+		this.csContext = csContext;
+	}
+
+	public String getCsContext() {
+		return csContext;
+	}
 }
