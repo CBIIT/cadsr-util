@@ -125,7 +125,7 @@ public class ClassificationsLOVBean extends Object {
 					"CSI Public ID Version",
 					"csi.csitl_name", "CSI Type",
 					 };
-			String[] sqlStmtParm = new String[2];
+			String[] sqlStmtParm = new String[2]; 
 			sqlStmtParm[0] = " from sbr.classification_schemes_view cs, sbr.contexts_view cs_conte, "
 					+ "      sbr.cs_items_view csi, sbr.cs_csi_view csc "
 					+ " where cs.conte_idseq = cs_conte.conte_idseq "
