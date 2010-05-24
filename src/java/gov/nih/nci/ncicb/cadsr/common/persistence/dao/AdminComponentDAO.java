@@ -1,16 +1,14 @@
 package gov.nih.nci.ncicb.cadsr.common.persistence.dao;
 
-import gov.nih.nci.ncicb.cadsr.common.dto.DefinitionTransferObject;
-import gov.nih.nci.ncicb.cadsr.common.dto.DesignationTransferObject;
-import gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc.JDBCAdminComponentDAO;
+import gov.nih.nci.ncicb.cadsr.common.resource.AdminComponentType;
 import gov.nih.nci.ncicb.cadsr.common.resource.ClassSchemeItem;
+import gov.nih.nci.ncicb.cadsr.common.resource.Contact;
+import gov.nih.nci.ncicb.cadsr.common.resource.Context;
+import gov.nih.nci.ncicb.cadsr.common.resource.Definition;
+import gov.nih.nci.ncicb.cadsr.common.resource.Designation;
 
 import java.util.Collection;
 import java.util.List;
-import gov.nih.nci.ncicb.cadsr.common.resource.Context;
-import gov.nih.nci.ncicb.cadsr.common.resource.Contact;
-import gov.nih.nci.ncicb.cadsr.common.resource.Definition;
-import gov.nih.nci.ncicb.cadsr.common.resource.Designation;
 
 
 public interface AdminComponentDAO {
@@ -188,5 +186,6 @@ public interface AdminComponentDAO {
   public List<Designation> getDesignations(String acIdSeq, String type);
   public List<Definition> getDefinitions(String acIdSeq);
   public List<ClassSchemeItem> getAcAttrCSCSIByAcAttrId(String acAttrIdSeq);
+  public AdminComponentType getAdminComponentType(String publicId, String version);
 
 }

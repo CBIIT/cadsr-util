@@ -32,6 +32,7 @@ public class QuestionTransferObject extends FormElementTransferObject
   protected FormValidValue defaultValidValue =null;
   protected List<QuestionRepitition> questionRepititions;
   protected boolean mandatory;
+  protected boolean editable;
   
   public QuestionTransferObject() {
     idseq = quesIdseq;
@@ -137,7 +138,15 @@ public class QuestionTransferObject extends FormElementTransferObject
     }
         
     
-  /**
+  public boolean isEditable() {
+		return editable;
+	}
+
+	public void setEditable(boolean editable) {
+		this.editable = editable;
+	}
+
+/**
    * This equals method only compares the Idseq to define equals
    * @param obj
    * @return 

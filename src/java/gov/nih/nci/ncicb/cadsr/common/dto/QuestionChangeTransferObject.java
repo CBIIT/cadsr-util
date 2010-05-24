@@ -17,6 +17,7 @@ public class QuestionChangeTransferObject implements QuestionChange
   private FormValidValue  defaultValidValue;
   private boolean questAttrChange = false;
   private boolean mandatory;
+  private boolean editable;
   
   public QuestionChangeTransferObject()
   {
@@ -116,5 +117,13 @@ public class QuestionChangeTransferObject implements QuestionChange
     
     public void setMandatory(boolean mandatory){
         this.mandatory = mandatory;
-    }    
+    }
+
+	public boolean isEditable() {
+		return editable;
+	}
+
+	public void setEditable(boolean editable) {
+		this.editable = editable;
+	}    
 }

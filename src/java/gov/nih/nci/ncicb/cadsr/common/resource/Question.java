@@ -31,6 +31,9 @@ public interface Question extends FormElement,Orderable,Instructionable   {
   public boolean isMandatory();
   public void setMandatory(boolean mandatory);  
   
+  public boolean isEditable();
+  public void setEditable(boolean mandatory);  
+  
   public Object clone() throws CloneNotSupportedException ;
   
 }

@@ -7,6 +7,7 @@ import gov.nih.nci.ncicb.cadsr.common.persistence.dao.CDECartDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.ClassificationSchemeDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.ConceptDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.ContextDAO;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.DataElementDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.DerivedDataElementDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.FormCategoryDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.FormDAO;
@@ -321,6 +322,17 @@ public class JDBCDAOFactory extends AbstractDAOFactory
 
       return protocolDAO;
     }
+    
+    public DataElementDAO getDataElementDAO() {
+        DataElementDAO dataElementDAO = (JDBCDataElementDAO) daoCache.get(JDBC_DATA_ELEMENT_DAO);
+
+        if (dataElementDAO == null) {
+          dataElementDAO = new JDBCDataElementDAO(serviceLocator);
+          daoCache.put(JDBC_DATA_ELEMENT_DAO, dataElementDAO);
+        }
+
+        return dataElementDAO;
+      }
 
   public static void main(String[] args) {
     /**

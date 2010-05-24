@@ -63,6 +63,8 @@ public abstract class AbstractDAOFactory implements PersistenceConstants {
   public abstract ProtocolDAO getProtocolDAO ();
   
   public abstract TriggerActionDAO getTriggerActionDAO ();
+  
+  public abstract DataElementDAO getDataElementDAO();
 
   public static AbstractDAOFactory getDAOFactory(ServiceLocator locator)
     throws DAOCreateException {

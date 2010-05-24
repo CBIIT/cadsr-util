@@ -24,6 +24,9 @@ public interface QuestionChange extends Serializable
   
   public boolean isMandatory();
   public void setMandatory(boolean mandatory);
+  
+  public boolean isEditable();
+  public void setEditable(boolean mandatory);
     
   public void setQuestAttrChange(boolean change);
   public boolean isQuestAttrChange();

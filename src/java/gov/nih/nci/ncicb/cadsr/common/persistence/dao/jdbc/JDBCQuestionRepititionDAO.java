@@ -78,7 +78,7 @@ public class JDBCQuestionRepititionDAO extends JDBCAdminComponentDAO implements 
             fvvIdSeq = fvv.getValueIdseq();
             
         int res = createRepitition.create(questionId,repitition.getDefaultValue()
-            ,fvvIdSeq,repitition.getRepeatSequence(),username);
+            ,fvvIdSeq,repitition.getRepeatSequence(), repitition.isEditable(), username);
 
         if (res == 1)
         {
@@ -133,7 +133,7 @@ public class JDBCQuestionRepititionDAO extends JDBCAdminComponentDAO implements 
       }
 
       public void setSql() {
-        super.setSql("select VALUE,VV_IDSEQ,REPEAT_SEQUENCE from quest_vv_ext where quest_idseq=?");
+        super.setSql("select VALUE,VV_IDSEQ,REPEAT_SEQUENCE, EDITABLE_IND from quest_vv_ext where quest_idseq=?");
         declareParameter(new SqlParameter("quest_idseq", Types.VARCHAR));
       }
       
@@ -146,6 +146,8 @@ public class JDBCQuestionRepititionDAO extends JDBCAdminComponentDAO implements 
        QuestionRepitition repeat = new QuestionRepititionTransferObject();
         repeat.setDefaultValue(rs.getString(1));
         repeat.setRepeatSequence(rs.getInt(3));
+        boolean editable = rs.getString(4).equalsIgnoreCase("Yes")?true:false;
+        repeat.setEditable(editable);
         String dvvId = rs.getString(2);  
         if(dvvId!=null)
         {
@@ -189,8 +191,8 @@ public class JDBCQuestionRepititionDAO extends JDBCAdminComponentDAO implements 
         public CreateQuestionRepitition(DataSource ds)
         {
             String sql =
-                " INSERT INTO quest_vv_ext " + " (QUEST_IDSEQ,VALUE,VV_IDSEQ,REPEAT_SEQUENCE, created_by) " +
-                " VALUES " + " (?,?,?, ?,?) ";
+                " INSERT INTO quest_vv_ext " + " (QUEST_IDSEQ,VALUE,VV_IDSEQ,REPEAT_SEQUENCE, EDITABLE_IND, created_by) " +
+                " VALUES " + " (?,?,?, ?,?,?) ";
 
             this.setDataSource(ds);
             this.setSql(sql);
@@ -198,17 +200,19 @@ public class JDBCQuestionRepititionDAO extends JDBCAdminComponentDAO implements 
             declareParameter(new SqlParameter("VALUE", Types.VARCHAR));
             declareParameter(new SqlParameter("VV_IDSEQ", Types.VARCHAR));
             declareParameter(new SqlParameter("REPEAT_SEQUENCE", Types.INTEGER));
+            declareParameter(new SqlParameter("EDITABLE_IND", Types.VARCHAR));
             declareParameter(new SqlParameter("created_by", Types.VARCHAR));
             compile();
         }
 
         protected int create(String questionId,String value, String vvIdSeq,
-                             int repeatSequence,String createdBy)
+                             int repeatSequence, boolean editable, String createdBy)
         {
 
-
+        	String editableStr = editable?"Yes":"No";
+        	
             Object[] obj = new Object[]
-                { questionId,value,vvIdSeq,repeatSequence,createdBy };
+                { questionId,value,vvIdSeq,repeatSequence,editableStr,createdBy };
 
             int res = update(obj);
 
