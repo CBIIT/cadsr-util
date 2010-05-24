@@ -1,6 +1,7 @@
 package gov.nih.nci.ncicb.cadsr.common.persistence.dao.jdbc;
 
 import gov.nih.nci.ncicb.cadsr.common.dto.AddressTransferObject;
+import gov.nih.nci.ncicb.cadsr.common.dto.AdminComponentTypeTransferObject;
 import gov.nih.nci.ncicb.cadsr.common.dto.AttachmentTransferObject;
 import gov.nih.nci.ncicb.cadsr.common.dto.CSITransferObject;
 import gov.nih.nci.ncicb.cadsr.common.dto.ContactCommunicationTransferObject;
@@ -14,8 +15,11 @@ import gov.nih.nci.ncicb.cadsr.common.dto.ReferenceDocumentTransferObject;
 import gov.nih.nci.ncicb.cadsr.common.exception.DMLException;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.AdminComponentDAO;
 import gov.nih.nci.ncicb.cadsr.common.resource.Address;
+import gov.nih.nci.ncicb.cadsr.common.resource.AdminComponent;
+import gov.nih.nci.ncicb.cadsr.common.resource.AdminComponentType;
 import gov.nih.nci.ncicb.cadsr.common.resource.Attachment;
 import gov.nih.nci.ncicb.cadsr.common.resource.ClassSchemeItem;
+import gov.nih.nci.ncicb.cadsr.common.resource.ComponentType;
 import gov.nih.nci.ncicb.cadsr.common.resource.Contact;
 import gov.nih.nci.ncicb.cadsr.common.resource.ContactCommunication;
 import gov.nih.nci.ncicb.cadsr.common.resource.Context;
@@ -398,6 +402,15 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
         query.setDataSource(getDataSource());
         query.setSql();
         return query.getContext(acIdSeq);
+    }
+    
+    public AdminComponentType getAdminComponentType(String publicId, String version) {
+    	ComponentTypeQuery compQry = new ComponentTypeQuery();
+    	compQry.setDataSource(getDataSource());
+    	compQry.setQuerySql();
+    	AdminComponentType adminComp = compQry.getComponentType(publicId, version);
+    	
+    	return adminComp;
     }
 
     /**
@@ -1724,6 +1737,44 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
         this.execute();
         return contactList;
       }
+   }
+   
+   private class ComponentTypeQuery extends MappingSqlQuery {
+
+	   public ComponentTypeQuery() {
+		   super();
+	   }
+	   
+	   public void setQuerySql() {
+	       String querySql = "select * from ADMIN_COMPONENTS_VIEW where public_id=? and version=?";
+	       super.setSql(querySql);
+	       declareParameter(new SqlParameter("public_id", Types.INTEGER));
+	       declareParameter(new SqlParameter("version", Types.NUMERIC));
+	     }
+	@Override
+	protected Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+		AdminComponentTypeTransferObject adminComp = new AdminComponentTypeTransferObject();
+		adminComp.setIdseq(rs.getString(1));
+		adminComp.setComponentType(ComponentType.getComponentType(rs.getString(2)));
+		adminComp.setVersion(new Float(rs.getString(3)));
+		adminComp.setPreferredName(rs.getString(4));
+		adminComp.setLongName(rs.getString(10));
+		adminComp.setPublicId(rs.getInt(22));
+		return adminComp;
+	}
+	
+	public AdminComponentType getComponentType(String publicId, String version) {
+		if (!StringUtils.isInteger(publicId) || !StringUtils.isDecimal(version)) {
+			return null;
+		}
+		List results = execute(new Object[]{new Integer(publicId), new Double(version)});
+		if (results != null && results.size() > 0) {
+			return (AdminComponentType)results.get(0);
+		}
+		
+		return null;
+	}
+	   
    }
 
 }
