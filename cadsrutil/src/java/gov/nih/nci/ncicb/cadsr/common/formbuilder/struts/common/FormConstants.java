@@ -128,6 +128,7 @@ public interface FormConstants extends FormBuilderConstants {
   public static final String QUESTION_DEFAULTVALUES = "questionDefaultValues";    
   public static final String QUESTION_DEFAULT_VALIDVALUE_IDS = "questionDefaultValidValueIds";  
   public static final String QUESTION_MANDATORIES = "questionMandatories";
+  public static final String QUESTION_EDITABLES = "questionEditables";
   public static final String FORM_VALID_VALUE_INSTRUCTIONS = "formsValidValueInstructions";
   public static final String FORM_VALUE_MEANING_TEXT = "formsValueMeaningTexts";
   public static final String FORM_VALUE_MEANING_IDVERSION = "formsValueMeaningIdVersions";

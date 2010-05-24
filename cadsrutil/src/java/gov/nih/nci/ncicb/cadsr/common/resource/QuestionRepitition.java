@@ -14,4 +14,8 @@ public interface QuestionRepitition
     public void setRepeatSequence(int repeatSequence);
 
     public int getRepeatSequence();
+    
+    public boolean isEditable();
+    
+    public void setEditable(boolean editable);
 }

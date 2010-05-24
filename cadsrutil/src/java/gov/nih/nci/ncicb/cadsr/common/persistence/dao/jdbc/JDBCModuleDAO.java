@@ -471,7 +471,7 @@ public class JDBCModuleDAO extends JDBCAdminComponentDAO implements ModuleDAO {
 
     public void _setSql(String idSeq) {
       super.setSql(
-        "SELECT * FROM SBREXT.FB_QUESTIONS_VIEW where MODULE_IDSEQ = '" + idSeq + "'");
+        "SELECT a.*, b.EDITABLE_IND FROM SBREXT.FB_QUESTIONS_VIEW a, CABIO31_QUESTIONS_VIEW b where a.MODULE_IDSEQ = '" + idSeq + "' and a.ques_idseq=b.QC_IDSEQ");
 //       declareParameter(new SqlParameter("MODULE_IDSEQ", Types.VARCHAR));
     }
 
@@ -486,6 +486,7 @@ public class JDBCModuleDAO extends JDBCAdminComponentDAO implements ModuleDAO {
       question.setPreferredDefinition(rs.getString(7));
       
       question.setMandatory("Yes".equalsIgnoreCase(rs.getString(21)));
+      question.setEditable("Yes".equalsIgnoreCase(rs.getString(22)));
       
       String deIdSeq = rs.getString(8);
       if(deIdSeq!=null)

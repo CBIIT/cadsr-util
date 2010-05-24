@@ -1,10 +1,10 @@
 package gov.nih.nci.ncicb.cadsr.common.struts.formbeans;
 
-import org.apache.struts.validator.DynaValidatorForm;
-
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.validator.DynaValidatorForm;
 
 
 /**
@@ -19,5 +19,9 @@ public class GenericDynaFormBean extends DynaValidatorForm {
       String key = (String) keys.next();
       map.put(key, "");
     }
+  }
+  
+  public void initialize(ActionMapping mapping) {
+	  
   }
 }

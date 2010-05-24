@@ -17,6 +17,8 @@ public interface ValueDomainDAO extends AdminComponentDAO {
    *   list of Valid Value objects (key: vd idseq, value: vv list)
    *   
    */
+  public Map getValidValues(Collection vdIdseqs);
+  
   public Map getPermissibleValues(Collection vdIdseqs);
   
   public ValueDomain getValueDomainById(String vdId);

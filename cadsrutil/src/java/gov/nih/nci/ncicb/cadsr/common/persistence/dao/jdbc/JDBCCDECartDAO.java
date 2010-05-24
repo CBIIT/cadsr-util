@@ -131,7 +131,7 @@ public class JDBCCDECartDAO extends JDBCBaseDAO implements CDECartDAO {
       ValueDomain vd = new ValueDomainTransferObject();
       Collection vdColl = new ArrayList(1);
       vdColl.add(rs.getString(13));
-      Map hm = vdDAO.getPermissibleValues(vdColl);
+      Map hm = vdDAO.getValidValues(vdColl);
       List values = (List)hm.get(rs.getString(13)) ;
       vd.setValidValues(values);
       vd.setVdIdseq(rs.getString(13));

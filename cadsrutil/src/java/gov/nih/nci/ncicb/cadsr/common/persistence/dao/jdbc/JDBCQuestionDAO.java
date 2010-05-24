@@ -776,7 +776,7 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
   private class CreateQuestAttrQuery extends SqlUpdate {
     public CreateQuestAttrQuery(DataSource ds) {
       String createSql =
-        " insert  into sbrext.quest_attributes_ext(VV_IDSEQ, QC_IDSEQ, QUEST_IDSEQ, CREATED_BY, DEFAULT_VALUE, EDITABLE_IND, MANDATORY_IND ) values(?,?,?,?,?, 'Yes', ?)";
+        " insert  into sbrext.quest_attributes_ext(VV_IDSEQ, QC_IDSEQ, QUEST_IDSEQ, CREATED_BY, DEFAULT_VALUE, EDITABLE_IND, MANDATORY_IND ) values(?,?,?,?,?, ?, ?)";
 
       this.setDataSource(ds);
       this.setSql(createSql);
@@ -785,6 +785,7 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
       declareParameter(new SqlParameter("QUEST_IDSEQ", Types.VARCHAR));
       declareParameter(new SqlParameter("CREATED_BY", Types.VARCHAR));
       declareParameter(new SqlParameter("DEFAULT_VALUE", Types.VARCHAR));
+      declareParameter(new SqlParameter("EDITABLE_IND", Types.VARCHAR));
       declareParameter(new SqlParameter("MANDATORY_IND", Types.VARCHAR));
       compile();
     }
@@ -800,6 +801,7 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
           pk,
           userName,
           question.getDefaultValue(),
+          question.isEditable()?"Yes":"No",
           question.isMandatory()?"Yes":"No"
         };
       int res = update(obj);
@@ -812,7 +814,7 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
         String vvId = change.getDefaultValidValue()==null? 
               null: change.getDefaultValidValue().getValueIdseq();
         String defaultValue =  change.getDefaultValue();
-        if (vvId==null && (defaultValue==null || defaultValue.length()==0) && !change.isMandatory()){
+        if (vvId==null && (defaultValue==null || defaultValue.length()==0) && !change.isMandatory() && !change.isEditable()){
             return 0;//no empty record. record means NOT MANDATORY
         }
         Object[] obj =
@@ -822,6 +824,7 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
             pk,
             userName,
             defaultValue,
+            (change.isEditable())? "Yes": "No",
             (change.isMandatory())? "Yes": "No"
           };
         int res = update(obj);
@@ -836,7 +839,7 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
     private class UpdateQuestAttrQuery extends SqlUpdate {
       public UpdateQuestAttrQuery(DataSource ds) {
         String createSql =
-          " update quest_attributes_ext set VV_IDSEQ=?, MODIFIED_BY=?, DEFAULT_VALUE=?,  MANDATORY_IND=? where QC_IDSEQ=?";
+          " update quest_attributes_ext set VV_IDSEQ=?, MODIFIED_BY=?, DEFAULT_VALUE=?,  MANDATORY_IND=?, EDITABLE_IND=? where QC_IDSEQ=?";
 
         this.setDataSource(ds);
         this.setSql(createSql);
@@ -844,6 +847,7 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
         declareParameter(new SqlParameter("MODIFIED_BY", Types.VARCHAR));
         declareParameter(new SqlParameter("DEFAULT_VALUE", Types.VARCHAR));
           declareParameter(new SqlParameter("MANDATORY_IND", Types.VARCHAR));
+          declareParameter(new SqlParameter("EDITABLE_IND", Types.VARCHAR));
         declareParameter(new SqlParameter("QC_IDSEQ", Types.VARCHAR));
         compile();
       }
@@ -858,6 +862,7 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
             userName,
             change.getDefaultValue(),
             (change.isMandatory()? "Yes" : "No"),
+            (change.isEditable()? "Yes" : "No"),
             change.getQuestionId()
           };
         int res = update(obj);

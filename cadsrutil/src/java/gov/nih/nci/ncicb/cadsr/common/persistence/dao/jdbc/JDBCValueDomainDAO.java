@@ -20,6 +20,8 @@ import gov.nih.nci.ncicb.cadsr.common.resource.ValueDomain;
 import gov.nih.nci.ncicb.cadsr.common.resource.ValueMeaning;
 import gov.nih.nci.ncicb.cadsr.common.resource.ReferenceDocument;
 import gov.nih.nci.ncicb.cadsr.common.util.StringUtils;
+
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.object.MappingSqlQuery;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,6 +38,8 @@ import java.sql.Types;
 
 import java.util.Iterator;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.SqlParameter;
 
 
@@ -54,7 +58,7 @@ public class JDBCValueDomainDAO extends JDBCAdminComponentDAO implements ValueDo
    *   For non-enummerated VD, vd_idseq with empty list of VV should be returned.
    *   
    */
-  public Map getPermissibleValues(Collection vdIdseqs){
+  public Map getValidValues(Collection vdIdseqs){
 
     if (vdIdseqs == null) {
       return new HashMap();
@@ -84,7 +88,7 @@ public class JDBCValueDomainDAO extends JDBCAdminComponentDAO implements ValueDo
       }
     }
     
-    PermissibleValueQuery query = new PermissibleValueQuery(vvMap);
+    ValidValueQuery query = new ValidValueQuery(vvMap);
     query.setDataSource(getDataSource());
     query.setSql(whereString, "");
 
@@ -92,6 +96,12 @@ public class JDBCValueDomainDAO extends JDBCAdminComponentDAO implements ValueDo
     query.execute();  
     Map records = query.getValidValueMap();
     return records;
+  }
+  
+  public Map getPermissibleValues(Collection vdIdseqs) {
+	  PermissibleValueQuery pvQry = new PermissibleValueQuery();
+	  pvQry.setDataSource(getDataSource());
+	  return pvQry.getPermissibleValuesMap(vdIdseqs);
   }
 
     public ValueDomain getValueDomainById(String vdId){
@@ -232,12 +242,12 @@ public class JDBCValueDomainDAO extends JDBCAdminComponentDAO implements ValueDo
      * Inner class to get all valid values for each value domain
      * 
      */
-    class PermissibleValueQuery extends MappingSqlQuery {
+    class ValidValueQuery extends MappingSqlQuery {
     
       // vd_idseq is the key and vvList is the value (list of valid values)
       private Map vvMap = null;
       
-      PermissibleValueQuery(Map vvvMap) {
+      ValidValueQuery(Map vvvMap) {
         super();
         this.vvMap = vvvMap;
       }
@@ -285,23 +295,110 @@ public class JDBCValueDomainDAO extends JDBCAdminComponentDAO implements ValueDo
     }
     
     
+	class PermissibleValueQuery extends MappingSqlQuery {
+            
+		private Map<String, List<ValidValue>> vvMap ;
+		private Map<String, List<ValidValue>> vmIdSeqs;
+    PermissibleValueQuery() {
+      super();
+      vvMap = new HashMap<String, List<ValidValue>>();
+      vmIdSeqs = new HashMap<String, List<ValidValue>>();
+    }
 
+    public Map getPermissibleValuesMap(Collection<String> vdIdSeqs){
+    	String sql = "SELECT b.VD_IDSEQ, a.* FROM PERMISSIBLE_VALUES_VIEW a, VD_PVS_VIEW b where a.PV_IDSEQ = b.PV_IDSEQ and b.VD_IDSEQ in ( ";
 
+    	for (String vdIdSeq: vdIdSeqs) {
+    		sql += "'"+vdIdSeq+"',";
+    	}
 
+    	if (sql.lastIndexOf(",") == -1) {
+    		sql += "'')";
+    	}
+    	else {
+    		sql = sql.substring(0, sql.length() - 1)+")";
+    	}
+    	super.setSql(sql);
+    	
+    	List results = execute();
+    	
+    	Map<String, List<ValidValue>> resultMap = (Map<String, List<ValidValue>>)results.get(0);
+    	
+    	if (results != null && results.size() > 0) {
+    		Map<String, ValueMeaning> valueMeanings = getValueMeanings(vmIdSeqs.keySet());
+    		
+    		for (String vmIdSeq: vmIdSeqs.keySet()) {
+    			List<ValidValue> vvs = vmIdSeqs.get(vmIdSeq);
+    			for (ValidValue vv: vvs) {
+    				vv.setValueMeaning(valueMeanings.get(vmIdSeq));
+    			}
+    		}
+    	}
+    	
+    	return resultMap;
+    }
+    
+    protected Object mapRow(ResultSet rs, int rownum) throws SQLException {
 
-  public static void main(String[] args) {
-    ServiceLocator locator = new SimpleServiceLocator();
+      // reaches to this point for each record retrieved.
+      String vdomainIdSeq = rs.getString(1);  // VD_IDSEQ
+      
+      ValidValueTransferObject vvto = new ValidValueTransferObject();
+      vvto.setShortMeaningValue(rs.getString(3)); // PV_VALUE
+      vvto.setShortMeaning(rs.getString(3));  // PV_SHORT_MEANING
+      vvto.setShortMeaningDescription(rs.getString(5)); // PV_MEANING_DESCRIPTION
+                
+      String vmIdSeq = rs.getString("VM_IDSEQ");
+      
+      List<ValidValue> valVal = null;
+      if (vmIdSeqs.get(vmIdSeq) == null) {
+    	  valVal = new ArrayList<ValidValue>();
+    	  vmIdSeqs.put(vmIdSeq, valVal);
+      }
+      valVal.add(vvto);
 
-    JDBCValueDomainDAO vdTest = new JDBCValueDomainDAO(locator);
-    Collection vdIdseqList = new ArrayList();
-    vdIdseqList.add("29A8FB24-0AB1-11D6-A42F-0010A4C1E842");
-    //vdIdseqList.add("99BA9DC8-209C-4E69-E034-080020C9C0E0");
-    // not existing vd_idseq
-    vdIdseqList.add("99BA9DC8-209C-4E69-E034-080020C9C0E"); 
-
-    JDBCValueDomainDAO vddao = new JDBCValueDomainDAO(locator);
-    //Map vdMap = vddao.getPermissibleValues(null);
-    Map vdMap = vddao.getPermissibleValues(vdIdseqList);
-    System.out.println(vdMap);
+      List<ValidValue> vvList = vvMap.get(vdomainIdSeq);
+      if (vvList == null) {
+    	  vvList = new ArrayList<ValidValue>();
+      }
+      vvList.add(vvto);
+      vvMap.put(vdomainIdSeq, vvList);
+      return vvMap;
+    }
   }
+
+	public Map<String, ValueMeaning> getValueMeanings(Collection<String> vmIds) {
+		String qry = "select * from VALUE_MEANINGS_VIEW where VM_IDSEQ in ( ";
+		for (String vmId: vmIds) {
+			qry += "'"+vmId+"',";
+		}
+		
+		if (qry.lastIndexOf(",") == -1) {
+    		qry += "'')";
+    	}
+    	else {
+    		qry = qry.substring(0, qry.length() - 1)+")";
+    	}
+		
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+		Map<String, ValueMeaning> vmMap = (Map<String, ValueMeaning>)jdbcTemplate.query(qry, new ResultSetExtractor() {
+			public Object extractData(ResultSet rs) throws SQLException, DataAccessException {
+				Map<String, ValueMeaning> vmMap = new HashMap<String, ValueMeaning>();
+				while (rs.next()) {
+					ValueMeaning vm = new ValueMeaningTransferObject();
+					vm.setPreferredName(rs.getString(1));
+					vm.setPreferredDefinition(rs.getString(2));
+					String vmIdSeq = rs.getString(11);
+					vm.setLongName(rs.getString(14));
+					vm.setDefinitions(getDefinitions(vmIdSeq));
+					vm.setDesignations(getDesignations(vmIdSeq, null));
+					
+					vmMap.put(vmIdSeq, vm);
+				}
+				return vmMap;
+			}
+		});
+		
+		return vmMap;
+	}
 }

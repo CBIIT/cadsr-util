@@ -10,6 +10,8 @@ public class QuestionRepititionTransferObject implements QuestionRepitition
     private String defaultValue;
     private FormValidValue defaultValidValue;
     private int repeatSequence;
+    private boolean editable;
+    
     public QuestionRepititionTransferObject()
     {
     }
@@ -53,4 +55,12 @@ public class QuestionRepititionTransferObject implements QuestionRepitition
     {
         return repeatSequence;
     }
+    
+	public boolean isEditable() {
+		return editable;
+	}
+
+	public void setEditable(boolean editable) {
+		this.editable = editable;
+	}
 }
