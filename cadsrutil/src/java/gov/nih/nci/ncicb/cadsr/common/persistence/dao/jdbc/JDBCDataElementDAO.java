@@ -26,9 +26,11 @@ public class JDBCDataElementDAO extends JDBCAdminComponentDAO implements DataEle
 	}
 	
 	public Map<String, ValidValue> getPermissibleValues(Collection<String> deIdSeqs) {
-		
+		if (deIdSeqs == null || deIdSeqs.size() < 1) {
+			return new HashMap<String, ValidValue>();
+		}
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
-		String qry = "select a.*, c.DE_IDSEQ as cdeIdSeq from PERMISSIBLE_VALUES_VIEW a, VD_PVS_VIEW b, DATA_ELEMENTS_VIEW c " +
+		String qry = "select a.*, c.DE_IDSEQ as cdeIdSeq, sbrext_common_routines.return_number(a.VALUE) display_order from PERMISSIBLE_VALUES_VIEW a, VD_PVS_VIEW b, DATA_ELEMENTS_VIEW c " +
 						"where a.PV_IDSEQ=b.PV_IDSEQ and b.VD_IDSEQ=c.VD_IDSEQ and c.de_idseq in ( ";
 		for (String deIdSeq: deIdSeqs) {
 			qry += "'"+deIdSeq+"',";
@@ -39,6 +41,8 @@ public class JDBCDataElementDAO extends JDBCAdminComponentDAO implements DataEle
     	else {
     		qry = qry.substring(0, qry.length() - 1)+")";
     	}
+		
+		qry += " order by display_order, upper(a.VALUE)";
 		
 		Map<String, ValidValue> pvMap  = (Map<String, ValidValue>)jdbcTemplate.query(qry, new ResultSetExtractor() {
 			public Object extractData(ResultSet rs) throws SQLException, DataAccessException {
@@ -95,6 +99,9 @@ public class JDBCDataElementDAO extends JDBCAdminComponentDAO implements DataEle
 	}
 	
 	public Map<String, ValueMeaning> getValueMeanings(Collection<String> vmIds) {
+		if (vmIds == null || vmIds.size() < 1) {
+			return new HashMap<String, ValueMeaning>();
+		}
 		String qry = "select * from VALUE_MEANINGS_VIEW where VM_IDSEQ in ( ";
 		for (String vmId: vmIds) {
 			qry += "'"+vmId+"',";
