@@ -306,7 +306,10 @@ public class JDBCValueDomainDAO extends JDBCAdminComponentDAO implements ValueDo
     }
 
     public Map getPermissibleValuesMap(Collection<String> vdIdSeqs){
-    	String sql = "SELECT b.VD_IDSEQ, a.* FROM PERMISSIBLE_VALUES_VIEW a, VD_PVS_VIEW b where a.PV_IDSEQ = b.PV_IDSEQ and b.VD_IDSEQ in ( ";
+    	if (vdIdSeqs == null || vdIdSeqs.size() < 1) {
+    		return new HashMap();
+    	}
+    	String sql = "SELECT b.VD_IDSEQ, a.*, sbrext_common_routines.return_number(a.VALUE) display_order FROM PERMISSIBLE_VALUES_VIEW a, VD_PVS_VIEW b where a.PV_IDSEQ = b.PV_IDSEQ and b.VD_IDSEQ in ( ";
 
     	for (String vdIdSeq: vdIdSeqs) {
     		sql += "'"+vdIdSeq+"',";
@@ -318,6 +321,7 @@ public class JDBCValueDomainDAO extends JDBCAdminComponentDAO implements ValueDo
     	else {
     		sql = sql.substring(0, sql.length() - 1)+")";
     	}
+    	sql += " order by display_order, upper(a.VALUE)";
     	super.setSql(sql);
     	
     	List results = execute();
@@ -368,6 +372,9 @@ public class JDBCValueDomainDAO extends JDBCAdminComponentDAO implements ValueDo
   }
 
 	public Map<String, ValueMeaning> getValueMeanings(Collection<String> vmIds) {
+		if (vmIds == null || vmIds.size() < 1) {
+			return new HashMap<String, ValueMeaning>();
+		}
 		String qry = "select * from VALUE_MEANINGS_VIEW where VM_IDSEQ in ( ";
 		for (String vmId: vmIds) {
 			qry += "'"+vmId+"',";

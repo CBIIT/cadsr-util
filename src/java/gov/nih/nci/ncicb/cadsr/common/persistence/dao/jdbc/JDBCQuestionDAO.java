@@ -566,7 +566,7 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
 
     public void _setSql(String idSeq) {
       super.setSql(
-        "SELECT * FROM SBREXT.FB_VALID_VALUES_VIEW where QUES_IDSEQ = '" + idSeq + "'");
+        "SELECT * FROM SBREXT.FB_VALID_VALUES_VIEW where QUES_IDSEQ = '" + idSeq + "' order by display_order");
 //       declareParameter(new SqlParameter("QUESTION_IDSEQ", Types.VARCHAR));
     }
    /**

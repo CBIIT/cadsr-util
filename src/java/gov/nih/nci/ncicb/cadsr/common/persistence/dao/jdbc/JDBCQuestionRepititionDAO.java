@@ -146,7 +146,8 @@ public class JDBCQuestionRepititionDAO extends JDBCAdminComponentDAO implements 
        QuestionRepitition repeat = new QuestionRepititionTransferObject();
         repeat.setDefaultValue(rs.getString(1));
         repeat.setRepeatSequence(rs.getInt(3));
-        boolean editable = rs.getString(4).equalsIgnoreCase("Yes")?true:false;
+        String editableStr = rs.getString(4);
+        boolean editable = (editableStr!=null && editableStr.equalsIgnoreCase("Yes"))?true:false;
         repeat.setEditable(editable);
         String dvvId = rs.getString(2);  
         if(dvvId!=null)
