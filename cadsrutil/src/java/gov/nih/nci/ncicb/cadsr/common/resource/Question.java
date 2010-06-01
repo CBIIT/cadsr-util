@@ -32,7 +32,10 @@ public interface Question extends FormElement,Orderable,Instructionable   {
   public void setMandatory(boolean mandatory);  
   
   public boolean isEditable();
-  public void setEditable(boolean mandatory);  
+  public void setEditable(boolean mandatory);
+  
+  public boolean isDeDerived();
+  public void setDeDerived(boolean deDerived);
   
   public Object clone() throws CloneNotSupportedException ;
   

@@ -33,6 +33,7 @@ public class QuestionTransferObject extends FormElementTransferObject
   protected List<QuestionRepitition> questionRepititions;
   protected boolean mandatory;
   protected boolean editable;
+  protected boolean deDerived;
   
   public QuestionTransferObject() {
     idseq = quesIdseq;
@@ -144,6 +145,14 @@ public class QuestionTransferObject extends FormElementTransferObject
 
 	public void setEditable(boolean editable) {
 		this.editable = editable;
+	}
+	
+	public boolean isDeDerived() {
+		return deDerived;
+	}
+	
+	public void setDeDerived(boolean deDerived) {
+		this.deDerived = deDerived;  
 	}
 
 /**

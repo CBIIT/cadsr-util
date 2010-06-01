@@ -471,7 +471,7 @@ public class JDBCModuleDAO extends JDBCAdminComponentDAO implements ModuleDAO {
 
     public void _setSql(String idSeq) {
       super.setSql(
-        "SELECT a.*, b.EDITABLE_IND FROM SBREXT.FB_QUESTIONS_VIEW a, CABIO31_QUESTIONS_VIEW b where a.MODULE_IDSEQ = '" + idSeq + "' and a.ques_idseq=b.QC_IDSEQ");
+        "SELECT a.*, b.EDITABLE_IND, c.RULE FROM SBREXT.FB_QUESTIONS_VIEW a, CABIO31_QUESTIONS_VIEW b, COMPLEX_DATA_ELEMENTS_VIEW c where a.MODULE_IDSEQ = '" + idSeq + "' and a.ques_idseq=b.QC_IDSEQ and b.DE_IDSEQ = c.P_DE_IDSEQ(+)");
 //       declareParameter(new SqlParameter("MODULE_IDSEQ", Types.VARCHAR));
     }
 
@@ -479,16 +479,24 @@ public class JDBCModuleDAO extends JDBCAdminComponentDAO implements ModuleDAO {
       ResultSet rs,
       int rownum) throws SQLException {
       Question question = new QuestionTransferObject();
-      question.setQuesIdseq(rs.getString(1));  //QUES_IDSEQ
-      question.setLongName(rs.getString(9));   // LONG_NAME
-      question.setDisplayOrder(rs.getInt(13)); // DISPLAY_ORDER
-      question.setAslName(rs.getString(5));//Workflow
-      question.setPreferredDefinition(rs.getString(7));
+      question.setQuesIdseq(rs.getString("QUES_IDSEQ"));  //QUES_IDSEQ
+      question.setLongName(rs.getString("LONG_NAME"));   // LONG_NAME
+      question.setDisplayOrder(rs.getInt("DISPLAY_ORDER")); // DISPLAY_ORDER
+      question.setAslName(rs.getString("WORKFLOW"));//Workflow
+      question.setPreferredDefinition(rs.getString("DEFINITION"));
       
-      question.setMandatory("Yes".equalsIgnoreCase(rs.getString(21)));
-      question.setEditable("Yes".equalsIgnoreCase(rs.getString(22)));
+      question.setMandatory("Yes".equalsIgnoreCase(rs.getString("MANDATORY_IND")));
+      question.setEditable("Yes".equalsIgnoreCase(rs.getString("EDITABLE_IND")));
       
-      String deIdSeq = rs.getString(8);
+      String derivRule = rs.getString("RULE");
+      if (derivRule != null && !derivRule.trim().equals("")) {
+    	  question.setDeDerived(true);
+      }
+      else {
+    	  question.setDeDerived(false);
+      }
+      
+      String deIdSeq = rs.getString("DE_IDSEQ");
       if(deIdSeq!=null)
        {
         DataElementTransferObject dataElementTransferObject =
