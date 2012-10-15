@@ -104,7 +104,7 @@ public class ClassificationsLOVBean extends Object {
 			// pass the following parameters to CommonListCntrlBean
 			String[] searchParm = { "cs.long_name", "CS Long Name",
 					"cs.version", "CS Version", // Release 3.2 GF#1247
-					"csi.long_name csi_name", "Class Scheme Item" };
+					"csi.long_name csi_name", "CSI Name" };
 			String[] jspLinkParm = { "csc.cs_csi_idseq", "P_ID" };
 			String[] displayParm = {
 					"cs.long_name", "CS Long Name",
@@ -117,7 +117,7 @@ public class ClassificationsLOVBean extends Object {
 					"cs.cstl_name", "CS Type",
 					"cs.asl_name", "CS Workflow Status",
 					"cs.preferred_definition", "CS Definition",
-					"csi.long_name csi_name",	"Class Scheme Item Name",
+					"csi.long_name csi_name",	"CSI Name",
 					"csi.csi_id||'v'||" + "case when csi.version = trunc(csi.version) "
 							+ "then to_char(csi.version,'99.9') "
 							+ "else to_char(csi.version,'99.99') "

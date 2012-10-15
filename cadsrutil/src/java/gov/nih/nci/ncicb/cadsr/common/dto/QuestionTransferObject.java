@@ -143,8 +143,8 @@ public class QuestionTransferObject extends FormElementTransferObject
 		return editable;
 	}
 
-	public void setEditable(boolean editable) {
-		this.editable = editable;
+	public void setEditable(boolean notEditable) {
+		this.editable = notEditable;
 	}
 	
 	public boolean isDeDerived() {

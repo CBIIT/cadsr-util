@@ -27,6 +27,9 @@ public interface QuestionChange extends Serializable
   
   public boolean isEditable();
   public void setEditable(boolean mandatory);
+  
+  public boolean isDeDerived();
+  public void setDeDerived(boolean deDerived);
     
   public void setQuestAttrChange(boolean change);
   public boolean isQuestAttrChange();

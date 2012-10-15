@@ -484,9 +484,11 @@ public class JDBCModuleDAO extends JDBCAdminComponentDAO implements ModuleDAO {
       question.setDisplayOrder(rs.getInt("DISPLAY_ORDER")); // DISPLAY_ORDER
       question.setAslName(rs.getString("WORKFLOW"));//Workflow
       question.setPreferredDefinition(rs.getString("DEFINITION"));
-      
       question.setMandatory("Yes".equalsIgnoreCase(rs.getString("MANDATORY_IND")));
-      question.setEditable("Yes".equalsIgnoreCase(rs.getString("EDITABLE_IND")));
+      
+      String editableInd = rs.getString("EDITABLE_IND");
+      boolean editable = (editableInd==null||editableInd.trim().equals("")||editableInd.equalsIgnoreCase("Yes"))?true:false;
+      question.setEditable(editable);
       
       String derivRule = rs.getString("RULE");
       if (derivRule != null && !derivRule.trim().equals("")) {
