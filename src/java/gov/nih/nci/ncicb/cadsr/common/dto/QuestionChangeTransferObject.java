@@ -18,6 +18,7 @@ public class QuestionChangeTransferObject implements QuestionChange
   private boolean questAttrChange = false;
   private boolean mandatory;
   private boolean editable;
+  private boolean deDerived;
   
   public QuestionChangeTransferObject()
   {
@@ -125,5 +126,13 @@ public class QuestionChangeTransferObject implements QuestionChange
 
 	public void setEditable(boolean editable) {
 		this.editable = editable;
+	}
+
+	public boolean isDeDerived() {
+		return deDerived;
+	}
+
+	public void setDeDerived(boolean deDerived) {
+		this.deDerived = deDerived;
 	}    
 }

@@ -7,6 +7,8 @@ import gov.nih.nci.ncicb.cadsr.common.resource.ValidValue;
 import gov.nih.nci.ncicb.cadsr.common.resource.ValueMeaning;
 import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocator;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -17,6 +19,7 @@ import java.util.Map;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.ResultSetExtractor;
 
 public class JDBCDataElementDAO extends JDBCAdminComponentDAO implements DataElementDAO {
@@ -128,5 +131,29 @@ public class JDBCDataElementDAO extends JDBCAdminComponentDAO implements DataEle
 		});
 		
 		return vmMap;
+	}
+	
+	public boolean isDEDerived(final String deIdSeq) {
+		
+		final String qry = "select * from complex_data_elements_view where p_de_idseq = ?";
+		
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+		Object result = jdbcTemplate.query(new PreparedStatementCreator() {
+			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
+					PreparedStatement ps = con.prepareStatement(qry);
+					ps.setString(1, deIdSeq);
+					return ps;
+				}
+			}, new ResultSetExtractor() {
+				public Object extractData(ResultSet rs) throws SQLException, DataAccessException {
+					if (rs.next()) {
+						return new Boolean(true);
+					}
+					else {
+						return new Boolean(false);
+					}
+				}
+			});
+		return (Boolean)result;
 	}
 }

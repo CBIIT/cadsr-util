@@ -117,7 +117,7 @@ public class RefDocAltQuestionTextDisplay extends TagSupport implements CaDSRCon
                     {
                         //Generate Multi select box
                          String itemIdentifier = "questionOptions"+questionIndex+refDocType;
-                        StringBuffer buffer = new StringBuffer("<select  name=\""+itemIdentifier+"\" size=\""+selectBoxSize+"\" class=\""+selectBoxClassName+"\"" +
+                        StringBuffer buffer = new StringBuffer("<select  name=\""+itemIdentifier+"\" id=\""+itemIdentifier+"\" size=\""+selectBoxSize+"\" class=\""+selectBoxClassName+"\"" +
                                               "onDblClick=\""+selectBoxJSFunctionName+"('"+itemIdentifier+"','"+htmlObjectRef+"')\">");
                         for(ReferenceDocument currDoc: matchingDocs)
                         {

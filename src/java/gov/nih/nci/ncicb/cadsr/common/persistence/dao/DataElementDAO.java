@@ -8,4 +8,5 @@ import java.util.Map;
 public interface DataElementDAO {
 
 	public Map<String, ValidValue> getPermissibleValues(Collection<String> deIdSeqs);
+	public boolean isDEDerived(String deIdSeq);
 }
