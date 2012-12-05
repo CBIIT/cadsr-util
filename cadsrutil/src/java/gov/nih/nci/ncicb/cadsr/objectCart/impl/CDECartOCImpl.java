@@ -22,15 +22,24 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
+
+import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
+import gov.nih.nci.ncicb.cadsr.common.util.logging.LogFactory;
+
+
 public class CDECartOCImpl implements CDECart, Serializable  {
 
-	private Cart oCart;
+	protected Cart oCart;
+//	private Cart oCart;	
 	private CDECartItemComparator itemComparator;
-	private ObjectCartClient cartClient;
+	protected ObjectCartClient cartClient;	
+//	private ObjectCartClient cartClient;
 	private String userId;
 	private String cartName;
 	private Class CDECartObjectType;
-	
+
+private static Log log = LogFactory.getLog(CDECartOCImpl.class.getName());
+	  
 	public static ArrayList<CDECart> getAllCarts(ObjectCartClient client, String uid) {
 		ArrayList<CDECart> ret = new ArrayList<CDECart>();
 		try {
@@ -56,6 +65,7 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 		
 		try {
 			oCart = cartClient.createCart(userId, cartName);
+			log.debug("oCart " + oCart + " with id " + oCart.getId() + " created using  " + client + " for uid " + uid + " and cartName " + cName + " in CDECartOCImpl " + this);
 		} catch (ObjectCartException oce) {
 			throw new RuntimeException("Constructor: Error creating the Object Cart ", oce);
 		}
@@ -66,8 +76,10 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 	}	
 
 	public Collection getForms() {
+log.debug("CDECartOCImpl getForms this = " + this);		
 		return getElements(FormTransferObject.class);
 	}
+
 
 	private Collection getElements(Class type) {
 		try {
@@ -84,8 +96,11 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 			throw new RuntimeException("getElements: Error restoring the POJO Collection", oce);
 		}
 	}
+
+
 	
-	private Comparator getComparator(Class type) {
+	protected Comparator getComparator(Class type) {
+//	private Comparator getComparator(Class type) {
 		if (type.getName().equalsIgnoreCase("CDECartItemTransferObject")) {
 			return itemComparator;
 		}
