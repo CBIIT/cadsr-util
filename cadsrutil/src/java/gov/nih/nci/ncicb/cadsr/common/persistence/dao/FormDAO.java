@@ -271,5 +271,7 @@ public interface FormDAO extends AdminComponentDAO {
   public void addFormProtocols(String formIdseq, Collection ids, String createdBy);
   
   public List getFormsOrderByProtocol(String contextIdSeq);
+  
+  public String getIdseq(int publicId, Float version); 
 
   }

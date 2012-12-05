@@ -257,6 +257,23 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
       Float maxVersion = (Float) (result.get(0));
       return maxVersion;
   }
+  
+  public String getIdseq(int publicId, Float version){
+      IdseqQuery query = new IdseqQuery();
+      query.setDataSource(getDataSource());
+      query.setSql(publicId, version);
+      List result = (List) query.execute();
+
+      if (result == null || result.isEmpty()){
+          DMLException dmlExp = new DMLException("No matching record found.");
+                dmlExp.setErrorCode(NO_MATCH_FOUND);
+            throw dmlExp;
+      }
+
+      String idseq = (String) (result.get(0));
+      return idseq;
+  }
+  
     public void setLatestVersion(Version oldVersion, Version newVersion, List changedNoteList, String modifiedBy){
 
         if (oldVersion!=null){
@@ -1988,7 +2005,25 @@ public class JDBCFormDAO extends JDBCAdminComponentDAO implements FormDAO {
 
     }
 
+    class  IdseqQuery  extends MappingSqlQuery {
+        public IdseqQuery() {
+        super();
+       }
 
+       public void setSql(int publicId, Float version) {
+       String idseqQuerySQL =
+                " SELECT qc_idseq from SBREXT.QUEST_CONTENTS_VIEW_EXT crf where (crf.QTL_NAME = 'CRF' or crf.QTL_NAME = 'TEMPLATE') AND QC_ID = " + publicId + " AND VERSION = " + version;
+       super.setSql(idseqQuerySQL);
+       compile();
+      }
+
+      protected Object mapRow(ResultSet rs, int rownum) throws SQLException {
+        String idseq = rs.getString(1);
+        return idseq;
+      }
+
+     }
+    
     private class SetLatestVersion {
     	private DataSource ds;
     	
