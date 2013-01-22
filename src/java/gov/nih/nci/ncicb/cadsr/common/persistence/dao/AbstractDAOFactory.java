@@ -18,6 +18,8 @@ public abstract class AbstractDAOFactory implements PersistenceConstants {
 
   public abstract FormDAO getFormDAO();
   
+  public abstract FormV2DAO getFormV2DAO();
+
   public abstract AdminComponentDAO getAdminComponentDAO();
 
   public abstract ClassificationSchemeDAO getClassificationSchemeDAO();
