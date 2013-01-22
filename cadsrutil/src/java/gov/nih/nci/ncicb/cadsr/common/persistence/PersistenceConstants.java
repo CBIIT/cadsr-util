@@ -9,6 +9,7 @@ public interface PersistenceConstants {
   public static final String USERNAME = "username";
   public static final String PASSWORD = "password";
   public static final String JDBC_FORM_DAO = "jdbcFormDAO";
+  public static final String JDBC_FORM_V2_DAO = "jdbcFormV2DAO";
   public static final String JDBC_QUESTION_REPITION_DAO ="jdbcQuestionRepititionDAO";
   public static final String JDBC_MODULE_DAO = "jdbcModuleDAO";
   public static final String JDBC_QUESTION_DAO = "jdbcQuestionDAO";

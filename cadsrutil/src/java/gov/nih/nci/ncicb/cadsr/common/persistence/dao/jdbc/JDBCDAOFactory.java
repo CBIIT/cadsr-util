@@ -11,6 +11,7 @@ import gov.nih.nci.ncicb.cadsr.common.persistence.dao.DataElementDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.DerivedDataElementDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.FormCategoryDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.FormDAO;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.FormV2DAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.FormInstructionDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.FormValidValueDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.FormValidValueInstructionDAO;
@@ -68,6 +69,17 @@ public class JDBCDAOFactory extends AbstractDAOFactory
     }
 
     return formDAO;
+  }
+
+  public FormV2DAO getFormV2DAO() {
+    FormV2DAO formV2DAO = (JDBCFormV2DAO) daoCache.get(JDBC_FORM_V2_DAO);
+
+    if (formV2DAO == null) {
+      formV2DAO = new JDBCFormV2DAO(serviceLocator);
+      daoCache.put(JDBC_FORM_V2_DAO, formV2DAO);
+    }
+
+    return formV2DAO;
   }
 
   public  QuestionRepititionDAO getQuestionRepititionDAO()
