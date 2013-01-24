@@ -10,9 +10,22 @@ public class FormV2TransferObject extends FormTransferObject
   implements FormV2 {
 
 
-  public FormV2TransferObject() {
 
+  protected String changeNote;
+
+  public FormV2TransferObject() {
   }
+
+
+  public String getChangeNote() {
+    return changeNote;
+  }
+
+  public void setChangeNote(String aChangeNote) {
+    changeNote = aChangeNote;
+  }
+
+
 
 
   public String toString()

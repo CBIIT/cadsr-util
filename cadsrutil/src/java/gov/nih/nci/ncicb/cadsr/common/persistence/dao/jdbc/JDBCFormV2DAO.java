@@ -69,6 +69,24 @@ public class JDBCFormV2DAO extends JDBCAdminComponentDAO implements FormV2DAO {
 
     myForm = (FormV2) (query.execute(formId).get(0));
 
+
+    FormV2 myFormExtensions = null;
+    FormV2ExtensionsByPrimaryKey queryExtensions = new FormV2ExtensionsByPrimaryKey();
+    queryExtensions.setDataSource(getDataSource());
+    queryExtensions.setSql();
+    List resultExtensions = (List) queryExtensions.execute(formId);
+
+    if (resultExtensions == null || resultExtensions.isEmpty()){
+        DMLException dmlExp = new DMLException("No matching record found.");
+              dmlExp.setErrorCode(NO_MATCH_FOUND);
+          throw dmlExp;
+    }
+
+    myFormExtensions = (FormV2) (queryExtensions.execute(formId).get(0));
+    myForm.setModifiedBy(myFormExtensions.getModifiedBy());
+    myForm.setRegistrationStatus(myFormExtensions.getRegistrationStatus());
+
+
     //get protocols
     myForm.setProtocols(getProtocols(myForm));
     return myForm;
@@ -99,7 +117,7 @@ public class JDBCFormV2DAO extends JDBCAdminComponentDAO implements FormV2DAO {
     }
 
     protected Object mapRow( ResultSet rs, int rownum) throws SQLException {
-      Form form = new FormV2TransferObject();
+      FormV2 form = new FormV2TransferObject();
       form.setFormIdseq(rs.getString(1)); // QC_IDSEQ
       form.setIdseq(rs.getString(1));
       form.setLongName(rs.getString(9)); //LONG_NAME
@@ -110,7 +128,9 @@ public class JDBCFormV2DAO extends JDBCAdminComponentDAO implements FormV2DAO {
       contextTransferObject.setConteIdseq(rs.getString(4)); //CONTE_IDSEQ
       contextTransferObject.setName(rs.getString(12)); // CONTEXT_NAME
       form.setContext(contextTransferObject);
+      form.setDateCreated(rs.getTimestamp(14));
       form.setDateModified(rs.getTimestamp(15));
+
 
       //multiple protocols will be set later
 
@@ -121,8 +141,30 @@ public class JDBCFormV2DAO extends JDBCAdminComponentDAO implements FormV2DAO {
       form.setCreatedBy(rs.getString(13)); // CREATED_BY
       form.setFormCategory(rs.getString(5));
       form.setPublicId(rs.getInt(17));
+      form.setChangeNote(rs.getString(18));
 
-	form.setDateCreated(rs.getTimestamp(14));
+      return form;
+    }
+  }
+
+  /**
+   * Inner class that accesses database to get a form using the form idseq
+   */
+  class FormV2ExtensionsByPrimaryKey extends MappingSqlQuery {
+    FormV2ExtensionsByPrimaryKey() {
+      super();
+    }
+
+    public void setSql() {
+      super.setSql("SELECT * FROM CABIO31_FORMS_VIEW where QC_IDSEQ = ? ");
+      declareParameter(new SqlParameter("QC_IDSEQ", Types.VARCHAR));
+    }
+
+    protected Object mapRow( ResultSet rs, int rownum) throws SQLException {
+      FormV2 form = new FormV2TransferObject();
+      form.setModifiedBy(rs.getString(22));
+      form.setRegistrationStatus(rs.getString(23));
+
       return form;
     }
   }
