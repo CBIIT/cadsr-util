@@ -35,6 +35,7 @@ public interface PersistenceConstants {
   public static final String JDBC_TRIGGER_ACTION_DAO="jdbcTriggerActionDAO";
   public static final String JDBC_ADMIN_COMPONENT_DAO="jdbcAdminComponentDAO";
   public static final String JDBC_CLASS_SCHEME_COMPONENT_DAO="jdbcClassSchemeDAO";
+  public static final String JDBC_CONTACT_COMMUNICATION_V2_DAO = "jdbcContactCommunicationV2DAO";
 
 
 

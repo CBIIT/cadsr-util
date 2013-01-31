@@ -10,8 +10,9 @@ public class FormV2TransferObject extends FormTransferObject
   implements FormV2 {
 
 
-
   protected String changeNote;
+  protected List contactCommunicationV2;
+
 
   public FormV2TransferObject() {
   }
@@ -25,7 +26,13 @@ public class FormV2TransferObject extends FormTransferObject
     changeNote = aChangeNote;
   }
 
+  public List getContactCommunicationV2() {
+    return contactCommunicationV2;
+  }
 
+  public void setContactCommunicationV2(List contactCommunicationV2) {
+    this.contactCommunicationV2 = contactCommunicationV2;
+  }
 
 
   public String toString()
@@ -35,4 +42,4 @@ public class FormV2TransferObject extends FormTransferObject
 
 
   
-  }
+}
