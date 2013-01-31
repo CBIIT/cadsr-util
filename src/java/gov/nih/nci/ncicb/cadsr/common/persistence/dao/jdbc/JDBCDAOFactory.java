@@ -28,6 +28,7 @@ import gov.nih.nci.ncicb.cadsr.common.persistence.dao.UserManagerDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.UtilDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.ValueDomainDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.WorkFlowStatusDAO;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.ContactCommunicationV2DAO;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -345,6 +346,18 @@ public class JDBCDAOFactory extends AbstractDAOFactory
 
         return dataElementDAO;
       }
+
+    public ContactCommunicationV2DAO getContactCommunicationV2DAO() {
+        ContactCommunicationV2DAO contactCommunicationV2DAO = (JDBCContactCommunicationV2DAO) daoCache.get(JDBC_CONTACT_COMMUNICATION_V2_DAO);
+
+        if (contactCommunicationV2DAO == null) {
+          contactCommunicationV2DAO = new JDBCContactCommunicationV2DAO(serviceLocator);
+          daoCache.put(JDBC_CONTACT_COMMUNICATION_V2_DAO, contactCommunicationV2DAO );
+        }
+
+        return contactCommunicationV2DAO;
+      }
+
 
   public static void main(String[] args) {
     /**
