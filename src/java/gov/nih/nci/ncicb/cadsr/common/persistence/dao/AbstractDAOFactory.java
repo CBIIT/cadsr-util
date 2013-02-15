@@ -26,6 +26,8 @@ public abstract class AbstractDAOFactory implements PersistenceConstants {
   
   public abstract ModuleDAO getModuleDAO();
 
+  public abstract ModuleV2DAO getModuleV2DAO();
+
   public abstract QuestionDAO getQuestionDAO();
   
   public abstract QuestionRepititionDAO getQuestionRepititionDAO();
@@ -51,6 +53,8 @@ public abstract class AbstractDAOFactory implements PersistenceConstants {
   public abstract CDECartDAO getCDECartDAO ();
   
   public abstract ValueDomainDAO getValueDomainDAO ();
+  
+  public abstract ValueDomainV2DAO getValueDomainV2DAO ();
   
   public abstract DerivedDataElementDAO getDerivedDataElementDAO ();
   

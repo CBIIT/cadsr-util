@@ -12,6 +12,7 @@ public interface PersistenceConstants {
   public static final String JDBC_FORM_V2_DAO = "jdbcFormV2DAO";
   public static final String JDBC_QUESTION_REPITION_DAO ="jdbcQuestionRepititionDAO";
   public static final String JDBC_MODULE_DAO = "jdbcModuleDAO";
+  public static final String JDBC_MODULE_V2_DAO = "jdbcModuleV2DAO";
   public static final String JDBC_QUESTION_DAO = "jdbcQuestionDAO";
   public static final String JDBC_FORM_VALID_VALUE_DAO =
     "jdbcFormValidValueDAO";
@@ -25,6 +26,7 @@ public interface PersistenceConstants {
   public static final String JDBC_VALUE_INSTR_DAO = "jdbcValueInstrDAO";
   public static final String JDBC_CDE_CART_DAO = "jdbcCDECartDAO";
   public static final String JDBC_VALUE_DOMAIN_DAO = "jdbcValueDomainDAO";
+  public static final String JDBC_VALUE_DOMAIN_V2_DAO = "jdbcValueDomainV2DAO";
   public static final String JDBC_DERIVED_DATA_ELEMENT_DAO = "jdbcDerivedDataElementDAO";
   public static final String JDBC_CONCEPT_DAO = "jdbcConceptDAO";
   public static final String JDBC_REFERENCE_DOCUMENT_DAO = "jdbcReferenceDocumentDAO";

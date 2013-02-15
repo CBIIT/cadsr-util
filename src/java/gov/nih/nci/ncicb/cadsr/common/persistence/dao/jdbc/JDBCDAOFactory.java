@@ -16,6 +16,7 @@ import gov.nih.nci.ncicb.cadsr.common.persistence.dao.FormInstructionDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.FormValidValueDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.FormValidValueInstructionDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.ModuleDAO;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.ModuleV2DAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.ModuleInstructionDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.ProtocolDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.QuestionDAO;
@@ -27,6 +28,7 @@ import gov.nih.nci.ncicb.cadsr.common.persistence.dao.TriggerActionDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.UserManagerDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.UtilDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.ValueDomainDAO;
+import gov.nih.nci.ncicb.cadsr.common.persistence.dao.ValueDomainV2DAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.WorkFlowStatusDAO;
 import gov.nih.nci.ncicb.cadsr.common.persistence.dao.ContactCommunicationV2DAO;
 
@@ -115,6 +117,17 @@ public class JDBCDAOFactory extends AbstractDAOFactory
     }
 
     return moduleDAO;
+  }
+
+  public ModuleV2DAO getModuleV2DAO() {
+    ModuleV2DAO moduleV2DAO = (JDBCModuleV2DAO) daoCache.get(JDBC_MODULE_V2_DAO);
+
+    if (moduleV2DAO == null) {
+      moduleV2DAO = new JDBCModuleV2DAO(serviceLocator);
+      daoCache.put(JDBC_MODULE_V2_DAO, moduleV2DAO);
+    }
+
+    return moduleV2DAO;
   }
 
   public QuestionDAO getQuestionDAO() {
@@ -241,6 +254,18 @@ public class JDBCDAOFactory extends AbstractDAOFactory
     if (myDAO == null) {
       myDAO = new JDBCValueDomainDAO(serviceLocator);
       daoCache.put(JDBC_VALUE_DOMAIN_DAO, myDAO);
+    }
+
+    return myDAO;
+  }
+
+  public ValueDomainV2DAO getValueDomainV2DAO () {
+    ValueDomainV2DAO myDAO =
+      (JDBCValueDomainV2DAO) daoCache.get(JDBC_VALUE_DOMAIN_V2_DAO);
+
+    if (myDAO == null) {
+      myDAO = new JDBCValueDomainV2DAO(serviceLocator);
+      daoCache.put(JDBC_VALUE_DOMAIN_V2_DAO, myDAO);
     }
 
     return myDAO;
