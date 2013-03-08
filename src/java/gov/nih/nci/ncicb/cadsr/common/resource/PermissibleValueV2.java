@@ -1,8 +1,9 @@
 package gov.nih.nci.ncicb.cadsr.common.resource;
 
+import java.io.Serializable;
 import java.util.Collection;
 
-public interface PermissibleValueV2 {
+public interface PermissibleValueV2 extends Serializable {
 
 	public void setValue(String value);
 

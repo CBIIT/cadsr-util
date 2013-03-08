@@ -1,6 +1,8 @@
 package gov.nih.nci.ncicb.cadsr.common.resource;
 
-public interface QuestionRepitition
+import java.io.Serializable;
+
+public interface QuestionRepitition extends Serializable
 {
 
     public void setDefaultValue(String defaultValue);

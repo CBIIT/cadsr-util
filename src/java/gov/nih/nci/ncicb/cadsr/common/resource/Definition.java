@@ -1,7 +1,8 @@
 package gov.nih.nci.ncicb.cadsr.common.resource;
 import java.util.List;
+import java.io.Serializable;
 
-public interface Definition {
+public interface Definition extends Serializable {
     public Context getContext();
     public String getId() ;
     public String getDefinition();
