@@ -48,6 +48,7 @@ public class CDEBrowserParams
     String cadsrAPIUrl="";
     String formBuilderHelpUrl="";
     String cdebrowserHelpUrl="";
+    String formBuilderWhatsNewUrl="";
     
     String contextTest = "";
     String contextTraining = "";
@@ -364,9 +365,11 @@ public class CDEBrowserParams
             index++; 
             formBuilderHelpUrl = properties.getProperty("HELP.ROOT");
             index++;      
-            log.info("Loaded Properties"+properties);
+//            log.info("Loaded Properties"+properties);
             cdebrowserHelpUrl = properties.getProperty("HELP.ROOT");
             index++;      
+            formBuilderWhatsNewUrl = properties.getProperty("WHATS_NEW_URL");
+            index++;
             log.info("Loaded Properties"+properties);
                         
         } 
@@ -468,5 +471,13 @@ public class CDEBrowserParams
 
 	public void setCdeBrowserHelpUrl(String cdebrowserHelpUrl) {
 		this.cdebrowserHelpUrl = cdebrowserHelpUrl;
+	}
+
+	public String getFormBuilderWhatsNewUrl() {
+		return (formBuilderWhatsNewUrl== null) ? getFormBuilderHelpUrl() : formBuilderWhatsNewUrl;
+	}
+
+	public void setFormBuilderWhatsNewUrl(String formBuilderWhatsNewUrl) {
+		this.formBuilderWhatsNewUrl= formBuilderWhatsNewUrl;
 	}
 }
