@@ -41,7 +41,7 @@ public class ContextNode extends LazyActionTreeNode {
                
             }
          
-         if (Context.CONTEXT_NCI.equals(contextName)) {
+         if (Context.CONTEXT_NCIP.equals(contextName)) {
             LazyActionTreeNode publishNode = new LazyActionTreeNode("Folder",
             "Catalogue of Published Forms", getIdentifier(), false);
             super.addLeaf(publishNode);
