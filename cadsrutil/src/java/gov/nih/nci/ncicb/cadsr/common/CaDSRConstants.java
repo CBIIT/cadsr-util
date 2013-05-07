@@ -7,6 +7,7 @@ public interface CaDSRConstants {
   public static final String CONTEXT_ADMIN = "CONTEXT ADMIN";
   public static final String CONTEXT_CABIG = "caBIG";
   public static final String CONTEXT_NCI = "NCI";
+  public static final String CONTEXT_NCIP = "NCIP";
   public static final String CONTEXT_TEST = "TEST";
   public static final String CONTEXT_TRAINING = "TRAINING";
 
