@@ -1,7 +1,10 @@
 package gov.nih.nci.ncicb.cadsr.objectCart.impl;
+
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECart;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItem;
 import gov.nih.nci.ncicb.cadsr.objectCart.CDECartItemComparator;
+import gov.nih.nci.objectCart.domain.CartObject;
+
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -115,6 +118,26 @@ public Object findElement(String itemId, Class objectType) {
 }
 
 public void mergeElements(Collection items) {
+	// TODO Auto-generated method stub
+	
+}
+
+public void addForm(Object form) {
+	// TODO Auto-generated method stub
+	
+}
+
+public void addForms(Collection forms) {
+	// TODO Auto-generated method stub
+	
+}
+
+public void mergeFormCart() {
+	// TODO Auto-generated method stub
+	
+}
+
+public void addFormV2(Object form) {
 	// TODO Auto-generated method stub
 	
 }

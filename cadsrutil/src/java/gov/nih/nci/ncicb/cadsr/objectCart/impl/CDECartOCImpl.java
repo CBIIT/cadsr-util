@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Iterator;
 
 
 import gov.nih.nci.ncicb.cadsr.common.util.logging.Log;
@@ -37,6 +38,12 @@ public class CDECartOCImpl implements CDECart, Serializable  {
 	private String userId;
 	private String cartName;
 	private Class CDECartObjectType;
+	
+	// This holds forms temporarily until the user is ready to
+	// save the forms. Once the user is ready to save the contents
+	// in this cart will be added to the contents of the oCart. - Sula
+	private Map formCart;
+	
 
 private static Log log = LogFactory.getLog(CDECartOCImpl.class.getName());
 	  
@@ -69,6 +76,8 @@ private static Log log = LogFactory.getLog(CDECartOCImpl.class.getName());
 		} catch (ObjectCartException oce) {
 			throw new RuntimeException("Constructor: Error creating the Object Cart ", oce);
 		}
+		
+	    formCart = new HashMap();
 	}  
 	
 	public Collection getDataElements() {
@@ -354,5 +363,24 @@ log.debug("CDECartOCImpl getForms this = " + this);
 	
 	public String getCartId() {
 		return oCart.getId().toString();	
+	}
+	
+	public void addForm(Object form) {
+		if (!formCart.containsKey(((FormTransferObject)form).getIdseq()))
+		      formCart.put(((FormTransferObject)form).getIdseq(), form);
+	}
+
+	public void addForms(Collection forms) {
+		Iterator itemIter = forms.iterator();
+		while (itemIter.hasNext()) {
+		    addForm((FormTransferObject)itemIter.next());
+		}
+	}
+
+	public void mergeFormCart() {
+		Collection formColl = formCart.values();
+		mergeElements(formColl);
+		    //Collection formColl = cart.getForms();
+		    //setForms(formColl);
 	}
 }
