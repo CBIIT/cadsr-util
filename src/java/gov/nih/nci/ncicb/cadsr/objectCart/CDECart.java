@@ -1,5 +1,7 @@
 package gov.nih.nci.ncicb.cadsr.objectCart;
 
+import gov.nih.nci.ncicb.cadsr.common.resource.Form;
+
 import java.util.Collection;
 import java.util.Date;
 
@@ -28,4 +30,8 @@ public interface CDECart  {
   public void expireCart(Date expireDate);
   public String getCartName();
   public String getCartId();
+  
+  public void addForm(Object form);
+  public void addForms(Collection forms);
+  public void mergeFormCart();
 }

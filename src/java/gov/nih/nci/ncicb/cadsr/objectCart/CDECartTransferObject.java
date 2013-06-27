@@ -116,5 +116,25 @@ public void mergeElements(Collection items) {
 	// TODO Auto-generated method stub
 	
 }
+
+public void addForm(Object form) {
+	// TODO Auto-generated method stub
+	
+}
+
+public void addForms(Collection forms) {
+	// TODO Auto-generated method stub
+	
+}
+
+public void mergeFormCart() {
+	// TODO Auto-generated method stub
+	
+}
+
+public void addFormV2(Object form) {
+	// TODO Auto-generated method stub
+	
+}
   
 }
