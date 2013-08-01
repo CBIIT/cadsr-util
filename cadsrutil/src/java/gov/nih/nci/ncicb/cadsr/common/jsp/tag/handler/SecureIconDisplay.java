@@ -97,11 +97,21 @@ public class SecureIconDisplay extends TagSupport implements CaDSRConstants
         Context userContext = form.getContext();
         NCIUser  nciUser =  (NCIUser)pageContext.getSession().getAttribute(USER_KEY);
         req = ( HttpServletRequest )pageContext.getRequest();
-        out = pageContext.getOut();    
+        out = pageContext.getOut();  
+        
+//// GF29128  D.An, 20130729.    
+        String un = (String) req.getSession().getAttribute("myUsername");
+        if( un == null ) un = "viewer";
+        ////System.out.println( request.getSession().getAttribute("myUsername") );
+        
+        
       String targetStr = "";
       if(target!=null)
-        targetStr="target=\""+target+"\" ";        
-       if(hasPrivilege(role,formType,nciUser,form))
+        targetStr="target=\""+target+"\" ";   
+          
+       if(hasPrivilege(role,formType,nciUser,form) 
+//// GF29128  D.An, 20130729.      
+    		   && !un.equals("viewer") )
         {
           String hrefVal=null;
           if(confirmMessageKey!=null)
