@@ -29,6 +29,7 @@ import org.apache.commons.logging.LogFactory;
 
 
 public class LogoutServlet extends HttpServlet {
+	private String LOGTHROUGH_JSP = "/logthrough.jsp";
 	private String LOGOUT_JSP = "/logout.jsp";
 	private String AUTHORIZATION_ERROR_JSP = "/authorizationError.jsp";
 	private String[] logoutKeys = { CaDSRConstants.USER_KEY, CaDSRConstants.USER_CONTEXTS };
@@ -49,6 +50,10 @@ public class LogoutServlet extends HttpServlet {
 
 		//unlock all forms locked by this session
 		HttpSession session = request.getSession(); 
+		String logTjsp =  getServletConfig().getInitParameter("LogthroughJSP");
+		if (logTjsp != null && !logTjsp.equals(""))
+			LOGTHROUGH_JSP = logTjsp;
+		
 		String lojsp =  getServletConfig().getInitParameter("LogoutJSP");
 		if (lojsp != null && !lojsp.equals(""))
 			LOGOUT_JSP = lojsp;
@@ -63,8 +68,17 @@ public class LogoutServlet extends HttpServlet {
 			log.error("LogoutServlet.doPost at start:"+TimeUtils.getEasternTime());
 			String error = request.getParameter("authorizationError");
 			String forwardUrl;
-			if (error == null ) {
-				forwardUrl = LOGOUT_JSP;
+//// GF29128 Begin. D.An, 20130729. 
+	String un = (String)session.getAttribute("myUsername");;		
+////	if (un == null)
+////		un = "viewer";
+System.out.println("logoutServlet: " + session.getAttribute("myUsername") );
+			if ( error == null ) {
+				if ( un.equals("viewer") ) 
+					forwardUrl = LOGTHROUGH_JSP;
+//// GF29128  end.      
+				else	
+					forwardUrl = LOGOUT_JSP;
 			}
 			else {
 				forwardUrl = AUTHORIZATION_ERROR_JSP;
