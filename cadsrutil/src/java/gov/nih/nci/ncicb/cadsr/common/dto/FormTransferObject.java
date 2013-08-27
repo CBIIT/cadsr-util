@@ -340,8 +340,13 @@ public class FormTransferObject extends FormElementTransferObject
     this.protocolLongName = protocolLongName;
   }
 
+  
 
-  public String  getDelimitedProtocolLongNames(){
+  public String getProtocolLongName() {
+	return protocolLongName;
+}
+
+public String  getDelimitedProtocolLongNames(){
         List protocols = this.getProtocols();
         if (protocols==null || protocols.isEmpty()){
             return "";
