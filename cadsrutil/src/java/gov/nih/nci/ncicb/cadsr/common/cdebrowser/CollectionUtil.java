@@ -1,3 +1,10 @@
+/*L
+ * Copyright Oracle inc, SAIC-F
+ *
+ * Distributed under the OSI-approved BSD 3-Clause License.
+ * See http://ncip.github.com/cadsr-util/LICENSE.txt for details.
+ */
+
 package gov.nih.nci.ncicb.cadsr.common.cdebrowser;
 import gov.nih.nci.ncicb.cadsr.common.dto.bc4j.BC4JDataElementTransferObject;
 import gov.nih.nci.ncicb.cadsr.common.resource.DataElement;

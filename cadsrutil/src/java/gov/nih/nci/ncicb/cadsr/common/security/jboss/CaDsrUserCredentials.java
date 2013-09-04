@@ -1,3 +1,10 @@
+/*L
+ * Copyright Oracle inc, SAIC-F
+ *
+ * Distributed under the OSI-approved BSD 3-Clause License.
+ * See http://ncip.github.com/cadsr-util/LICENSE.txt for details.
+ */
+
 // Copyright (c) 2008 ScenPro, Inc.
 
 // $Header: /share/content/gforge/cadsrutil/cadsrutil/src/java/gov/nih/nci/ncicb/cadsr/common/security/jboss/CaDsrUserCredentials.java,v 1.2 2008-06-18 19:43:01 hegdes Exp $
