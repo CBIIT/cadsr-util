@@ -1,6 +1,8 @@
 Welcome to the caDSR Utils Project!
 =====================================
-TBD
+The caDSR Utils contains the common utility packages for caDSR Project
+
+The caDSR Utils is developed in Java and requires Apache Ant for building.
 
 The caDSR Utils is distributed under the BSD 3-Clause License.
 Please see the NOTICE and LICENSE files for details.
