@@ -1,6 +1,6 @@
 Welcome to the caDSR Utils Project!
 =====================================
-The caDSR Utils contains the common utility packages for caDSR Project
+caDSR Utils contains the common utility libraries that are used by other [caDSR projects] (http://ncip.github.io/group.html?name=caDSR).
 
 The caDSR Utils is developed in Java and requires Apache Ant for building.
 
