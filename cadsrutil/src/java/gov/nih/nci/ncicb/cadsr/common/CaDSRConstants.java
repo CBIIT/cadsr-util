@@ -27,6 +27,7 @@ public interface CaDSRConstants {
   public static final String FORMS_CART = "formCart";
   public static final String FORMS_CART_V2 = "formCartV2";
   public static final String FORMS_DISPLAY_CART = "formDisplayCart";
+  public static final String FORMS_DISPLAY_CART2 = "formDisplayCart2";
   public static final String CDE_CARTSCHEME = "CDE Cart Classification";
   public static final String USER_CONTEXTS = "userContexts";
   public static final String GLOBAL_SESSION_KEYS="globalSessionKeys";
