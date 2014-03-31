@@ -16,19 +16,26 @@ public class CaDSRUtil {
 	
 	protected static Properties properties = null;
 
-	public static String getDefaultContextName() {
-		
-		try {
-			String contextName = CaDSRUtil.getProperty(CaDSRUtil.KEY_DEFAULT_CONTEXT_NAME);
-			return contextName;
-		} catch (FileNotFoundException fne) {
-			return ("FileNotFoundException: " + fne.getMessage());
-		} catch (IOException ioe) {
-			return ("IOException: " + ioe.getMessage());
-		}
-	
+	/**
+	 * Get the default context name from the config file:
+	 *  /local/content/cadsrutil/cadsrutil.properties
+	 * @return
+	 * @throws IOException if unable to find the properties file
+	 */
+	public static String getDefaultContextName() 
+			throws IOException {
+ 
+		return CaDSRUtil.getProperty(CaDSRUtil.KEY_DEFAULT_CONTEXT_NAME);
+
 	}
 	
+	/**
+	 * Get a property value from the config file:
+	 *   /local/content/cadsrutil/cadsrutil.properties
+	 * @param key
+	 * @return
+	 * @throws IOException if unable to find the properties file
+	 */
 	public static String getProperty(String key) 
 			throws IOException {
 
