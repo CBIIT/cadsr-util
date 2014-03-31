@@ -1,13 +1,10 @@
 package gov.nih.nci.ncicb.cadsr.common;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-
-import org.springframework.core.io.Resource;
 
 public class CaDSRUtil {
 	
@@ -19,7 +16,7 @@ public class CaDSRUtil {
 	
 	protected static Properties properties = null;
 
-	public static String getDefaultContext() {
+	public static String getDefaultContextName() {
 		
 		try {
 			String contextName = CaDSRUtil.getProperty(CaDSRUtil.KEY_DEFAULT_CONTEXT_NAME);
@@ -39,7 +36,6 @@ public class CaDSRUtil {
 			String propPath = CaDSRUtil.getCaDSRPropertyFileName(); 
 			CaDSRUtil.properties = loadPropertiesFromFile(propPath);
 		}
-
 
 		return CaDSRUtil.properties.getProperty(key);
 	}
