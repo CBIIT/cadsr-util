@@ -14,6 +14,8 @@ public class PermissibleValueV2TransferObject implements PermissibleValueV2 {
 
 	protected String value;
 	protected ValueMeaningV2 valueMeaningV2;
+	
+	protected String idseq;
 
 	public PermissibleValueV2TransferObject() {
 	}
@@ -34,4 +36,11 @@ public class PermissibleValueV2TransferObject implements PermissibleValueV2 {
 		this.valueMeaningV2 = valueMeaningV2;
 	}
 
+	public String getIdseq() {
+		return idseq;
+	}
+
+	public void setIdseq(String idseq) {
+		this.idseq = idseq;
+	}
 }
