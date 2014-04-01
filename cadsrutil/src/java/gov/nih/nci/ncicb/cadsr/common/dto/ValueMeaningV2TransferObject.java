@@ -13,6 +13,7 @@ import gov.nih.nci.ncicb.cadsr.common.resource.ValueMeaningV2;
 public class ValueMeaningV2TransferObject extends ValueMeaningTransferObject implements ValueMeaningV2 {
 	
 	protected String preferredDefinition;
+	protected String description;
 	
 	public ValueMeaningV2TransferObject() {
 	}
@@ -23,5 +24,13 @@ public class ValueMeaningV2TransferObject extends ValueMeaningTransferObject imp
 
 	public String getPreferredDefinition() {
 		return preferredDefinition;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }
