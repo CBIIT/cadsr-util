@@ -60,17 +60,41 @@ public class CaDSRUtilTest {
 	@Test 
 	public void testGetProperty() {
 		try {
-			String prop = CaDSRUtil.getProperty("default.something");
-			assertNull(prop);
-
-			prop = CaDSRUtil.getProperty(CaDSRUtil.KEY_DEFAULT_CONTEXT_NAME);
+			String prop = CaDSRUtil.getProperty(CaDSRUtil.KEY_DEFAULT_CONTEXT_NAME);
 			assertNotNull(prop);
 			assertTrue("NCIP".equals(prop));
 		} catch (FileNotFoundException fne) {
-			//remove C:\local\content\cadsrutil\cadsrutil.properties to tiggr this exception
+			//remove C:\local\content\cadsrutil\cadsrutil.properties to triggr this exception
 			fail("FileNotFoundException: " + fne.getMessage());
 		} catch (IOException ioe) {
 			fail("IOException: " + ioe.getMessage());
 		}
+	}
+	
+	@Test 
+	public void testGetPropertyWithWrongKey() {
+		try {
+			String prop = CaDSRUtil.getProperty("default.something");
+		} catch (IOException ioe) {
+			assertTrue(ioe.getMessage().length() > 0);
+		}
+	}
+	
+	@Test
+	public void testGetPropertyFromSystemProperties() {
+		Properties props = System.getProperties();
+		props.setProperty("gov.nih.nci.cadsrutil.properties", "c://temp/cadsrutil.properties");
+		
+		try {
+			String prop = CaDSRUtil.getProperty(CaDSRUtil.KEY_DEFAULT_CONTEXT_NAME);
+			assertNotNull(prop);
+			assertTrue(prop.equals("SYTest"));
+			props.remove("gov.nih.nci.cadsrutil.properties");
+		} catch (IOException ioe) {
+			props.remove("gov.nih.nci.cadsrutil.properties");
+			fail(ioe.getMessage());
+		}
+		
+		
 	}
 }
