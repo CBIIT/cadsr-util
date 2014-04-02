@@ -8,18 +8,22 @@ import java.util.Properties;
 
 public class CaDSRUtil {
 	
-	//Key in cadsrutil.internal.properties mapping to the location of the property file containing "default.context.name"
+	//Key to use if the path to cadsrutil property file is set as system property
 	protected static String KEY_CADSR_PROPERTIES_PATH = "gov.nih.nci.cadsrutil.properties";
+	
+	protected static String DEFAULT_PROPERTY_FILE_PATH = "/local/content/cadsrutil/cadsrutil.properties";
 	
 	//Key to retrieve the actually default context name
 	protected static final String KEY_DEFAULT_CONTEXT_NAME = "default.context.name";
-	
-	protected static Properties properties = null;
 
 	/**
-	 * Get the default context name from the config file:
-	 *  /local/content/cadsrutil/cadsrutil.properties
-	 * @return
+	 * Get the default context name from cadsrutil.properties
+	 * <br><br>
+	 * Search path for this file: <br>
+	 *   1) System property with key "gov.nih.nci.cadsrutil.properties" <br>
+	 *   2) At "/local/content/cadsrutil/cadsrutil.properies"
+	 *  
+	 * @return default context name
 	 * @throws IOException if unable to find the properties file
 	 */
 	public static String getDefaultContextName() 
@@ -38,19 +42,24 @@ public class CaDSRUtil {
 	 */
 	public static String getProperty(String key) 
 			throws IOException {
+		
+		String path = System.getProperty(KEY_CADSR_PROPERTIES_PATH);
+		if (path == null || path.length() == 0)
+			path = DEFAULT_PROPERTY_FILE_PATH;
+		
+		Properties properties = loadPropertiesFromFile(path);
+		String contextName = properties.getProperty(key);
+		
+		if (contextName == null || contextName.length() == 0)
+			throw new IOException("Unable to find the default context name from file: \"" + path + "\"");
 
-		if (CaDSRUtil.properties == null || CaDSRUtil.properties.size() == 0) {
-			String propPath = CaDSRUtil.getCaDSRPropertyFileName(); 
-			CaDSRUtil.properties = loadPropertiesFromFile(propPath);
-		}
-
-		return CaDSRUtil.properties.getProperty(key);
+		return contextName;
 	}
 	
 	protected static Properties loadPropertiesFromFile(String pathname) 
 	throws IOException {
 		
-		properties = new Properties();
+		Properties properties = new Properties();
 		if (pathname == null || pathname.length() == 0)
 			return properties;
 
@@ -63,33 +72,6 @@ public class CaDSRUtil {
 		}
 		
 		return properties;
-	}
-	
-	protected static String getCaDSRPropertyFileName() {
-		
-		try {
-			Properties internals = loadInternalPropertiesFromClasspath();
-			return (internals == null) ? null : internals.getProperty(CaDSRUtil.KEY_CADSR_PROPERTIES_PATH);
-		} catch (IOException ioe) {
-			return null;
-		}
-		
-	}
-	
-	protected static Properties loadInternalPropertiesFromClasspath() 
-			throws IOException {
-		
-		Properties internals = new Properties();
-		InputStream in = null;
-
-		in = CaDSRUtil.class.getClassLoader().getResourceAsStream(
-				"gov/nih/nci/ncicb/cadsr/common/cadsrutil.internal.properties");
-		if (in != null) {
-			internals.load(in);
-			in.close();      
-		}
-
-		return internals;
 	}
 
 }
