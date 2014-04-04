@@ -94,7 +94,6 @@ L-->
                <include name="gov/nih/nci/ncicb/cadsr/common/persistence/dao/jdbc/jndi.properties"/>
                <include name="gov/nih/nci/ncicb/cadsr/common/jndi.properties"/>
                <include name="gov/nih/nci/ncicb/cadsr/common/persistence/**/*.xml"/>
-             	<include name="gov/nih/nci/ncicb/cadsr/common/cadsrutil.internal.properties"/>
              </patternset>
            </fileset>      
 	    </jar>
