@@ -19,9 +19,7 @@ public class CaDSRUtil {
 	/**
 	 * Get the default context name from cadsrutil.properties
 	 * <br><br>
-	 * Search path for this file: <br>
-	 *   1) System property with key "gov.nih.nci.cadsrutil.properties" <br>
-	 *   2) At "/local/content/cadsrutil/cadsrutil.properies"
+	 * The property file's path and name should have been set as a System property with key "gov.nih.nci.cadsrutil.properties" <br>
 	 *  
 	 * @return default context name
 	 * @throws IOException if unable to find the properties file
@@ -40,12 +38,12 @@ public class CaDSRUtil {
 	 * @return
 	 * @throws IOException if unable to find the properties file
 	 */
-	public static String getProperty(String key) 
+	protected static String getProperty(String key) 
 			throws IOException {
 		
 		String path = System.getProperty(KEY_CADSR_PROPERTIES_PATH);
 		if (path == null || path.length() == 0)
-			path = DEFAULT_PROPERTY_FILE_PATH;
+			throw new IOException("Cadsrutil is unable to get property file path with this key \"" + KEY_CADSR_PROPERTIES_PATH + "\"");
 		
 		Properties properties = loadPropertiesFromFile(path);
 		String contextName = properties.getProperty(key);
