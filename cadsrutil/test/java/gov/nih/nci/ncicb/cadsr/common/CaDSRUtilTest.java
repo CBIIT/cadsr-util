@@ -61,13 +61,12 @@ public class CaDSRUtilTest {
 	public void testGetProperty() {
 		try {
 			String prop = CaDSRUtil.getProperty(CaDSRUtil.KEY_DEFAULT_CONTEXT_NAME);
+			
+			fail("System property not set. Should have thrown an exception.");
 			assertNotNull(prop);
 			assertTrue("NCIP".equals(prop));
-		} catch (FileNotFoundException fne) {
-			//remove C:\local\content\cadsrutil\cadsrutil.properties to triggr this exception
-			fail("FileNotFoundException: " + fne.getMessage());
-		} catch (IOException ioe) {
-			fail("IOException: " + ioe.getMessage());
+		}  catch (IOException ioe) {
+			assertTrue(ioe.getMessage().length() > 0);
 		}
 	}
 	
