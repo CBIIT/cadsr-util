@@ -17,7 +17,8 @@ public class CaDSRUtil {
 	protected static String defaultContextName;
 
 	/**
-	 * Get the default context name from cadsrutil.properties. Once a valid defaultContextName is read, it's cached.
+	 * Get the default context name from cadsrutil.properties. If a cached context name is valid, return it without
+	 * loading it from properties file again.
 	 * <br><br>
 	 * The property file's path and name should have been set as a System property with key "gov.nih.nci.cadsrutil.properties" <br>
 	 *  
@@ -31,6 +32,23 @@ public class CaDSRUtil {
 				CaDSRUtil.getProperty(CaDSRUtil.KEY_DEFAULT_CONTEXT_NAME) : defaultContextName;
 
 	}
+	
+	/**
+	 * Read cadsrutil.properties file and return the default context name from it. 
+	 * 
+	 * <br><br>
+	 * The property file's path and name should have been set as a System property with key "gov.nih.nci.cadsrutil.properties" <br>
+	 *  
+	 * @return default context name
+	 * @throws IOException if unable to find the properties file
+	 */
+	public static String getDefaultContextNameNoCache() 
+			throws IOException {
+ 
+		return CaDSRUtil.getProperty(CaDSRUtil.KEY_DEFAULT_CONTEXT_NAME);
+
+	}
+	
 	
 	/**
 	 * Get a property value from the config file:
