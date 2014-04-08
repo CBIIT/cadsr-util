@@ -58,7 +58,7 @@ public class CaDSRUtilTest {
 	}
 	
 	@Test 
-	public void testGetProperty() {
+	public void testGetPropertyWithoutSystemPropertySet() {
 		try {
 			String prop = CaDSRUtil.getProperty(CaDSRUtil.KEY_DEFAULT_CONTEXT_NAME);
 			
@@ -93,7 +93,31 @@ public class CaDSRUtilTest {
 			props.remove("gov.nih.nci.cadsrutil.properties");
 			fail(ioe.getMessage());
 		}
+	}
+	
+	@Test 
+	public void testGetPropertyReturnsCachedValue() {
 		
+		Properties props = System.getProperties();
+		props.setProperty("gov.nih.nci.cadsrutil.properties", "c://temp/cadsrutil.properties");
 		
+		try {
+			String prop = CaDSRUtil.getDefaultContextName();
+			assertNotNull(prop);
+			assertTrue("SYTest".equals(prop));
+			
+			assertNotNull(CaDSRUtil.defaultContextName);
+			assertTrue(CaDSRUtil.defaultContextName.length() > 0);
+			
+			//Remove system property and the default context name should be returned from cache
+			props.remove("gov.nih.nci.cadsrutil.properties");
+			prop = CaDSRUtil.getDefaultContextName();
+			
+			assertNotNull(CaDSRUtil.defaultContextName);
+			assertTrue(CaDSRUtil.defaultContextName.length() > 0);
+			assertTrue("SYTest".equals(prop));
+		}  catch (IOException ioe) {
+			fail(ioe.getMessage());
+		}
 	}
 }
