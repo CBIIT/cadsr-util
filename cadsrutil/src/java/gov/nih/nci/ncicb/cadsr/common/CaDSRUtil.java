@@ -8,16 +8,16 @@ import java.util.Properties;
 
 public class CaDSRUtil {
 	
-	//Key to use if the path to cadsrutil property file is set as system property
+	//Key to use for the path to cadsrutil.properties file from system properties
 	protected static String KEY_CADSR_PROPERTIES_PATH = "gov.nih.nci.cadsrutil.properties";
-	
-	protected static String DEFAULT_PROPERTY_FILE_PATH = "/local/content/cadsrutil/cadsrutil.properties";
 	
 	//Key to retrieve the actually default context name
 	protected static final String KEY_DEFAULT_CONTEXT_NAME = "default.context.name";
+	
+	protected static String defaultContextName;
 
 	/**
-	 * Get the default context name from cadsrutil.properties
+	 * Get the default context name from cadsrutil.properties. Once a valid defaultContextName is read, it's cached.
 	 * <br><br>
 	 * The property file's path and name should have been set as a System property with key "gov.nih.nci.cadsrutil.properties" <br>
 	 *  
@@ -27,7 +27,8 @@ public class CaDSRUtil {
 	public static String getDefaultContextName() 
 			throws IOException {
  
-		return CaDSRUtil.getProperty(CaDSRUtil.KEY_DEFAULT_CONTEXT_NAME);
+		return (defaultContextName == null || defaultContextName.length() == 0) ?   
+				CaDSRUtil.getProperty(CaDSRUtil.KEY_DEFAULT_CONTEXT_NAME) : defaultContextName;
 
 	}
 	
@@ -46,12 +47,12 @@ public class CaDSRUtil {
 			throw new IOException("Cadsrutil is unable to get property file path with this key \"" + KEY_CADSR_PROPERTIES_PATH + "\"");
 		
 		Properties properties = loadPropertiesFromFile(path);
-		String contextName = properties.getProperty(key);
+		defaultContextName = properties.getProperty(key);
 		
-		if (contextName == null || contextName.length() == 0)
+		if (defaultContextName == null || defaultContextName.length() == 0)
 			throw new IOException("Unable to find the default context name from file: \"" + path + "\"");
 
-		return contextName;
+		return defaultContextName;
 	}
 	
 	protected static Properties loadPropertiesFromFile(String pathname) 
