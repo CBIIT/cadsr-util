@@ -120,4 +120,20 @@ public class CaDSRUtilTest {
 			fail(ioe.getMessage());
 		}
 	}
+	
+	@Test
+	public void testGetDefaultContextNameNoCache() {
+		Properties props = System.getProperties();
+		props.setProperty("gov.nih.nci.cadsrutil.properties", "c://temp/cadsrutil.properties");
+		
+		try {
+			String prop = CaDSRUtil.getProperty(CaDSRUtil.KEY_DEFAULT_CONTEXT_NAME);
+			assertNotNull(prop);
+			assertTrue(prop.equals("SYTest"));
+			props.remove("gov.nih.nci.cadsrutil.properties");
+		} catch (IOException ioe) {
+			props.remove("gov.nih.nci.cadsrutil.properties");
+			fail(ioe.getMessage());
+		}
+	}
 }
