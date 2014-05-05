@@ -14,7 +14,11 @@ public class CaDSRUtil {
 	//Key to retrieve the actually default context name
 	protected static final String KEY_DEFAULT_CONTEXT_NAME = "default.context.name";
 	
+	//Key to retrieve the NCI Registry ID
+	protected static final String NCI_REGISTRY_ID = "nci.registry.id";	
+	
 	protected static String defaultContextName;
+	protected static String nciRegistryId;
 
 	/**
 	 * Get the default context name from cadsrutil.properties. If a cached context name is valid, return it without
@@ -49,6 +53,38 @@ public class CaDSRUtil {
 
 	}
 	
+	/**
+	 * Get the NCI Registry ID. If a cached NCI Registry ID is valid, return it without
+	 * loading it from properties file again.
+	 * <br><br>
+	 * The property file's path and name should have been set as a System property with key "gov.nih.nci.cadsrutil.properties" <br>
+	 *  
+	 * @return default context name
+	 * @throws IOException if unable to find the properties file
+	 */
+	public static String getNciRegistryId() 
+			throws IOException {
+ 
+		return (nciRegistryId == null || nciRegistryId.length() == 0) ?   
+				CaDSRUtil.getProperty(CaDSRUtil.NCI_REGISTRY_ID) : nciRegistryId;
+
+	}
+	
+	/**
+	 * Read cadsrutil.properties file and return the  NCI Registry ID. 
+	 * 
+	 * <br><br>
+	 * The property file's path and name should have been set as a System property with key "gov.nih.nci.cadsrutil.properties" <br>
+	 *  
+	 * @return default context name
+	 * @throws IOException if unable to find the properties file
+	 */
+	public static String getNciRegistryIdNoCache() 
+			throws IOException {
+ 
+		return CaDSRUtil.getProperty(CaDSRUtil.NCI_REGISTRY_ID);
+
+	}	
 	
 	/**
 	 * Get a property value from the config file:
