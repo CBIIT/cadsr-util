@@ -14,7 +14,7 @@ import gov.nih.nci.ncicb.cadsr.common.resource.Designation;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DesignationTransferObject implements Designation
+public class DesignationTransferObject extends BaseTransferObject implements Designation
 {
     private String type;
     private String name;
