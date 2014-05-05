@@ -608,7 +608,10 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
           contextTransferObject.setConteIdseq(rs.getString(4)); //CONTE_IDSEQ
           fvv.setContext(contextTransferObject);
           
-          vm = retrieveValueMeaningAttr(vm);
+          //Commented out by Shan 2014-05-05
+          //For xml download, designations and definitions are not required to be available in this path anymore:
+          //question/validValue/valueMeaning 
+          //vm = retrieveValueMeaningAttr(vm);
           
           fvv.setValueMeaning(vm);
           
