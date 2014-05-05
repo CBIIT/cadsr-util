@@ -14,7 +14,7 @@ import gov.nih.nci.ncicb.cadsr.common.resource.Definition;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DefinitionTransferObject implements Definition
+public class DefinitionTransferObject extends BaseTransferObject implements Definition
 {
     private Context context;
     private String type;

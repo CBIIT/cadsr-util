@@ -18,19 +18,17 @@ import gov.nih.nci.ncicb.cadsr.common.dto.ConceptDerivationRuleTransferObject;
 import gov.nih.nci.ncicb.cadsr.common.dto.PermissibleValueV2TransferObject;
 import gov.nih.nci.ncicb.cadsr.common.dto.ValueMeaningV2TransferObject;
 
-import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.object.MappingSqlQuery;
 import org.springframework.jdbc.core.SqlParameter;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import javax.sql.DataSource;
 import java.sql.Types;
 import java.util.List;
-import java.util.Iterator;
 
 import gov.nih.nci.ncicb.cadsr.common.servicelocator.ServiceLocator;
-import gov.nih.nci.ncicb.cadsr.common.servicelocator.SimpleServiceLocator;
 
 public class JDBCValueDomainV2DAO extends JDBCAdminComponentDAO implements
 ValueDomainV2DAO {
@@ -54,10 +52,44 @@ ValueDomainV2DAO {
 					getDataSource());
 			pvQuery.setSql();
 			List permissibleValues = pvQuery.getPermissibleValuesByVDId(vdId);
+			
+			//System.out.println("In getValueDomainV2ById: calling getVMDesignationsAndDefinitions ");
+			permissibleValues = getVMDesignationsAndDefinitions(permissibleValues);
+			
 			valueDomainV2.setPermissibleValueV2(permissibleValues);
 		}
 
 		return valueDomainV2;
+	}
+	
+	protected List getVMDesignationsAndDefinitions(List permissibleValues) {
+		//System.out.println("In getVMDesignationsAndDefinitions params: ");
+		if (permissibleValues == null)
+			return permissibleValues;
+		
+		//List<String> vmids = new ArrayList<String>();
+		
+		List<PermissibleValueV2> pvs = permissibleValues;
+		for (PermissibleValueV2 pv : pvs) { 
+			ValueMeaningV2 vm = pv.getValueMeaningV2();
+			
+			if (vm == null) continue;
+			String vmSeqid = vm.getIdseq();
+			
+			if (vmSeqid != null && vmSeqid.length() > 0) {
+				
+				List des = this.getDesignations(vmSeqid, null);
+				List defs = this.getDefinitions(vmSeqid);
+				
+				if (des != null && des.size() > 0)
+					vm.setDesignations(des);
+				
+				if (defs != null && des.size() > 0)
+					vm.setDefinitions(defs);
+			}
+		}
+	
+		return pvs;
 	}
 
 	// based on ValueDomainQuery from JDBCValueDomainDAO
@@ -124,7 +156,7 @@ ValueDomainV2DAO {
 		}
 
 		public void setSql() {
-			String sql = "select VALUE, vm.PUBLIC_ID, vm.VERSION, vm.PREFERRED_DEFINITION, vm.LONG_NAME from CABIO31_VD_PV_VIEW vdpv, CABIO31_PV_VIEW pv, CABIO31_VM_VIEW vm where vdpv.pv_idseq = pv.pv_idseq and pv.vm_idseq = vm.vm_idseq and vdpv.vd_idseq=?";
+			String sql = "select VALUE, vm.PUBLIC_ID, vm.VERSION, VM.VM_IDSEQ, vm.PREFERRED_DEFINITION, vm.LONG_NAME from CABIO31_VD_PV_VIEW vdpv, CABIO31_PV_VIEW pv, CABIO31_VM_VIEW vm where vdpv.pv_idseq = pv.pv_idseq and pv.vm_idseq = vm.vm_idseq and vdpv.vd_idseq=?";
 			setSql(sql);
 			declareParameter(new SqlParameter("VD_IDSEQ", Types.VARCHAR));
 			compile();
@@ -140,6 +172,7 @@ ValueDomainV2DAO {
 			vm.setVersion(rs.getFloat("VERSION"));
 			vm.setPreferredDefinition(rs.getString("PREFERRED_DEFINITION"));
 			vm.setLongName(rs.getString("LONG_NAME"));
+			vm.setIdseq(rs.getString("VM_IDSEQ"));
 
 			pv.setValueMeaningV2(vm);
 
@@ -153,5 +186,4 @@ ValueDomainV2DAO {
 
 		}
 	}
-
 }
