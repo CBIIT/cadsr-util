@@ -37,7 +37,8 @@ public class AdminComponentTransferObject extends BaseTransferObject
   protected List<Definition> definitions;
   protected List<Contact> contacts;
 
-
+  protected String registryId;
+  
   public AdminComponentTransferObject() {
   }
 
@@ -239,4 +240,13 @@ public class AdminComponentTransferObject extends BaseTransferObject
      this.contacts = newContacts;
   }
 
+public String getRegistryId() {
+	return registryId;
+}
+
+public void setRegistryId(String registryId) {
+	this.registryId = registryId;
+}
+
+  
 }
