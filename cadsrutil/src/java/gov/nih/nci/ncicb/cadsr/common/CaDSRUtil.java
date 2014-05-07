@@ -32,8 +32,10 @@ public class CaDSRUtil {
 	public static String getDefaultContextName() 
 			throws IOException {
  
-		return (defaultContextName == null || defaultContextName.length() == 0) ?   
+		defaultContextName = (defaultContextName == null || defaultContextName.length() == 0) ?   
 				CaDSRUtil.getProperty(CaDSRUtil.KEY_DEFAULT_CONTEXT_NAME) : defaultContextName;
+		
+		return defaultContextName;
 
 	}
 	
@@ -101,12 +103,12 @@ public class CaDSRUtil {
 			throw new IOException("Cadsrutil is unable to get property file path with this key \"" + KEY_CADSR_PROPERTIES_PATH + "\"");
 		
 		Properties properties = loadPropertiesFromFile(path);
-		defaultContextName = properties.getProperty(key);
+		String value = properties.getProperty(key);
 		
-		if (defaultContextName == null || defaultContextName.length() == 0)
-			throw new IOException("Unable to find the default context name from file: \"" + path + "\"");
+		if (value == null || value.length() == 0)
+			throw new IOException("Unable to find the property [" + key + "] from file: \"" + path + "\"");
 
-		return defaultContextName;
+		return value;
 	}
 	
 	protected static Properties loadPropertiesFromFile(String pathname) 
