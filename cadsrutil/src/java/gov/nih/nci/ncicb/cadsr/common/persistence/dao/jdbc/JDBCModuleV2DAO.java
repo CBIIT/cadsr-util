@@ -66,7 +66,10 @@ public class JDBCModuleV2DAO extends JDBCAdminComponentDAO implements ModuleV2DA
 
     public void _setSql(String idSeq) {
       super.setSql(
-        "SELECT a.*, b.EDITABLE_IND, b.QC_ID, c.RULE, d.PREFERRED_NAME as DE_SHORT_NAME, d.PREFERRED_DEFINITION as DE_PREFERRED_DEFINITION FROM SBREXT.FB_QUESTIONS_VIEW a, CABIO31_QUESTIONS_VIEW b, COMPLEX_DATA_ELEMENTS_VIEW c, SBR.DATA_ELEMENTS_VIEW d where a.MODULE_IDSEQ = '" + idSeq + "' and a.ques_idseq=b.QC_IDSEQ and b.DE_IDSEQ = c.P_DE_IDSEQ(+) and b.de_idseq = d.de_idseq");
+        "SELECT a.*, b.EDITABLE_IND, b.QC_ID, c.RULE, d.PREFERRED_NAME as DE_SHORT_NAME, d.PREFERRED_DEFINITION as DE_PREFERRED_DEFINITION, " +
+        		"b.DATE_CREATED as QUESTION_DATE_CREATED, b.DATE_MODIFIED as QUESTION_DATE_MODIFIED" + 
+        		" FROM SBREXT.FB_QUESTIONS_VIEW a, CABIO31_QUESTIONS_VIEW b, COMPLEX_DATA_ELEMENTS_VIEW c, SBR.DATA_ELEMENTS_VIEW d " +
+        		" where a.MODULE_IDSEQ = '" + idSeq + "' and a.ques_idseq=b.QC_IDSEQ and b.DE_IDSEQ = c.P_DE_IDSEQ(+) and b.de_idseq = d.de_idseq");
 //       declareParameter(new SqlParameter("MODULE_IDSEQ", Types.VARCHAR));
     }
 
@@ -82,6 +85,9 @@ public class JDBCModuleV2DAO extends JDBCAdminComponentDAO implements ModuleV2DA
       question.setMandatory("Yes".equalsIgnoreCase(rs.getString("MANDATORY_IND")));
       question.setPublicId(rs.getInt("QC_ID"));
       question.setVersion(new Float(rs.getFloat("VERSION")));
+      
+      question.setDateCreated(rs.getTimestamp("QUESTION_DATE_CREATED"));
+      question.setDateModified(rs.getTimestamp("QUESTION_DATE_MODIFIED"));
       
       String editableInd = rs.getString("EDITABLE_IND");
       boolean editable = (editableInd==null||editableInd.trim().equals("")||editableInd.equalsIgnoreCase("Yes"))?true:false;
