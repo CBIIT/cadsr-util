@@ -811,7 +811,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
       super.setSql(
         "SELECT ref.name, ref.dctl_name, ref.ac_idseq, " +
         "       ref.rd_idseq, ref.url, ref.doc_text, " +
-        " ref.conte_idseq, con.name, ref.display_order" +
+        " ref.conte_idseq, con.name, ref.display_order, ref.lae_name as REF_LAE_NAME" +
         " FROM sbr.reference_documents_view ref, sbr.contexts_view con" +
         " WHERE ref.ac_idseq = '" +adminCompId+"'"+
 //        " AND   ref.DCTL_NAME = '"+ docType+"'" +
@@ -834,6 +834,8 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
       refDoc.setUrl(getURLWithProtocol(url));
       refDoc.setDocText(rs.getString(6));
       refDoc.setDisplayOrder(rs.getInt(9));
+      
+      refDoc.setLanguage(rs.getString("REF_LAE_NAME"));
 
       ContextTransferObject contextTransferObject = new ContextTransferObject();
       contextTransferObject.setConteIdseq(rs.getString(7)); //CONTE_IDSEQ
@@ -1426,7 +1428,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
        if (type== null){
         super.setSql(
           "select des.desig_idseq, des.name, des.detl_name, des.lae_name, con.CONTE_IDSEQ, con.NAME, con.PAL_NAME, "+
-        	" DES.DATE_CREATED, DES.DATE_MODIFIED " +
+        	" DES.DATE_CREATED, DES.DATE_MODIFIED, DES.CREATED_BY " +
             " from sbr.contexts_view con, sbr.designations_view des "+
             " where des.CONTE_IDSEQ = con.CONTE_IDSEQ "+
             " and des.ac_idseq = ?");
@@ -1435,7 +1437,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
        }else{
            super.setSql(
              "select des.desig_idseq, des.name, des.detl_name, des.lae_name, con.CONTE_IDSEQ, con.NAME, con.PAL_NAME, "+
-           " DES.DATE_CREATED, DES.DATE_MODIFIED " +
+           " DES.DATE_CREATED, DES.DATE_MODIFIED, DES.CREATED_BY " +
            " from sbr.contexts_view con, sbr.designations_view des "+
            " where des.CONTE_IDSEQ = con.CONTE_IDSEQ "+
            " and des.ac_idseq = ? and des.detl_name=?");
@@ -1471,7 +1473,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
 
         dto.setDateCreated(rs.getTimestamp("DATE_CREATED"));
         dto.setDateModified(rs.getTimestamp("DATE_MODIFIED"));
-        
+        dto.setCreatedBy(rs.getString("CREATED_BY"));
         return dto;
       }
     }//end of private class
@@ -1485,7 +1487,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
       public void setSql() {
         super.setSql(
           " select def.defin_idseq, def.definition,  def.defl_name, " +
-          " def.lae_name, con.CONTE_IDSEQ, con.NAME, con.PAL_NAME, DEF.DATE_CREATED, DEF.DATE_MODIFIED " +
+          " def.lae_name, con.CONTE_IDSEQ, con.NAME, con.PAL_NAME, DEF.DATE_CREATED, DEF.DATE_MODIFIED, DEF.CREATED_BY " +
           " from sbr.contexts_view con, sbr.definitions_view def " +
           " where def.CONTE_IDSEQ = con.CONTE_IDSEQ " +
           " and def.ac_idseq = ? ");
@@ -1516,7 +1518,7 @@ public class JDBCAdminComponentDAO extends JDBCBaseDAO
         
         dto.setDateCreated(rs.getTimestamp("DATE_CREATED"));
         dto.setDateModified(rs.getTimestamp("DATE_MODIFIED"));
-
+        dto.setCreatedBy(rs.getString("CREATED_BY"));
         return dto;
       }
     }//end of private class
