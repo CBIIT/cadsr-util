@@ -670,19 +670,16 @@ public class JDBCFormValidValueDAO extends JDBCAdminComponentDAO
 		params.addValue("p_version", newVV.getVersion().toString());
 		System.out.println(newVV.getVersion().toString());
 		
-		String prefName =  newVV.getPreferredName();
-		if (prefName == null || prefName.length() == 0)
-			prefName = "dgsersertse";
-		params.addValue("v_preferred_name", prefName);
-		System.out.println(newVV.getPreferredName());
-		params.addValue("p_long_name", newVV.getLongName());
-		System.out.println(newVV.getLongName());
+		String longName = newVV.getLongName();
+		params.addValue("p_long_name", longName);
+		System.out.println(longName);
 		
-		String prefDef =  newVV.getPreferredDefinition();
-		if (prefDef == null || prefDef.length() == 0)
-			prefDef = "Form Builder";
-		params.addValue("p_preferred_definition", prefDef);
-		System.out.println(prefDef);
+		String preferredName = this.generatePreferredName(longName);
+		params.addValue("v_preferred_name", preferredName);
+		System.out.println(preferredName);
+		
+		params.addValue("p_preferred_definition", newVV.getPreferredDefinition());
+		//System.out.println(prefDef);
 		params.addValue("p_conte_idseq", newVV.getContext().getConteIdseq());
 		System.out.println(newVV.getContext().getConteIdseq());
 		//params.addValue("p_proto_idseq", null);
