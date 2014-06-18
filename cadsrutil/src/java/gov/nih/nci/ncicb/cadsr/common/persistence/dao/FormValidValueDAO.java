@@ -13,6 +13,8 @@ import gov.nih.nci.ncicb.cadsr.common.resource.FormValidValue;
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
+
 
 public interface FormValidValueDAO {
   /**
@@ -71,4 +73,15 @@ public interface FormValidValueDAO {
   public int updateValueMeaning(String vvIdSeq, String updatedValueMeaningText, 
                             String updatedValueMeaningDesc, String userName)
     throws DMLException;   
+  
+  /**
+	 * This mimicks the behavior of the store procedure "sbrext_form_builder_pkg.ins_value()
+	 * 
+	 * @param newVV
+	 * @param parentId
+	 * @param userName
+	 * @return
+	 */
+  public String createValidValue(FormValidValue newVV, String parentId, String userName)
+			throws DMLException;
 }
