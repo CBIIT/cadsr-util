@@ -26,9 +26,12 @@ import oracle.jdbc.driver.OracleCallableStatement;
 //import oracle.jdbc.OracleCallableStatement;
 
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.object.MappingSqlQuery;
 import org.springframework.jdbc.core.SqlOutParameter;
 import org.springframework.jdbc.core.SqlParameter;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.object.StoredProcedure;
 import org.springframework.jdbc.object.SqlUpdate;
 
@@ -453,16 +456,37 @@ public class JDBCFormValidValueDAO extends JDBCAdminComponentDAO
       Map in = new HashMap();
       
       in.put("p_ques_idseq", parentId);
+      log.info("parentId:" + parentId);
+      
       in.put("p_version", fvv.getVersion().toString());
-      in.put("p_preferred_name", fvv.getPreferredName());
-      in.put("p_long_name", fvv.getLongName());
+      log.info("p_version:" + fvv.getVersion().toString());
+      
+      in.put("p_preferred_name", fvv.getVersion().toString());
+      log.info("p_preferred_name:" + fvv.getVersion().toString());
+      
+      in.put("p_long_name", fvv.getVersion().toString());
+      log.info("p_long_name:" + fvv.getVersion().toString());
+      
       in.put("p_preferred_definition", fvv.getPreferredDefinition());
+      log.info("p_preferred_definition:" + fvv.getPreferredDefinition());
+      
       in.put("p_conte_idseq", fvv.getContext().getConteIdseq());
+      log.info("p_conte_idseq:" + fvv.getContext().getConteIdseq());
+      
       in.put("p_proto_idseq", protocolIdSeq);
+      log.info("p_proto_idseq:" + protocolIdSeq);
+      
       in.put("p_asl_name", fvv.getAslName());
+      log.info("p_asl_name:" + fvv.getAslName());
+      
       in.put("p_vp_idseq", fvv.getVpIdseq());
+      log.info("p_vp_idseq:" + fvv.getVpIdseq());
+      
       in.put("p_created_by", fvv.getCreatedBy());
+      log.info("p_created_by:" + fvv.getCreatedBy());
+      
       in.put("p_display_order", new Integer(fvv.getDisplayOrder()));
+      log.info("p_display_order:" + new Integer(fvv.getDisplayOrder()));
 
       Map out = execute(in);
       return out;
@@ -603,5 +627,107 @@ public class JDBCFormValidValueDAO extends JDBCAdminComponentDAO
         return res;
       }
     }
+    
+    /**
+	 * This mimicks the behavior of the store procedure "sbrext_form_builder_pkg.ins_value()
+	 * 
+	 * @param newVV
+	 * @param parentId
+	 * @param userName
+	 * @return
+	 */
+	public String createValidValue(FormValidValue newVV, String parentId, String userName)
+			throws DMLException {
+		
+		String vvidseq = generateGUID();
+		String recidseq = generateGUID();
+		
+		int res = createtValidValue(newVV, vvidseq);
+		
+		if (res == 1) {//success
+			res = createComponentValidValueMapping(recidseq, parentId, vvidseq, newVV, userName);
+		}
+		
+		return (res == 1) ? vvidseq : null;
+	}
+	
+	protected int createtValidValue(FormValidValue newVV, String vvidseq) 
+			throws DMLException {
+		
+		String sql = "INSERT INTO quest_contents_ext " +
+                  "(qc_idseq, VERSION, preferred_name, long_name, " +
+                  " preferred_definition, conte_idseq, " +
+                  " asl_name, vp_idseq, created_by, qtl_name " +
+                 " ) " +
+          " VALUES (:v_qc_idseq, :p_version, :v_preferred_name, :p_long_name, " +
+                   ":p_preferred_definition, :p_conte_idseq,  " +
+                  " :p_asl_name, :p_vp_idseq, :p_created_by, 'VALID_VALUE' " +
+                  ")";
+		
+		MapSqlParameterSource params = new MapSqlParameterSource();
+		params.addValue("v_qc_idseq", vvidseq);
+		
+		params.addValue("p_version", newVV.getVersion().toString());
+		System.out.println(newVV.getVersion().toString());
+		
+		String prefName =  newVV.getPreferredName();
+		if (prefName == null || prefName.length() == 0)
+			prefName = "dgsersertse";
+		params.addValue("v_preferred_name", prefName);
+		System.out.println(newVV.getPreferredName());
+		params.addValue("p_long_name", newVV.getLongName());
+		System.out.println(newVV.getLongName());
+		
+		String prefDef =  newVV.getPreferredDefinition();
+		if (prefDef == null || prefDef.length() == 0)
+			prefDef = "Form Builder";
+		params.addValue("p_preferred_definition", prefDef);
+		System.out.println(prefDef);
+		params.addValue("p_conte_idseq", newVV.getContext().getConteIdseq());
+		System.out.println(newVV.getContext().getConteIdseq());
+		//params.addValue("p_proto_idseq", null);
+		
+		params.addValue("p_asl_name", newVV.getAslName());
+		System.out.println(newVV.getAslName());
+		params.addValue("p_vp_idseq", newVV.getVpIdseq());
+		System.out.println( newVV.getVpIdseq());
+		params.addValue("p_created_by", newVV.getCreatedBy());		
+		System.out.println(newVV.getCreatedBy());
+		NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(this.getDataSource());
+		try {
+			int res = namedParameterJdbcTemplate.update(sql, params);
+			return res;
+		} catch (DataAccessException de) {
+			log.info(de.getMessage());
+			
+			DMLException dml =  new DMLException(de.getMessage());
+		      dml.setErrorCode(this.ERROR_CREATEING_VALID_VALUE);
+		      throw dml;
+		}
+		
+		
+	}
+	
+	protected int createComponentValidValueMapping(String recSeqid, String compSeqid, String vvSeqid, 
+			FormValidValue newVV, String userName) 
+			throws DMLException {
+		String sql = "INSERT INTO sbrext.qc_recs_view_ext " +
+                  "(qr_idseq, p_qc_idseq, c_qc_idseq, display_order, " +
+                  " rl_name, created_by " +
+                  ") " +
+           "VALUES (:v_qr_idseq, :p_ques_idseq, :v_qc_idseq, :p_display_order, " +
+                 "  'ELEMENT_VALUE', :p_created_by " +
+                 " )";
+		
+		MapSqlParameterSource params = new MapSqlParameterSource();
+		params.addValue("v_qr_idseq", recSeqid);
+		params.addValue("p_ques_idseq", compSeqid);
+		params.addValue("v_qc_idseq", vvSeqid);
+		params.addValue("p_display_order", newVV.getDisplayOrder());
+		params.addValue("p_created_by", userName);
+		NamedParameterJdbcTemplate namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(this.getDataSource());
+		int res = namedParameterJdbcTemplate.update(sql, params);
+		return res;
+	}
 
 }
