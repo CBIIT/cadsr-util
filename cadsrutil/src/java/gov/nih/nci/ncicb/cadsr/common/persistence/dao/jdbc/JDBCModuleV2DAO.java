@@ -66,10 +66,11 @@ public class JDBCModuleV2DAO extends JDBCAdminComponentDAO implements ModuleV2DA
 
     public void _setSql(String idSeq) {
       super.setSql(
-        "SELECT a.*, b.EDITABLE_IND, b.QC_ID, c.RULE, d.PREFERRED_NAME as DE_SHORT_NAME, d.PREFERRED_DEFINITION as DE_PREFERRED_DEFINITION, " +
-        		"b.DATE_CREATED as QUESTION_DATE_CREATED, b.DATE_MODIFIED as QUESTION_DATE_MODIFIED" + 
-        		" FROM SBREXT.FB_QUESTIONS_VIEW a, CABIO31_QUESTIONS_VIEW b, COMPLEX_DATA_ELEMENTS_VIEW c, SBR.DATA_ELEMENTS_VIEW d " +
-        		" where a.MODULE_IDSEQ = '" + idSeq + "' and a.ques_idseq=b.QC_IDSEQ and b.DE_IDSEQ = c.P_DE_IDSEQ(+) and b.de_idseq = d.de_idseq");
+        "SELECT a.*, b.EDITABLE_IND, b.QC_ID, c.RULE, d.PREFERRED_NAME as DE_SHORT_NAME, d.PREFERRED_DEFINITION as DE_PREFERRED_DEFINITION, d.CREATED_BY as DE_CREATED_BY, " +
+        		"b.DATE_CREATED as QUESTION_DATE_CREATED, b.DATE_MODIFIED as QUESTION_DATE_MODIFIED, e.NAME as DE_CONTEXT_NAME" + 
+        		" FROM SBREXT.FB_QUESTIONS_VIEW a, CABIO31_QUESTIONS_VIEW b, COMPLEX_DATA_ELEMENTS_VIEW c, SBR.DATA_ELEMENTS_VIEW d, SBR.CONTEXTS_VIEW e " +
+        		" where a.MODULE_IDSEQ = '" + idSeq + "' and a.ques_idseq=b.QC_IDSEQ and b.DE_IDSEQ = c.P_DE_IDSEQ(+) and b.de_idseq = d.de_idseq " +
+        		" and d.CONTE_IDSEQ = e.CONTE_IDSEQ");
 //       declareParameter(new SqlParameter("MODULE_IDSEQ", Types.VARCHAR));
     }
 
@@ -114,6 +115,8 @@ public class JDBCModuleV2DAO extends JDBCAdminComponentDAO implements ModuleV2DA
         dataElementTransferObject.setAslName(rs.getString("DE_WORKFLOW"));
         dataElementTransferObject.setPreferredName(rs.getString("DE_SHORT_NAME"));
         dataElementTransferObject.setPreferredDefinition(rs.getString("DE_PREFERRED_DEFINITION"));
+        dataElementTransferObject.setCreatedBy(rs.getString("DE_CREATED_BY"));
+        dataElementTransferObject.setContextName(rs.getString("DE_CONTEXT_NAME"));
         question.setDataElement(dataElementTransferObject); 
       
       
