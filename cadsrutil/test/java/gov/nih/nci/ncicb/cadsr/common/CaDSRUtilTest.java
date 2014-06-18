@@ -2,7 +2,6 @@ package gov.nih.nci.ncicb.cadsr.common;
 
 import static org.junit.Assert.*;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -18,7 +17,7 @@ public class CaDSRUtilTest {
 	@Test
 	public void testLoadPropertyFile() {
 		
-		String pathName = "cadsrutil/test/data/cadsrutil.properties";
+		String pathName = "../cadsrutil/test/data/cadsrutil.properties";
 
 		try {
 			Properties props = CaDSRUtil.loadPropertiesFromFile(pathName);
@@ -46,7 +45,7 @@ public class CaDSRUtilTest {
 	@Test
 	public void testLoadPropertyFileWrongPath() {
 		
-		String pathName = "cadsrutil/test/data/cadsr.properties";
+		String pathName = "cadsrutil/test/data/cadsr.properties"; //wrong file name
 
 		try {
 			Properties props = CaDSRUtil.loadPropertiesFromFile(pathName);
@@ -82,7 +81,7 @@ public class CaDSRUtilTest {
 	@Test
 	public void testGetPropertyFromSystemProperties() {
 		Properties props = System.getProperties();
-		props.setProperty("gov.nih.nci.cadsrutil.properties", "c://temp/cadsrutil.properties");
+		props.setProperty("gov.nih.nci.cadsrutil.properties", "../cadsrutil/test/data/another.cadsrutil.properties");
 		
 		try {
 			String prop = CaDSRUtil.getProperty(CaDSRUtil.KEY_DEFAULT_CONTEXT_NAME);
@@ -99,7 +98,7 @@ public class CaDSRUtilTest {
 	public void testGetPropertyReturnsCachedValue() {
 		
 		Properties props = System.getProperties();
-		props.setProperty("gov.nih.nci.cadsrutil.properties", "c://temp/cadsrutil.properties");
+		props.setProperty("gov.nih.nci.cadsrutil.properties", "../cadsrutil/test/data/another.cadsrutil.properties");
 		
 		try {
 			String prop = CaDSRUtil.getDefaultContextName();
@@ -124,7 +123,7 @@ public class CaDSRUtilTest {
 	@Test
 	public void testGetDefaultContextNameNoCache() {
 		Properties props = System.getProperties();
-		props.setProperty("gov.nih.nci.cadsrutil.properties", "c://temp/cadsrutil.properties");
+		props.setProperty("gov.nih.nci.cadsrutil.properties", "../cadsrutil/test/data/another.cadsrutil.properties");
 		
 		try {
 			String prop = CaDSRUtil.getProperty(CaDSRUtil.KEY_DEFAULT_CONTEXT_NAME);
@@ -133,6 +132,88 @@ public class CaDSRUtilTest {
 			props.remove("gov.nih.nci.cadsrutil.properties");
 		} catch (IOException ioe) {
 			props.remove("gov.nih.nci.cadsrutil.properties");
+			fail(ioe.getMessage());
+		}
+	}
+	
+	@Test
+	public void testGetFormBuilderUrl() {
+		Properties props = System.getProperties();
+		props.setProperty("gov.nih.nci.cadsrutil.properties", "../cadsrutil/test/data/cadsrutil.properties");
+
+		try {
+					
+			String fbUrl = CaDSRUtil.getFormBuilderUrl();
+			assertNotNull(fbUrl);
+			assertTrue(fbUrl.toLowerCase().equals("localhost:8080/formbuilder"));
+		} catch (IOException ioe) {
+			fail(ioe.getMessage());
+		}
+	}
+	
+	@Test
+	public void testGetFormBuilderUrlNoCache() {
+		Properties props = System.getProperties();
+		props.setProperty("gov.nih.nci.cadsrutil.properties", "../cadsrutil/test/data/cadsrutil.properties");
+
+		try {
+			String prop = CaDSRUtil.getFormBuilderUrlNoCache();
+			assertNotNull(prop);
+			
+			assertNotNull(prop);
+			assertTrue(prop.toLowerCase().equals("localhost:8080/formbuilder"));
+			
+			
+			props.setProperty("gov.nih.nci.cadsrutil.properties", "../cadsrutil/test/data/another.cadsrutil.properties");
+			prop = CaDSRUtil.getFormBuilderUrlNoCache();
+			assertNotNull(prop);
+			
+			assertNotNull(prop);
+			assertTrue(prop.toLowerCase().equals("https://formbuilder-dev.nci.nih.gov/formbuilder"));
+			
+			props.remove("gov.nih.nci.cadsrutil.properties");
+		} catch (IOException ioe) {
+			fail(ioe.getMessage());
+		}
+	}
+	
+	@Test
+	public void testGetFormLoaderUrl() {
+		Properties props = System.getProperties();
+		props.setProperty("gov.nih.nci.cadsrutil.properties", "../cadsrutil/test/data/cadsrutil.properties");
+
+		try {
+					
+			String fbUrl = CaDSRUtil.getFormBuilderUrl();
+			assertNotNull(fbUrl);
+			assertTrue(fbUrl.toLowerCase().equals("localhost:8080/formbuilder"));
+		} catch (IOException ioe) {
+			fail(ioe.getMessage());
+		}
+	}
+	
+	@Test
+	public void testGetFormLoaderUrlNoCache() {
+		Properties props = System.getProperties();
+		props.setProperty("gov.nih.nci.cadsrutil.properties", "../cadsrutil/test/data/cadsrutil.properties");
+
+		try {
+			String prop = CaDSRUtil.getFormLoaderUrlNoCache();
+			assertNotNull(prop);
+			
+			assertNotNull(prop);
+			assertTrue(prop.toLowerCase().equals("localhost:8080/formloader"));
+			
+			
+			props.setProperty("gov.nih.nci.cadsrutil.properties", "../cadsrutil/test/data/another.cadsrutil.properties");
+			prop = CaDSRUtil.getFormLoaderUrlNoCache();
+			assertNotNull(prop);
+			
+			assertNotNull(prop);
+			assertTrue(prop.toLowerCase().equals("https://formbuilder-dev.nci.nih.gov/formloader"));
+			
+			props.remove("gov.nih.nci.cadsrutil.properties");
+		} catch (IOException ioe) {
 			fail(ioe.getMessage());
 		}
 	}
