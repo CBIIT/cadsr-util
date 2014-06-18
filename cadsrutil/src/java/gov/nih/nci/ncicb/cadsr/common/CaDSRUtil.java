@@ -17,8 +17,14 @@ public class CaDSRUtil {
 	//Key to retrieve the NCI Registry ID
 	protected static final String NCI_REGISTRY_ID = "nci.registry.id";	
 	
+	protected static final String KEY_FORM_LOADER_URL = "form.loader.url";
+	protected static final String KEY_FORM_BUILDER_URL = "form.builder.url";
+	
+	
 	protected static String defaultContextName;
 	protected static String nciRegistryId;
+	protected static String formLoaderUrl;
+	protected static String formBuilderUrl;
 
 	/**
 	 * Get the default context name from cadsrutil.properties. If a cached context name is valid, return it without
@@ -87,6 +93,78 @@ public class CaDSRUtil {
 		return CaDSRUtil.getProperty(CaDSRUtil.NCI_REGISTRY_ID);
 
 	}	
+	
+	
+	/**
+	 * Get the Form Builder url from cadsrutil.properties. If a cached context name is valid, return it without
+	 * loading it from properties file again.
+	 * <br><br>
+	 * The property file's path and name should have been set as a System property with key "gov.nih.nci.cadsrutil.properties" <br>
+	 *  
+	 * @return default context name
+	 * @throws IOException if unable to find the properties file
+	 */
+	public static String getFormBuilderUrl() 
+			throws IOException {
+ 
+		formBuilderUrl = (formBuilderUrl == null || formBuilderUrl.length() == 0) ?   
+				CaDSRUtil.getProperty(CaDSRUtil.KEY_FORM_BUILDER_URL) : formBuilderUrl;
+		
+		return formBuilderUrl;
+
+	}
+	
+	/**
+	 * Read cadsrutil.properties file and return the Form Builder url from it. 
+	 * 
+	 * <br><br>
+	 * The property file's path and name should have been set as a System property with key "gov.nih.nci.cadsrutil.properties" <br>
+	 *  
+	 * @return default context name
+	 * @throws IOException if unable to find the properties file
+	 */
+	public static String getFormBuilderUrlNoCache() 
+			throws IOException {
+ 
+		return CaDSRUtil.getProperty(CaDSRUtil.KEY_FORM_BUILDER_URL);
+
+	}
+	
+	/**
+	 * Get the Form Loader url from cadsrutil.properties. If a cached context name is valid, return it without
+	 * loading it from properties file again.
+	 * <br><br>
+	 * The property file's path and name should have been set as a System property with key "gov.nih.nci.cadsrutil.properties" <br>
+	 *  
+	 * @return default context name
+	 * @throws IOException if unable to find the properties file
+	 */
+	public static String getFormLoaderUrl() 
+			throws IOException {
+ 
+		formLoaderUrl = (formLoaderUrl == null || formLoaderUrl.length() == 0) ?   
+				CaDSRUtil.getProperty(CaDSRUtil.KEY_FORM_LOADER_URL) : formLoaderUrl;
+		
+		return formLoaderUrl;
+
+	}
+	
+	/**
+	 * Read cadsrutil.properties file and return the Form Loader url from it. 
+	 * 
+	 * <br><br>
+	 * The property file's path and name should have been set as a System property with key "gov.nih.nci.cadsrutil.properties" <br>
+	 *  
+	 * @return default context name
+	 * @throws IOException if unable to find the properties file
+	 */
+	public static String getFormLoaderUrlNoCache() 
+			throws IOException {
+ 
+		return CaDSRUtil.getProperty(CaDSRUtil.KEY_FORM_LOADER_URL);
+
+	}
+	
 	
 	/**
 	 * Get a property value from the config file:
