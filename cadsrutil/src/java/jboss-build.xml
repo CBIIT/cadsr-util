@@ -103,12 +103,13 @@ L-->
 	<!-- ============ copies jar to other tools mentioned in this target ================== -->	
 	 <target name="build_copy_jar" depends="jar_cadsrutil"> 
 	 	<!-- Each developer should change this to point to their local directory -->
-	 	 	
-	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\workspace\tempCdebrowser\lib\java\cadsrutil.jar"/>	
-	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\workspace\formbuilder\lib\java\javacadsrutil.jar"/>
-	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\workspace\ocbrowser\lib\java\javacadsrutil.jar"/>
- 	
 
+		 	 	
+	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\workspace\temp\Cdebrowser\lib\java\cadsrutil.jar"/>	
+	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\Users\tanj3\cadsr-formbuilder\software\formbuilder\lib\cadsrutil.jar"/>
+	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\Users\tanj3\cadsr-formbuilder\software\FormLoader\WebContent\WEB-INF\lib\cadsrutil.jar"/>
+	 	<copy file="${dist.dir}/cadsrutil.jar" tofile="C:\workspace\ocbrowser\lib\java\javacadsrutil.jar"/>
+ 
 	 </target>
     <target name="package-download" description="Packages the project for public distribution and access.">
         <echo>Building project Open Source Download package ...</echo>

@@ -611,9 +611,12 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
           //Commented out by Shan 2014-05-05
           //For xml download, designations and definitions are not required to be available in this path anymore:
           //question/validValue/valueMeaning 
-          //vm = retrieveValueMeaningAttr(vm);
+          System.out.println("JDBCQuestionDAO.java JR391 retrieving vm ...");
+          vm = retrieveValueMeaningAttr(vm);	//JR391 uncomment it, need it for "Modify" to work!!!
           
+          System.out.println("JDBCQuestionDAO.java JR391 setting vm ...");
           fvv.setValueMeaning(vm);
+          System.out.println("JDBCQuestionDAO.java JR391 vm set! :)");
           
          return fvv;
     }
