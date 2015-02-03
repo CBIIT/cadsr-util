@@ -60,6 +60,7 @@ public class JDBCModuleDAO extends JDBCAdminComponentDAO implements ModuleDAO {
     query.setDataSource(getDataSource());
     query._setSql(moduleId);
 
+    System.out.print("cadsrutl: JDBCModuleDAO.java#getQuestionsInAModule SQL = [" + query.getSql() + "] ...");	//JR368
     return query.execute();
   }
 
@@ -478,7 +479,7 @@ public class JDBCModuleDAO extends JDBCAdminComponentDAO implements ModuleDAO {
 
     public void _setSql(String idSeq) {
       super.setSql(
-        "SELECT a.*, b.EDITABLE_IND, c.RULE FROM SBREXT.FB_QUESTIONS_VIEW a, CABIO31_QUESTIONS_VIEW b, COMPLEX_DATA_ELEMENTS_VIEW c where a.MODULE_IDSEQ = '" + idSeq + "' and a.ques_idseq=b.QC_IDSEQ and b.DE_IDSEQ = c.P_DE_IDSEQ(+)");
+        "SELECT a.*, b.EDITABLE_IND, c.RULE FROM SBREXT.FB_QUESTIONS_VIEW a, SBREXT.CABIO31_QUESTIONS_VIEW b, SBREXT.COMPLEX_DATA_ELEMENTS_VIEW c where a.MODULE_IDSEQ = '" + idSeq + "' and a.ques_idseq=b.QC_IDSEQ and b.DE_IDSEQ = c.P_DE_IDSEQ(+)");	//JR368 added prefix SBREXT to the last two tables
 //       declareParameter(new SqlParameter("MODULE_IDSEQ", Types.VARCHAR));
     }
 
