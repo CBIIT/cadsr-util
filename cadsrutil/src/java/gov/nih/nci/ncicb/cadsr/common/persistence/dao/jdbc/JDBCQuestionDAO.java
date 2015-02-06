@@ -595,8 +595,8 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
           vm.setIdseq(rs.getString("VM_IDSEQ"));
           vm.setLongName(rs.getString("short_meaning"));
           vm.setPreferredDefinition(rs.getString("VM_DESCRIPTION"));
-          vm.setPublicId(rs.getInt("vm_public_id"));
-          vm.setVersion(rs.getFloat("vm_version"));
+    	  vm.setPublicId(rs.getInt("VM_PUBLIC_ID"));	//JR417 uppercase it
+    	  vm.setVersion(rs.getFloat("VM_VERSION"));		//JR417 uppercase it
           
           fvv.setAslName(rs.getString(5));
           fvv.setPreferredDefinition(rs.getString(7));
