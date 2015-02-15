@@ -598,11 +598,18 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
     	  vm.setPublicId(rs.getInt("VM_PUBLIC_ID"));	//JR417 uppercase it
     	  vm.setVersion(rs.getFloat("VM_VERSION"));		//JR417 uppercase it
           
+//    	  if(vm.getPublicId() <= 0 && vm.getVersion() == 0) {
+//    		  //JR417 must be loaded by FormLoader
+//        	  vm.setPublicId(123567);	//JR417
+//        	  vm.setVersion(2.0f);		//JR417
+//    	  }
           fvv.setAslName(rs.getString(5));
           fvv.setPreferredDefinition(rs.getString(7));
           fvv.setFormValueMeaningText(rs.getString(16)); //Meaning_text
-          if (vm.getPublicId() > 0)
+          if (vm.getPublicId() > 0)	{ //JR417 this is empty e.g. SELECT * FROM SBREXT.FB_VALID_VALUES_VIEW where QUES_IDSEQ = '0EEA9389-56C1-C543-E050-BB89A7B450FF' order by display_order
         	  fvv.setFormValueMeaningIdVersion(String.valueOf(vm.getPublicId()) + "v"+String.valueOf(vm.getVersion())); //Meaning_id version
+              System.out.println("JDBCQuestionDAO.java JR417 vm idversion = [" + fvv.getFormValueMeaningIdVersion() + "]");
+          }
           fvv.setFormValueMeaningDesc(rs.getString("DESCRIPTION_TEXT")); //DESCRIPTION_TEXT          
           ContextTransferObject contextTransferObject = new ContextTransferObject();
           contextTransferObject.setConteIdseq(rs.getString(4)); //CONTE_IDSEQ
@@ -611,12 +618,12 @@ public class JDBCQuestionDAO extends JDBCAdminComponentDAO implements QuestionDA
           //Commented out by Shan 2014-05-05
           //For xml download, designations and definitions are not required to be available in this path anymore:
           //question/validValue/valueMeaning 
-          System.out.println("JDBCQuestionDAO.java JR391 retrieving vm ...");
+          //System.out.println("JDBCQuestionDAO.java JR391 retrieving vm ...");
           vm = retrieveValueMeaningAttr(vm);	//JR391 uncomment it, need it for "Modify" to work!!!
           
-          System.out.println("JDBCQuestionDAO.java JR391 setting vm ...");
+          //System.out.println("JDBCQuestionDAO.java JR391 setting vm ...");
           fvv.setValueMeaning(vm);
-          System.out.println("JDBCQuestionDAO.java JR391 vm set! :)");
+          //System.out.println("JDBCQuestionDAO.java JR391 vm set! :)");
           
          return fvv;
     }
