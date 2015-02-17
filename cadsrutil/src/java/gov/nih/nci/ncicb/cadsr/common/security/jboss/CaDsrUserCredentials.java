@@ -176,13 +176,15 @@ public class CaDsrUserCredentials
         initialize(applUser_, applPswd_);
 
         String msg;
-        if (isLocked(localUser_))
-        {
-            msg = "User is locked " + localUser_;
-            _logger.info(msg);
-            throw new Exception(msg);
-        }
-        else if (!isValidCredentials(localUser_, localPswd_))
+        //JR417 not related to the ticket but why are we even bother checking locked or not? Oracle already take care of this for us!
+//        if (isLocked(localUser_))
+//        {
+//            msg = "User is locked " + localUser_;
+//            _logger.info(msg);
+//            throw new Exception(msg);
+//        }
+//        else 
+        if (!isValidCredentials(localUser_, localPswd_))
         {
             incLock(localUser_);
 
