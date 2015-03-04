@@ -19,12 +19,14 @@ public class CaDSRUtil {
 	
 	protected static final String KEY_FORM_LOADER_URL = "form.loader.url";
 	protected static final String KEY_FORM_BUILDER_URL = "form.builder.url";
+	protected static final String KEY_CDE_BROWSER_URL = "cde.browser.url";
 	
 	
 	protected static String defaultContextName;
 	protected static String nciRegistryId;
 	protected static String formLoaderUrl;
 	protected static String formBuilderUrl;
+	protected static String cdeBrowserUrl;
 
 	/**
 	 * Get the default context name from cadsrutil.properties. If a cached context name is valid, return it without
@@ -125,7 +127,7 @@ public class CaDSRUtil {
 	 */
 	public static String getFormBuilderUrlNoCache() 
 			throws IOException {
- 
+
 		return CaDSRUtil.getProperty(CaDSRUtil.KEY_FORM_BUILDER_URL);
 
 	}
@@ -148,7 +150,7 @@ public class CaDSRUtil {
 		return formLoaderUrl;
 
 	}
-	
+
 	/**
 	 * Read cadsrutil.properties file and return the Form Loader url from it. 
 	 * 
@@ -165,6 +167,40 @@ public class CaDSRUtil {
 
 	}
 	
+	/**
+	 * Read cadsrutil.properties file and return the CDE Browser url from it. 
+	 * 
+	 * <br><br>
+	 * The property file's path and name should have been set as a System property with key "gov.nih.nci.cadsrutil.properties" <br>
+	 *  
+	 * @return default context name
+	 * @throws IOException if unable to find the properties file
+	 */
+	public static String getCdeBrowserUrlNoCache() 
+			throws IOException {
+ 
+		return CaDSRUtil.getProperty(CaDSRUtil.KEY_CDE_BROWSER_URL);
+
+	}
+
+	/**
+	 * Get the CDE Broswer url from cadsrutil.properties. If a cached context name is valid, return it without
+	 * loading it from properties file again.
+	 * <br><br>
+	 * The property file's path and name should have been set as a System property with key "gov.nih.nci.cadsrutil.properties" <br>
+	 *  
+	 * @return default context name
+	 * @throws IOException if unable to find the properties file
+	 */
+	public static String getCdeBrowserUrl() 
+			throws IOException {
+ 
+		cdeBrowserUrl = (cdeBrowserUrl == null || cdeBrowserUrl.length() == 0) ?   
+				CaDSRUtil.getProperty(CaDSRUtil.KEY_CDE_BROWSER_URL) : cdeBrowserUrl;
+		
+		return cdeBrowserUrl;
+
+	}
 	
 	/**
 	 * Get a property value from the config file:
@@ -177,15 +213,15 @@ public class CaDSRUtil {
 			throws IOException {
 		
 		String path = System.getProperty(KEY_CADSR_PROPERTIES_PATH);
+
 		if (path == null || path.length() == 0)
 			throw new IOException("Cadsrutil is unable to get property file path with this key \"" + KEY_CADSR_PROPERTIES_PATH + "\"");
-		
+	
 		Properties properties = loadPropertiesFromFile(path);
 		String value = properties.getProperty(key);
-		
+
 		if (value == null || value.length() == 0)
 			throw new IOException("Unable to find the property [" + key + "] from file: \"" + path + "\"");
-
 		return value;
 	}
 	
